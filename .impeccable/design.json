@@ -1,0 +1,325 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-09T00:00:00Z",
+  "title": "Design System: Agencia Byte",
+  "extensions": {
+    "colorMeta": {
+      "live-signal": {
+        "role": "primary",
+        "displayName": "Live Signal Orange",
+        "canonical": "oklch(68.5% 0.198 46.5)",
+        "tonalRamp": [
+          "oklch(18% 0.10 46)",
+          "oklch(28% 0.13 46)",
+          "oklch(38% 0.16 46)",
+          "oklch(48% 0.18 46)",
+          "oklch(58% 0.20 46)",
+          "oklch(68.5% 0.198 46.5)",
+          "oklch(80% 0.14 50)",
+          "oklch(93% 0.05 52)"
+        ]
+      },
+      "live-signal-soft": {
+        "role": "primary-container",
+        "displayName": "Live Signal Soft",
+        "canonical": "oklch(93% 0.05 52)",
+        "tonalRamp": []
+      },
+      "live-signal-ink": {
+        "role": "on-primary",
+        "displayName": "Live Signal Ink",
+        "canonical": "oklch(9% 0.04 46)",
+        "tonalRamp": []
+      },
+      "technical-ivory": {
+        "role": "surface",
+        "displayName": "Technical Ivory",
+        "canonical": "oklch(97.2% 0.004 94)",
+        "tonalRamp": [
+          "oklch(15% 0.003 94)",
+          "oklch(28% 0.003 94)",
+          "oklch(42% 0.003 94)",
+          "oklch(57% 0.003 94)",
+          "oklch(72% 0.004 94)",
+          "oklch(84% 0.004 94)",
+          "oklch(92% 0.004 94)",
+          "oklch(97.2% 0.004 94)"
+        ]
+      },
+      "elevated-surface": {
+        "role": "surface-container",
+        "displayName": "Elevated Surface",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": []
+      },
+      "ink-primary": {
+        "role": "on-surface",
+        "displayName": "Ink Primary",
+        "canonical": "oklch(11.5% 0.025 255)",
+        "tonalRamp": [
+          "oklch(11.5% 0.025 255)",
+          "oklch(22% 0.04 255)",
+          "oklch(33% 0.04 255)",
+          "oklch(44% 0.035 255)",
+          "oklch(55% 0.03 255)",
+          "oklch(66% 0.025 255)",
+          "oklch(78% 0.018 255)",
+          "oklch(90% 0.010 255)"
+        ]
+      },
+      "ink-secondary": {
+        "role": "on-surface-variant",
+        "displayName": "Ink Secondary",
+        "canonical": "oklch(22% 0.04 255)",
+        "tonalRamp": []
+      },
+      "ink-dim": {
+        "role": "outline",
+        "displayName": "Ink Dim",
+        "canonical": "oklch(44% 0.04 255)",
+        "tonalRamp": []
+      },
+      "system-dark": {
+        "role": "inverse-surface",
+        "displayName": "System Dark",
+        "canonical": "oklch(11.5% 0.025 255)",
+        "tonalRamp": [
+          "oklch(8% 0.02 255)",
+          "oklch(11.5% 0.025 255)",
+          "oklch(16% 0.038 258)",
+          "oklch(22% 0.04 255)",
+          "oklch(35% 0.03 255)",
+          "oklch(50% 0.025 255)",
+          "oklch(66% 0.018 255)",
+          "oklch(80% 0.010 255)"
+        ]
+      },
+      "system-deep": {
+        "role": "inverse-surface-low",
+        "displayName": "System Deep",
+        "canonical": "oklch(14% 0.032 258)",
+        "tonalRamp": []
+      },
+      "system-elevated": {
+        "role": "inverse-surface-container",
+        "displayName": "System Elevated",
+        "canonical": "oklch(16.5% 0.042 258)",
+        "tonalRamp": []
+      },
+      "system-ivory": {
+        "role": "inverse-on-surface",
+        "displayName": "System Ivory",
+        "canonical": "oklch(95.5% 0.006 94)",
+        "tonalRamp": []
+      },
+      "system-muted": {
+        "role": "inverse-on-surface-variant",
+        "displayName": "System Muted",
+        "canonical": "oklch(77% 0.025 258)",
+        "tonalRamp": []
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines only. Tight compression is the brand voice — do not relax line-height."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings. Same compression as Display, scaled to section hierarchy."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card headings, service titles, named list items."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All paragraph copy. Max 520–640px container width."
+      },
+      "label": {
+        "displayName": "Label / Mono",
+        "purpose": "Eyebrows, KPIs, code annotations, form field labels, system metadata. Always JetBrains Mono."
+      }
+    },
+    "shadows": [
+      {
+        "name": "hover-lift",
+        "value": "0 16px 40px -20px rgba(11,16,32,0.18)",
+        "purpose": "Interactive card hover state. Encodes interactivity, not rest-state decoration."
+      },
+      {
+        "name": "system-widget",
+        "value": "0 30px 60px -20px rgba(11,16,32,0.35), 0 8px 24px -12px rgba(11,16,32,0.25)",
+        "purpose": "Terminal and code editor panels. Grounds dark widgets against lighter backgrounds."
+      },
+      {
+        "name": "active-glow",
+        "value": "0 0 0 6px rgba(255,106,26,0.13), 0 0 24px rgba(255,106,26,0.4)",
+        "purpose": "Pipeline node active state in the live demo animation only. Never on static elements."
+      },
+      {
+        "name": "focus-ring",
+        "value": "0 0 0 4px color-mix(in oklab, #FF6A1A 18%, transparent)",
+        "purpose": "Form input focus. Orange signal color, 4px soft ring."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-reveal",
+        "value": "cubic-bezier(0.2, 0.7, 0.2, 1)",
+        "purpose": "Scroll reveal transitions (opacity + translateY). Default easing for section entrances."
+      },
+      {
+        "name": "ease-state",
+        "value": "ease",
+        "purpose": "State transitions: button hover, card hover, border-color changes. Short duration (0.15–0.25s)."
+      },
+      {
+        "name": "reveal-duration",
+        "value": "0.8s",
+        "purpose": "Scroll reveal opacity + transform transition duration."
+      },
+      {
+        "name": "stagger-step",
+        "value": "0.07s",
+        "purpose": "Stagger delay increment between sibling elements in reveal-stagger groups."
+      }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "540px", "purpose": "Single-column stacking for tight grids (stack, process)." },
+      { "name": "tablet", "value": "720px", "purpose": "Section padding reduction, body text adjustments." },
+      { "name": "desktop-sm", "value": "880px", "purpose": "Nav links hidden, hero/contact/about grids collapse to single column." },
+      { "name": "desktop", "value": "980px", "purpose": "Process grid collapses to 2-column." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Accent Button",
+      "kind": "button",
+      "refersTo": "button-accent",
+      "description": "Primary CTA. Orange fill, near-black text. One per primary section.",
+      "html": "<button class=\"ds-btn-accent\">Começar um projeto →</button>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Geist:wght@600&display=swap'); .ds-btn-accent { font-family: 'Geist', ui-sans-serif, sans-serif; font-weight: 600; font-size: 14px; border: 0; padding: 10px 18px; border-radius: 8px; background: #FF6A1A; color: #1A0A00; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: transform 0.15s ease; } .ds-btn-accent:hover { transform: translateY(-1px); } .ds-btn-accent:focus-visible { outline: 2px solid #FF6A1A; outline-offset: 3px; box-shadow: 0 0 0 4px rgba(255,106,26,0.18); }"
+    },
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Secondary CTA. Dark fill, ivory text. Used alongside the accent button.",
+      "html": "<button class=\"ds-btn-primary\">Ver demo →</button>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Geist:wght@600&display=swap'); .ds-btn-primary { font-family: 'Geist', ui-sans-serif, sans-serif; font-weight: 600; font-size: 14px; border: 0; padding: 10px 18px; border-radius: 8px; background: #0B1020; color: #FAFAF7; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: transform 0.15s ease, background 0.15s ease; } .ds-btn-primary:hover { transform: translateY(-1px); background: #2A2F45; } .ds-btn-primary:focus-visible { outline: 2px solid #FF6A1A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Tertiary action. Transparent, bordered. Always paired with a filled button.",
+      "html": "<button class=\"ds-btn-ghost\">Ver demo ao vivo</button>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Geist:wght@600&display=swap'); .ds-btn-ghost { font-family: 'Geist', ui-sans-serif, sans-serif; font-weight: 600; font-size: 14px; border: 1px solid rgba(11,16,32,0.18); padding: 10px 18px; border-radius: 8px; background: transparent; color: #0B1020; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: transform 0.15s ease; } .ds-btn-ghost:hover { transform: translateY(-1px); } .ds-btn-ghost:focus-visible { outline: 2px solid #FF6A1A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Live Status Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Status badge with animated pulse dot. Reserved for actual live status indicators.",
+      "html": "<div class=\"ds-chip\"><span class=\"ds-pulse\"></span><span>v2.0 · disponível para projetos · Q2 2026</span></div>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap'); .ds-chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #FFFFFF; border: 1px solid rgba(11,16,32,0.10); font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #0B1020; } .ds-pulse { width: 7px; height: 7px; border-radius: 50%; background: #FF6A1A; position: relative; flex-shrink: 0; } .ds-pulse::after { content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 1px solid #FF6A1A; opacity: 0.6; animation: ds-pulse-ring 1.6s ease-out infinite; } @keyframes ds-pulse-ring { 0% { transform: scale(0.6); opacity: 0.8; } 100% { transform: scale(2.2); opacity: 0; } }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Light surface container. No shadow at rest; Hover Lift on interactive instances.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-tag\">// 01</div><h3 class=\"ds-card-title\">Desenvolvimento sob medida</h3><p class=\"ds-card-body\">Web apps, dashboards internos, APIs e portais. Frontend e backend.</p></div>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;600&family=Space+Grotesk:wght@600&family=JetBrains+Mono:wght@400&display=swap'); .ds-card { background: #FFFFFF; border: 1px solid rgba(11,16,32,0.10); border-radius: 14px; padding: 28px; position: relative; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; } .ds-card:hover { transform: translateY(-2px); border-color: rgba(11,16,32,0.18); box-shadow: 0 16px 40px -20px rgba(11,16,32,0.18); } .ds-card-tag { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #5B6175; margin-bottom: 16px; } .ds-card-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: -0.01em; margin: 0 0 8px; color: #0B1020; } .ds-card-body { font-family: 'Geist', sans-serif; font-size: 15px; color: #5B6175; margin: 0; line-height: 1.55; }"
+    },
+    {
+      "name": "Form Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Text field with mono label. Focus ring uses Live Signal Orange.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">E-mail corporativo</span><input class=\"ds-field-input\" type=\"email\" placeholder=\"maria@empresa.com\" /></label>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400&family=JetBrains+Mono:wght@400&display=swap'); .ds-field { display: grid; gap: 6px; } .ds-field-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #5B6175; } .ds-field-input { font-family: 'Geist', sans-serif; font-size: 15px; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(11,16,32,0.18); background: #FAFAF7; color: #0B1020; outline: none; width: 100%; box-sizing: border-box; transition: border-color 0.15s, box-shadow 0.15s; } .ds-field-input:focus { border-color: #FF6A1A; box-shadow: 0 0 0 4px rgba(255,106,26,0.18); } .ds-field-input::placeholder { color: #5B6175; }"
+    },
+    {
+      "name": "Eyebrow Label",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Section identifier. Mono, uppercase, with a live-signal dot. Appears at the top of every section.",
+      "html": "<div class=\"ds-eyebrow\"><span class=\"ds-eyebrow-dot\"></span>02 · Serviços</div>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap'); .ds-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #5B6175; display: inline-flex; align-items: center; gap: 8px; } .ds-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: #FF6A1A; box-shadow: 0 0 0 4px rgba(255,106,26,0.25); flex-shrink: 0; }"
+    },
+    {
+      "name": "Terminal Widget",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Signature component. Dark chrome terminal with syntax-colored output. The system's primary demonstration surface.",
+      "html": "<div class=\"ds-term\"><div class=\"ds-term-bar\"><div class=\"ds-dot ds-d1\"></div><div class=\"ds-dot ds-d2\"></div><div class=\"ds-dot ds-d3\"></div><span class=\"ds-term-title\">~/agencia-byte · zsh</span></div><span class=\"ds-ln\"><span class=\"ds-prompt\">byte@agency</span> <span class=\"ds-dim\">~/projects</span> <span class=\"ds-arrow\">$</span> deploy --target=production</span><span class=\"ds-ln\"><span class=\"ds-ok\">✓</span> live in <span class=\"ds-acc\">2.8s</span> · 0 downtime</span><span class=\"ds-ln\"><span class=\"ds-prompt\">byte@agency</span> <span class=\"ds-arrow\">$</span> <span class=\"ds-cursor\"></span></span></div>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap'); .ds-term { background: #0B1020; color: #E8ECEF; border-radius: 14px; padding: 16px 18px 22px; font-family: 'JetBrains Mono', monospace; font-size: 13.5px; line-height: 1.6; box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 30px 60px -20px rgba(11,16,32,0.35), 0 8px 24px -12px rgba(11,16,32,0.25); border: 1px solid rgba(255,255,255,0.08); overflow: hidden; min-width: 340px; } .ds-term-bar { display: flex; align-items: center; gap: 8px; margin: -16px -18px 14px; padding: 10px 14px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.07); } .ds-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; } .ds-d1 { background: #FF5F57; } .ds-d2 { background: #FEBC2E; } .ds-d3 { background: #28C840; } .ds-term-title { margin-left: 8px; font-size: 11.5px; color: rgba(255,255,255,0.5); } .ds-ln { display: block; white-space: pre-wrap; } .ds-prompt { color: #5DD3A8; } .ds-arrow { color: #FF8A4C; } .ds-dim { color: rgba(255,255,255,0.45); } .ds-ok { color: #5DD3A8; } .ds-acc { color: #FF6A1A; } .ds-cursor { display: inline-block; width: 8px; height: 1.05em; background: #E8ECEF; vertical-align: text-bottom; margin-left: 1px; animation: ds-blink 1s steps(1) infinite; } @keyframes ds-blink { 50% { opacity: 0; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Precision Instrument",
+    "overview": "Every margin is load-bearing. Every color earns its place. The Agencia Byte design system does not decorate — it specifies. Like reading a well-written API spec that happens to be beautiful: no superfluous words, no flourish for its own sake, every element doing exactly its assigned job.\n\nThe visual language is built on three structural moves: tight display typography (-0.02em tracking, 0.98 line-height) that reads as engineered rather than styled; a strict orange signal that activates only on live, interactive, or actionable states — never decorative; and a light/dark section alternation that creates structural rhythm without requiring graphical complexity. The dark sections are not mood boards. They are command surfaces.\n\nThis system explicitly rejects: SaaS genérico patterns (purple gradients, hero metric grids), cheap outsourcing aesthetics (stock photography, generic icons), and creative agency maximalism (image-led layouts). Agencia Byte builds systems — the demos, terminals, and pipeline animations are the visual content.",
+    "keyCharacteristics": [
+      "Tight typographic control — display headings near line-height 1, heavy negative tracking",
+      "Structural dark/light alternation as the primary depth strategy",
+      "Mono type as a technical annotation layer, not decoration",
+      "Orange reserved for live signals and primary actions only",
+      "Gridded backdrops as ambient texture, never focal points",
+      "Interaction feedback through translateY lift, not color flood"
+    ],
+    "rules": [
+      {
+        "name": "The Rarity Rule",
+        "body": "Live Signal Orange covers at most 10–15% of any given screen. One CTA, one status dot, one active node — that is its full budget. A screen where orange appears on a card icon, a list bullet, a badge, a headline, AND a button has broken the rule.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Pure-Black Rule",
+        "body": "Neither #000000 nor #FFFFFF appear in this system. Every neutral is tinted toward the deep navy hue family. Pure white or black reads as system default; the tinted versions read as designed.",
+        "section": "colors"
+      },
+      {
+        "name": "The Signal Rule",
+        "body": "Orange marks only live, active, or actionable states. It is never used as a decorative accent, background pattern, or divider color. If it appears, it must mean something.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono Thread Rule",
+        "body": "JetBrains Mono is the annotation layer. It appears at eyebrow scale (11–13px), never at headline scale. If you reach for Mono to headline something, you are using the wrong font — Space Grotesk at 700 is the headline voice.",
+        "section": "typography"
+      },
+      {
+        "name": "The Compression Rule",
+        "body": "Display and Headline typography uses 0.98 and 1.05 line-heights respectively. Do not round up to 1.2 for readability. The compression is the statement.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-at-Rest Rule",
+        "body": "No card, panel, or container has a box-shadow at rest. Shadows encode state (hover, active, elevated widget). A static shadow is a decoration; this system does not decorate.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use Live Signal Orange only on CTAs, active pipeline nodes, animated status indicators, and the eyebrow dot.",
+      "Do set display headlines with letter-spacing: -0.02em and line-height: 0.98.",
+      "Do use JetBrains Mono for all system metadata: version numbers, code comments, metric units, form field labels, eyebrow text.",
+      "Do alternate light and dark sections as the primary depth and rhythm mechanism.",
+      "Do add prefers-reduced-motion media queries to all animations.",
+      "Do ensure all text meets WCAG AAA contrast: 7:1 for normal text, 4.5:1 for large text.",
+      "Do place focus-visible outlines on all interactive elements using the orange accent at 2px, 3px offset."
+    ],
+    "donts": [
+      "Don't use purple gradients, hero metric grids, or copy patterns like '10x your growth' — SaaS genérico is the primary anti-reference.",
+      "Don't use stock photography or image-heavy layouts.",
+      "Don't use gradient text (background-clip: text with a gradient fill).",
+      "Don't use border-left greater than 1px as a colored stripe on cards, callouts, or list items.",
+      "Don't center-align body paragraphs.",
+      "Don't apply glassmorphism beyond the nav blur.",
+      "Don't add identical card grids with icon + heading + text repeated without variation.",
+      "Don't use orange as a background color on large surfaces.",
+      "Don't create walls of dense text with no typographic hierarchy."
+    ]
+  }
+}
