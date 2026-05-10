@@ -364,7 +364,7 @@ function Contact(){
                   <Field label="Seu nome">
                     <input name="name" placeholder="Maria da Silva" required />
                   </Field>
-                  <Field label="E-mail corporativo">
+                  <Field label="E-mail">
                     <input name="email" placeholder="maria@empresa.com" type="email" required />
                   </Field>
                   <Field label="WhatsApp">
