@@ -437,7 +437,7 @@ function Field({ label, children }){
   );
 }
 
-/* -------------------- Footer -------------------- */
+/* ------------------- Footer ------------------- */
 
 function Footer(){
   return (
