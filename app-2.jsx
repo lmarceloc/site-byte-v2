@@ -149,7 +149,7 @@ function Demo(){
             </div>
           </div>
 
-          <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:0, marginTop:32, borderTop:'1px solid rgba(255,255,255,0.08)', paddingTop:24}}>
+          <div className="kpi-grid" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:0, marginTop:32, borderTop:'1px solid rgba(255,255,255,0.08)', paddingTop:24}}>
             <KPI label="execuções hoje" value={counts.runs.toLocaleString('pt-BR')} />
             <KPI label="leads hot identificados" value={counts.hot.toLocaleString('pt-BR')} />
             <KPI label="latência média" value={`${counts.latency}ms`} />
@@ -161,6 +161,9 @@ function Demo(){
           .pipe-grid{ grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; }
           .pipe-conn{ display:none; }
           .demo-bottom{ grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 480px){
+          .pipe-grid{ grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>
@@ -298,6 +301,7 @@ const CLIENT_LOGOS = [
   { name: 'Oglee',         url: 'https://oglee.com.br/' },
   { name: 'Nyl',           url: 'https://www.nylhairdesign.com.br/' },
   { name: 'Aline Nail',   url: 'https://www.instagram.com/alinebukowski.naildesigner/' },
+  { name: 'StarTrade',    url: 'https://startrade.com.br/' },
 ];
 
 
@@ -334,7 +338,7 @@ function Contact(){
   const redirectUrl = typeof window !== 'undefined' ? window.location.origin + window.location.pathname + '?sent=true#contato' : '';
 
   return (
-    <section id="contato" style={{paddingTop: 110, paddingBottom: 110, background:'var(--bg-elev)', borderTop:'1px solid var(--line)'}}>
+    <section id="contato" className="section-contact" style={{paddingTop: 110, paddingBottom: 110, background:'var(--bg-elev)', borderTop:'1px solid var(--line)'}}>
       <div className="wrap">
         <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:64, alignItems:'start'}} className="contact-grid">
           <div>
@@ -474,6 +478,7 @@ function Footer(){
       </div>
       <style>{`
         @media (max-width: 880px){ .footer-grid{ grid-template-columns: 1fr 1fr !important; } }
+        @media (max-width: 540px){ .footer-grid{ grid-template-columns: 1fr !important; } }
       `}</style>
     </footer>
   );

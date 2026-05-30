@@ -170,22 +170,9 @@
 <script type="text/babel" src="app-2.jsx"></script>
 
 <script type="text/babel">
-const { useEffect: useFx, useState: useSt } = React;
+const { useEffect: useFx } = React;
 
 function App(){
-  const [dark, setDark] = useSt(() => {
-    try {
-      const stored = localStorage.getItem('byte-theme');
-      if (stored) return stored === 'dark';
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
-    } catch (e) { return false; }
-  });
-
-  useFx(() => {
-    document.body.dataset.theme = dark ? 'dark' : 'light';
-    try { localStorage.setItem('byte-theme', dark ? 'dark' : 'light'); } catch (e) {}
-  }, [dark]);
-
   AB.useReveal();
 
   const scrollTo = (id) => {
@@ -197,8 +184,6 @@ function App(){
     <>
       <AB.Nav
         onContact={() => scrollTo('#contato')}
-        dark={dark}
-        onToggleTheme={() => setDark(d => !d)}
       />
       <AB.Hero />
       <AB.About />

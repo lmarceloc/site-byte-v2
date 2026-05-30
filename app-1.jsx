@@ -45,7 +45,10 @@ function useInView(ref, opts={ threshold: 0.3 }){
 
 /* -------------------- Nav -------------------- */
 
-function Nav({ onContact, dark, onToggleTheme }){
+function Nav({ onContact }){
+  const [menuOpen, setMenuOpen] = useState(false);
+  const close = () => setMenuOpen(false);
+
   return (
     <header className="nav">
       <div className="nav-inner">
@@ -60,23 +63,33 @@ function Nav({ onContact, dark, onToggleTheme }){
           <a href="#demo" className="ul-link">Demo</a>
           <a href="#processo" className="ul-link">Processo</a>
           <a href="#stack" className="ul-link">Stack</a>
-
         </nav>
         <div className="nav-cta">
+          <button className="btn btn-accent nav-cta-desktop" onClick={onContact}>Contato →</button>
           <button
-            className="theme-toggle"
-            aria-label={dark ? 'Mudar para claro' : 'Mudar para escuro'}
-            onClick={onToggleTheme}
+            className="nav-burger"
+            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(o => !o)}
           >
-            {dark ? (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            {menuOpen ? (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
             ) : (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
             )}
           </button>
-          <button className="btn btn-accent" onClick={onContact}>Contato →</button>
         </div>
       </div>
+      {menuOpen && (
+        <nav className="nav-mobile-menu" aria-label="Menu de navegação">
+          <a href="#sobre" onClick={close}>Sobre</a>
+          <a href="#servicos" onClick={close}>Serviços</a>
+          <a href="#demo" onClick={close}>Demo</a>
+          <a href="#processo" onClick={close}>Processo</a>
+          <a href="#stack" onClick={close}>Stack</a>
+          <a href="#contato" className="nav-mobile-cta" onClick={close}>Contato →</a>
+        </nav>
+      )}
     </header>
   );
 }
@@ -150,20 +163,16 @@ function Hero(){
       <div className="wrap" style={{position:'relative'}}>
         <div style={{display:'grid', gridTemplateColumns:'1.05fr 1fr', gap:'56px', alignItems:'center'}} className="hero-grid">
           <div>
-            <div className="chip reveal">
-              <span className="pulse" />
-              <span>v2.0 · disponível para projetos · Q2 2026</span>
-            </div>
-            <h1 className="display reveal" style={{fontSize:'clamp(56px, 7.5vw, 104px)', margin:'24px 0 0'}}>
+            <h1 className="display reveal" style={{fontSize:'clamp(36px, 9vw, 104px)', margin:'24px 0 0'}}>
               Código que<br/>
               <span style={{color:'var(--accent)'}}>funciona</span>.<br/>
               Sistemas que<br/>
               <span style={{position:'relative', display:'inline-block'}}>
-                crescem
+                crescem<span style={{color:'var(--accent)'}}>.</span>
                 <svg viewBox="0 0 200 14" preserveAspectRatio="none" style={{position:'absolute', left:0, right:0, bottom:'-6px', width:'100%', height:14, overflow:'visible'}}>
                   <path d="M2 10 Q 50 2, 100 8 T 198 6" stroke="var(--accent)" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
-              </span>.
+              </span>
             </h1>
             <p className="reveal muted" style={{fontSize:18, maxWidth:520, marginTop:32, lineHeight:1.55}}>
               Somos a agência que transforma gargalos em eficiência através de IA e desenvolvimento sob medida de software de alta velocidade.

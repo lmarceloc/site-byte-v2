@@ -371,3 +371,62 @@ body[data-theme="dark"] .theme-toggle:hover{ background: var(--dark-elev); }
   .chip .pulse::after{ animation: none; }
   .cursor{ animation: none; opacity: 1; }
 }
+
+/* ----- mobile hamburger nav ----- */
+.nav-burger{
+  display: none;
+  appearance: none;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: inherit;
+  width: 36px; height: 36px;
+  border-radius: var(--radius-sm);
+  align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background .15s;
+  flex-shrink: 0;
+}
+.nav-burger:hover{ background: var(--bg-elev); }
+.nav-burger:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+body[data-theme="dark"] .nav-burger{ border-color: var(--dark-line); }
+body[data-theme="dark"] .nav-burger:hover{ background: var(--dark-elev); }
+
+@media (max-width: 880px){
+  .nav-burger{ display: flex; }
+  .nav-cta-desktop{ display: none !important; }
+  .nav-inner{ padding-left: 20px; padding-right: 20px; }
+}
+
+.nav-mobile-menu{
+  display: flex; flex-direction: column;
+  padding: 8px 20px 20px;
+  border-top: 1px solid var(--line);
+}
+body[data-theme="dark"] .nav-mobile-menu{ border-top-color: var(--dark-line); }
+.nav-mobile-menu a{
+  display: block; padding: 14px 4px;
+  font-size: 16px; font-weight: 500;
+  text-decoration: none; opacity: 0.85;
+  border-bottom: 1px solid var(--line);
+  color: inherit;
+}
+body[data-theme="dark"] .nav-mobile-menu a{ border-bottom-color: var(--dark-line); }
+.nav-mobile-cta{
+  display: block !important;
+  margin-top: 16px;
+  text-align: center;
+  padding: 14px !important;
+  background: var(--accent) !important;
+  color: var(--accent-ink) !important;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  opacity: 1 !important;
+  border-bottom: none !important;
+}
+
+/* ----- mobile layout fixes ----- */
+@media (max-width: 540px){
+  .kpi-grid{ grid-template-columns: 1fr !important; gap: 20px !important; }
+  .section-contact{ padding-top: 72px !important; padding-bottom: 72px !important; }
+  .footer-grid{ grid-template-columns: 1fr !important; }
+}
