@@ -1,189 +1,5 @@
 /* global React, AB */
-const { useState: useState2, useEffect: useEffect2, useRef: useRef2 } = React;
-
-/* -------------------- Live Demo (automation pipeline) -------------------- */
-
-const PIPE_STAGES = [
-  { key: 'webhook', label: 'Webhook', sub: 'POST /lead', color: '#5DD3A8' },
-  { key: 'classify', label: 'IA · Classificar', sub: 'GPT-5 · score fit', color: '#8AB4F8' },
-  { key: 'enrich',  label: 'Enriquecer', sub: 'Entender mais do Lead', color: '#C792EA' },
-  { key: 'route',   label: 'Roteamento', sub: 'fit > 0.7 → hot', color: '#FFD79A' },
-  { key: 'notify',  label: 'Notificar', sub: 'Slack · CRM · Email', color: '#FF8A4C' },
-];
-
-const SAMPLE_LEADS = [
-  { name: 'Marina S.', co: 'Helio Studio', mrr: 'R$ 28k', fit: 0.82, hot: true },
-  { name: 'João P.',   co: 'Núcleo Tech',  mrr: 'R$ 12k', fit: 0.61, hot: false },
-  { name: 'Larissa V.',co: 'Quanta Lab',   mrr: 'R$ 84k', fit: 0.91, hot: true },
-  { name: 'Rafa M.',   co: 'Onda PME',     mrr: 'R$  6k', fit: 0.42, hot: false },
-  { name: 'Camila R.', co: 'Grão Foods',   mrr: 'R$ 36k', fit: 0.74, hot: true },
-];
-
-function Demo(){
-  const [active, setActive] = useState2(0);
-  const [leadIdx, setLeadIdx] = useState2(0);
-  const [log, setLog] = useState2([]);
-  const [counts, setCounts] = useState2({ runs: 12847, hot: 4291, latency: 178 });
-  const lead = SAMPLE_LEADS[leadIdx];
-
-  useEffect2(() => {
-    const totalStages = PIPE_STAGES.length;
-    const id = setInterval(() => {
-      setActive(a => {
-        const next = (a + 1) % (totalStages + 2);
-        if (next === 0){
-          setLeadIdx(li => (li + 1) % SAMPLE_LEADS.length);
-          setCounts(c => ({
-            runs: c.runs + 1,
-            hot: c.hot + (SAMPLE_LEADS[(leadIdx+1) % SAMPLE_LEADS.length].hot ? 1 : 0),
-            latency: 150 + Math.round(Math.random()*70),
-          }));
-        }
-        if (next < totalStages){
-          setLog(l => {
-            const stage = PIPE_STAGES[next];
-            const entry = { ts: nowStr(), stage: stage.label, lead: SAMPLE_LEADS[leadIdx].name };
-            return [entry, ...l].slice(0, 8);
-          });
-        }
-        return next;
-      });
-    }, 900);
-    return () => clearInterval(id);
-  }, [leadIdx]);
-
-  return (
-    <section id="demo" className="section-dark" style={{overflow:'hidden'}}>
-      <div className="grid-bg" />
-      <div className="wrap" style={{position:'relative'}}>
-        <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', gap:32, flexWrap:'wrap', marginBottom:48}}>
-          <div style={{maxWidth:680}}>
-            <div className="eyebrow"><span className="dot"/>03 · Demo ao vivo</div>
-            <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 64px)', marginTop:18}}>
-              Uma automação<br/>rodando agora.
-            </h2>
-            <p className="muted" style={{fontSize:18, maxWidth:560, marginTop:18}}>
-              Lead entra, IA classifica, sistema enriquece, roteia para o time certo. Em <span style={{color:'var(--accent)'}}>menos de 200ms</span>. Reduza horas de planilha em segundos de pipeline.
-            </p>
-          </div>
-          <div className="chip" style={{background:'rgba(255,255,255,0.04)', borderColor:'rgba(255,255,255,0.12)'}}>
-            <span className="pulse"/> live · processando lead #{counts.runs.toLocaleString('pt-BR')}
-          </div>
-        </div>
-
-        <div className="card" style={{background:'rgba(255,255,255,0.025)', borderColor:'rgba(255,255,255,0.10)', padding:32}}>
-          <div style={{display:'grid', gridTemplateColumns:'repeat(5, 1fr)', gap:0, position:'relative'}} className="pipe-grid">
-            {PIPE_STAGES.map((s, i) => {
-              const isActive = active === i;
-              const isPast = active > i;
-              return (
-                <div key={s.key} style={{position:'relative', display:'flex', flexDirection:'column', alignItems:'center', textAlign:'center', padding:'8px 8px 0'}}>
-                  {i < PIPE_STAGES.length - 1 && (
-                    <div style={{position:'absolute', top:34, left:'60%', right:'-40%', height:2, background:'rgba(255,255,255,0.10)', overflow:'hidden'}} className="pipe-conn">
-                      <div style={{
-                        position:'absolute', top:0, left:0, height:'100%', width: '40%',
-                        background: `linear-gradient(90deg, transparent, ${s.color}, transparent)`,
-                        transform: `translateX(${isActive ? '180%' : '-100%'})`,
-                        transition: 'transform .8s ease-in-out',
-                      }}/>
-                    </div>
-                  )}
-                  <div style={{
-                    width:64, height:64, borderRadius:14,
-                    background: isActive ? s.color : (isPast ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.03)'),
-                    border: `1px solid ${isActive ? s.color : 'rgba(255,255,255,0.10)'}`,
-                    color: isActive ? '#0B1020' : (isPast ? s.color : 'rgba(255,255,255,0.5)'),
-                    display:'grid', placeItems:'center',
-                    fontFamily:'var(--font-mono)', fontSize:11, fontWeight:600,
-                    transition:'all .35s ease',
-                    boxShadow: isActive ? `0 0 0 6px ${s.color}22, 0 0 24px ${s.color}66` : 'none',
-                    zIndex: 2,
-                  }}>
-                    {String(i+1).padStart(2,'0')}
-                  </div>
-                  <div style={{fontWeight:600, fontSize:14, marginTop:14}}>{s.label}</div>
-                  <div className="muted mono" style={{fontSize:11, marginTop:4}}>{s.sub}</div>
-                </div>
-              );
-            })}
-          </div>
-
-          <div style={{display:'grid', gridTemplateColumns:'1fr 1.2fr', gap:24, marginTop:40}} className="demo-bottom">
-            <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:10, padding:'18px 20px'}}>
-              <div className="mono muted" style={{fontSize:11, letterSpacing:'.08em'}}>// LEAD ATUAL</div>
-              <div style={{display:'flex', alignItems:'baseline', justifyContent:'space-between', marginTop:10}}>
-                <div style={{fontWeight:600, fontSize:18}}>{lead.name}</div>
-                <div className="mono" style={{fontSize:12, color: lead.hot ? '#5DD3A8' : 'rgba(255,255,255,0.5)'}}>
-                  {lead.hot ? '● HOT' : '○ NURTURE'}
-                </div>
-              </div>
-              <div className="muted" style={{fontSize:13, marginTop:2}}>{lead.co}</div>
-              <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:12, marginTop:14}}>
-                <div>
-                  <div className="muted mono" style={{fontSize:10, letterSpacing:'.08em'}}>RECEITA</div>
-                  <div className="mono" style={{fontSize:14, fontWeight:600, marginTop:2}}>{lead.mrr}</div>
-                </div>
-                <div>
-                  <div className="muted mono" style={{fontSize:10, letterSpacing:'.08em'}}>FIT SCORE</div>
-                  <div style={{display:'flex', alignItems:'center', gap:8, marginTop:4}}>
-                    <div style={{flex:1, height:5, background:'rgba(255,255,255,0.08)', borderRadius:4, overflow:'hidden'}}>
-                      <div style={{width:`${lead.fit*100}%`, height:'100%', background:'var(--accent)', transition:'width .5s'}} />
-                    </div>
-                    <span className="mono" style={{fontSize:12, fontWeight:600}}>{lead.fit.toFixed(2)}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:10, padding:'14px 18px', minHeight: 192, fontFamily:'var(--font-mono)', fontSize:12, lineHeight:1.7}}>
-              <div className="mono muted" style={{fontSize:11, letterSpacing:'.08em', marginBottom:8}}>// EVENT LOG</div>
-              {log.length === 0 && <div className="muted">aguardando eventos…</div>}
-              {log.map((l, i) => (
-                <div key={i} style={{opacity: 1 - i*0.1}}>
-                  <span style={{color:'rgba(255,255,255,0.4)'}}>{l.ts}</span>{' '}
-                  <span style={{color:'var(--accent)'}}>›</span>{' '}
-                  <span>{l.stage}</span>{' '}
-                  <span className="muted">— {l.lead}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="kpi-grid" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:0, marginTop:32, borderTop:'1px solid rgba(255,255,255,0.08)', paddingTop:24}}>
-            <KPI label="execuções hoje" value={counts.runs.toLocaleString('pt-BR')} />
-            <KPI label="leads hot identificados" value={counts.hot.toLocaleString('pt-BR')} />
-            <KPI label="latência média" value={`${counts.latency}ms`} />
-          </div>
-        </div>
-      </div>
-      <style>{`
-        @media (max-width: 880px){
-          .pipe-grid{ grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; }
-          .pipe-conn{ display:none; }
-          .demo-bottom{ grid-template-columns: 1fr !important; }
-        }
-        @media (max-width: 480px){
-          .pipe-grid{ grid-template-columns: 1fr !important; }
-        }
-      `}</style>
-    </section>
-  );
-}
-
-function KPI({ label, value }){
-  return (
-    <div style={{padding:'0 12px'}}>
-      <div className="mono" style={{fontSize:11, letterSpacing:'.08em', color:'rgba(255,255,255,0.5)'}}>{label}</div>
-      <div className="display" style={{fontSize:36, marginTop:6, fontVariantNumeric:'tabular-nums'}}>{value}</div>
-    </div>
-  );
-}
-
-function nowStr(){
-  const d = new Date();
-  const p = (n) => String(n).padStart(2,'0');
-  return `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
-}
+const { useState: useState2, useRef: useRef2 } = React;
 
 /* -------------------- Process -------------------- */
 
@@ -201,7 +17,7 @@ function Process(){
       <div className="wrap">
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', gap:32, flexWrap:'wrap', marginBottom:48}}>
           <div style={{maxWidth:680}}>
-            <div className="eyebrow"><span className="dot"/>04 · Processo</div>
+            <div className="eyebrow"><span className="dot"/>03 · Processo</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 64px)', marginTop:18}}>
               5 etapas.
             </h2>
@@ -259,7 +75,7 @@ function Stack(){
       <div className="wrap">
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', gap:32, flexWrap:'wrap', marginBottom:48}}>
           <div style={{maxWidth:680}}>
-            <div className="eyebrow"><span className="dot"/>05 · Stack</div>
+            <div className="eyebrow"><span className="dot"/>04 · Stack</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 64px)', marginTop:18}}>
               A ferramenta certa<br/>para cada problema.
             </h2>
@@ -312,7 +128,7 @@ function Clients(){
     <section id="clientes" ref={ref}>
       <div className="wrap">
         <div style={{marginBottom:48}}>
-          <div className="eyebrow"><span className="dot"/>06 · Clientes</div>
+          <div className="eyebrow"><span className="dot"/>05 · Clientes</div>
         </div>
 
         <div style={{display:'flex', flexWrap:'wrap', gap:'40px 56px', justifyContent:'center', padding:'48px 0', borderBottom:'1px solid var(--line)'}}>
@@ -342,7 +158,7 @@ function Contact(){
       <div className="wrap">
         <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:64, alignItems:'start'}} className="contact-grid">
           <div>
-            <div className="eyebrow"><span className="dot"/>07 · Contato</div>
+            <div className="eyebrow"><span className="dot"/>06 · Contato</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 72px)', marginTop:18}}>
               Conta o<br/>problema<span style={{color:'var(--accent)'}}>.</span><br/>Devolvemos<br/>uma <span style={{color:'var(--accent)'}}>arquitetura</span>.
             </h2>
@@ -500,4 +316,4 @@ function FooterCol({ title, items }){
   );
 }
 
-Object.assign(window.AB, { Demo, Process, Stack, Clients, Contact, Footer });
+Object.assign(window.AB, { Process, Stack, Clients, Contact, Footer });

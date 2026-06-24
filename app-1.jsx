@@ -65,7 +65,6 @@ function Nav({ onContact }){
         <nav className="nav-links">
           <a href="#sobre" className="ul-link">Sobre</a>
           <a href="#servicos" className="ul-link">Serviços</a>
-          <a href="#demo" className="ul-link">Demo</a>
           <a href="#processo" className="ul-link">Processo</a>
           <a href="#stack" className="ul-link">Stack</a>
         </nav>
@@ -89,7 +88,6 @@ function Nav({ onContact }){
         <nav className="nav-mobile-menu" aria-label="Menu de navegação">
           <a href="#sobre" onClick={close}>Sobre</a>
           <a href="#servicos" onClick={close}>Serviços</a>
-          <a href="#demo" onClick={close}>Demo</a>
           <a href="#processo" onClick={close}>Processo</a>
           <a href="#stack" onClick={close}>Stack</a>
           <a href="#contato" className="nav-mobile-cta" onClick={close}>Contato →</a>
@@ -184,7 +182,6 @@ function Hero(){
             </p>
             <div className="reveal" style={{display:'flex', gap:12, marginTop:32, flexWrap:'wrap'}}>
               <a href="#contato" className="btn btn-accent">Começar um projeto →</a>
-              <a href="#demo" className="btn btn-ghost">Ver demo ao vivo</a>
             </div>
             <div className="reveal" style={{marginTop:48, display:'flex', gap:32, flexWrap:'wrap', fontSize:13}}>
               <div><div className="muted mono" style={{fontSize:11, letterSpacing:'.08em', textTransform:'uppercase'}}>Tempo médio</div><div style={{fontWeight:600, fontSize:16, marginTop:4}}>3–6 semanas</div></div>

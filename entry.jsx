@@ -20,7 +20,6 @@ function App() {
       <AB.Hero />
       <AB.About />
       <AB.Services />
-      <AB.Demo />
       <AB.Process />
       <AB.Stack />
       <AB.Clients />
