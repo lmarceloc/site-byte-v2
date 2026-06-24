@@ -123,13 +123,14 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<!-- Fontes carregadas sem bloquear a renderização -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"></noscript>
 
 <link rel="stylesheet" href="styles.css" />
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<!-- Bundle pré-compilado (React + app). Gerado por `npm run build`. -->
+<script defer src="app.js"></script>
 </head>
 <body data-theme="light">
 <div id="app"></div>
@@ -165,44 +166,6 @@
     </section>
   </main>
 </noscript>
-
-<script type="text/babel" src="app-1.jsx"></script>
-<script type="text/babel" src="app-2.jsx"></script>
-
-<script type="text/babel">
-const { useEffect: useFx } = React;
-
-function App(){
-  AB.useReveal();
-
-  const scrollTo = (id) => {
-    const el = document.querySelector(id);
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 60, behavior: 'smooth' });
-  };
-
-  return (
-    <>
-      <AB.Nav
-        onContact={() => scrollTo('#contato')}
-      />
-      <AB.Hero />
-      <AB.About />
-      <AB.Services />
-      <AB.Demo />
-      <AB.Process />
-      <AB.Stack />
-
-      <AB.Clients />
-      <AB.Contact />
-      <AB.Footer />
-    </>
-  );
-}
-
-const root = ReactDOM.createRoot(document.getElementById('app'));
-root.render(<App/>);
-</script>
-
 
 </body>
 </html>

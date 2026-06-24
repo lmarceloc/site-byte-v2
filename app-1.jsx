@@ -53,7 +53,12 @@ function Nav({ onContact }){
     <header className="nav">
       <div className="nav-inner">
         <div className="brand">
-          <div className="glyph"><img src="img/logo_byte.png" alt="Agencia Byte" /></div>
+          <div className="glyph">
+            <picture>
+              <source srcSet="img/logo_byte.webp" type="image/webp" />
+              <img src="img/logo_byte_64.png" alt="Agencia Byte" width="32" height="32" />
+            </picture>
+          </div>
           <span>Agencia Byte</span>
           <span className="mono" style={{fontSize:11, opacity:.5, marginLeft:6}}>v2.0</span>
         </div>
