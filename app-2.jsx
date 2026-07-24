@@ -118,6 +118,7 @@ const CLIENT_LOGOS = [
   { name: 'Nyl',           url: 'https://www.nylhairdesign.com.br/' },
   { name: 'Aline Nail',   url: 'https://www.instagram.com/alinebukowski.naildesigner/' },
   { name: 'StarTrade',    url: 'https://startrade.com.br/' },
+  { name: 'CargOn', url: 'https://cargon.com.br/' },
 ];
 
 

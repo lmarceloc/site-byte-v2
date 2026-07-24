@@ -67,6 +67,7 @@ function Nav({ onContact }){
           <a href="#servicos" className="ul-link">Serviços</a>
           <a href="#processo" className="ul-link">Processo</a>
           <a href="#stack" className="ul-link">Stack</a>
+          <a href="#clientes" className="ul-link">Clientes</a>
         </nav>
         <div className="nav-cta">
           <button className="btn btn-accent nav-cta-desktop" onClick={onContact}>Contato →</button>
@@ -90,6 +91,7 @@ function Nav({ onContact }){
           <a href="#servicos" onClick={close}>Serviços</a>
           <a href="#processo" onClick={close}>Processo</a>
           <a href="#stack" onClick={close}>Stack</a>
+          <a href="#clientes" onClick={close}>Clientes</a>
           <a href="#contato" className="nav-mobile-cta" onClick={close}>Contato →</a>
         </nav>
       )}
