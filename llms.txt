@@ -1,0 +1,13 @@
+# Agencia Byte
+> Agencia Byte é uma agência de engenharia especializada em desenvolvimento de software sob medida, automação com IA e integrações de sistemas para empresas que precisam crescer com velocidade e precisão.
+
+Este arquivo reúne os principais recursos do site para agentes de IA. Use o conteúdo em Markdown como visão geral e os documentos técnicos para detalhes de implementação, posicionamento e branding.
+
+## Conteúdo Principal
+- [Homepage em Markdown](https://agenciabyte.com/index.html.md): visão geral do posicionamento, serviços e canais de contato da Agencia Byte.
+- [Produto e posicionamento](https://agenciabyte.com/PRODUCT.md): público-alvo, propósito da marca, personalidade e princípios de comunicação.
+- [Design System](https://agenciabyte.com/DESIGN.md): tokens de cor, tipografia, componentes e diretrizes visuais.
+- [Build e estrutura](https://agenciabyte.com/BUILD.md): fluxo de build, arquivos importantes e processo de desenvolvimento.
+
+## Optional
+- [Homepage em HTML](https://agenciabyte.com/): versão da landing page em HTML, útil para contexto visual e SEO.
