@@ -263,8 +263,9 @@ function About(){
 const SERVICES = [
   {
     code: '01',
-    title: 'Desenvolvimento sob medida',
+    title: 'Desenvolvimento de Software Sob Medida',
     pitch: 'Web apps, dashboards internos, APIs e portais. Frontend e backend.',
+    desc: 'Desenvolvemos soluções personalizadas que digitalizam processos específicos e se integram ao ecossistema da empresa, com entregas iterativas e foco em qualidade.',
     bullets: ['Next.js + TypeScript', 'PostgreSQL · Supabase', 'Auth, billing, multi-tenant', 'Testes E2E + CI/CD'],
     icon: 'code',
   },
@@ -272,20 +273,23 @@ const SERVICES = [
     code: '02',
     title: 'Automação com IA',
     pitch: 'Agents, classificação, extração de documentos, atendimento 24/7.',
+    desc: 'Desenvolvemos automações de processos utilizando inteligência artificial para classificar documentos, automatizar tarefas repetitivas, conectar fluxos de trabalho e criar atendimentos inteligentes.',
     bullets: ['LLM-ops com fallback', 'RAG sobre seus dados', 'Workflows com aprovação', 'Custo por execução previsível'],
     icon: 'spark',
   },
   {
     code: '03',
-    title: 'Integrações',
+    title: 'Integração de Sistemas',
     pitch: 'Conectar tudo o que sua empresa já usa. Sem retrabalho manual.',
+    desc: 'Conectamos ERPs, CRMs e APIs para sincronizar sistemas, reduzir processos manuais e eliminar erros de integração.',
     bullets: ['CRM, ERP, e-commerce', 'Webhooks bidirecionais', 'Sync incremental', 'Observabilidade nativa'],
     icon: 'plug',
   },
   {
     code: '04',
-    title: 'Dados',
+    title: 'Dados e Dashboards',
     pitch: 'Pipelines, BI e modelos prontos para a próxima decisão.',
+    desc: 'Implementamos pipelines de dados, dashboards e soluções de Business Intelligence, incluindo Power BI, para transformar dados operacionais em indicadores acionáveis.',
     bullets: ['ETL/ELT · dbt', 'Power BI | Dashboards', 'Métricas confiáveis', 'Alertas que importam'],
     icon: 'graph',
   },
@@ -308,7 +312,7 @@ function Services(){
           <div style={{maxWidth:680}}>
             <div className="eyebrow"><span className="dot"/>02 · Serviços</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 64px)', marginTop:18}}>
-              Quatro frentes.<br/>Um problema por vez.
+              Soluções de tecnologia para empresas
             </h2>
           </div>
           <div className="muted mono" style={{fontSize:13, maxWidth:300}}>

@@ -32,11 +32,11 @@ A Agencia Byte atende empresas que precisam:
 
 As principais áreas de especialização da Agencia Byte incluem:
 
-- Software sob medida
+- Desenvolvimento de Software Sob Medida
 - Sistemas empresariais
-- Automação de processos
+- Automação de Processos e Automação com IA
 - Inteligência artificial aplicada a negócios
-- Integrações de sistemas e APIs
+- Integração de Sistemas e APIs (CRM, ERP, Webhooks)
 - Data Analytics
 - Business Intelligence
 - Power BI
