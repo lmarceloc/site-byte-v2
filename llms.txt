@@ -1,10 +1,10 @@
 # Agencia Byte
 
-> Agencia Byte é uma agência brasileira de engenharia de software especializada em desenvolvimento de sistemas sob medida, automação com inteligência artificial, integrações de sistemas, análise de dados e soluções digitais para empresas que precisam automatizar processos, reduzir operações manuais e ganhar velocidade e precisão.
+> Agencia Byte é uma agência brasileira de IA, sites, sistemas, integração e dados para empresas que precisam automatizar processos, reduzir operações manuais e ganhar velocidade e precisão.
 
 A Agencia Byte desenvolve soluções tecnológicas sob medida para empresas que precisam transformar processos operacionais em sistemas, automações e aplicações digitais.
 
-Seu trabalho combina engenharia de software, inteligência artificial, automação de processos, integração de sistemas, dados e desenvolvimento de aplicações empresariais.
+Seu trabalho combina inteligência artificial, desenvolvimento de sites e sistemas, integração de sistemas, dados e automação de processos.
 
 ## Serviços
 
@@ -54,7 +54,7 @@ As principais áreas de especialização da Agencia Byte incluem:
 ## Identidade da Empresa
 
 - Nome: Agencia Byte
-- Tipo: Agência de engenharia de software e tecnologia
+- Tipo: Agência de IA, sites, sistemas, integração e dados
 - País: Brasil
 - Área de atuação: Tecnologia, software, inteligência artificial, automação, integrações e dados
 - Website: https://agenciabyte.com/

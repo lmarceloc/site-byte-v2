@@ -182,7 +182,7 @@ function Hero(){
               </span>
             </h1>
             <p className="reveal muted" style={{fontSize:18, maxWidth:520, marginTop:32, lineHeight:1.55}}>
-              Somos a agência que transforma gargalos em eficiência através de IA e desenvolvimento sob medida de software de alta velocidade.
+              Agência de IA, sites, sistemas, integração e dados. Transformamos gargalos em eficiência através de soluções sob medida de alta velocidade.
             </p>
             <div className="reveal" style={{display:'flex', gap:12, marginTop:32, flexWrap:'wrap'}}>
               <a href="#contato" className="btn btn-accent">Começar um projeto →</a>
@@ -217,7 +217,7 @@ function About(){
           <div>
             <div className="eyebrow"><span className="dot"/>01 · Quem Somos</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 64px)', marginTop:18}}>
-              Engenharia<br/>como vantagem<br/>competitiva.
+              Tecnologia<br/>como vantagem<br/>competitiva.
             </h2>
           </div>
           <div className="reveal-stagger" style={{display:'grid', gap:24, alignContent:'start'}}>

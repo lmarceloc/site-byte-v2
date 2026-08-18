@@ -1,5 +1,5 @@
 # Agencia Byte
-> Agência de engenharia especializada em desenvolvimento de software sob medida, automação com IA e integrações de sistemas.
+> Agência de IA, sites, sistemas, integração e dados para sua empresa.
 
 Agencia Byte ajuda empresas a remover gargalos operacionais com tecnologia sob medida. O site apresenta os serviços principais, o posicionamento da agência e os canais de contato.
 
@@ -16,4 +16,4 @@ Agencia Byte ajuda empresas a remover gargalos operacionais com tecnologia sob m
 ## Posicionamento
 - Foco em empresas que precisam de execução técnica real, não apenas marketing.
 - Ênfase em confiança, precisão e clareza.
-- Tom de agência de engenharia, com linguagem direta e profissional.
+- Tom de agência de tecnologia avançada, com linguagem direta e profissional.
