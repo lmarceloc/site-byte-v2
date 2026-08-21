@@ -1,17 +1,23 @@
 /* global React */
+import { Link, useLocation } from "react-router-dom";
 const { useState, useEffect, useRef, useMemo } = React;
 
 /* -------------------- helpers -------------------- */
 
 function useReveal(){
+  const { pathname } = useLocation();
   useEffect(() => {
-    const els = document.querySelectorAll('.reveal, .reveal-stagger');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    els.forEach(el => io.observe(el));
-    return () => io.disconnect();
-  }, []);
+    // Timeout needed so DOM can update after route change
+    const t = setTimeout(() => {
+      const els = document.querySelectorAll('.reveal, .reveal-stagger');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(el => io.observe(el));
+      return () => io.disconnect();
+    }, 50);
+    return () => clearTimeout(t);
+  }, [pathname]);
 }
 
 function useCounter(target, inView, duration=1400){
@@ -45,7 +51,7 @@ function useInView(ref, opts={ threshold: 0.3 }){
 
 /* -------------------- Nav -------------------- */
 
-function Nav({ onContact }){
+function Nav(){
   const [menuOpen, setMenuOpen] = useState(false);
   const close = () => setMenuOpen(false);
 
@@ -63,15 +69,15 @@ function Nav({ onContact }){
           <span className="mono" style={{fontSize:11, opacity:.5, marginLeft:6}}>v2.0</span>
         </div>
         <nav className="nav-links">
-          <a href="#sobre" className="ul-link">Sobre</a>
-          <a href="#servicos" className="ul-link">Serviços</a>
-          <a href="#processo" className="ul-link">Processo</a>
-          <a href="#stack" className="ul-link">Stack</a>
-          <a href="#clientes" className="ul-link">Clientes</a>
+          <Link to="/sobre" className="ul-link">Sobre</Link>
+          <Link to="/servicos" className="ul-link">Serviços</Link>
+          <Link to="/processo" className="ul-link">Processo</Link>
+          <Link to="/stack" className="ul-link">Stack</Link>
+          <Link to="/" className="ul-link">Clientes</Link>
           <a href="https://blog.agenciabyte.com/" className="ul-link" target="_blank" rel="noopener noreferrer">Blog</a>
         </nav>
         <div className="nav-cta">
-          <button className="btn btn-accent nav-cta-desktop" onClick={onContact}>Contato →</button>
+          <a href="#contato" className="btn btn-accent nav-cta-desktop" onClick={close}>Contato →</a>
           <button
             className="nav-burger"
             aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
@@ -88,11 +94,11 @@ function Nav({ onContact }){
       </div>
       {menuOpen && (
         <nav className="nav-mobile-menu" aria-label="Menu de navegação">
-          <a href="#sobre" onClick={close}>Sobre</a>
-          <a href="#servicos" onClick={close}>Serviços</a>
-          <a href="#processo" onClick={close}>Processo</a>
-          <a href="#stack" onClick={close}>Stack</a>
-          <a href="#clientes" onClick={close}>Clientes</a>
+          <Link to="/sobre" onClick={close}>Sobre</Link>
+          <Link to="/servicos" onClick={close}>Serviços</Link>
+          <Link to="/processo" onClick={close}>Processo</Link>
+          <Link to="/stack" onClick={close}>Stack</Link>
+          <Link to="/" onClick={close}>Clientes</Link>
           <a href="https://blog.agenciabyte.com/" target="_blank" rel="noopener noreferrer" onClick={close}>Blog</a>
           <a href="#contato" className="nav-mobile-cta" onClick={close}>Contato →</a>
         </nav>
@@ -215,7 +221,7 @@ function About(){
       <div className="wrap">
         <div style={{display:'grid', gridTemplateColumns:'minmax(0, 380px) 1fr', gap: 80}} className="about-grid">
           <div>
-            <div className="eyebrow"><span className="dot"/>01 · Quem Somos</div>
+            <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#F59E0B'}}/>Quem Somos</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 64px)', marginTop:18}}>
               Tecnologia<br/>como vantagem<br/>competitiva.
             </h2>
@@ -310,7 +316,7 @@ function Services(){
       <div className="wrap">
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', gap:32, flexWrap:'wrap', marginBottom:48}}>
           <div style={{maxWidth:680}}>
-            <div className="eyebrow"><span className="dot"/>02 · Serviços</div>
+            <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#8B5CF6'}}/>Serviços</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 64px)', marginTop:18}}>
               Soluções de tecnologia para empresas
             </h2>
@@ -328,7 +334,7 @@ function Services(){
                 <span className="mono muted" style={{fontSize:12}}>// {s.code}</span>
               </div>
               <h3 style={{fontSize:24, fontFamily:'var(--font-display)', letterSpacing:'-0.01em', margin:'0 0 8px', fontWeight:600}}>{s.title}</h3>
-              <p className="muted" style={{margin:0, fontSize:15}}>{s.pitch}</p>
+              <p className="muted" style={{margin:0, fontSize:15, lineHeight: 1.55}}>{s.desc}</p>
               <ul style={{listStyle:'none', padding:0, margin:'18px 0 0', display:'grid', gap:8}}>
                 {s.bullets.map(b => (
                   <li key={b} className="mono" style={{fontSize:13, color:'var(--ink-2)', display:'flex', gap:10}}>

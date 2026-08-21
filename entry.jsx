@@ -3,29 +3,43 @@
 import "./app-1.jsx";
 import "./app-2.jsx";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
 
 const AB = window.AB;
 
-function App() {
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+function PageWrapper({ children }) {
   AB.useReveal();
-
-  const scrollTo = (id) => {
-    const el = document.querySelector(id);
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 60, behavior: "smooth" });
-  };
-
   return (
     <>
-      <AB.Nav onContact={() => scrollTo("#contato")} />
-      <AB.Hero />
-      <AB.About />
-      <AB.Services />
-      <AB.Process />
-      <AB.Stack />
-      <AB.Clients />
+      <AB.Nav />
+      {children}
       <AB.Contact />
       <AB.Footer />
     </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<PageWrapper><AB.Hero /><AB.Clients /></PageWrapper>} />
+        <Route path="/sobre" element={<PageWrapper><AB.About /></PageWrapper>} />
+        <Route path="/servicos" element={<PageWrapper><AB.Services /></PageWrapper>} />
+        <Route path="/processo" element={<PageWrapper><AB.Process /></PageWrapper>} />
+        <Route path="/stack" element={<PageWrapper><AB.Stack /></PageWrapper>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

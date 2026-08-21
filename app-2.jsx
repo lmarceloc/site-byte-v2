@@ -1,4 +1,5 @@
 /* global React, AB */
+import { Link } from "react-router-dom";
 const { useState: useState2, useRef: useRef2 } = React;
 
 /* -------------------- Process -------------------- */
@@ -17,7 +18,7 @@ function Process(){
       <div className="wrap">
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', gap:32, flexWrap:'wrap', marginBottom:48}}>
           <div style={{maxWidth:680}}>
-            <div className="eyebrow"><span className="dot"/>03 · Processo</div>
+            <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#EC4899'}}/>Processo</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 64px)', marginTop:18}}>
               5 etapas.
             </h2>
@@ -75,7 +76,7 @@ function Stack(){
       <div className="wrap">
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', gap:32, flexWrap:'wrap', marginBottom:48}}>
           <div style={{maxWidth:680}}>
-            <div className="eyebrow"><span className="dot"/>04 · Stack</div>
+            <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#14B8A6'}}/>Stack</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 64px)', marginTop:18}}>
               A ferramenta certa<br/>para cada problema.
             </h2>
@@ -129,7 +130,7 @@ function Clients(){
     <section id="clientes" ref={ref}>
       <div className="wrap">
         <div style={{marginBottom:48}}>
-          <div className="eyebrow"><span className="dot"/>05 · Clientes</div>
+          <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#3B82F6'}}/>Clientes</div>
         </div>
 
         <div style={{display:'flex', flexWrap:'wrap', gap:'40px 56px', justifyContent:'center', padding:'48px 0', borderBottom:'1px solid var(--line)'}}>
@@ -159,7 +160,7 @@ function Contact(){
       <div className="wrap">
         <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:64, alignItems:'start'}} className="contact-grid">
           <div>
-            <div className="eyebrow"><span className="dot"/>06 · Contato</div>
+            <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#10B981'}}/>Contato</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 72px)', marginTop:18}}>
               Conta o<br/>problema<span style={{color:'var(--accent)'}}>.</span><br/>Devolvemos<br/>uma <span style={{color:'var(--accent)'}}>arquitetura</span>.
             </h2>
@@ -268,8 +269,17 @@ function Footer(){
             <p className="muted" style={{maxWidth:280, marginTop:16, fontSize:14}}>Código que funciona. Sistemas que crescem. Engenharia para empresas com pressa.</p>
             <div className="mono muted" style={{fontSize:12, marginTop:24}}>v2.0 · 2026.05</div>
           </div>
-          <FooterCol title="Serviços" items={['Desenvolvimento','Automação IA','Integrações','Dados']} />
-          <FooterCol title="Empresa" items={['Sobre','Processo','Stack']} />
+          <FooterCol title="Serviços" items={[
+            {label: 'Desenvolvimento', href: '/servicos'},
+            {label: 'Automação IA', href: '/servicos'},
+            {label: 'Integrações', href: '/servicos'},
+            {label: 'Dados', href: '/servicos'}
+          ]} />
+          <FooterCol title="Empresa" items={[
+            {label: 'Sobre', href: '/sobre'},
+            {label: 'Processo', href: '/processo'},
+            {label: 'Stack', href: '/stack'}
+          ]} />
           <div>
             <div className="mono" style={{fontSize:11, letterSpacing:'.08em', color:'var(--accent)', textTransform:'uppercase'}}>Contato</div>
             <ul style={{listStyle:'none', padding:0, margin:'14px 0 0', display:'grid', gap:10}}>
@@ -310,6 +320,9 @@ function FooterCol({ title, items }){
           const label = typeof i === 'object' ? i.label : i;
           const href  = typeof i === 'object' ? i.href  : '#';
           const extra = typeof i === 'object' ? {target:'_blank', rel:'noopener noreferrer'} : {};
+          if (href.startsWith('/')) {
+             return <li key={label} style={{fontSize:14}}><Link to={href} className="ul-link" style={{textDecoration:'none', opacity:.85}}>{label}</Link></li>;
+          }
           return <li key={label} style={{fontSize:14}}><a href={href} className="ul-link" style={{textDecoration:'none', opacity:.85}} {...extra}>{label}</a></li>;
         })}
       </ul>

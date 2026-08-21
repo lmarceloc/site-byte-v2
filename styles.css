@@ -72,7 +72,16 @@ a{ color: inherit; }
 body[data-theme="dark"] .eyebrow{ color: var(--dark-ink-2); }
 .eyebrow .dot{
   width: 6px; height: 6px; border-radius: 50%;
-  background: var(--accent); box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 30%, transparent);
+  background: var(--dot-color, var(--accent));
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--dot-color, var(--accent)) 30%, transparent);
+}
+.eyebrow .dot.pulse-live {
+  position: relative;
+}
+.eyebrow .dot.pulse-live::after {
+  content: ""; position: absolute; inset: -4px; border-radius: 50%;
+  border: 1px solid var(--dot-color, var(--accent));
+  animation: pulse 1.6s ease-out infinite;
 }
 
 .mono{ font-family: var(--font-mono); }

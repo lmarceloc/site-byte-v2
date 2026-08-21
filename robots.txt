@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
+
 Sitemap: https://agenciabyte.com/sitemap.xml
