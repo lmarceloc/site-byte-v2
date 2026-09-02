@@ -33,11 +33,11 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<PageWrapper><AB.Hero /><AB.Clients /></PageWrapper>} />
+        <Route path="/" element={<PageWrapper><AB.Hero /><AB.Transformation /><AB.Clients /></PageWrapper>} />
         <Route path="/sobre" element={<PageWrapper><AB.About /></PageWrapper>} />
         <Route path="/servicos" element={<PageWrapper><AB.Services /></PageWrapper>} />
         <Route path="/processo" element={<PageWrapper><AB.Process /></PageWrapper>} />
-        <Route path="/stack" element={<PageWrapper><AB.Stack /></PageWrapper>} />
+        <Route path="/transformacao" element={<PageWrapper><AB.Transformation /></PageWrapper>} />
       </Routes>
     </BrowserRouter>
   );

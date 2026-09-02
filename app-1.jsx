@@ -61,8 +61,8 @@ function Nav(){
         <div className="brand">
           <div className="glyph">
             <picture>
-              <source srcSet="img/logo_byte.webp" type="image/webp" />
-              <img src="img/logo_byte_64.png" alt="Agencia Byte" width="32" height="32" />
+              <source srcSet="/img/logo_byte.webp" type="image/webp" />
+              <img src="/img/logo_byte_64.png" alt="Agencia Byte" width="32" height="32" />
             </picture>
           </div>
           <span>Agencia Byte</span>
@@ -71,10 +71,10 @@ function Nav(){
         <nav className="nav-links">
           <Link to="/sobre" className="ul-link">Sobre</Link>
           <Link to="/servicos" className="ul-link">Serviços</Link>
+          <a href="/transformacao" className="ul-link">Antes e depois</a>
           <Link to="/processo" className="ul-link">Processo</Link>
-          <Link to="/stack" className="ul-link">Stack</Link>
           <Link to="/" className="ul-link">Clientes</Link>
-          <a href="https://blog.agenciabyte.com/" className="ul-link" target="_blank" rel="noopener noreferrer">Blog</a>
+          <a href="https://blog.agenciabyte.com/" className="ul-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
         </nav>
         <div className="nav-cta">
           <a href="#contato" className="btn btn-accent nav-cta-desktop" onClick={close}>Contato →</a>
@@ -96,74 +96,14 @@ function Nav(){
         <nav className="nav-mobile-menu" aria-label="Menu de navegação">
           <Link to="/sobre" onClick={close}>Sobre</Link>
           <Link to="/servicos" onClick={close}>Serviços</Link>
+          <a href="/transformacao" onClick={close}>Antes e depois</a>
           <Link to="/processo" onClick={close}>Processo</Link>
-          <Link to="/stack" onClick={close}>Stack</Link>
           <Link to="/" onClick={close}>Clientes</Link>
-          <a href="https://blog.agenciabyte.com/" target="_blank" rel="noopener noreferrer" onClick={close}>Blog</a>
+          <a href="https://blog.agenciabyte.com/" className="ul-link blog-link" target="_blank" rel="noopener noreferrer" onClick={close}>Blog</a>
           <a href="#contato" className="nav-mobile-cta" onClick={close}>Contato →</a>
         </nav>
       )}
     </header>
-  );
-}
-
-/* -------------------- Hero — Terminal variant -------------------- */
-
-function HeroTerminal(){
-  const lines = [
-    { t: 800,  html: '<span class="prompt">byte@agency</span> <span class="dim">~/projects</span> <span class="arrow">$</span> deploy --target=production' },
-    { t: 600,  html: '<span class="dim">› compiling sistema...</span>' },
-    { t: 700,  html: '<span class="dim">› running tests</span>     <span class="ok">✓ 247 passed</span>' },
-    { t: 700,  html: '<span class="dim">› bundling</span>          <span class="ok">✓ 1.4 MB</span>' },
-    { t: 700,  html: '<span class="dim">› deploying to edge</span> <span class="ok">✓ 12 regions</span>' },
-    { t: 600,  html: '<span class="ok">✓</span> live in <span class="acc">2.8s</span> · 0 downtime' },
-  ];
-  const [shown, setShown] = useState([]);
-  const bodyRef = useRef(null);
-
-  useEffect(() => {
-    if (bodyRef.current) {
-      bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
-    }
-  }, [shown]);
-
-  useEffect(() => {
-    let cancelled = false;
-    let timeoutId;
-    const step = (i, current) => {
-      if (cancelled) return;
-      if (i >= lines.length){
-        timeoutId = setTimeout(() => {
-          if (cancelled) return;
-          setShown([]);
-          step(0, []);
-        }, 4000);
-        return;
-      }
-      timeoutId = setTimeout(() => {
-        if (cancelled) return;
-        const next = [...current, lines[i].html];
-        setShown(next);
-        step(i + 1, next);
-      }, lines[i].t);
-    };
-    step(0, []);
-    return () => { cancelled = true; clearTimeout(timeoutId); };
-  }, []);
-
-  return (
-    <div className="term" style={{height: 230, display:'flex', flexDirection:'column'}}>
-      <div className="term-bar">
-        <div className="dot d1" /><div className="dot d2" /><div className="dot d3" />
-        <div className="title">~/agencia-byte/sistema · zsh</div>
-      </div>
-      <div ref={bodyRef} className="term-body">
-        {shown.map((h, idx) => (
-          <span key={idx} className="ln" dangerouslySetInnerHTML={{__html: h}} />
-        ))}
-        <span className="ln"><span className="prompt">byte@agency</span> <span className="arrow">$</span> <span className="cursor"/></span>
-      </div>
-    </div>
   );
 }
 
@@ -174,21 +114,21 @@ function Hero(){
     <section style={{paddingTop: 80, paddingBottom: 90, position:'relative', overflow:'hidden'}}>
       <div className="grid-bg" />
       <div className="wrap" style={{position:'relative'}}>
-        <div style={{display:'grid', gridTemplateColumns:'1.05fr 1fr', gap:'56px', alignItems:'center'}} className="hero-grid">
+        <div style={{display:'grid', gridTemplateColumns:'minmax(0, 780px)', gap:'56px', alignItems:'center'}} className="hero-grid">
           <div>
             <h1 className="display reveal" style={{fontSize:'clamp(36px, 9vw, 104px)', margin:'24px 0 0'}}>
-              Código que<br/>
-              <span style={{color:'var(--accent)'}}>funciona</span>.<br/>
-              Sistemas que<br/>
+              Automatize o<br/>
+              <span style={{color:'var(--accent)'}}>trabalho braçal</span>.<br/>
+              Faça sua operação<br/>
               <span style={{position:'relative', display:'inline-block'}}>
-                crescem<span style={{color:'var(--accent)'}}>.</span>
+                crescer<span style={{color:'var(--accent)'}}>.</span>
                 <svg viewBox="0 0 200 14" preserveAspectRatio="none" style={{position:'absolute', left:0, right:0, bottom:'-6px', width:'100%', height:14, overflow:'visible'}}>
                   <path d="M2 10 Q 50 2, 100 8 T 198 6" stroke="var(--accent)" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
               </span>
             </h1>
             <p className="reveal muted" style={{fontSize:18, maxWidth:520, marginTop:32, lineHeight:1.55}}>
-              Agência de IA, sites, sistemas, integração e dados. Transformamos gargalos em eficiência através de soluções sob medida de alta velocidade.
+              Transformamos tarefas repetitivas e processos desconectados em operações inteligentes, integradas e previsíveis. Conectamos seus sistemas, desenhamos integrações sob medida e aplicamos IA diretamente nos fluxos de vendas e gestão. O próximo passo não é trabalhar mais. É automatizar para crescer.
             </p>
             <div className="reveal" style={{display:'flex', gap:12, marginTop:32, flexWrap:'wrap'}}>
               <a href="#contato" className="btn btn-accent">Começar um projeto →</a>
@@ -199,9 +139,6 @@ function Hero(){
               <div><div className="muted mono" style={{fontSize:11, letterSpacing:'.08em', textTransform:'uppercase'}}>Stack</div><div style={{fontWeight:600, fontSize:16, marginTop:4}}>type-safe ponta a ponta</div></div>
             </div>
           </div>
-          <div className="reveal" style={{transitionDelay:'.15s'}}>
-            <HeroTerminal/>
-          </div>
         </div>
       </div>
       <style>{`
@@ -209,6 +146,71 @@ function Hero(){
           .hero-grid{ grid-template-columns: 1fr !important; }
         }
       `}</style>
+    </section>
+  );
+}
+
+const TRANSFORMATION_SYMPTOMS = [
+  'ERPs, WMS e planilhas isoladas',
+  'Trabalho braçal e repetitivo',
+  'Dados espalhados e sem confiança',
+  'Pouca inteligência no dia a dia',
+  'Custos operacionais inflados',
+];
+
+const TRANSFORMATION_BENEFITS = [
+  'Fluxos inteligentes e autônomos',
+  'Sistemas totalmente sincronizados',
+  'IA para conversão e triagem',
+  'Dados unificados para decidir rápido',
+  'Escala sem aumentar a equipe',
+  'Tempo livre para a estratégia',
+];
+
+function FlowGlyph({ type }){
+  if (type === 'sheet') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h12v15H5zM8 8h6M8 12h6M8 16h4"/><path d="M8 2h11v15"/></svg>;
+  if (type === 'mail') return <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m4 7 8 6 8-6"/></svg>;
+  if (type === 'gear') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.2 2.1 2.4.5 1.8-1.2 2.1 2.1-1.2 1.8.5 2.4L21 12l-2.2 1.2-.5 2.4 1.2 1.8-2.1 2.1-1.8-1.2-2.4.5L12 21l-1.2-2.2-2.4-.5-1.8 1.2-2.1-2.1 1.2-1.8-.5-2.4L3 12l2.2-1.2.5-2.4-1.2-1.8 2.1-2.1 1.8 1.2 2.4-.5L12 3Z"/><circle cx="12" cy="12" r="3"/></svg>;
+  if (type === 'chart') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h16M8 16v-4M12 16V8M16 16v-7M20 16v-3"/></svg>;
+  if (type === 'plug') return <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="9" width="8" height="6" rx="1.5"/><rect x="13" y="9" width="8" height="6" rx="1.5"/><path d="M11 12h2M5 9V6M9 9V6M15 15v3M19 15v3"/></svg>;
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>;
+}
+
+function Transformation(){
+  return (
+    <section id="transformacao" className="transformation-section section-dark">
+      <div className="grid-bg" />
+      <div className="wrap transformation-wrap">
+        <div className="transformation-heading reveal">
+          <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color':'#F59E0B'}}/>Antes e depois</div>
+          <h2 className="display">O processo agora flui.</h2>
+          <p>Da operação fragmentada a um ecossistema que conversa, decide e executa.</p>
+        </div>
+        <div className="transformation-stage reveal-stagger">
+          <div className="transformation-panel transformation-before">
+            <div className="transformation-kicker mono">01 / cenário de partida</div>
+            <h3 className="display">Processos 100%<br/>manuais e desconexos.</h3>
+            <div className="fragment-timeline">
+              {TRANSFORMATION_SYMPTOMS.map((symptom, index) => <div className="fragment-step" key={symptom}><span className="fragment-index mono">0{index + 1}</span><span className="fragment-node"><FlowGlyph type={['sheet','mail','gear','chart','sheet'][index]} /></span><span>{symptom}</span></div>)}
+            </div>
+            <div className="transformation-note mono">// cada etapa cria um novo retrabalho</div>
+          </div>
+          <div className="transformation-bridge" aria-label="A Engenharia da Agência Byte">
+            <div className="bridge-lines" aria-hidden="true"><span/></div>
+            <div className="bridge-core"><FlowGlyph type="ai" /><span className="mono">BYTE<br/>ENGINE</span></div>
+            <div className="bridge-output-line" aria-hidden="true" />
+            <div className="bridge-label mono">Automação + IA aplicadas</div>
+          </div>
+          <div className="transformation-panel transformation-after">
+            <div className="transformation-kicker mono">02 / cenário transformado</div>
+            <h3 className="display">Operação integrada<br/>e automatizada.</h3>
+            <div className="order-flow"><div className="order-line" aria-hidden="true"/><div className="benefit-list">
+              {TRANSFORMATION_BENEFITS.map((benefit, index) => <div className="benefit-step" key={benefit}><span className="benefit-node"><FlowGlyph type={['gear','plug','ai','chart','gear','ai'][index]} /></span><span>{benefit}</span><span className="benefit-check" aria-hidden="true">OK</span></div>)}
+            </div></div>
+            <div className="transformation-note mono">// dados confiáveis · decisão em ritmo real</div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
@@ -356,4 +358,4 @@ function Services(){
 }
 
 window.AB = window.AB || {};
-Object.assign(window.AB, { Nav, Hero, About, Services, useReveal, useCounter, useInView });
+Object.assign(window.AB, { Nav, Hero, Transformation, About, Services, useReveal, useCounter, useInView });

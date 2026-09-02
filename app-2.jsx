@@ -61,55 +61,6 @@ function Process(){
   );
 }
 
-/* -------------------- Stack -------------------- */
-
-const STACK = [
-  ['Frontend', ['React','Next.js','Tailwind','Three.js']],
-  ['Backend', ['Node.js','FastAPI','Postgres','Redis']],
-  ['IA / ML', ['OpenAI','Anthropic','LangChain','pgvector']],
-  ['Infra', ['Docker','Vercel','Cloudflare','Supabase']],
-];
-
-function Stack(){
-  return (
-    <section id="stack" style={{borderTop:'1px solid var(--line)'}}>
-      <div className="wrap">
-        <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', gap:32, flexWrap:'wrap', marginBottom:48}}>
-          <div style={{maxWidth:680}}>
-            <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#14B8A6'}}/>Stack</div>
-            <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 64px)', marginTop:18}}>
-              A ferramenta certa<br/>para cada problema.
-            </h2>
-          </div>
-          <div className="muted mono" style={{fontSize:13, maxWidth:340}}>
-            // tecnologia é meio, não fim<br/>
-            // escolhemos pelo problema, não pela moda
-          </div>
-        </div>
-        <div className="reveal-stagger" style={{display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:1, background:'var(--line)', border:'1px solid var(--line)', borderRadius:14, overflow:'hidden'}} id="stackGrid">
-          {STACK.map(([cat, items]) => (
-            <div key={cat} style={{background:'var(--bg-elev)', padding:'24px 24px 26px'}}>
-              <div className="mono" style={{fontSize:11, letterSpacing:'.08em', color:'var(--accent)'}}>// {cat.toUpperCase()}</div>
-              <ul style={{listStyle:'none', padding:0, margin:'14px 0 0', display:'grid', gap:10}}>
-                {items.map(x => (
-                  <li key={x} style={{display:'flex', alignItems:'center', justifyContent:'space-between', fontSize:15}}>
-                    <span style={{fontWeight:500}}>{x}</span>
-                    <span className="mono muted" style={{fontSize:11}}>v∞</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-      <style>{`
-        @media (max-width: 540px){ #stackGrid{ grid-template-columns: 1fr !important; } }
-      `}</style>
-    </section>
-  );
-}
-
-
 /* -------------------- Clients (counters) -------------------- */
 
 const CLIENT_LOGOS = [
@@ -278,7 +229,7 @@ function Footer(){
           <FooterCol title="Empresa" items={[
             {label: 'Sobre', href: '/sobre'},
             {label: 'Processo', href: '/processo'},
-            {label: 'Stack', href: '/stack'}
+            {label: 'Antes e depois', href: '/transformacao'}
           ]} />
           <div>
             <div className="mono" style={{fontSize:11, letterSpacing:'.08em', color:'var(--accent)', textTransform:'uppercase'}}>Contato</div>
@@ -330,4 +281,4 @@ function FooterCol({ title, items }){
   );
 }
 
-Object.assign(window.AB, { Process, Stack, Clients, Contact, Footer });
+Object.assign(window.AB, { Process, Clients, Contact, Footer });
