@@ -3,18 +3,9 @@
 import "./app-1.jsx";
 import "./app-2.jsx";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import React, { useEffect } from "react";
+import React from "react";
 
 const AB = window.AB;
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-}
 
 function PageWrapper({ children }) {
   AB.useReveal();
@@ -22,7 +13,6 @@ function PageWrapper({ children }) {
     <>
       <AB.Nav />
       {children}
-      <AB.Contact />
       <AB.Footer />
     </>
   );
@@ -30,16 +20,17 @@ function PageWrapper({ children }) {
 
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<PageWrapper><AB.Hero /><AB.Transformation /><AB.Clients /></PageWrapper>} />
-        <Route path="/sobre" element={<PageWrapper><AB.About /></PageWrapper>} />
-        <Route path="/servicos" element={<PageWrapper><AB.Services /></PageWrapper>} />
-        <Route path="/processo" element={<PageWrapper><AB.Process /></PageWrapper>} />
-        <Route path="/transformacao" element={<PageWrapper><AB.Transformation /></PageWrapper>} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <PageWrapper>
+        <AB.Hero />
+        <AB.About />
+        <AB.Transformation />
+        <AB.Services />
+        <AB.Process />
+        <AB.Clients />
+        <AB.Contact />
+      </PageWrapper>
+    </>
   );
 }
 

@@ -1,5 +1,4 @@
 /* global React, AB */
-import { Link } from "react-router-dom";
 const { useState: useState2, useRef: useRef2 } = React;
 
 /* -------------------- Process -------------------- */
@@ -113,12 +112,11 @@ function Contact(){
           <div>
             <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#10B981'}}/>Contato</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 72px)', marginTop:18}}>
-              Conta o<br/>problema<span style={{color:'var(--accent)'}}>.</span><br/>Devolvemos<br/>uma <span style={{color:'var(--accent)'}}>arquitetura</span>.
+              Você explica o<br/>problema<span style={{color:'var(--accent)'}}>.</span><br/>A gente constrói<br/>a <span style={{color:'var(--accent)'}}>solução</span>.
             </h2>
             <div style={{marginTop:36, display:'grid', gap:14}}>
               <a href="mailto:hello@agenciabyte.com" className="ul-link mono" style={{fontSize:18, textDecoration:'none'}}>hello@agenciabyte.com</a>
               <a href="https://wa.me/5542984224363" target="_blank" rel="noopener noreferrer" className="ul-link mono" style={{fontSize:18, textDecoration:'none'}}>+55 (42) 98422-4363</a>
-              <div className="muted mono" style={{fontSize:13, marginTop:12}}>resposta em até 1 dia útil</div>
             </div>
           </div>
 
@@ -218,18 +216,18 @@ function Footer(){
               <span>Agencia Byte</span>
             </div>
             <p className="muted" style={{maxWidth:280, marginTop:16, fontSize:14}}>Código que funciona. Sistemas que crescem. Engenharia para empresas com pressa.</p>
-            <div className="mono muted" style={{fontSize:12, marginTop:24}}>v2.0 · 2026.05</div>
+            {/* <div className="mono muted" style={{fontSize:12, marginTop:24}}>v2.0 · 2026.05</div> */}
           </div>
           <FooterCol title="Serviços" items={[
-            {label: 'Desenvolvimento', href: '/servicos'},
-            {label: 'Automação IA', href: '/servicos'},
-            {label: 'Integrações', href: '/servicos'},
-            {label: 'Dados', href: '/servicos'}
+            {label: 'Desenvolvimento', href: '#servicos'},
+            {label: 'Automação IA', href: '#servicos'},
+            {label: 'Integrações', href: '#servicos'},
+            {label: 'Dados', href: '#servicos'}
           ]} />
           <FooterCol title="Empresa" items={[
-            {label: 'Sobre', href: '/sobre'},
-            {label: 'Processo', href: '/processo'},
-            {label: 'Antes e depois', href: '/transformacao'}
+            {label: 'Sobre', href: '#sobre'},
+            {label: 'Processo', href: '#processo'},
+            {label: 'Antes e depois', href: '#transformacao'}
           ]} />
           <div>
             <div className="mono" style={{fontSize:11, letterSpacing:'.08em', color:'var(--accent)', textTransform:'uppercase'}}>Contato</div>

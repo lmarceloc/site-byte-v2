@@ -1,13 +1,10 @@
 /* global React */
-import { Link, useLocation } from "react-router-dom";
 const { useState, useEffect, useRef, useMemo } = React;
 
 /* -------------------- helpers -------------------- */
 
 function useReveal(){
-  const { pathname } = useLocation();
   useEffect(() => {
-    // Timeout needed so DOM can update after route change
     const t = setTimeout(() => {
       const els = document.querySelectorAll('.reveal, .reveal-stagger');
       const io = new IntersectionObserver((entries) => {
@@ -17,7 +14,7 @@ function useReveal(){
       return () => io.disconnect();
     }, 50);
     return () => clearTimeout(t);
-  }, [pathname]);
+  }, []);
 }
 
 function useCounter(target, inView, duration=1400){
@@ -58,7 +55,7 @@ function Nav(){
   return (
     <header className="nav">
       <div className="nav-inner">
-        <div className="brand">
+        <div className="nav-brand-wrap">
           <div className="glyph">
             <picture>
               <source srcSet="/img/logo_byte.webp" type="image/webp" />
@@ -66,15 +63,15 @@ function Nav(){
             </picture>
           </div>
           <span>Agencia Byte</span>
-          <span className="mono" style={{fontSize:11, opacity:.5, marginLeft:6}}>v2.0</span>
+          {/* <span className="mono" style={{fontSize:11, opacity:.5, marginLeft:6}}>v2.0</span> */}
         </div>
-        <nav className="nav-links">
-          <Link to="/sobre" className="ul-link">Sobre</Link>
-          <Link to="/servicos" className="ul-link">Serviços</Link>
-          <a href="/transformacao" className="ul-link">Antes e depois</a>
-          <Link to="/processo" className="ul-link">Processo</Link>
-          <Link to="/" className="ul-link">Clientes</Link>
-          <a href="https://blog.agenciabyte.com/" className="ul-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+        <nav className="nav-pill">
+          <a href="#sobre" className="nav-pill-link">Sobre</a>
+          <a href="#transformacao" className="nav-pill-link">Antes e depois</a>
+          <a href="#servicos" className="nav-pill-link">Serviços</a>
+          <a href="#processo" className="nav-pill-link">Processo</a>
+          <a href="#clientes" className="nav-pill-link">Clientes</a>
+          <a href="https://blog.agenciabyte.com/" className="nav-pill-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
         </nav>
         <div className="nav-cta">
           <a href="#contato" className="btn btn-accent nav-cta-desktop" onClick={close}>Contato →</a>
@@ -94,11 +91,11 @@ function Nav(){
       </div>
       {menuOpen && (
         <nav className="nav-mobile-menu" aria-label="Menu de navegação">
-          <Link to="/sobre" onClick={close}>Sobre</Link>
-          <Link to="/servicos" onClick={close}>Serviços</Link>
-          <a href="/transformacao" onClick={close}>Antes e depois</a>
-          <Link to="/processo" onClick={close}>Processo</Link>
-          <Link to="/" onClick={close}>Clientes</Link>
+          <a href="#sobre" onClick={close}>Sobre</a>
+          <a href="#transformacao" onClick={close}>Antes e depois</a>
+          <a href="#servicos" onClick={close}>Serviços</a>
+          <a href="#processo" onClick={close}>Processo</a>
+          <a href="#clientes" onClick={close}>Clientes</a>
           <a href="https://blog.agenciabyte.com/" className="ul-link blog-link" target="_blank" rel="noopener noreferrer" onClick={close}>Blog</a>
           <a href="#contato" className="nav-mobile-cta" onClick={close}>Contato →</a>
         </nav>
@@ -111,19 +108,19 @@ function Nav(){
 
 function Hero(){
   return (
-    <section style={{paddingTop: 80, paddingBottom: 90, position:'relative', overflow:'hidden'}}>
+    <section style={{paddingTop: 110, paddingBottom: 90, position:'relative', overflow:'hidden'}}>
       <div className="grid-bg" />
       <div className="wrap" style={{position:'relative'}}>
         <div style={{display:'grid', gridTemplateColumns:'minmax(0, 780px)', gap:'56px', alignItems:'center'}} className="hero-grid">
           <div>
-            <h1 className="display reveal" style={{fontSize:'clamp(36px, 9vw, 104px)', margin:'24px 0 0'}}>
+            <h1 className="display reveal" style={{fontSize:'clamp(18px, 4.5vw, 52px)', margin:'12px 0 0'}}>
               Automatize o<br/>
               <span style={{color:'var(--accent)'}}>trabalho braçal</span>.<br/>
               Faça sua operação<br/>
               <span style={{position:'relative', display:'inline-block'}}>
                 crescer<span style={{color:'var(--accent)'}}>.</span>
-                <svg viewBox="0 0 200 14" preserveAspectRatio="none" style={{position:'absolute', left:0, right:0, bottom:'-6px', width:'100%', height:14, overflow:'visible'}}>
-                  <path d="M2 10 Q 50 2, 100 8 T 198 6" stroke="var(--accent)" strokeWidth="3" fill="none" strokeLinecap="round" />
+                <svg viewBox="0 0 100 7" preserveAspectRatio="none" style={{position:'absolute', left:0, right:0, bottom:'-3px', width:'100%', height:7, overflow:'visible'}}>
+                  <path d="M1 5 Q 25 1, 50 4 T 100 6" stroke="var(--accent)" strokeWidth={1.5} fill="none" strokeLinecap="round" />
                 </svg>
               </span>
             </h1>
