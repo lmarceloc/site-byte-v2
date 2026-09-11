@@ -2,17 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://agenciabyte.com/</loc>
+    <lastmod>2026-09-11</lastmod>
   </url>
   <url>
-    <loc>https://agenciabyte.com/sobre</loc>
-  </url>
-  <url>
-    <loc>https://agenciabyte.com/servicos</loc>
-  </url>
-  <url>
-    <loc>https://agenciabyte.com/processo</loc>
     <loc>https://agenciabyte.com/transformacao</loc>
-  </url>
-  <url>
+    <lastmod>2026-09-11</lastmod>
   </url>
 </urlset>
