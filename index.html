@@ -18,6 +18,8 @@
 <meta property="og:title" content="Agencia Byte | Desenvolvimento de Sistemas e Automação com IA" />
 <meta property="og:description" content="Agência de IA, sites, sistemas, integração e dados. Desenvolvemos soluções sob medida para acelerar sua empresa." />
 <meta property="og:image" content="https://agenciabyte.com/img/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:locale" content="pt_BR" />
 <meta property="og:site_name" content="Agencia Byte" />
 
@@ -118,29 +120,29 @@
 }
 </script>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SFBNK4KDQ"></script>
+<!-- Google Analytics + Apollo: carregam na primeira interação (ou 4s após o load),
+     para não competir com o conteúdo no carregamento inicial. -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-8SFBNK4KDQ');
-</script>
-
-<!-- Apollo Tracker -->
-<script>
-  function initApollo(){
-    var n = Math.random().toString(36).substring(7);
-    var o = document.createElement("script");
-    o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
-    o.async = true;
-    o.defer = true;
-    o.onload = function(){
-      window.trackingFunctions.onLoad({ appId: "6a5fc15502199500103f7f77" });
-    };
-    document.head.appendChild(o);
-  }
-  initApollo();
+  (function(){
+    var done = false, evts = ['pointerdown','keydown','scroll','touchstart'];
+    function load(){
+      if (done) return; done = true;
+      evts.forEach(function(e){ removeEventListener(e, load); });
+      var g = document.createElement('script');
+      g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-8SFBNK4KDQ';
+      document.head.appendChild(g);
+      var a = document.createElement('script');
+      a.async = true; a.src = 'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' + Math.random().toString(36).substring(7);
+      a.onload = function(){ window.trackingFunctions.onLoad({ appId: '6a5fc15502199500103f7f77' }); };
+      document.head.appendChild(a);
+    }
+    evts.forEach(function(e){ addEventListener(e, load, { once: true, passive: true }); });
+    addEventListener('load', function(){ setTimeout(load, 4000); });
+  })();
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -164,23 +166,27 @@
     <h1>Agencia Byte | Desenvolvimento de Sistemas e Automação com IA</h1>
     <p>Agência de IA, sites, sistemas, integração e dados. Transformamos gargalos em eficiência através de soluções sob medida de alta velocidade.</p>
     <section>
-      <h2>Serviços</h2>
+      <h2><a href="/servicos">Serviços</a></h2>
       <article>
-        <h3>Desenvolvimento de Software Sob Medida</h3>
+        <h3><a href="/servicos/desenvolvimento-de-software">Desenvolvimento de Software Sob Medida</a></h3>
         <p>Web apps, dashboards internos, APIs e portais. Frontend e backend com Next.js, TypeScript e PostgreSQL.</p>
       </article>
       <article>
-        <h3>Automação com Inteligência Artificial</h3>
+        <h3><a href="/servicos/automacao-com-ia">Automação com Inteligência Artificial</a></h3>
         <p>Agents de IA, classificação, extração de documentos e atendimento automatizado 24/7 com LLMs e RAG sobre seus dados.</p>
       </article>
       <article>
-        <h3>Integrações de Sistemas</h3>
+        <h3><a href="/servicos/integracao-de-sistemas">Integrações de Sistemas</a></h3>
         <p>Conectar CRM, ERP, e-commerce e demais sistemas com webhooks bidirecionais e sincronização incremental.</p>
       </article>
       <article>
-        <h3>Dados e Business Intelligence</h3>
+        <h3><a href="/servicos/dados-e-power-bi">Dados e Business Intelligence</a></h3>
         <p>Pipelines ETL/ELT, dashboards Power BI e métricas confiáveis com alertas inteligentes.</p>
       </article>
+    </section>
+    <section>
+      <h2>Antes e depois</h2>
+      <p>Da operação fragmentada a um ecossistema que conversa, decide e executa. <a href="/transformacao">Veja o antes e depois de cada área</a>.</p>
     </section>
     <section>
       <h2>Contato</h2>

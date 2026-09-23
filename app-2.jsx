@@ -219,20 +219,20 @@ function Footer(){
             {/* <div className="mono muted" style={{fontSize:12, marginTop:24}}>v2.0 · 2026.05</div> */}
           </div>
           <FooterCol title="Serviços" items={[
-            {label: 'Desenvolvimento', href: '#servicos'},
-            {label: 'Automação IA', href: '#servicos'},
-            {label: 'Integrações', href: '#servicos'},
-            {label: 'Dados', href: '#servicos'}
+            {label: 'Desenvolvimento', href: '/servicos/desenvolvimento-de-software'},
+            {label: 'Automação IA', href: '/servicos/automacao-com-ia'},
+            {label: 'Integrações', href: '/servicos/integracao-de-sistemas'},
+            {label: 'Dados e Power BI', href: '/servicos/dados-e-power-bi'}
           ]} />
           <FooterCol title="Empresa" items={[
             {label: 'Sobre', href: '#sobre'},
             {label: 'Processo', href: '#processo'},
-            {label: 'Antes e depois', href: '#transformacao'}
+            {label: 'Antes e depois', href: '/transformacao'}
           ]} />
           <div>
             <div className="mono" style={{fontSize:11, letterSpacing:'.08em', color:'var(--accent)', textTransform:'uppercase'}}>Contato</div>
             <ul style={{listStyle:'none', padding:0, margin:'14px 0 0', display:'grid', gap:10}}>
-              <li style={{fontSize:14}}><a href="#" className="ul-link" style={{textDecoration:'none', opacity:.85}}>hello@agenciabyte.com</a></li>
+              <li style={{fontSize:14}}><a href="mailto:hello@agenciabyte.com" className="ul-link" style={{textDecoration:'none', opacity:.85}}>hello@agenciabyte.com</a></li>
               <li style={{fontSize:14}}><a href="https://wa.me/5542984224363" target="_blank" rel="noopener noreferrer" className="ul-link" style={{textDecoration:'none', opacity:.85}}>+55 42 98422-4363</a></li>
             </ul>
             <a href="https://www.instagram.com/agenciabyte.ia" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{marginTop:16, display:'inline-flex', alignItems:'center', justifyContent:'center', width:32, height:32, borderRadius:8, border:'1px solid rgba(255,255,255,0.12)', color:'rgba(255,255,255,0.5)', transition:'color .15s, border-color .15s'}} onMouseEnter={e=>{e.currentTarget.style.color='#fff';e.currentTarget.style.borderColor='rgba(255,255,255,0.3)'}} onMouseLeave={e=>{e.currentTarget.style.color='rgba(255,255,255,0.5)';e.currentTarget.style.borderColor='rgba(255,255,255,0.12)'}}>
@@ -268,10 +268,7 @@ function FooterCol({ title, items }){
         {items.map(i => {
           const label = typeof i === 'object' ? i.label : i;
           const href  = typeof i === 'object' ? i.href  : '#';
-          const extra = typeof i === 'object' ? {target:'_blank', rel:'noopener noreferrer'} : {};
-          if (href.startsWith('/')) {
-             return <li key={label} style={{fontSize:14}}><Link to={href} className="ul-link" style={{textDecoration:'none', opacity:.85}}>{label}</Link></li>;
-          }
+          const extra = href.startsWith('http') ? {target:'_blank', rel:'noopener noreferrer'} : {};
           return <li key={label} style={{fontSize:14}}><a href={href} className="ul-link" style={{textDecoration:'none', opacity:.85}} {...extra}>{label}</a></li>;
         })}
       </ul>

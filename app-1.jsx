@@ -207,6 +207,9 @@ function Transformation(){
             <div className="transformation-note mono">// dados confiáveis · decisão em ritmo real</div>
           </div>
         </div>
+        <div style={{marginTop:32, textAlign:'center'}}>
+          <a href="/transformacao" className="ul-link mono" style={{fontSize:14, textDecoration:'none', color:'var(--dark-ink)'}}>Ver o antes e depois de cada área →</a>
+        </div>
       </div>
     </section>
   );
@@ -268,6 +271,8 @@ function About(){
 const SERVICES = [
   {
     code: '01',
+    href: '/servicos/desenvolvimento-de-software',
+    more: 'Ver desenvolvimento sob medida',
     title: 'Desenvolvimento de Software Sob Medida',
     pitch: 'Web apps, dashboards internos, APIs e portais. Frontend e backend.',
     desc: 'Desenvolvemos soluções personalizadas que digitalizam processos específicos e se integram ao ecossistema da empresa, com entregas iterativas e foco em qualidade.',
@@ -276,6 +281,8 @@ const SERVICES = [
   },
   {
     code: '02',
+    href: '/servicos/automacao-com-ia',
+    more: 'Ver automação com IA',
     title: 'Automação com IA',
     pitch: 'Agents, classificação, extração de documentos, atendimento 24/7.',
     desc: 'Desenvolvemos automações de processos utilizando inteligência artificial para classificar documentos, automatizar tarefas repetitivas, conectar fluxos de trabalho e criar atendimentos inteligentes.',
@@ -284,6 +291,8 @@ const SERVICES = [
   },
   {
     code: '03',
+    href: '/servicos/integracao-de-sistemas',
+    more: 'Ver integração de sistemas',
     title: 'Integração de Sistemas',
     pitch: 'Conectar tudo o que sua empresa já usa. Sem retrabalho manual.',
     desc: 'Conectamos ERPs, CRMs e APIs para sincronizar sistemas, reduzir processos manuais e eliminar erros de integração.',
@@ -292,6 +301,8 @@ const SERVICES = [
   },
   {
     code: '04',
+    href: '/servicos/dados-e-power-bi',
+    more: 'Ver dados e Power BI',
     title: 'Dados e Dashboards',
     pitch: 'Pipelines, BI e modelos prontos para a próxima decisão.',
     desc: 'Implementamos pipelines de dados, dashboards e soluções de Business Intelligence, incluindo Power BI, para transformar dados operacionais em indicadores acionáveis.',
@@ -341,6 +352,7 @@ function Services(){
                   </li>
                 ))}
               </ul>
+              <a href={s.href} className="ul-link mono" style={{display:'inline-block', marginTop:22, fontSize:13, textDecoration:'none', color:'var(--ink)'}}>{s.more} →</a>
             </div>
           ))}
         </div>

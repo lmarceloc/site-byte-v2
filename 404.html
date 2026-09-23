@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Página não encontrada | Agencia Byte</title>
+<meta name="description" content="A página que você procurou não existe." />
+<meta name="robots" content="noindex, follow" />
+
+<meta name="theme-color" content="#FF6A1A" />
+<link rel="icon" href="/img/logo_byte_64.png" sizes="64x64" type="image/png" />
+<link rel="apple-touch-icon" href="/img/logo_byte.png" sizes="180x180" />
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SFBNK4KDQ');
+  (function(){
+    var done = false, evts = ['pointerdown','keydown','scroll','touchstart'];
+    function load(){
+      if (done) return; done = true;
+      evts.forEach(function(e){ removeEventListener(e, load); });
+      var g = document.createElement('script');
+      g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-8SFBNK4KDQ';
+      document.head.appendChild(g);
+      var a = document.createElement('script');
+      a.async = true; a.src = 'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' + Math.random().toString(36).substring(7);
+      a.onload = function(){ window.trackingFunctions.onLoad({ appId: '6a5fc15502199500103f7f77' }); };
+      document.head.appendChild(a);
+    }
+    evts.forEach(function(e){ addEventListener(e, load, { once: true, passive: true }); });
+    addEventListener('load', function(){ setTimeout(load, 4000); });
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/pages.css" />
+</head>
+<body data-theme="light"><a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand-wrap" aria-label="Agencia Byte, página inicial">
+      <span class="glyph">
+        <picture>
+          <source srcset="/img/logo_byte.webp" type="image/webp" />
+          <img src="/img/logo_byte_64.png" alt="" width="32" height="32" />
+        </picture>
+      </span>
+      <span>Agencia Byte</span>
+    </a>
+    <nav class="nav-pill" aria-label="Menu principal">
+      <a href="/#sobre" class="nav-pill-link">Sobre</a>
+      <a href="/transformacao" class="nav-pill-link">Antes e depois</a>
+      <a href="/servicos" class="nav-pill-link">Serviços</a>
+      <a href="/#processo" class="nav-pill-link">Processo</a>
+      <a href="/#clientes" class="nav-pill-link">Clientes</a>
+      <a href="https://blog.agenciabyte.com/" class="nav-pill-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="/#contato" class="btn btn-accent nav-cta-desktop">Contato →</a>
+      <button class="nav-burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile-menu" id="menu-mobile" aria-label="Menu de navegação" hidden>
+    <a href="/#sobre">Sobre</a>
+    <a href="/transformacao">Antes e depois</a>
+    <a href="/servicos">Serviços</a>
+    <a href="/#processo">Processo</a>
+    <a href="/#clientes">Clientes</a>
+    <a href="https://blog.agenciabyte.com/" class="ul-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    <a href="/#contato" class="nav-mobile-cta">Contato →</a>
+  </nav>
+</header>
+<script>
+  (function(){
+    var b = document.querySelector('.nav-burger'), m = document.getElementById('menu-mobile');
+    b.addEventListener('click', function(){
+      var open = m.hidden;
+      m.hidden = !open;
+      b.setAttribute('aria-expanded', String(open));
+      b.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    });
+  })();
+</script>
+<main id="conteudo">
+  <section class="page-hero page-hero-404">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <div class="eyebrow mono"><span class="dot"></span>erro 404</div>
+      <h1 class="display">Página não encontrada.</h1>
+      <p class="lead muted">O endereço pode ter mudado ou nunca ter existido. Veja por onde continuar:</p>
+      <div class="cta-actions">
+        <a href="/" class="btn btn-accent">Ir para o início →</a>
+        <a href="/servicos" class="btn btn-ghost">Ver serviços</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="section-dark site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">Agencia Byte</div>
+        <p class="muted footer-tagline">Código que funciona. Sistemas que crescem. Engenharia para empresas com pressa.</p>
+      </div>
+      <div>
+          <div class="mono footer-title">Serviços</div>
+          <ul class="footer-list">
+            <li><a href="/servicos/desenvolvimento-de-software" class="ul-link">Desenvolvimento</a></li>
+            <li><a href="/servicos/automacao-com-ia" class="ul-link">Automação IA</a></li>
+            <li><a href="/servicos/integracao-de-sistemas" class="ul-link">Integrações</a></li>
+            <li><a href="/servicos/dados-e-power-bi" class="ul-link">Dados e Power BI</a></li>
+          </ul>
+        </div>
+      <div>
+          <div class="mono footer-title">Empresa</div>
+          <ul class="footer-list">
+            <li><a href="/#sobre" class="ul-link">Sobre</a></li>
+            <li><a href="/#processo" class="ul-link">Processo</a></li>
+            <li><a href="/transformacao" class="ul-link">Antes e depois</a></li>
+            <li><a href="https://blog.agenciabyte.com/" class="ul-link">Blog</a></li>
+          </ul>
+        </div>
+      <div>
+        <div class="mono footer-title">Contato</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@agenciabyte.com" class="ul-link">hello@agenciabyte.com</a></li>
+          <li><a href="https://wa.me/5542984224363" target="_blank" rel="noopener noreferrer" class="ul-link">+55 42 98422-4363</a></li>
+          <li><a href="https://www.instagram.com/agenciabyte.ia" target="_blank" rel="noopener noreferrer" class="ul-link">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="muted mono">© 2026 Agencia Byte · todos os direitos reservados</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

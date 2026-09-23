@@ -1,9 +1,32 @@
 {
   "outputDirectory": ".",
-  "rewrites": [
+  "trailingSlash": false,
+  "redirects": [
     {
-      "source": "/([^.]*)",
-      "destination": "/index.html"
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.agenciabyte.com"
+        }
+      ],
+      "destination": "https://agenciabyte.com/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/sobre",
+      "destination": "/#sobre",
+      "statusCode": 301
+    },
+    {
+      "source": "/processo",
+      "destination": "/#processo",
+      "statusCode": 301
+    },
+    {
+      "source": "/stack",
+      "destination": "/servicos",
+      "statusCode": 301
     }
   ]
 }

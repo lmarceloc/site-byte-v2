@@ -23,3 +23,15 @@ npm run build # gera app.js (minificado, com React embutido)
 | `entry.jsx` | Monta o `<App>` e faz o `createRoot().render()` |
 | `react-shim.js` | Injeta `React` como global via esbuild (`--inject`) |
 | `app.js` | Bundle final gerado pelo build |
+
+## Páginas internas (estáticas)
+
+`/transformacao`, `/servicos`, `/servicos/<slug>` e `404.html` são HTML puro,
+sem React, gerados por `build-pages.mjs` (conteúdo e textos ficam nesse arquivo).
+
+```bash
+npm run pages # regenera as páginas internas e o sitemap.xml
+```
+
+Estilos específicos em `pages.css` (reaproveita os tokens de `styles.css`).
+Redirects (www → sem www, rotas antigas) ficam em `vercel.json`.
