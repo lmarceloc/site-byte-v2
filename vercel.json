@@ -3,6 +3,17 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.agenciabyte.com"
+        }
+      ],
+      "destination": "https://agenciabyte.com/",
+      "statusCode": 301
+    },
+    {
       "source": "/:path*",
       "has": [
         {
