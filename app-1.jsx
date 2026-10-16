@@ -106,7 +106,50 @@ function Nav(){
 
 /* -------------------- Hero -------------------- */
 
+/* Teste A/B do título do hero. Variante fixa por visitante (localStorage);
+   ?v=a|b força uma variante para pré-visualizar. Eventos vão para o GA4. */
+const HERO_VARIANTS = ['a', 'b'];
+function pickHeroVariant(){
+  try {
+    const forced = new URLSearchParams(location.search).get('v');
+    if (HERO_VARIANTS.includes(forced)) return forced;
+  } catch (e) {}
+  try {
+    const saved = localStorage.getItem('ab_hero');
+    if (HERO_VARIANTS.includes(saved)) return saved;
+  } catch (e) {}
+  const v = HERO_VARIANTS[Math.floor(Math.random() * HERO_VARIANTS.length)];
+  try { localStorage.setItem('ab_hero', v); } catch (e) {}
+  return v;
+}
+function trackHero(name, variant){
+  if (typeof window.gtag === 'function') window.gtag('event', name, { hero_variant: variant });
+}
+
+function HeroTitle({ variant }){
+  if (variant === 'b') return (
+    <>
+      Conecte sistemas, automatize tarefas<br/>
+      e faça sua operação{' '}
+      <span style={{position:'relative', display:'inline-block'}}>
+        escalar<span style={{color:'var(--accent)'}}>.</span>
+        <svg viewBox="0 0 100 7" preserveAspectRatio="none" style={{position:'absolute', left:0, right:0, bottom:'-3px', width:'100%', height:7, overflow:'visible'}}>
+          <path d="M1 5 Q 25 1, 50 4 T 100 6" stroke="var(--accent)" strokeWidth={1.5} fill="none" strokeLinecap="round" />
+        </svg>
+      </span>
+    </>
+  );
+  return (
+    <>
+      Transforme processos manuais<br/>
+      <span style={{color:'var(--accent)'}}>em operação inteligente</span>.
+    </>
+  );
+}
+
 function Hero(){
+  const [variant] = React.useState(pickHeroVariant);
+  React.useEffect(() => { trackHero('hero_view', variant); }, [variant]);
   return (
     <section style={{paddingTop: 110, paddingBottom: 90, position:'relative', overflow:'hidden'}}>
       <div className="grid-bg" />
@@ -114,21 +157,13 @@ function Hero(){
         <div style={{display:'grid', gridTemplateColumns:'minmax(0, 780px)', gap:'56px', alignItems:'center'}} className="hero-grid">
           <div>
             <h1 className="display reveal" style={{fontSize:'clamp(18px, 4.5vw, 52px)', margin:'12px 0 0'}}>
-              Automatize o<br/>
-              <span style={{color:'var(--accent)'}}>trabalho braçal</span>.<br/>
-              Faça sua operação<br/>
-              <span style={{position:'relative', display:'inline-block'}}>
-                crescer<span style={{color:'var(--accent)'}}>.</span>
-                <svg viewBox="0 0 100 7" preserveAspectRatio="none" style={{position:'absolute', left:0, right:0, bottom:'-3px', width:'100%', height:7, overflow:'visible'}}>
-                  <path d="M1 5 Q 25 1, 50 4 T 100 6" stroke="var(--accent)" strokeWidth={1.5} fill="none" strokeLinecap="round" />
-                </svg>
-              </span>
+              <HeroTitle variant={variant} />
             </h1>
             <p className="reveal muted" style={{fontSize:18, maxWidth:520, marginTop:32, lineHeight:1.55}}>
               Transformamos tarefas repetitivas e processos desconectados em operações inteligentes, integradas e previsíveis. Conectamos seus sistemas, desenhamos integrações sob medida e aplicamos IA diretamente nos fluxos de vendas e gestão. O próximo passo não é trabalhar mais. É automatizar para crescer.
             </p>
             <div className="reveal" style={{display:'flex', gap:12, marginTop:32, flexWrap:'wrap'}}>
-              <a href="#contato" className="btn btn-accent">Começar um projeto →</a>
+              <a href="#contato" className="btn btn-accent" onClick={() => trackHero('hero_cta_click', variant)}>Começar um projeto →</a>
             </div>
             <div className="reveal" style={{marginTop:48, display:'flex', gap:32, flexWrap:'wrap', fontSize:13}}>
               <div><div className="muted mono" style={{fontSize:11, letterSpacing:'.08em', textTransform:'uppercase'}}>Tempo médio</div><div style={{fontWeight:600, fontSize:16, marginTop:4}}>3–6 semanas</div></div>

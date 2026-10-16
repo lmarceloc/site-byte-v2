@@ -142,3 +142,67 @@ a.nav-brand-wrap:focus-visible{ outline: 2px solid var(--accent); outline-offset
 .footer-list a{ text-decoration: none; opacity: .85; }
 .footer-list a:hover{ opacity: 1; }
 .footer-bottom{ border-top: 1px solid rgba(255,255,255,0.08); margin-top: 48px; padding-top: 24px; font-size: 12px; }
+
+/* ----- 404: dither + bytes ----- */
+.nf{ padding: 96px 0 24px; }
+.nf-card{
+  --nf-dot-soft: #CBE8CC; --nf-dot-strong: #42AE48;
+  position: relative; overflow: hidden; isolation: isolate;
+  min-height: max(620px, calc(100svh - 120px));
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--bg);
+}
+.nf-dither{ position: absolute; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; z-index: -1; }
+.nf-copy{ position: relative; z-index: 2; max-width: 640px; padding: clamp(28px, 5vw, 64px); display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+.nf-copy .eyebrow{ color: var(--ink-2); }
+.nf-copy h1{ margin: 0; font-size: clamp(48px, 8vw, 104px); text-wrap: balance; }
+.nf-code{ display: block; margin-bottom: 14px; font: 700 clamp(14px, 1.6vw, 18px)/1.2 var(--font-mono); letter-spacing: 0.1em; color: var(--ink-3); }
+.nf-copy .lead{ margin: 0; max-width: 46ch; font-size: 18px; color: var(--ink); }
+.nf-copy .cta-actions{ margin: 0; }
+.nf-trace{ font: 400 13px/1.7 var(--font-mono); color: var(--ink-2); background: color-mix(in oklab, var(--bg-elev) 88%, transparent); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; max-width: 100%; overflow-x: auto; }
+.nf-trace b{ font-weight: 500; }
+.nf-dim{ color: var(--ink-3); }
+
+/* bytes (mascotes) */
+.nf-byte{
+  position: absolute; z-index: 1; width: var(--s); aspect-ratio: 1; background: var(--ink);
+  clip-path: polygon(0 12%,12% 12%,12% 0,88% 0,88% 12%,100% 12%,100% 88%,88% 88%,88% 100%,12% 100%,12% 88%,0 88%);
+  animation: nf-bob var(--d, 5s) steps(6, end) infinite alternate; animation-delay: var(--delay, 0s);
+}
+.nf-byte i{ position: absolute; top: 38%; width: 9%; height: 22%; background: var(--bg); animation: nf-blink 6s steps(1) infinite; animation-delay: var(--delay, 0s); }
+.nf-byte i:nth-child(1){ left: 31%; }
+.nf-byte i:nth-child(2){ right: 31%; }
+@keyframes nf-bob{ from{ transform: translateY(0); } to{ transform: translateY(calc(var(--s) * -.14)); } }
+@keyframes nf-blink{ 0%, 94%, 100%{ transform: scaleY(1); } 96%{ transform: scaleY(.15); } }
+.nf-b1{ --s: 40px; right: 24%; top: 9%; --d: 4s; }
+.nf-b2{ --s: 34px; right: 9%; top: 24%; --d: 5s; --delay: -1.5s; }
+.nf-b3{ --s: 28px; right: 38%; top: 46%; --d: 6s; --delay: -3s; }
+.nf-b4{ --s: 88px; right: 5%; bottom: 7%; --d: 4.5s; --delay: -.8s; }
+.nf-b5{ --s: 46px; right: 22%; bottom: 17%; --d: 5.5s; --delay: -2.2s; }
+@media (max-width: 760px){
+  .nf-card{ min-height: 700px; }
+  .nf-b1{ right: 12%; top: auto; bottom: 36%; } .nf-b2{ right: 4%; top: auto; bottom: 46%; }
+  .nf-b3{ right: 40%; top: auto; bottom: 28%; } .nf-b4{ --s: 72px; } .nf-b5{ right: 30%; bottom: 10%; }
+}
+
+/* mascote do menu, perdido */
+.glyph-lost::after{ display: none; }
+.glyph-lost{ overflow: visible; animation: nf-wander 9s steps(1) infinite; }
+.nf-mark{ width: 28px; height: 28px; display: block; color: var(--ink); }
+.nf-mark-eyes{ animation: nf-scan 9s steps(1) infinite; }
+.nf-q{ position: absolute; left: 100%; top: -9px; margin-left: 2px; font: 500 12px/1 var(--font-mono); color: var(--ink-3); opacity: 0; animation: nf-ask 9s steps(1) infinite; }
+@keyframes nf-wander{
+  0%{ transform: translate(0, 0) rotate(0); } 18%{ transform: translate(-4px, 3px) rotate(-8deg); }
+  38%{ transform: translate(5px, -2px) rotate(7deg); } 58%{ transform: translate(-2px, 4px) rotate(-4deg); }
+  78%{ transform: translate(4px, 1px) rotate(9deg); }
+}
+@keyframes nf-scan{
+  0%{ transform: translateX(0); } 14%{ transform: translateX(-2px); } 28%{ transform: translateX(2px); }
+  42%{ transform: translateX(-2px); } 56%{ transform: translate(2px, -1px); } 70%{ transform: translate(-2px, 1px); } 84%{ transform: translateX(2px); }
+}
+@keyframes nf-ask{ 0%, 30%{ opacity: 0; } 32%, 52%{ opacity: 1; } 54%, 100%{ opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce){
+  .nf-byte, .nf-byte i, .glyph-lost, .nf-mark-eyes{ animation: none; }
+  .nf-q{ animation: none; opacity: 1; }
+}
