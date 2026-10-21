@@ -10,6 +10,7 @@ node_modules
 .wrangler
 .gitignore
 .vercelignore
+vercel.json
 .assetsignore
 wrangler.jsonc
 package.json
