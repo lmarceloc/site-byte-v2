@@ -34,4 +34,4 @@ npm run pages # regenera as páginas internas e o sitemap.xml
 ```
 
 Estilos específicos em `pages.css` (reaproveita os tokens de `styles.css`).
-Redirects (www → sem www, rotas antigas) ficam em `vercel.json`.
+Hospedagem e redirects: ver `CLOUDFLARE.md`.

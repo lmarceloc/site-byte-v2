@@ -6,10 +6,13 @@
   "scripts": {
     "build": "esbuild entry.jsx --bundle --minify --inject:./react-shim.js --jsx=transform --define:process.env.NODE_ENV=\\\"production\\\" --outfile=app.js",
     "watch": "npm run build -- --watch",
-    "pages": "node build-pages.mjs"
+    "pages": "node build-pages.mjs",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev"
   },
   "devDependencies": {
-    "esbuild": "^0.24.0"
+    "esbuild": "^0.24.0",
+    "wrangler": "^4.151.3"
   },
   "dependencies": {
     "react": "^18.3.1",

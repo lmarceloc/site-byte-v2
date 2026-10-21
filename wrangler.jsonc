@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "site-byte-v2",
+  "compatibility_date": "2026-10-01",
+  // Site 100% estático: só Static Assets, sem código de Worker.
+  "assets": {
+    "directory": ".",
+    // /servicos/ -> /servicos (equivale ao trailingSlash: false da Vercel)
+    "html_handling": "drop-trailing-slash",
+    // Rotas inexistentes servem 404.html com status 404
+    "not_found_handling": "404-page"
+  },
+  // Evita conteúdo duplicado indexado em *.workers.dev / URLs de preview
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "agenciabyte.com", "custom_domain": true },
+    { "pattern": "www.agenciabyte.com", "custom_domain": true }
+  ]
+}

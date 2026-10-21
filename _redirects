@@ -1,0 +1,4 @@
+# Rotas antigas (equivalente ao vercel.json)
+/sobre     /#sobre    301
+/processo  /#processo 301
+/stack     /servicos  301

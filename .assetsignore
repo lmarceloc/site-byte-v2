@@ -1,0 +1,26 @@
+# Arquivos que NÃO devem ser publicados como assets
+node_modules
+.git
+.github
+.claude
+.agents
+.impeccable
+.vercel
+.vscode
+.wrangler
+.gitignore
+.vercelignore
+.assetsignore
+wrangler.jsonc
+package.json
+package-lock.json
+skills-lock.json
+*.jsx
+*.mjs
+react-shim.js
+BUILD.md
+DESIGN.md
+PRODUCT.md
+CLOUDFLARE.md
+transformacao/project.json
+_worker.js
