@@ -102,8 +102,25 @@ function Clients(){
 
 function Contact(){
   const [budget, setBudget] = useState2('2-5');
-  const sent = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('sent') === 'true';
-  const redirectUrl = typeof window !== 'undefined' ? window.location.origin + window.location.pathname + '?sent=true#contato' : '';
+  const [status, setStatus] = useState2('idle'); // idle | sending | sent | error
+  const sent = status === 'sent';
+  const redirectUrl = typeof window !== 'undefined' ? window.location.origin + window.location.pathname + '#contato' : '';
+
+  async function onSubmit(e){
+    e.preventDefault();
+    setStatus('sending');
+    try {
+      const res = await fetch(e.currentTarget.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(e.currentTarget))),
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      setStatus('sent');
+    } catch (err) {
+      setStatus('error');
+    }
+  }
 
   return (
     <section id="contato" className="section-contact" style={{paddingTop: 110, paddingBottom: 110, background:'var(--bg-elev)', borderTop:'1px solid var(--line)'}}>
@@ -122,13 +139,13 @@ function Contact(){
 
           <div className="card" style={{padding:32, minHeight:320, borderColor:'#5DD3A8'}}>
             {sent ? (
-              <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', height:'100%', padding:'40px 8px', textAlign:'center', animation:'fadeInUp .5s ease'}}>
+              <div role="status" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', height:'100%', padding:'40px 8px', textAlign:'center', animation:'fadeInUp .5s ease'}}>
                 <div style={{width:64, height:64, borderRadius:'50%', background:'color-mix(in oklab, var(--accent) 15%, transparent)', border:'1px solid var(--accent)', display:'grid', placeItems:'center', fontSize:28, color:'var(--accent)', marginBottom:20}}>✓</div>
                 <div className="display" style={{fontSize:28}}>Recebido!</div>
                 <p className="muted" style={{marginTop:10, fontSize:15}}>Vamos te responder em breve.<br/>Fique de olho no seu e-mail.</p>
               </div>
             ) : (
-              <form action="https://submit-form.com/YVwqwQ14y">
+              <form action="https://submit-form.com/YVwqwQ14y" method="POST" onSubmit={onSubmit}>
                 <input type="hidden" name="_redirect" value={redirectUrl} />
                 <div className="mono" style={{fontSize:11, letterSpacing:'.08em', color:'var(--accent)'}}>// BRIEF RÁPIDO</div>
                 <div style={{display:'grid', gap:16, marginTop:18}}>
@@ -160,7 +177,14 @@ function Contact(){
                 </div>
                 <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', marginTop:20, gap:16, flexWrap:'wrap'}}>
                   <span className="muted mono" style={{fontSize:12}}>↵ enviar · resposta em &lt; 24h</span>
-                  <button type="submit" className="btn btn-accent">Enviar</button>
+                  <button type="submit" className="btn btn-accent" disabled={status === 'sending'}>{status === 'sending' ? 'Enviando…' : 'Enviar'}</button>
+                </div>
+                {status === 'error' && (
+                  <p role="alert" style={{marginTop:14, fontSize:14, color:'#F87171'}}>
+                    Não foi possível enviar agora. Tente de novo ou fale com a gente pelo WhatsApp.
+                  </p>
+                )}
+                <div>
                 </div>
               </form>
             )}
