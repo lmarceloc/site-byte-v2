@@ -8,7 +8,7 @@ A Cloudflare hoje recomenda Workers Static Assets no lugar de Pages para projeto
 |---|---|
 | `wrangler.jsonc` | Config do Worker: pasta de assets, 404, sem barra final, domínios |
 | `.assetsignore` | O que NÃO é publicado (node_modules, .jsx, .md internos, configs) |
-| `_redirects` | `/sobre`, `/processo`, `/stack` (vindos do `vercel.json`) |
+| `_redirects` | `/sobre`, `/processo`, `/stack` |
 | `_headers` | Headers de segurança e cache |
 
 ## Subir (conectado ao GitHub)
@@ -19,7 +19,7 @@ A Cloudflare hoje recomenda Workers Static Assets no lugar de Pages para projeto
    Se houver registros A/CNAME antigos apontando pra Vercel nesses nomes, apague-os antes.
 4. **www → apex**: Rules → Redirect Rules → template "Redirect from WWW to root" (301, preservar path e query).
    `_redirects` não suporta regra por host, por isso fica no painel.
-5. Depois de validar, remover o domínio do projeto na Vercel (e `vercel.json`/`.vercelignore`).
+5. Migração da Vercel concluída (out/2026); arquivos da Vercel removidos do repo.
 
 ## SEO
 - URLs, canonicals, `sitemap.xml`, `robots.txt` e `llms.txt` não mudam → sem perda de ranking.

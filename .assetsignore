@@ -5,12 +5,9 @@ node_modules
 .claude
 .agents
 .impeccable
-.vercel
 .vscode
 .wrangler
 .gitignore
-.vercelignore
-vercel.json
 .assetsignore
 wrangler.jsonc
 package.json
