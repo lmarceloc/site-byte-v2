@@ -31,3 +31,12 @@ A Cloudflare hoje recomenda Workers Static Assets no lugar de Pages para projeto
 
 ## Local
 `npm run preview` (wrangler dev) · `npm run deploy` (precisa de `CLOUDFLARE_API_TOKEN`).
+
+## Deploy não dispara após push na `main`
+Se aparecer "This project is disconnected from your Git account" em Settings → Builds
+(ou nenhum build novo surgir depois de um merge), o app da Cloudflare perdeu acesso ao repositório:
+1. Logado no GitHub como dono do repo, instale/configure https://github.com/apps/cloudflare-workers-and-pages
+   e libere o `site-byte-v2`.
+2. Na Cloudflare: Settings → Builds → Disconnect → Connect (branch `main`, build command vazio,
+   deploy `npx wrangler deploy`, preview builds desligado).
+3. O próximo push na `main` dispara o build; confira no log o upload de `/en/...` e `/es/...`.
