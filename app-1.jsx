@@ -1,4 +1,6 @@
 /* global React */
+import { T, LANG } from "./i18n/home.jsx";
+import { LANGS, LANG_META, ROUTES, FLAGS, SWITCH_LABEL, svcRoute } from "./i18n/routes.mjs";
 const { useState, useEffect, useRef, useMemo } = React;
 
 /* -------------------- helpers -------------------- */
@@ -46,11 +48,48 @@ function useInView(ref, opts={ threshold: 0.3 }){
   return v;
 }
 
+/* -------------------- Seletor de idioma -------------------- */
+
+const Flag = ({ lang }) => <span className="lang-flag" dangerouslySetInnerHTML={{ __html: FLAGS[lang] }} />;
+
+function LangSwitch(){
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    const onDown = (e) => { if (el && el.open && !el.contains(e.target)) el.open = false; };
+    const onKey = (e) => { if (e.key === 'Escape' && el && el.open) { el.open = false; el.querySelector('summary').focus(); } };
+    document.addEventListener('pointerdown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => { document.removeEventListener('pointerdown', onDown); document.removeEventListener('keydown', onKey); };
+  }, []);
+  // As seções da home têm os mesmos ids nos três idiomas: leva o #âncora junto.
+  const go = (e) => { if (location.hash) e.currentTarget.href += location.hash; };
+  return (
+    <details className="lang-switch" ref={ref}>
+      <summary aria-label={`${SWITCH_LABEL[LANG]}: ${LANG_META[LANG].name}`}>
+        <Flag lang={LANG} />
+        <span className="lang-code">{LANG_META[LANG].short}</span>
+        <svg className="lang-chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      </summary>
+      <ul className="lang-menu">
+        {LANGS.map(l => (
+          <li key={l}>
+            <a href={ROUTES.home[l]} hrefLang={LANG_META[l].hreflang} lang={LANG_META[l].html} aria-current={l === LANG ? 'true' : undefined} onClick={go}>
+              <Flag lang={l} />{LANG_META[l].name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  );
+}
+
 /* -------------------- Nav -------------------- */
 
 function Nav(){
   const [menuOpen, setMenuOpen] = useState(false);
   const close = () => setMenuOpen(false);
+  const n = T.nav;
 
   return (
     <header className="nav">
@@ -63,21 +102,21 @@ function Nav(){
             </picture>
           </div>
           <span>Agencia Byte</span>
-          {/* <span className="mono" style={{fontSize:11, opacity:.5, marginLeft:6}}>v2.0</span> */}
         </div>
         <nav className="nav-pill">
-          <a href="#sobre" className="nav-pill-link">Sobre</a>
-          <a href="#transformacao" className="nav-pill-link">Antes e depois</a>
-          <a href="#servicos" className="nav-pill-link">Serviços</a>
-          <a href="#processo" className="nav-pill-link">Processo</a>
-          <a href="#clientes" className="nav-pill-link">Clientes</a>
+          <a href="#sobre" className="nav-pill-link">{n.about}</a>
+          <a href="#transformacao" className="nav-pill-link">{n.transformation}</a>
+          <a href="#servicos" className="nav-pill-link">{n.services}</a>
+          <a href="#processo" className="nav-pill-link">{n.process}</a>
+          <a href="#clientes" className="nav-pill-link">{n.clients}</a>
           <a href="https://blog.agenciabyte.com/" className="nav-pill-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
         </nav>
         <div className="nav-cta">
-          <a href="#contato" className="btn btn-accent nav-cta-desktop" onClick={close}>Contato →</a>
+          <LangSwitch />
+          <a href="#contato" className="btn btn-accent nav-cta-desktop" onClick={close}>{n.contact}</a>
           <button
             className="nav-burger"
-            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-label={menuOpen ? n.menuClose : n.menuOpen}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(o => !o)}
           >
@@ -90,14 +129,14 @@ function Nav(){
         </div>
       </div>
       {menuOpen && (
-        <nav className="nav-mobile-menu" aria-label="Menu de navegação">
-          <a href="#sobre" onClick={close}>Sobre</a>
-          <a href="#transformacao" onClick={close}>Antes e depois</a>
-          <a href="#servicos" onClick={close}>Serviços</a>
-          <a href="#processo" onClick={close}>Processo</a>
-          <a href="#clientes" onClick={close}>Clientes</a>
+        <nav className="nav-mobile-menu" aria-label={n.menuLabel}>
+          <a href="#sobre" onClick={close}>{n.about}</a>
+          <a href="#transformacao" onClick={close}>{n.transformation}</a>
+          <a href="#servicos" onClick={close}>{n.services}</a>
+          <a href="#processo" onClick={close}>{n.process}</a>
+          <a href="#clientes" onClick={close}>{n.clients}</a>
           <a href="https://blog.agenciabyte.com/" className="ul-link blog-link" target="_blank" rel="noopener noreferrer" onClick={close}>Blog</a>
-          <a href="#contato" className="nav-mobile-cta" onClick={close}>Contato →</a>
+          <a href="#contato" className="nav-mobile-cta" onClick={close}>{n.contact}</a>
         </nav>
       )}
     </header>
@@ -123,16 +162,16 @@ function pickHeroVariant(){
   return v;
 }
 function trackHero(name, variant){
-  if (typeof window.gtag === 'function') window.gtag('event', name, { hero_variant: variant });
+  if (typeof window.gtag === 'function') window.gtag('event', name, { hero_variant: variant, language: LANG });
 }
 
 function HeroTitle({ variant }){
   if (variant === 'b') return (
     <>
-      Conecte sistemas, automatize tarefas<br/>
-      e faça sua operação{' '}
+      {T.hero.titleB[0]}<br/>
+      {T.hero.titleB[1]}{' '}
       <span style={{position:'relative', display:'inline-block'}}>
-        escalar<span style={{color:'var(--accent)'}}>.</span>
+        {T.hero.titleB[2]}<span style={{color:'var(--accent)'}}>.</span>
         <svg viewBox="0 0 100 7" preserveAspectRatio="none" style={{position:'absolute', left:0, right:0, bottom:'-3px', width:'100%', height:7, overflow:'visible'}}>
           <path d="M1 5 Q 25 1, 50 4 T 100 6" stroke="var(--accent)" strokeWidth={1.5} fill="none" strokeLinecap="round" />
         </svg>
@@ -141,8 +180,8 @@ function HeroTitle({ variant }){
   );
   return (
     <>
-      Transforme processos manuais<br/>
-      <span style={{color:'var(--accent)'}}>em operação inteligente</span>.
+      {T.hero.titleA[0]}<br/>
+      <span style={{color:'var(--accent)'}}>{T.hero.titleA[1]}</span>.
     </>
   );
 }
@@ -160,15 +199,15 @@ function Hero(){
               <HeroTitle variant={variant} />
             </h1>
             <p className="reveal muted" style={{fontSize:18, maxWidth:520, marginTop:32, lineHeight:1.55}}>
-              Transformamos tarefas repetitivas e processos desconectados em operações inteligentes, integradas e previsíveis. Conectamos seus sistemas, desenhamos integrações sob medida e aplicamos IA diretamente nos fluxos de vendas e gestão. O próximo passo não é trabalhar mais. É automatizar para crescer.
+              {T.hero.lead}
             </p>
             <div className="reveal" style={{display:'flex', gap:12, marginTop:32, flexWrap:'wrap'}}>
-              <a href="#contato" className="btn btn-accent" onClick={() => trackHero('hero_cta_click', variant)}>Começar um projeto →</a>
+              <a href="#contato" className="btn btn-accent" onClick={() => trackHero('hero_cta_click', variant)}>{T.hero.cta}</a>
             </div>
             <div className="reveal" style={{marginTop:48, display:'flex', gap:32, flexWrap:'wrap', fontSize:13}}>
-              <div><div className="muted mono" style={{fontSize:11, letterSpacing:'.08em', textTransform:'uppercase'}}>Tempo médio</div><div style={{fontWeight:600, fontSize:16, marginTop:4}}>3–6 semanas</div></div>
-              <div><div className="muted mono" style={{fontSize:11, letterSpacing:'.08em', textTransform:'uppercase'}}>SLA suporte</div><div style={{fontWeight:600, fontSize:16, marginTop:4}}>&lt; 4h úteis</div></div>
-              <div><div className="muted mono" style={{fontSize:11, letterSpacing:'.08em', textTransform:'uppercase'}}>Stack</div><div style={{fontWeight:600, fontSize:16, marginTop:4}}>type-safe ponta a ponta</div></div>
+              {T.hero.stats.map(([label, value]) => (
+                <div key={label}><div className="muted mono" style={{fontSize:11, letterSpacing:'.08em', textTransform:'uppercase'}}>{label}</div><div style={{fontWeight:600, fontSize:16, marginTop:4}}>{value}</div></div>
+              ))}
             </div>
           </div>
         </div>
@@ -181,23 +220,6 @@ function Hero(){
     </section>
   );
 }
-
-const TRANSFORMATION_SYMPTOMS = [
-  'ERPs, WMS e planilhas isoladas',
-  'Trabalho braçal e repetitivo',
-  'Dados espalhados e sem confiança',
-  'Pouca inteligência no dia a dia',
-  'Custos operacionais inflados',
-];
-
-const TRANSFORMATION_BENEFITS = [
-  'Fluxos inteligentes e autônomos',
-  'Sistemas totalmente sincronizados',
-  'IA para conversão e triagem',
-  'Dados unificados para decidir rápido',
-  'Escala sem aumentar a equipe',
-  'Tempo livre para a estratégia',
-];
 
 function FlowGlyph({ type }){
   if (type === 'sheet') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h12v15H5zM8 8h6M8 12h6M8 16h4"/><path d="M8 2h11v15"/></svg>;
@@ -214,36 +236,36 @@ function Transformation(){
       <div className="grid-bg" />
       <div className="wrap transformation-wrap">
         <div className="transformation-heading reveal">
-          <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color':'#F59E0B'}}/>Antes e depois</div>
-          <h2 className="display">O processo agora flui.</h2>
-          <p>Da operação fragmentada a um ecossistema que conversa, decide e executa.</p>
+          <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color':'#F59E0B'}}/>{T.transformation.eyebrow}</div>
+          <h2 className="display">{T.transformation.title}</h2>
+          <p>{T.transformation.sub}</p>
         </div>
         <div className="transformation-stage reveal-stagger">
           <div className="transformation-panel transformation-before">
-            <div className="transformation-kicker mono">01 / cenário de partida</div>
-            <h3 className="display">Processos 100%<br/>manuais e desconexos.</h3>
+            <div className="transformation-kicker mono">{T.transformation.beforeKicker}</div>
+            <h3 className="display">{T.transformation.beforeTitle}</h3>
             <div className="fragment-timeline">
-              {TRANSFORMATION_SYMPTOMS.map((symptom, index) => <div className="fragment-step" key={symptom}><span className="fragment-index mono">0{index + 1}</span><span className="fragment-node"><FlowGlyph type={['sheet','mail','gear','chart','sheet'][index]} /></span><span>{symptom}</span></div>)}
+              {T.transformation.symptoms.map((symptom, index) => <div className="fragment-step" key={symptom}><span className="fragment-index mono">0{index + 1}</span><span className="fragment-node"><FlowGlyph type={['sheet','mail','gear','chart','sheet'][index]} /></span><span>{symptom}</span></div>)}
             </div>
-            <div className="transformation-note mono">// cada etapa cria um novo retrabalho</div>
+            <div className="transformation-note mono">{T.transformation.beforeNote}</div>
           </div>
-          <div className="transformation-bridge" aria-label="A Engenharia da Agência Byte">
+          <div className="transformation-bridge" aria-label={T.transformation.bridgeAria}>
             <div className="bridge-lines" aria-hidden="true"><span/></div>
             <div className="bridge-core"><FlowGlyph type="ai" /><span className="mono">BYTE<br/>ENGINE</span></div>
             <div className="bridge-output-line" aria-hidden="true" />
-            <div className="bridge-label mono">Automação + IA aplicadas</div>
+            <div className="bridge-label mono">{T.transformation.bridgeLabel}</div>
           </div>
           <div className="transformation-panel transformation-after">
-            <div className="transformation-kicker mono">02 / cenário transformado</div>
-            <h3 className="display">Operação integrada<br/>e automatizada.</h3>
+            <div className="transformation-kicker mono">{T.transformation.afterKicker}</div>
+            <h3 className="display">{T.transformation.afterTitle}</h3>
             <div className="order-flow"><div className="order-line" aria-hidden="true"/><div className="benefit-list">
-              {TRANSFORMATION_BENEFITS.map((benefit, index) => <div className="benefit-step" key={benefit}><span className="benefit-node"><FlowGlyph type={['gear','plug','ai','chart','gear','ai'][index]} /></span><span>{benefit}</span><span className="benefit-check" aria-hidden="true">OK</span></div>)}
+              {T.transformation.benefits.map((benefit, index) => <div className="benefit-step" key={benefit}><span className="benefit-node"><FlowGlyph type={['gear','plug','ai','chart','gear','ai'][index]} /></span><span>{benefit}</span><span className="benefit-check" aria-hidden="true">OK</span></div>)}
             </div></div>
-            <div className="transformation-note mono">// dados confiáveis · decisão em ritmo real</div>
+            <div className="transformation-note mono">{T.transformation.afterNote}</div>
           </div>
         </div>
         <div style={{marginTop:32, textAlign:'center'}}>
-          <a href="/transformacao" className="ul-link mono" style={{fontSize:14, textDecoration:'none', color:'var(--dark-ink)'}}>Ver o antes e depois de cada área →</a>
+          <a href={ROUTES.transformation[LANG]} className="ul-link mono" style={{fontSize:14, textDecoration:'none', color:'var(--dark-ink)'}}>{T.transformation.more}</a>
         </div>
       </div>
     </section>
@@ -258,35 +280,25 @@ function About(){
       <div className="wrap">
         <div style={{display:'grid', gridTemplateColumns:'minmax(0, 380px) 1fr', gap: 80}} className="about-grid">
           <div>
-            <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#F59E0B'}}/>Quem Somos</div>
+            <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#F59E0B'}}/>{T.about.eyebrow}</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 64px)', marginTop:18}}>
-              Tecnologia<br/>como vantagem<br/>competitiva.
+              {T.about.title}
             </h2>
           </div>
           <div className="reveal-stagger" style={{display:'grid', gap:24, alignContent:'start'}}>
             <p style={{fontSize:18, lineHeight:1.6, margin:0, maxWidth:640}}>
-              Somos especialistas em <strong>desenvolvimento de sistemas</strong>, <strong>automações com IA</strong> e <strong>consultoria técnica</strong>. Trabalhamos com startups, PMEs e grandes empresas que têm pressa em crescer.
+              {T.about.p1}
             </p>
             <p className="muted" style={{fontSize:16, lineHeight:1.65, margin:0, maxWidth:640}}>
-              Não revendemos soluções prontas. Cada projeto é único — desenhamos a arquitetura certa, escolhemos a stack ideal e entregamos código de qualidade com suporte contínuo.
+              {T.about.p2}
             </p>
             <div style={{display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:16, marginTop:12}} className="about-cards">
-              <div className="card" style={{padding:22}}>
-                <div style={{fontWeight:600, fontSize:18}}>IA & Automação</div>
-                <div className="muted" style={{fontSize:14, marginTop:6}}>Inteligência que trabalha 24/7 — LLMs, agents, pipelines de dados.</div>
-              </div>
-              <div className="card" style={{padding:22}}>
-                <div style={{fontWeight:600, fontSize:18}}>Sem terceirização</div>
-                <div className="muted" style={{fontSize:14, marginTop:6}}>Código escrito e mantido pelo nosso time, do primeiro commit ao deploy.</div>
-              </div>
-              <div className="card" style={{padding:22}}>
-                <div style={{fontWeight:600, fontSize:18}}>Type-safe ponta a ponta</div>
-                <div className="muted" style={{fontSize:14, marginTop:6}}>TypeScript da API ao frontend — menos bugs, refactor com confiança.</div>
-              </div>
-              <div className="card" style={{padding:22}}>
-                <div style={{fontWeight:600, fontSize:18}}>Suporte contínuo</div>
-                <div className="muted" style={{fontSize:14, marginTop:6}}>SLA &lt; 4h úteis. Evoluímos o sistema com você após o go-live.</div>
-              </div>
+              {T.about.cards.map(([title, text]) => (
+                <div key={title} className="card" style={{padding:22}}>
+                  <div style={{fontWeight:600, fontSize:18}}>{title}</div>
+                  <div className="muted" style={{fontSize:14, marginTop:6}}>{text}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -303,48 +315,13 @@ function About(){
 
 /* -------------------- Services -------------------- */
 
-const SERVICES = [
-  {
-    code: '01',
-    href: '/servicos/desenvolvimento-de-software',
-    more: 'Ver desenvolvimento sob medida',
-    title: 'Desenvolvimento de Software Sob Medida',
-    pitch: 'Web apps, dashboards internos, APIs e portais. Frontend e backend.',
-    desc: 'Desenvolvemos soluções personalizadas que digitalizam processos específicos e se integram ao ecossistema da empresa, com entregas iterativas e foco em qualidade.',
-    bullets: ['Next.js + TypeScript', 'PostgreSQL · Supabase', 'Auth, billing, multi-tenant', 'Testes E2E + CI/CD'],
-    icon: 'code',
-  },
-  {
-    code: '02',
-    href: '/servicos/automacao-com-ia',
-    more: 'Ver automação com IA',
-    title: 'Automação com IA',
-    pitch: 'Agents, classificação, extração de documentos, atendimento 24/7.',
-    desc: 'Desenvolvemos automações de processos utilizando inteligência artificial para classificar documentos, automatizar tarefas repetitivas, conectar fluxos de trabalho e criar atendimentos inteligentes.',
-    bullets: ['LLM-ops com fallback', 'RAG sobre seus dados', 'Workflows com aprovação', 'Custo por execução previsível'],
-    icon: 'spark',
-  },
-  {
-    code: '03',
-    href: '/servicos/integracao-de-sistemas',
-    more: 'Ver integração de sistemas',
-    title: 'Integração de Sistemas',
-    pitch: 'Conectar tudo o que sua empresa já usa. Sem retrabalho manual.',
-    desc: 'Conectamos ERPs, CRMs e APIs para sincronizar sistemas, reduzir processos manuais e eliminar erros de integração.',
-    bullets: ['CRM, ERP, e-commerce', 'Webhooks bidirecionais', 'Sync incremental', 'Observabilidade nativa'],
-    icon: 'plug',
-  },
-  {
-    code: '04',
-    href: '/servicos/dados-e-power-bi',
-    more: 'Ver dados e Power BI',
-    title: 'Dados e Dashboards',
-    pitch: 'Pipelines, BI e modelos prontos para a próxima decisão.',
-    desc: 'Implementamos pipelines de dados, dashboards e soluções de Business Intelligence, incluindo Power BI, para transformar dados operacionais em indicadores acionáveis.',
-    bullets: ['ETL/ELT · dbt', 'Power BI | Dashboards', 'Métricas confiáveis', 'Alertas que importam'],
-    icon: 'graph',
-  },
+const SERVICE_DEFS = [
+  { code: '01', slug: 'desenvolvimento-de-software', icon: 'code' },
+  { code: '02', slug: 'automacao-com-ia', icon: 'spark' },
+  { code: '03', slug: 'integracao-de-sistemas', icon: 'plug' },
+  { code: '04', slug: 'dados-e-power-bi', icon: 'graph' },
 ];
+const SERVICES = SERVICE_DEFS.map(d => ({ ...d, href: svcRoute(d.slug, LANG), ...T.services.items[d.slug] }));
 
 function ServiceIcon({ name }){
   const c = 'var(--ink-2)';
@@ -361,14 +338,14 @@ function Services(){
       <div className="wrap">
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', gap:32, flexWrap:'wrap', marginBottom:48}}>
           <div style={{maxWidth:680}}>
-            <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#8B5CF6'}}/>Serviços</div>
+            <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#8B5CF6'}}/>{T.services.eyebrow}</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 64px)', marginTop:18}}>
-              Soluções de tecnologia para empresas
+              {T.services.title}
             </h2>
           </div>
           <div className="muted mono" style={{fontSize:13, maxWidth:300}}>
-            // do diagnóstico ao deploy<br/>
-            // sem terceirização, sem revenda
+            {T.services.note[0]}<br/>
+            {T.services.note[1]}
           </div>
         </div>
         <div className="reveal-stagger" style={{display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:20}}>
@@ -402,4 +379,4 @@ function Services(){
 }
 
 window.AB = window.AB || {};
-Object.assign(window.AB, { Nav, Hero, Transformation, About, Services, useReveal, useCounter, useInView });
+Object.assign(window.AB, { LangSwitch, Nav, Hero, Transformation, About, Services, useReveal, useCounter, useInView });

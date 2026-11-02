@@ -52,6 +52,8 @@ As principais áreas de especialização da Agencia Byte incluem:
 - [Integração de sistemas](https://agenciabyte.com/servicos/integracao-de-sistemas): ERP, CRM, e-commerce, APIs e webhooks.
 - [Dados e Power BI](https://agenciabyte.com/servicos/dados-e-power-bi): dashboards Power BI, pipelines ETL/ELT e alertas.
 - [Antes e depois](https://agenciabyte.com/transformacao): o que muda em vendas, pedidos, processos internos e gestão após a automação.
+- [English version](https://agenciabyte.com/en): site completo em inglês ([services](https://agenciabyte.com/en/services)).
+- [Versión en español](https://agenciabyte.com/es): site completo em espanhol ([servicios](https://agenciabyte.com/es/servicios)).
 - [Homepage em Markdown](https://agenciabyte.com/index.html.md): visão geral da Agencia Byte, seu posicionamento, serviços e formas de contato.
 - [Produto e posicionamento](https://agenciabyte.com/PRODUCT.md): público-alvo, proposta de valor, propósito, personalidade e princípios de comunicação da marca.
 - [Design System](https://agenciabyte.com/DESIGN.md): identidade visual, tokens de design, tipografia, cores, componentes e diretrizes visuais.

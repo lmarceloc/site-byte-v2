@@ -11,6 +11,10 @@
 <meta name="author" content="Agência Byte" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://agenciabyte.com/" />
+<link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/" />
+<link rel="alternate" hreflang="en" href="https://agenciabyte.com/en" />
+<link rel="alternate" hreflang="es" href="https://agenciabyte.com/es" />
+<link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
@@ -21,6 +25,8 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="pt_BR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="es_ES" />
 <meta property="og:site_name" content="Agencia Byte" />
 
 <!-- Twitter Card -->
@@ -31,7 +37,6 @@
 
 <!-- Theme -->
 <meta name="theme-color" content="#FF6A1A" />
-<!-- Favicon e ícone de toque para dispositivos Apple (usando arquivos em /img) -->
 <link rel="icon" href="/img/logo_byte_64.png" sizes="64x64" type="image/png" />
 <link rel="apple-touch-icon" href="/img/logo_byte.png" sizes="180x180" />
 <link rel="alternate" type="text/markdown" href="/index.html.md" />
@@ -49,17 +54,35 @@
       "url": "https://agenciabyte.com",
       "logo": "https://agenciabyte.com/img/logo_byte.png",
       "description": "A Agência Byte desenvolve software sob medida, automações com IA, integrações de sistemas e soluções de dados e Power BI para empresas.",
-      "knowsAbout": ["Software Development","Artificial Intelligence","Process Automation","System Integration","Data Analytics","Business Intelligence","Power BI"],
+      "knowsAbout": [
+        "Software Development",
+        "Artificial Intelligence",
+        "Process Automation",
+        "System Integration",
+        "Data Analytics",
+        "Business Intelligence",
+        "Power BI"
+      ],
       "email": "hello@agenciabyte.com",
       "telephone": "+55-42-98422-4363",
-      "sameAs": ["https://www.instagram.com/agenciabyte.ia"],
-      "areaServed": ["BR", "US", "ES"],
+      "sameAs": [
+        "https://www.instagram.com/agenciabyte.ia"
+      ],
+      "areaServed": [
+        "BR",
+        "US",
+        "ES"
+      ],
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+55-42-98422-4363",
         "contactType": "customer service",
         "email": "hello@agenciabyte.com",
-        "availableLanguage": ["Portuguese", "English", "Spanish"],
+        "availableLanguage": [
+          "Portuguese",
+          "English",
+          "Spanish"
+        ],
         "contactOption": "TollFree"
       }
     },
@@ -69,7 +92,9 @@
       "name": "Agencia Byte",
       "url": "https://agenciabyte.com",
       "description": "Serviços de desenvolvimento de software sob medida, automação com IA, integrações de sistemas, pipelines de dados e soluções de Business Intelligence (Power BI).",
-      "provider": { "@id": "https://agenciabyte.com/#organization" },
+      "provider": {
+        "@id": "https://agenciabyte.com/#organization"
+      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Serviços de Engenharia",
@@ -114,14 +139,20 @@
       "@id": "https://agenciabyte.com/#website",
       "url": "https://agenciabyte.com",
       "name": "Agencia Byte",
-      "publisher": { "@id": "https://agenciabyte.com/#organization" }
+      "inLanguage": [
+        "pt-BR",
+        "en",
+        "es"
+      ],
+      "publisher": {
+        "@id": "https://agenciabyte.com/#organization"
+      }
     }
   ]
 }
 </script>
 
-<!-- Google Analytics + Apollo: carregam na primeira interação (ou 4s após o load),
-     para não competir com o conteúdo no carregamento inicial. -->
+<!-- Google Analytics + Apollo: carregam na primeira interação (ou 4s após o load). -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -145,20 +176,19 @@
   })();
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Fontes carregadas sem bloquear a renderização -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
 
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="/styles.css" />
 
-<!-- Bundle pré-compilado (React + app). Gerado por `npm run build`. -->
-<script defer src="app.js"></script>
+<!-- Bundle pré-compilado (React + app). Gerado por `npm run build`. O idioma vem do <html lang>. -->
+<script defer src="/app.js"></script>
 </head>
 <body data-theme="light">
 <div id="app"></div>
-
 
 <!-- Conteúdo estático para indexação antes da execução do JavaScript -->
 <noscript>
@@ -173,7 +203,7 @@
       </article>
       <article>
         <h3><a href="/servicos/automacao-com-ia">Automação com Inteligência Artificial</a></h3>
-        <p>Agents de IA, classificação, extração de documentos e atendimento automatizado 24/7 com LLMs e RAG sobre seus dados.</p>
+        <p>Agents de IA, classificação, extração de documentos e atendimento automatizado 24/7 com LLMs e RAG.</p>
       </article>
       <article>
         <h3><a href="/servicos/integracao-de-sistemas">Integrações de Sistemas</a></h3>
@@ -193,6 +223,7 @@
       <p>Email: <a href="mailto:hello@agenciabyte.com">hello@agenciabyte.com</a></p>
       <p>WhatsApp: <a href="https://wa.me/5542984224363">+55 (42) 98422-4363</a></p>
     </section>
+    <p><a href="/en" hreflang="en" lang="en">English</a> · <a href="/es" hreflang="es" lang="es">Español</a></p>
   </main>
 </noscript>
 

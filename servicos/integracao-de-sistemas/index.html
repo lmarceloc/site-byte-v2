@@ -7,6 +7,10 @@
 <meta name="description" content="Integramos ERP, CRM, e-commerce e APIs para sincronizar dados entre sistemas e acabar com a digitação manual e os erros de cadastro." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://agenciabyte.com/servicos/integracao-de-sistemas" />
+<link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/integracao-de-sistemas" />
+<link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services/systems-integration" />
+<link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios/integracion-de-sistemas" />
+<link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/servicos/integracao-de-sistemas" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
@@ -17,6 +21,8 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="pt_BR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="es_ES" />
 <meta property="og:site_name" content="Agencia Byte" />
 
 <!-- Twitter Card -->
@@ -40,6 +46,7 @@
       "serviceType": "Integração de Sistemas",
       "description": "Integramos ERP, CRM, e-commerce e APIs para sincronizar dados entre sistemas e acabar com a digitação manual e os erros de cadastro.",
       "url": "https://agenciabyte.com/servicos/integracao-de-sistemas",
+      "inLanguage": "pt-BR",
       "provider": {
         "@id": "https://agenciabyte.com/#organization"
       },
@@ -127,6 +134,14 @@
       <a href="https://blog.agenciabyte.com/" class="nav-pill-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
     </nav>
     <div class="nav-cta">
+      <details class="lang-switch">
+        <summary aria-label="Idioma: Português"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#009C3B"/><path d="M14 2.6 25.4 10 14 17.4 2.6 10z" fill="#FFDF00"/><circle cx="14" cy="10" r="4.4" fill="#002776"/><path d="M9.8 9.2c2.9-.5 5.9.1 8.3 1.6" stroke="#fff" stroke-width=".9" fill="none"/></svg></span><span class="lang-code">PT</span><svg class="lang-chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <ul class="lang-menu">
+          <li><a href="/servicos/integracao-de-sistemas" hreflang="pt-BR" lang="pt-BR" aria-current="true"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#009C3B"/><path d="M14 2.6 25.4 10 14 17.4 2.6 10z" fill="#FFDF00"/><circle cx="14" cy="10" r="4.4" fill="#002776"/><path d="M9.8 9.2c2.9-.5 5.9.1 8.3 1.6" stroke="#fff" stroke-width=".9" fill="none"/></svg></span>Português</a></li>
+          <li><a href="/en/services/systems-integration" hreflang="en" lang="en"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#fff"/><path d="M0 0h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28V20H0z" fill="#B22234"/><rect width="12" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2" cy="1.8" r=".6"/><circle cx="6" cy="1.8" r=".6"/><circle cx="10" cy="1.8" r=".6"/><circle cx="4" cy="3.9" r=".6"/><circle cx="8" cy="3.9" r=".6"/><circle cx="2" cy="6" r=".6"/><circle cx="6" cy="6" r=".6"/><circle cx="10" cy="6" r=".6"/><circle cx="4" cy="8.1" r=".6"/><circle cx="8" cy="8.1" r=".6"/></g></svg></span>English</a></li>
+          <li><a href="/es/servicios/integracion-de-sistemas" hreflang="es" lang="es"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#AA151B"/><rect y="5" width="28" height="10" fill="#F1BF00"/></svg></span>Español</a></li>
+        </ul>
+      </details>
       <a href="/#contato" class="btn btn-accent nav-cta-desktop">Contato →</a>
       <button class="nav-burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -150,8 +165,12 @@
       var open = m.hidden;
       m.hidden = !open;
       b.setAttribute('aria-expanded', String(open));
-      b.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      b.setAttribute('aria-label', open ? "Fechar menu" : "Abrir menu");
     });
+    // Fecha o seletor de idioma ao clicar fora ou apertar Esc.
+    var d = document.querySelector('.lang-switch');
+    document.addEventListener('pointerdown', function(e){ if (d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && d.open){ d.open = false; d.querySelector('summary').focus(); } });
   })();
 </script>
 <main id="conteudo">
