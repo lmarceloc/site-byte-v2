@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Power BI Dashboards and Data Engineering | Agencia Byte</title>
+<meta name="description" content="Power BI dashboards, data pipelines and reliable metrics. Unified data from your systems so you can decide quickly." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://agenciabyte.com/en/services/data-and-power-bi" />
+<link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/dados-e-power-bi" />
+<link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services/data-and-power-bi" />
+<link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios/datos-y-power-bi" />
+<link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/servicos/dados-e-power-bi" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://agenciabyte.com/en/services/data-and-power-bi" />
+<meta property="og:title" content="Power BI Dashboards and Data Engineering | Agencia Byte" />
+<meta property="og:description" content="Power BI dashboards, data pipelines and reliable metrics. Unified data from your systems so you can decide quickly." />
+<meta property="og:image" content="https://agenciabyte.com/img/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:site_name" content="Agencia Byte" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Power BI Dashboards and Data Engineering | Agencia Byte" />
+<meta name="twitter:description" content="Power BI dashboards, data pipelines and reliable metrics. Unified data from your systems so you can decide quickly." />
+<meta name="twitter:image" content="https://agenciabyte.com/img/og-image.png" />
+
+<meta name="theme-color" content="#FF6A1A" />
+<link rel="icon" href="/img/logo_byte_64.png" sizes="64x64" type="image/png" />
+<link rel="apple-touch-icon" href="/img/logo_byte.png" sizes="180x180" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://agenciabyte.com/en/services/data-and-power-bi#service",
+      "name": "Data and Business Intelligence",
+      "serviceType": "Data and Business Intelligence",
+      "description": "Power BI dashboards, data pipelines and reliable metrics. Unified data from your systems so you can decide quickly.",
+      "url": "https://agenciabyte.com/en/services/data-and-power-bi",
+      "inLanguage": "en",
+      "provider": {
+        "@id": "https://agenciabyte.com/#organization"
+      },
+      "areaServed": [
+        "BR",
+        "US",
+        "ES"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://agenciabyte.com/en"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://agenciabyte.com/en/services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Data and Business Intelligence",
+          "item": "https://agenciabyte.com/en/services/data-and-power-bi"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SFBNK4KDQ');
+  (function(){
+    var done = false, evts = ['pointerdown','keydown','scroll','touchstart'];
+    function load(){
+      if (done) return; done = true;
+      evts.forEach(function(e){ removeEventListener(e, load); });
+      var g = document.createElement('script');
+      g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-8SFBNK4KDQ';
+      document.head.appendChild(g);
+      var a = document.createElement('script');
+      a.async = true; a.src = 'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' + Math.random().toString(36).substring(7);
+      a.onload = function(){ window.trackingFunctions.onLoad({ appId: '6a5fc15502199500103f7f77' }); };
+      document.head.appendChild(a);
+    }
+    evts.forEach(function(e){ addEventListener(e, load, { once: true, passive: true }); });
+    addEventListener('load', function(){ setTimeout(load, 4000); });
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/pages.css" />
+</head>
+<body data-theme="light"><a class="skip-link" href="#conteudo">Skip to content</a>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/en" class="nav-brand-wrap" aria-label="Agencia Byte, home page">
+      <span class="glyph">
+        <picture>
+          <source srcset="/img/logo_byte.webp" type="image/webp" />
+          <img src="/img/logo_byte_64.png" alt="" width="32" height="32" />
+        </picture>
+      </span>
+      <span>Agencia Byte</span>
+    </a>
+    <nav class="nav-pill" aria-label="Main menu">
+      <a href="/en#sobre" class="nav-pill-link">About</a>
+      <a href="/en/transformation" class="nav-pill-link">Before & after</a>
+      <a href="/en/services" class="nav-pill-link" aria-current="page">Services</a>
+      <a href="/en#processo" class="nav-pill-link">Process</a>
+      <a href="/en#clientes" class="nav-pill-link">Clients</a>
+      <a href="https://blog.agenciabyte.com/" class="nav-pill-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    </nav>
+    <div class="nav-cta">
+      <details class="lang-switch">
+        <summary aria-label="Language: English"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#fff"/><path d="M0 0h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28V20H0z" fill="#B22234"/><rect width="12" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2" cy="1.8" r=".6"/><circle cx="6" cy="1.8" r=".6"/><circle cx="10" cy="1.8" r=".6"/><circle cx="4" cy="3.9" r=".6"/><circle cx="8" cy="3.9" r=".6"/><circle cx="2" cy="6" r=".6"/><circle cx="6" cy="6" r=".6"/><circle cx="10" cy="6" r=".6"/><circle cx="4" cy="8.1" r=".6"/><circle cx="8" cy="8.1" r=".6"/></g></svg></span><span class="lang-code">EN</span><svg class="lang-chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <ul class="lang-menu">
+          <li><a href="/servicos/dados-e-power-bi" hreflang="pt-BR" lang="pt-BR"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#009C3B"/><path d="M14 2.6 25.4 10 14 17.4 2.6 10z" fill="#FFDF00"/><circle cx="14" cy="10" r="4.4" fill="#002776"/><path d="M9.8 9.2c2.9-.5 5.9.1 8.3 1.6" stroke="#fff" stroke-width=".9" fill="none"/></svg></span>Português</a></li>
+          <li><a href="/en/services/data-and-power-bi" hreflang="en" lang="en" aria-current="true"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#fff"/><path d="M0 0h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28V20H0z" fill="#B22234"/><rect width="12" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2" cy="1.8" r=".6"/><circle cx="6" cy="1.8" r=".6"/><circle cx="10" cy="1.8" r=".6"/><circle cx="4" cy="3.9" r=".6"/><circle cx="8" cy="3.9" r=".6"/><circle cx="2" cy="6" r=".6"/><circle cx="6" cy="6" r=".6"/><circle cx="10" cy="6" r=".6"/><circle cx="4" cy="8.1" r=".6"/><circle cx="8" cy="8.1" r=".6"/></g></svg></span>English</a></li>
+          <li><a href="/es/servicios/datos-y-power-bi" hreflang="es" lang="es"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#AA151B"/><rect y="5" width="28" height="10" fill="#F1BF00"/></svg></span>Español</a></li>
+        </ul>
+      </details>
+      <a href="/en#contato" class="btn btn-accent nav-cta-desktop">Contact →</a>
+      <button class="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu-mobile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile-menu" id="menu-mobile" aria-label="Navigation menu" hidden>
+    <a href="/en#sobre">About</a>
+    <a href="/en/transformation">Before & after</a>
+    <a href="/en/services" aria-current="page">Services</a>
+    <a href="/en#processo">Process</a>
+    <a href="/en#clientes">Clients</a>
+    <a href="https://blog.agenciabyte.com/" class="ul-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    <a href="/en#contato" class="nav-mobile-cta">Contact →</a>
+  </nav>
+</header>
+<script>
+  (function(){
+    var b = document.querySelector('.nav-burger'), m = document.getElementById('menu-mobile');
+    b.addEventListener('click', function(){
+      var open = m.hidden;
+      m.hidden = !open;
+      b.setAttribute('aria-expanded', String(open));
+      b.setAttribute('aria-label', open ? "Close menu" : "Open menu");
+    });
+    // Fecha o seletor de idioma ao clicar fora ou apertar Esc.
+    var d = document.querySelector('.lang-switch');
+    document.addEventListener('pointerdown', function(e){ if (d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && d.open){ d.open = false; d.querySelector('summary').focus(); } });
+  })();
+</script>
+<main id="conteudo">
+  <section class="page-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <nav class="crumbs mono" aria-label="You are here">
+        <ol>
+          <li><a href="/en">Home</a></li>
+          <li><a href="/en/services">Services</a></li>
+          <li aria-current="page">Data and Business Intelligence</li>
+        </ol>
+      </nav>
+      <div class="eyebrow"><span class="dot"></span>Service 04</div>
+      <h1 class="display">Power BI dashboards and data engineering</h1>
+      <p class="lead muted">We bring the data scattered across your systems into a single, reliable source and deliver Power BI dashboards with the metrics management actually uses to make decisions.</p>
+      <div class="cta-actions">
+        <a href="/en#contato" class="btn btn-accent">Start a project →</a>
+        <a href="https://wa.me/5542984224363" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>When it makes sense</div>
+        <h2 class="display">Signs it's time.</h2>
+      </div>
+      <ol class="signal-list">
+        <li><span class="mono">01</span><span>Each department reports a different number for the same metric.</span></li>
+        <li><span class="mono">02</span><span>Reports are built by hand at month-end from exports.</span></li>
+        <li><span class="mono">03</span><span>Data is locked in the ERP, the CRM and loose spreadsheets.</span></li>
+        <li><span class="mono">04</span><span>The dashboard exists, but nobody trusts the numbers.</span></li>
+        <li><span class="mono">05</span><span>Problems only show up once they've already become losses.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>What we deliver</div>
+        <h2 class="display">Service scope.</h2>
+      </div>
+      <div class="deliv-grid">
+        <div class="card">
+          <h3>Power BI dashboards</h3>
+          <p class="muted">Sales, operations, finance and inventory dashboards, with metrics defined together with management.</p>
+        </div>
+        <div class="card">
+          <h3>Data pipelines</h3>
+          <p class="muted">Automated extraction and processing (ETL/ELT) of data from your ERP, CRM, spreadsheets and APIs.</p>
+        </div>
+        <div class="card">
+          <h3>Single source of truth</h3>
+          <p class="muted">A consistent data model, with a single definition for every company metric.</p>
+        </div>
+        <div class="card">
+          <h3>Alerts</h3>
+          <p class="muted">Automatic notifications when a metric goes off track, before it becomes a problem.</p>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="mono muted">// stack and practices</div>
+        <ul>
+          <li class="chip">ETL/ELT · dbt</li>
+          <li class="chip">Power BI | Dashboards</li>
+          <li class="chip">Reliable metrics</li>
+          <li class="chip">Alerts that matter</li>
+          <li class="chip">PostgreSQL</li>
+          <li class="chip">Automatic refresh</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#EC4899"></span>How we work</div>
+        <h2 class="display">5 steps, from diagnosis to support.</h2>
+      </div>
+      <ol class="steps">
+        <li class="card">
+          <div class="display step-code">01</div>
+          <h3>Discovery</h3>
+          <p class="muted">We map the current process, the systems involved and where the bottleneck is.</p>
+          <div class="mono step-dur">2 to 3 days</div>
+        </li>
+        <li class="card">
+          <div class="display step-code">02</div>
+          <h3>Strategy</h3>
+          <p class="muted">Technical proposal, stack, timeline and investment defined in writing.</p>
+          <div class="mono step-dur">2 to 4 days</div>
+        </li>
+        <li class="card">
+          <div class="display step-code">03</div>
+          <h3>Development</h3>
+          <p class="muted">Short sprints with partial deliveries in a staging environment.</p>
+          <div class="mono step-dur">3 to 5 weeks</div>
+        </li>
+        <li class="card">
+          <div class="display step-code">04</div>
+          <h3>Validation</h3>
+          <p class="muted">Testing, final adjustments and sign-off. QA, security and performance.</p>
+          <div class="mono step-dur">1 week</div>
+        </li>
+        <li class="card">
+          <div class="display step-code">05</div>
+          <h3>Support</h3>
+          <p class="muted">Deploy, documentation, training and continuous evolution.</p>
+          <div class="mono step-dur">ongoing</div>
+        </li>
+      </ol>
+    </div>
+  </section>
+  <section class="page-section page-section-alt">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>Frequently asked questions</div>
+        <h2 class="display">Common questions.</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Do I need a Power BI license?</summary>
+          <p class="muted">It depends on how the dashboards will be shared. During discovery we recommend the right license for your number of users and usage.</p>
+        </details>
+        <details>
+          <summary>Where does the data come from?</summary>
+          <p class="muted">From the systems you already use: ERP, CRM, e-commerce, spreadsheets and APIs. The pipelines update everything automatically.</p>
+        </details>
+        <details>
+          <summary>What if the source data is messy?</summary>
+          <p class="muted">That's the most common scenario. Part of the work is cleaning, standardizing and validating the data before it reaches the dashboard.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+  <section class="page-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#8B5CF6"></span>See also</div>
+        <h2 class="display">Related services</h2>
+      </div>
+      <div class="related-grid">
+        <a class="card related-card" href="/en/services/systems-integration">
+          <span class="mono muted">// 03</span>
+          <h3>Systems Integration</h3>
+          <p class="muted">We integrate ERP, CRM, e-commerce and APIs to sync data across systems and put an end to manual data entry and record errors.</p>
+          <span class="related-more mono">View service →</span>
+        </a>
+        <a class="card related-card" href="/en/services/ai-automation">
+          <span class="mono muted">// 02</span>
+          <h3>Artificial Intelligence Automation</h3>
+          <p class="muted">AI process automation: agents, triage, document extraction and 24/7 customer service integrated with your company's systems.</p>
+          <span class="related-more mono">View service →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="section-dark cta-band">
+    <div class="wrap">
+      <h2 class="display">Shall we look at your process?</h2>
+      <p>You explain the problem. We build the solution. A straight answer, no generic proposal.</p>
+      <div class="cta-actions">
+        <a href="/en#contato" class="btn btn-accent">Start a project →</a>
+        <a href="https://wa.me/5542984224363" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="section-dark site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">Agencia Byte</div>
+        <p class="muted footer-tagline">Code that works. Systems that grow. Engineering for companies in a hurry.</p>
+      </div>
+      <div>
+          <div class="mono footer-title">Services</div>
+          <ul class="footer-list">
+            <li><a href="/en/services/custom-software-development" class="ul-link">Development</a></li>
+            <li><a href="/en/services/ai-automation" class="ul-link">AI Automation</a></li>
+            <li><a href="/en/services/systems-integration" class="ul-link">Integrations</a></li>
+            <li><a href="/en/services/data-and-power-bi" class="ul-link">Data & Power BI</a></li>
+          </ul>
+        </div>
+      <div>
+          <div class="mono footer-title">Company</div>
+          <ul class="footer-list">
+            <li><a href="/en#sobre" class="ul-link">About</a></li>
+            <li><a href="/en#processo" class="ul-link">Process</a></li>
+            <li><a href="/en/transformation" class="ul-link">Before and after</a></li>
+            <li><a href="https://blog.agenciabyte.com/" class="ul-link">Blog</a></li>
+          </ul>
+        </div>
+      <div>
+        <div class="mono footer-title">Contact</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@agenciabyte.com" class="ul-link">hello@agenciabyte.com</a></li>
+          <li><a href="https://wa.me/5542984224363" target="_blank" rel="noopener noreferrer" class="ul-link">+55 42 98422-4363</a></li>
+          <li><a href="https://www.instagram.com/agenciabyte.ia" target="_blank" rel="noopener noreferrer" class="ul-link">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="muted mono">© 2026 Agencia Byte · all rights reserved</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

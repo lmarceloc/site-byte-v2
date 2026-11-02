@@ -1,15 +1,11 @@
 /* global React, AB */
+import { T, LANG } from "./i18n/home.jsx";
+import { ROUTES, svcRoute } from "./i18n/routes.mjs";
 const { useState: useState2, useRef: useRef2 } = React;
 
 /* -------------------- Process -------------------- */
 
-const PROCESS = [
-  { code: '01', t: 'Descoberta', d: 'Entendemos seu negócio, desafios, objetivos e visão de futuro. 1–2 sessões.', dur: '2 a 3 dias' },
-  { code: '02', t: 'Estratégia', d: 'Proposta técnica, stack recomendada, cronograma e investimento claro.', dur: '2 a 4 dias' },
-  { code: '03', t: 'Desenvolvimento', d: 'Sprints iterativas, entregas parciais, você acompanha tudo em ambiente staging.', dur: '3 a 5 semanas' },
-  { code: '04', t: 'Validação', d: 'Testes rigorosos, ajustes finais e aprovação. QA, segurança, performance.', dur: '1 semana' },
-  { code: '05', t: 'Suporte', d: 'Deploy, documentação, treinamento e evolução contínua.', dur: 'contínuo' },
-];
+const PROCESS = T.process.steps.map((p, i) => ({ code: '0' + (i + 1), ...p }));
 
 function Process(){
   return (
@@ -17,12 +13,12 @@ function Process(){
       <div className="wrap">
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', gap:32, flexWrap:'wrap', marginBottom:48}}>
           <div style={{maxWidth:680}}>
-            <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#EC4899'}}/>Processo</div>
+            <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#EC4899'}}/>{T.process.eyebrow}</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 64px)', marginTop:18}}>
-              5 etapas.
+              {T.process.title}
             </h2>
             <p className="muted" style={{fontSize:18, maxWidth:560, marginTop:18}}>
-              Você acompanha cada etapa, cada decisão técnica, cada entrega. Sem surpresas no orçamento.
+              {T.process.sub}
             </p>
           </div>
         </div>
@@ -80,7 +76,7 @@ function Clients(){
     <section id="clientes" ref={ref}>
       <div className="wrap">
         <div style={{marginBottom:48}}>
-          <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#3B82F6'}}/>Clientes</div>
+          <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#3B82F6'}}/>{T.clients.eyebrow}</div>
         </div>
 
         <div style={{display:'flex', flexWrap:'wrap', gap:'40px 56px', justifyContent:'center', padding:'48px 0', borderBottom:'1px solid var(--line)'}}>
@@ -127,9 +123,9 @@ function Contact(){
       <div className="wrap">
         <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:64, alignItems:'start'}} className="contact-grid">
           <div>
-            <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#10B981'}}/>Contato</div>
+            <div className="eyebrow"><span className="dot pulse-live" style={{'--dot-color': '#10B981'}}/>{T.contact.eyebrow}</div>
             <h2 className="display" style={{fontSize:'clamp(40px, 5vw, 72px)', marginTop:18}}>
-              Você explica o<br/>problema<span style={{color:'var(--accent)'}}>.</span><br/>A gente constrói<br/>a <span style={{color:'var(--accent)'}}>solução</span>.
+              {T.contact.title}
             </h2>
             <div style={{marginTop:36, display:'grid', gap:14}}>
               <a href="mailto:hello@agenciabyte.com" className="ul-link mono" style={{fontSize:18, textDecoration:'none'}}>hello@agenciabyte.com</a>
@@ -141,24 +137,25 @@ function Contact(){
             {sent ? (
               <div role="status" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', height:'100%', padding:'40px 8px', textAlign:'center', animation:'fadeInUp .5s ease'}}>
                 <div style={{width:64, height:64, borderRadius:'50%', background:'color-mix(in oklab, var(--accent) 15%, transparent)', border:'1px solid var(--accent)', display:'grid', placeItems:'center', fontSize:28, color:'var(--accent)', marginBottom:20}}>✓</div>
-                <div className="display" style={{fontSize:28}}>Recebido!</div>
-                <p className="muted" style={{marginTop:10, fontSize:15}}>Vamos te responder em breve.<br/>Fique de olho no seu e-mail.</p>
+                <div className="display" style={{fontSize:28}}>{T.contact.receivedTitle}</div>
+                <p className="muted" style={{marginTop:10, fontSize:15}}>{T.contact.receivedText}</p>
               </div>
             ) : (
               <form action="https://submit-form.com/YVwqwQ14y" method="POST" onSubmit={onSubmit}>
                 <input type="hidden" name="_redirect" value={redirectUrl} />
-                <div className="mono" style={{fontSize:11, letterSpacing:'.08em', color:'var(--accent)'}}>// BRIEF RÁPIDO</div>
+                <input type="hidden" name="language" value={LANG} />
+                <div className="mono" style={{fontSize:11, letterSpacing:'.08em', color:'var(--accent)'}}>{T.contact.brief}</div>
                 <div style={{display:'grid', gap:16, marginTop:18}}>
-                  <Field label="Seu nome">
-                    <input name="name" placeholder="Maria da Silva" required />
+                  <Field label={T.contact.name}>
+                    <input name="name" placeholder={T.contact.namePh} required />
                   </Field>
-                  <Field label="E-mail">
-                    <input name="email" placeholder="maria@empresa.com" type="email" required />
+                  <Field label={T.contact.email}>
+                    <input name="email" placeholder={T.contact.emailPh} type="email" required />
                   </Field>
-                  <Field label="WhatsApp">
-                    <input name="whatsapp" placeholder="+55 (11) 99999-9999" type="tel" />
+                  <Field label={T.contact.whatsapp}>
+                    <input name="whatsapp" placeholder={T.contact.whatsappPh} type="tel" />
                   </Field>
-                  <Field label="Orçamento estimado (R$ mil)">
+                  <Field label={T.contact.budget}>
                     <input type="hidden" name="budget" value={budget} />
                     <div style={{display:'flex', gap:8, flexWrap:'wrap'}}>
                       {['<1','2-5','6-10','20>'].map(b => (
@@ -171,17 +168,17 @@ function Contact(){
                       ))}
                     </div>
                   </Field>
-                  <Field label="O problema que você quer resolver">
-                    <textarea name="message" placeholder="Ex.: nosso onboarding leva 4h por cliente, queremos automatizar com IA…" rows={4} required />
+                  <Field label={T.contact.problem}>
+                    <textarea name="message" placeholder={T.contact.problemPh} rows={4} required />
                   </Field>
                 </div>
                 <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', marginTop:20, gap:16, flexWrap:'wrap'}}>
-                  <span className="muted mono" style={{fontSize:12}}>↵ enviar · resposta em &lt; 24h</span>
-                  <button type="submit" className="btn btn-accent" disabled={status === 'sending'}>{status === 'sending' ? 'Enviando…' : 'Enviar'}</button>
+                  <span className="muted mono" style={{fontSize:12}}>{T.contact.hint}</span>
+                  <button type="submit" className="btn btn-accent" disabled={status === 'sending'}>{status === 'sending' ? T.contact.sending : T.contact.send}</button>
                 </div>
                 {status === 'error' && (
                   <p role="alert" style={{marginTop:14, fontSize:14, color:'#F87171'}}>
-                    Não foi possível enviar agora. Tente de novo ou fale com a gente pelo WhatsApp.
+                    {T.contact.error}
                   </p>
                 )}
                 <div>
@@ -239,22 +236,17 @@ function Footer(){
             <div className="brand" style={{color:'var(--dark-ink)'}}>
               <span>Agencia Byte</span>
             </div>
-            <p className="muted" style={{maxWidth:280, marginTop:16, fontSize:14}}>Código que funciona. Sistemas que crescem. Engenharia para empresas com pressa.</p>
+            <p className="muted" style={{maxWidth:280, marginTop:16, fontSize:14}}>{T.footer.tagline}</p>
             {/* <div className="mono muted" style={{fontSize:12, marginTop:24}}>v2.0 · 2026.05</div> */}
           </div>
-          <FooterCol title="Serviços" items={[
-            {label: 'Desenvolvimento', href: '/servicos/desenvolvimento-de-software'},
-            {label: 'Automação IA', href: '/servicos/automacao-com-ia'},
-            {label: 'Integrações', href: '/servicos/integracao-de-sistemas'},
-            {label: 'Dados e Power BI', href: '/servicos/dados-e-power-bi'}
-          ]} />
-          <FooterCol title="Empresa" items={[
-            {label: 'Sobre', href: '#sobre'},
-            {label: 'Processo', href: '#processo'},
-            {label: 'Antes e depois', href: '/transformacao'}
+          <FooterCol title={T.footer.services} items={Object.entries(T.footer.svc).map(([slug, label]) => ({label, href: svcRoute(slug, LANG)}))} />
+          <FooterCol title={T.footer.company} items={[
+            {label: T.footer.about, href: '#sobre'},
+            {label: T.footer.process, href: '#processo'},
+            {label: T.footer.transformation, href: ROUTES.transformation[LANG]}
           ]} />
           <div>
-            <div className="mono" style={{fontSize:11, letterSpacing:'.08em', color:'var(--accent)', textTransform:'uppercase'}}>Contato</div>
+            <div className="mono" style={{fontSize:11, letterSpacing:'.08em', color:'var(--accent)', textTransform:'uppercase'}}>{T.footer.contact}</div>
             <ul style={{listStyle:'none', padding:0, margin:'14px 0 0', display:'grid', gap:10}}>
               <li style={{fontSize:14}}><a href="mailto:hello@agenciabyte.com" className="ul-link" style={{textDecoration:'none', opacity:.85}}>hello@agenciabyte.com</a></li>
               <li style={{fontSize:14}}><a href="https://wa.me/5542984224363" target="_blank" rel="noopener noreferrer" className="ul-link" style={{textDecoration:'none', opacity:.85}}>+55 42 98422-4363</a></li>
@@ -269,9 +261,9 @@ function Footer(){
           </div>
         </div>
         <div style={{borderTop:'1px solid rgba(255,255,255,0.08)', marginTop:48, paddingTop:24, display:'flex', justifyContent:'space-between', flexWrap:'wrap', gap:16}}>
-          <div className="muted mono" style={{fontSize:12}}>© 2026 Agencia Byte · todos os direitos reservados</div>
+          <div className="muted mono" style={{fontSize:12}}>{T.footer.rights}</div>
           <div className="mono" style={{fontSize:12, display:'flex', gap:14}}>
-            <span><span className="muted">status:</span> <span style={{color:'#5DD3A8'}}>● operacional</span></span>
+            <span><span className="muted">status:</span> <span style={{color:'#5DD3A8'}}>{T.footer.operational}</span></span>
             <span className="muted">build #2.0.412</span>
           </div>
         </div>
