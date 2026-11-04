@@ -2,3 +2,8 @@
 /sobre     /#sobre    301
 /processo  /#processo 301
 /stack     /servicos  301
+
+# "Clientes" não tem página própria: leva à seção da home (cada caso fica em /clientes/<slug>)
+/clientes     /#clientes     301
+/en/clients   /en#clientes   301
+/es/clientes  /es#clientes   301
