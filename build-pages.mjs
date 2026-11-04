@@ -21,7 +21,7 @@ const EMAIL = "hello@agenciabyte.com";
 const INSTAGRAM = "https://www.instagram.com/agenciabyte.ia";
 const LINKEDIN = "https://www.linkedin.com/company/byte-agencia";
 // Clientes citados na home (mesma lista de CLIENT_LOGOS em app-2.jsx).
-const CASE_SLUGS = ["cargon"]; // casos de clientes com página própria (/clientes/<slug>)
+const CASE_SLUGS = ["divina-argila", "cargon"]; // casos de clientes com página própria (/clientes/<slug>)
 const CLIENTS = [
   ["Divina Argila", "https://divinaargila.com.br/"],
   ["Bouwman", "https://bouwman.com.br/"],

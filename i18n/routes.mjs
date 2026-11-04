@@ -37,6 +37,7 @@ export const ROUTES = {
   },
   transformation: { pt: "/transformacao", en: "/en/transformation", es: "/es/transformacion" },
   "case:cargon": { pt: "/clientes/cargon", en: "/en/clients/cargon", es: "/es/clientes/cargon" },
+  "case:divina-argila": { pt: "/clientes/divina-argila", en: "/en/clients/divina-argila", es: "/es/clientes/divina-argila" },
 };
 
 export const route = (key, lang) => ROUTES[key][lang];

@@ -15,13 +15,14 @@ A Agencia Byte é uma agência brasileira de tecnologia que desenvolve software 
 Veja também: [Antes e depois da automação](https://agenciabyte.com/transformacao).
 
 ## Exemplos de projetos
+- **[Divina Argila: Bling, Trello, TikTok Shop e Mercado Livre integrados em 40 dias](https://agenciabyte.com/clientes/divina-argila).** Processos fragmentados e pedidos para arrumar em 4 lugares diferentes. A Agencia Byte integrou os 4 sistemas em 40 dias: o time da fábrica trabalha só no Trello e o vendedor foca em vender nos canais.
 - **[CargOn: data warehouse e 4 dashboards preditivos em 30 dias](https://agenciabyte.com/clientes/cargon).** A CargOn queria criar mais um produto para os seus clientes a partir dos dados gerados na plataforma. Em 30 dias, a Agencia Byte entregou o data warehouse, o ETL e 4 dashboards logísticos em Power BI, com previsões, hospedados no Azure.
 - **ERP e e-commerce sincronizados.** Situação: pedidos da loja virtual são redigitados no ERP e o estoque do site não bate com o real. Entrega: pedidos, produtos, preços e estoque sincronizados automaticamente, com reprocessamento em caso de falha. Resultado: cada pedido é digitado 1 vez e percorre todos os sistemas sozinho; primeiro módulo em produção em 3 a 6 semanas.
 - **Atendimento com IA 24 horas por dia.** Situação: contatos chegam por vários canais, alguém copia tudo para o CRM e, fora do horário comercial, ninguém responde. Entrega: agente de IA no WhatsApp que qualifica o contato, registra no CRM e passa para uma pessoa quando necessário. Resultado: atendimento 24 horas por dia, 7 dias por semana, e a equipe recebe o lead já triado.
 - **Dashboards em Power BI com indicadores únicos.** Situação: relatórios montados à mão no fim do mês e cada área com um número diferente. Entrega: pipelines ETL/ELT e dashboards em Power BI com uma definição única para cada indicador. Resultado: o mesmo número em todas as áreas, atualizado automaticamente.
 
 ## Clientes
-Divina Argila, Bouwman, Oglee, Nyl, Aline Nail, StarTrade e [CargOn](https://agenciabyte.com/clientes/cargon).
+[Divina Argila](https://agenciabyte.com/clientes/divina-argila), Bouwman, Oglee, Nyl, Aline Nail, StarTrade e [CargOn](https://agenciabyte.com/clientes/cargon).
 
 ## Perguntas frequentes
 **O que a Agencia Byte faz?** Desenvolve software sob medida, automações com inteligência artificial, integrações entre sistemas (ERP, CRM, e-commerce e APIs) e dashboards em Power BI com pipelines de dados. Atende principalmente empresas de indústria, logística e distribuição.

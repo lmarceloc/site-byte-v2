@@ -59,7 +59,7 @@ function Process(){
 /* -------------------- Clients (counters) -------------------- */
 
 const CLIENT_LOGOS = [
-  { name: 'Divina Argila', url: 'https://divinaargila.com.br/' },
+  { name: 'Divina Argila', url: 'https://divinaargila.com.br/', caseSlug: 'divina-argila' },
   { name: 'Bouwman',       url: 'https://bouwman.com.br/' },
   { name: 'Oglee',         url: 'https://oglee.com.br/' },
   { name: 'Nyl',           url: 'https://www.nylhairdesign.com.br/' },
