@@ -89,7 +89,7 @@ const pt = {
       { t: "Suporte", d: "Deploy, documentação, treinamento e evolução contínua.", dur: "contínuo" },
     ],
   },
-  clients: { eyebrow: "Clientes" },
+  clients: { eyebrow: "Clientes", caseTag: "ver caso" },
   contact: {
     eyebrow: "Contato",
     title: <>Você explica o<br />problema<Acc>.</Acc><br />A gente constrói<br />a <Acc>solução</Acc>.</>,
@@ -205,7 +205,7 @@ const en = {
       { t: "Support", d: "Deploy, documentation, training and continuous evolution.", dur: "ongoing" },
     ],
   },
-  clients: { eyebrow: "Clients" },
+  clients: { eyebrow: "Clients", caseTag: "see case" },
   contact: {
     eyebrow: "Contact",
     title: <>You explain the<br />problem<Acc>.</Acc><br />We build<br />the <Acc>solution</Acc>.</>,
@@ -321,7 +321,7 @@ const es = {
       { t: "Soporte", d: "Deploy, documentación, capacitación y evolución continua.", dur: "continuo" },
     ],
   },
-  clients: { eyebrow: "Clientes" },
+  clients: { eyebrow: "Clientes", caseTag: "ver caso" },
   contact: {
     eyebrow: "Contacto",
     title: <>Tú explicas el<br />problema<Acc>.</Acc><br />Nosotros creamos<br />la <Acc>solución</Acc>.</>,

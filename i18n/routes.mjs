@@ -36,10 +36,13 @@ export const ROUTES = {
     es: "/es/servicios/datos-y-power-bi",
   },
   transformation: { pt: "/transformacao", en: "/en/transformation", es: "/es/transformacion" },
+  "case:cargon": { pt: "/clientes/cargon", en: "/en/clients/cargon", es: "/es/clientes/cargon" },
+  "case:divina-argila": { pt: "/clientes/divina-argila", en: "/en/clients/divina-argila", es: "/es/clientes/divina-argila" },
 };
 
 export const route = (key, lang) => ROUTES[key][lang];
 export const svcRoute = (slug, lang) => ROUTES[`svc:${slug}`][lang];
+export const caseRoute = (slug, lang) => ROUTES[`case:${slug}`][lang];
 
 // Bandeiras em SVG (emoji de bandeira não aparece no Windows).
 // Inglês usa a bandeira dos EUA; espanhol, a da Espanha.
