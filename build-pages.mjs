@@ -18,6 +18,18 @@ const BRAND = "Agencia Byte";
 const OG_IMAGE = `${SITE}/img/og-image.png`;
 const WHATSAPP = "https://wa.me/5542984224363";
 const EMAIL = "hello@agenciabyte.com";
+const INSTAGRAM = "https://www.instagram.com/agenciabyte.ia";
+const LINKEDIN = "https://www.linkedin.com/company/byte-agencia";
+// Clientes citados na home (mesma lista de CLIENT_LOGOS em app-2.jsx).
+const CLIENTS = [
+  ["Divina Argila", "https://divinaargila.com.br/"],
+  ["Bouwman", "https://bouwman.com.br/"],
+  ["Oglee", "https://oglee.com.br/"],
+  ["Nyl", "https://www.nylhairdesign.com.br/"],
+  ["Aline Nail", "https://www.instagram.com/alinebukowski.naildesigner/"],
+  ["StarTrade", "https://startrade.com.br/"],
+  ["CargOn", "https://cargon.com.br/"],
+];
 
 /* ------------------------------------------------------------------ */
 /* Helpers                                                             */
@@ -229,7 +241,8 @@ function footer(lang) {
         <ul class="footer-list">
           <li><a href="mailto:${EMAIL}" class="ul-link">${EMAIL}</a></li>
           <li><a href="${WHATSAPP}" target="_blank" rel="noopener noreferrer" class="ul-link">+55 42 98422-4363</a></li>
-          <li><a href="https://www.instagram.com/agenciabyte.ia" target="_blank" rel="noopener noreferrer" class="ul-link">Instagram</a></li>
+          <li><a href="${INSTAGRAM}" target="_blank" rel="noopener noreferrer" class="ul-link">Instagram</a></li>
+          <li><a href="${LINKEDIN}" target="_blank" rel="noopener noreferrer" class="ul-link">LinkedIn</a></li>
         </ul>
       </div>
     </div>
@@ -366,7 +379,7 @@ function homePage(lang) {
         knowsAbout: ["Software Development", "Artificial Intelligence", "Process Automation", "System Integration", "Data Analytics", "Business Intelligence", "Power BI"],
         email: EMAIL,
         telephone: "+55-42-98422-4363",
-        sameAs: ["https://www.instagram.com/agenciabyte.ia"],
+        sameAs: [INSTAGRAM, LINKEDIN],
         areaServed: ["BR", "US", "ES"],
         contactPoint: {
           "@type": "ContactPoint",
@@ -463,6 +476,10 @@ ${FONTS}
     <h1>${esc(h.title)}</h1>
     <p>${h.noscriptLead}</p>
     <section>
+      <h2>${h.whoTitle}</h2>
+      <p>${h.who}</p>
+    </section>
+    <section>
       <h2><a href="${route("services", lang)}">${PAGES[lang].ui.nav.services}</a></h2>
 ${svcs.map((s, i) => `      <article>
         <h3><a href="${s.path}">${h.catalog[i][0]}</a></h3>
@@ -470,13 +487,33 @@ ${svcs.map((s, i) => `      <article>
       </article>`).join("\n")}
     </section>
     <section>
+      <h2>${h.casesTitle}</h2>
+      <p>${h.casesIntro}</p>
+${h.cases.map((c) => `      <article>
+        <h3>${c.t}</h3>
+        <p><strong>${h.caseProblem}:</strong> ${c.problem}</p>
+        <p><strong>${h.caseSolution}:</strong> ${c.solution}</p>
+        <p><strong>${h.caseResult}:</strong> ${c.result}</p>
+      </article>`).join("\n")}
+    </section>
+    <section>
       <h2>${h.beforeAfterTitle}</h2>
       <p>${h.beforeAfterText} <a href="${route("transformation", lang)}">${h.beforeAfterLink}</a>.</p>
+    </section>
+    <section>
+      <h2>${h.clientsTitle}</h2>
+      <p>${h.clientsText} ${CLIENTS.map(([n, u]) => `<a href="${u}">${n}</a>`).join(", ")}.</p>
+    </section>
+    <section>
+      <h2>${h.faqTitle}</h2>
+${h.faq.map((f) => `      <h3>${f.q}</h3>
+      <p>${f.a}</p>`).join("\n")}
     </section>
     <section>
       <h2>${h.contactTitle}</h2>
       <p>Email: <a href="mailto:${EMAIL}">${EMAIL}</a></p>
       <p>WhatsApp: <a href="${WHATSAPP}">+55 (42) 98422-4363</a></p>
+      <p>LinkedIn: <a href="${LINKEDIN}">Agencia Byte</a></p>
     </section>
     <p>${LANGS.filter((l) => l !== lang).map((l) => `<a href="${route("home", l)}" hreflang="${LANG_META[l].hreflang}" lang="${LANG_META[l].html}">${LANG_META[l].name}</a>`).join(" · ")}</p>
   </main>
