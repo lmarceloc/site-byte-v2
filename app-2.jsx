@@ -251,13 +251,18 @@ function Footer(){
               <li style={{fontSize:14}}><a href="mailto:hello@agenciabyte.com" className="ul-link" style={{textDecoration:'none', opacity:.85}}>hello@agenciabyte.com</a></li>
               <li style={{fontSize:14}}><a href="https://wa.me/5542984224363" target="_blank" rel="noopener noreferrer" className="ul-link" style={{textDecoration:'none', opacity:.85}}>+55 42 98422-4363</a></li>
             </ul>
-            <a href="https://www.instagram.com/agenciabyte.ia" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{marginTop:16, display:'inline-flex', alignItems:'center', justifyContent:'center', width:32, height:32, borderRadius:8, border:'1px solid rgba(255,255,255,0.12)', color:'rgba(255,255,255,0.5)', transition:'color .15s, border-color .15s'}} onMouseEnter={e=>{e.currentTarget.style.color='#fff';e.currentTarget.style.borderColor='rgba(255,255,255,0.3)'}} onMouseLeave={e=>{e.currentTarget.style.color='rgba(255,255,255,0.5)';e.currentTarget.style.borderColor='rgba(255,255,255,0.12)'}}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <div style={{display:'flex', gap:8, marginTop:16}}>
+              <SocialLink href="https://www.instagram.com/agenciabyte.ia" label="Instagram">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                 <circle cx="12" cy="12" r="4"/>
                 <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
-              </svg>
-            </a>
+              </SocialLink>
+              <SocialLink href="https://www.linkedin.com/company/byte-agencia" label="LinkedIn">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </SocialLink>
+            </div>
           </div>
         </div>
         <div style={{borderTop:'1px solid rgba(255,255,255,0.08)', marginTop:48, paddingTop:24, display:'flex', justifyContent:'space-between', flexWrap:'wrap', gap:16}}>
@@ -273,6 +278,14 @@ function Footer(){
         @media (max-width: 540px){ .footer-grid{ grid-template-columns: 1fr !important; } }
       `}</style>
     </footer>
+  );
+}
+
+function SocialLink({ href, label, children }){
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} style={{display:'inline-flex', alignItems:'center', justifyContent:'center', width:32, height:32, borderRadius:8, border:'1px solid rgba(255,255,255,0.12)', color:'rgba(255,255,255,0.5)', transition:'color .15s, border-color .15s'}} onMouseEnter={e=>{e.currentTarget.style.color='#fff';e.currentTarget.style.borderColor='rgba(255,255,255,0.3)'}} onMouseLeave={e=>{e.currentTarget.style.color='rgba(255,255,255,0.5)';e.currentTarget.style.borderColor='rgba(255,255,255,0.12)'}}>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{children}</svg>
+    </a>
   );
 }
 
