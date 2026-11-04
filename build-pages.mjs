@@ -21,6 +21,7 @@ const EMAIL = "hello@agenciabyte.com";
 const INSTAGRAM = "https://www.instagram.com/agenciabyte.ia";
 const LINKEDIN = "https://www.linkedin.com/company/byte-agencia";
 // Clientes citados na home (mesma lista de CLIENT_LOGOS em app-2.jsx).
+const CASE_SLUGS = ["cargon"]; // casos de clientes com página própria (/clientes/<slug>)
 const CLIENTS = [
   ["Divina Argila", "https://divinaargila.com.br/"],
   ["Bouwman", "https://bouwman.com.br/"],
@@ -489,6 +490,10 @@ ${svcs.map((s, i) => `      <article>
     <section>
       <h2>${h.casesTitle}</h2>
       <p>${h.casesIntro}</p>
+${CASE_SLUGS.map((slug) => `      <article>
+        <h3><a href="${route(`case:${slug}`, lang)}">${PAGES[lang].cases[slug].h1}</a></h3>
+        <p>${PAGES[lang].cases[slug].summary}</p>
+      </article>`).join("\n")}
 ${h.cases.map((c) => `      <article>
         <h3>${c.t}</h3>
         <p><strong>${h.caseProblem}:</strong> ${c.problem}</p>
@@ -502,7 +507,7 @@ ${h.cases.map((c) => `      <article>
     </section>
     <section>
       <h2>${h.clientsTitle}</h2>
-      <p>${h.clientsText} ${CLIENTS.map(([n, u]) => `<a href="${u}">${n}</a>`).join(", ")}.</p>
+      <p>${h.clientsText} ${CLIENTS.map(([n, u]) => { const slug = CASE_SLUGS.find((x) => PAGES[lang].cases[x].name === n); return `<a href="${slug ? route(`case:${slug}`, lang) : u}">${n}</a>`; }).join(", ")}.</p>
     </section>
     <section>
       <h2>${h.faqTitle}</h2>
@@ -598,6 +603,91 @@ function servicePage(lang, s) {
   ${faqSection(lang, s.faq)}
   ${relatedSection(lang, s.related)}
   ${ctaSection(lang, p.ui.service.cta)}
+</main>
+` +
+    footer(lang)
+  );
+}
+
+function casePage(lang, slug) {
+  const p = PAGES[lang];
+  const c = p.cases[slug];
+  const ui = p.caseUi;
+  const key = `case:${slug}`;
+  const path = route(key, lang);
+  const home = route("home", lang);
+  const clientsAnchor = home === "/" ? "/#clientes" : `${home}#clientes`;
+  const clientUrl = Object.fromEntries(CLIENTS)[c.name];
+  const trail = [[home, p.ui.crumbHome], [clientsAnchor, ui.clients], [path, c.name]];
+  const jsonld = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${SITE}${path}#article`,
+        headline: c.h1,
+        description: c.description,
+        url: SITE + path,
+        mainEntityOfPage: SITE + path,
+        inLanguage: LANG_META[lang].html,
+        about: { "@type": "Organization", name: c.name, url: clientUrl },
+        author: { "@id": `${SITE}/#organization` },
+        publisher: { "@id": `${SITE}/#organization` },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: c.qa.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+      },
+      breadcrumbLd(trail),
+    ],
+  };
+  return (
+    head({ lang, key, title: c.title, description: c.description, jsonld }) +
+    nav(lang, key, "") +
+    `
+<main id="conteudo">
+  <section class="page-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      ${crumbs(lang, trail)}
+      <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>${ui.eyebrow}</div>
+      <h1 class="display">${c.h1}</h1>
+      <p class="lead muted">${c.lead}</p>
+      <div class="case-stats" aria-label="${ui.statsEyebrow}">
+        ${c.stats.map(([n, l]) => `<div class="card case-stat"><div class="display case-num">${n}</div><p class="muted">${l}</p></div>`).join("\n        ")}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>${ui.qaEyebrow}</div>
+        <h2 class="display">${ui.qaTitle}</h2>
+        <p class="muted case-visit"><a href="${clientUrl}" target="_blank" rel="noopener noreferrer" class="ul-link">${ui.visit} ${c.name} →</a></p>
+      </div>
+      <div class="case-qa">
+        ${c.qa.map((f) => `<div>
+          <h3>${esc(f.q)}</h3>
+          <p class="muted">${esc(f.a)}</p>
+        </div>`).join("\n        ")}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="wrap">
+      <div class="stack">
+        <div class="mono muted">${p.ui.service.stack}</div>
+        <ul>
+          ${c.stack.map((b) => `<li class="chip">${b}</li>`).join("\n          ")}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  ${relatedSection(lang, c.related)}
+  ${ctaSection(lang, ui.cta)}
 </main>
 ` +
     footer(lang)
@@ -828,6 +918,7 @@ for (const lang of LANGS) {
   out[fileFor(route("services", lang))] = servicesHub(lang);
   out[prefix ? `${prefix}/404.html` : "404.html"] = notFoundPage(lang);
   for (const s of servicesFor(lang)) out[fileFor(s.path)] = servicePage(lang, s);
+  for (const slug of CASE_SLUGS) out[fileFor(route(`case:${slug}`, lang))] = casePage(lang, slug);
 }
 
 for (const [file, html] of Object.entries(out)) {
@@ -838,7 +929,7 @@ for (const [file, html] of Object.entries(out)) {
 
 // Sitemap com todas as páginas nos três idiomas, cada uma com suas alternativas (hreflang).
 const today = new Date().toISOString().slice(0, 10);
-const keys = ["home", "services", ...SERVICE_ORDER.map((s) => `svc:${s.slug}`), "transformation"];
+const keys = ["home", "services", ...SERVICE_ORDER.map((s) => `svc:${s.slug}`), "transformation", ...CASE_SLUGS.map((x) => `case:${x}`)];
 const entries = [];
 for (const lang of LANGS) {
   for (const key of keys) {

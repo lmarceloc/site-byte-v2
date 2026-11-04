@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Caso CargOn: data warehouse y 4 dashboards en Power BI en 30 días | Agencia Byte</title>
+<meta name="description" content="Cómo Agencia Byte creó el data warehouse, el ETL y 4 dashboards en Power BI para los clientes de CargOn en 30 días, con previsiones para que la logística deje de mirar hacia atrás." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://agenciabyte.com/es/clientes/cargon" />
+<link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/clientes/cargon" />
+<link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/clients/cargon" />
+<link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/clientes/cargon" />
+<link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/clientes/cargon" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://agenciabyte.com/es/clientes/cargon" />
+<meta property="og:title" content="Caso CargOn: data warehouse y 4 dashboards en Power BI en 30 días | Agencia Byte" />
+<meta property="og:description" content="Cómo Agencia Byte creó el data warehouse, el ETL y 4 dashboards en Power BI para los clientes de CargOn en 30 días, con previsiones para que la logística deje de mirar hacia atrás." />
+<meta property="og:image" content="https://agenciabyte.com/img/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="es_ES" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:site_name" content="Agencia Byte" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Caso CargOn: data warehouse y 4 dashboards en Power BI en 30 días | Agencia Byte" />
+<meta name="twitter:description" content="Cómo Agencia Byte creó el data warehouse, el ETL y 4 dashboards en Power BI para los clientes de CargOn en 30 días, con previsiones para que la logística deje de mirar hacia atrás." />
+<meta name="twitter:image" content="https://agenciabyte.com/img/og-image.png" />
+
+<meta name="theme-color" content="#FF6A1A" />
+<link rel="icon" href="/img/logo_byte_64.png" sizes="64x64" type="image/png" />
+<link rel="apple-touch-icon" href="/img/logo_byte.png" sizes="180x180" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://agenciabyte.com/es/clientes/cargon#article",
+      "headline": "CargOn: data warehouse y 4 dashboards predictivos en 30 días",
+      "description": "Cómo Agencia Byte creó el data warehouse, el ETL y 4 dashboards en Power BI para los clientes de CargOn en 30 días, con previsiones para que la logística deje de mirar hacia atrás.",
+      "url": "https://agenciabyte.com/es/clientes/cargon",
+      "mainEntityOfPage": "https://agenciabyte.com/es/clientes/cargon",
+      "inLanguage": "es",
+      "about": {
+        "@type": "Organization",
+        "name": "CargOn",
+        "url": "https://cargon.com.br/"
+      },
+      "author": {
+        "@id": "https://agenciabyte.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://agenciabyte.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Quién es CargOn?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CargOn es una plataforma de logística, y sus clientes generan datos de operación dentro de ella. Es cliente de Agencia Byte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál era el objetivo del proyecto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Crear un producto más, para monetizar su base de clientes, a partir de los datos que genera la propia plataforma. Para eso, los datos debían organizarse en una base única y confiable, lista para el análisis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué hizo Agencia Byte?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Creó un data warehouse, construyó el ETL que lleva los datos de la plataforma hasta él y entregó un dashboard logístico en Power BI para todos los clientes. Los dashboards incluyen previsiones, y la logística pasa a ver lo que viene en lugar de analizar solo el historial."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuáles fueron los números?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "4 dashboards para los clientes de CargOn, creados en 30 días."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué cambió para la logística?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El análisis dejó de ser solo un espejo retrovisor. Con datos organizados y previsiones, la operación de los clientes de CargOn pasa a ser predictiva y CargOn gana un producto de datos para ofrecer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo llevó?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "30 días, desde la organización de los datos hasta tener los dashboards en producción."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué tecnologías se usaron?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Base de datos con los datos generados en la plataforma, data warehouse y ETL alojados en Azure, y dashboards en Power BI."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://agenciabyte.com/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Clientes",
+          "item": "https://agenciabyte.com/es#clientes"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "CargOn",
+          "item": "https://agenciabyte.com/es/clientes/cargon"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SFBNK4KDQ');
+  (function(){
+    var done = false, evts = ['pointerdown','keydown','scroll','touchstart'];
+    function load(){
+      if (done) return; done = true;
+      evts.forEach(function(e){ removeEventListener(e, load); });
+      var g = document.createElement('script');
+      g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-8SFBNK4KDQ';
+      document.head.appendChild(g);
+      var a = document.createElement('script');
+      a.async = true; a.src = 'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' + Math.random().toString(36).substring(7);
+      a.onload = function(){ window.trackingFunctions.onLoad({ appId: '6a5fc15502199500103f7f77' }); };
+      document.head.appendChild(a);
+    }
+    evts.forEach(function(e){ addEventListener(e, load, { once: true, passive: true }); });
+    addEventListener('load', function(){ setTimeout(load, 4000); });
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/pages.css" />
+</head>
+<body data-theme="light"><a class="skip-link" href="#conteudo">Saltar al contenido</a>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/es" class="nav-brand-wrap" aria-label="Agencia Byte, página de inicio">
+      <span class="glyph">
+        <picture>
+          <source srcset="/img/logo_byte.webp" type="image/webp" />
+          <img src="/img/logo_byte_64.png" alt="" width="32" height="32" />
+        </picture>
+      </span>
+      <span>Agencia Byte</span>
+    </a>
+    <nav class="nav-pill" aria-label="Menú principal">
+      <a href="/es#sobre" class="nav-pill-link">Nosotros</a>
+      <a href="/es/transformacion" class="nav-pill-link">Antes y después</a>
+      <a href="/es/servicios" class="nav-pill-link">Servicios</a>
+      <a href="/es#processo" class="nav-pill-link">Proceso</a>
+      <a href="/es#clientes" class="nav-pill-link">Clientes</a>
+      <a href="https://blog.agenciabyte.com/" class="nav-pill-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    </nav>
+    <div class="nav-cta">
+      <details class="lang-switch">
+        <summary aria-label="Idioma: Español"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#AA151B"/><rect y="5" width="28" height="10" fill="#F1BF00"/></svg></span><span class="lang-code">ES</span><svg class="lang-chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <ul class="lang-menu">
+          <li><a href="/clientes/cargon" hreflang="pt-BR" lang="pt-BR"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#009C3B"/><path d="M14 2.6 25.4 10 14 17.4 2.6 10z" fill="#FFDF00"/><circle cx="14" cy="10" r="4.4" fill="#002776"/><path d="M9.8 9.2c2.9-.5 5.9.1 8.3 1.6" stroke="#fff" stroke-width=".9" fill="none"/></svg></span>Português</a></li>
+          <li><a href="/en/clients/cargon" hreflang="en" lang="en"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#fff"/><path d="M0 0h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28V20H0z" fill="#B22234"/><rect width="12" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2" cy="1.8" r=".6"/><circle cx="6" cy="1.8" r=".6"/><circle cx="10" cy="1.8" r=".6"/><circle cx="4" cy="3.9" r=".6"/><circle cx="8" cy="3.9" r=".6"/><circle cx="2" cy="6" r=".6"/><circle cx="6" cy="6" r=".6"/><circle cx="10" cy="6" r=".6"/><circle cx="4" cy="8.1" r=".6"/><circle cx="8" cy="8.1" r=".6"/></g></svg></span>English</a></li>
+          <li><a href="/es/clientes/cargon" hreflang="es" lang="es" aria-current="true"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#AA151B"/><rect y="5" width="28" height="10" fill="#F1BF00"/></svg></span>Español</a></li>
+        </ul>
+      </details>
+      <a href="/es#contato" class="btn btn-accent nav-cta-desktop">Contacto →</a>
+      <button class="nav-burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-mobile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile-menu" id="menu-mobile" aria-label="Menú de navegación" hidden>
+    <a href="/es#sobre">Nosotros</a>
+    <a href="/es/transformacion">Antes y después</a>
+    <a href="/es/servicios">Servicios</a>
+    <a href="/es#processo">Proceso</a>
+    <a href="/es#clientes">Clientes</a>
+    <a href="https://blog.agenciabyte.com/" class="ul-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    <a href="/es#contato" class="nav-mobile-cta">Contacto →</a>
+  </nav>
+</header>
+<script>
+  (function(){
+    var b = document.querySelector('.nav-burger'), m = document.getElementById('menu-mobile');
+    b.addEventListener('click', function(){
+      var open = m.hidden;
+      m.hidden = !open;
+      b.setAttribute('aria-expanded', String(open));
+      b.setAttribute('aria-label', open ? "Cerrar menú" : "Abrir menú");
+    });
+    // Fecha o seletor de idioma ao clicar fora ou apertar Esc.
+    var d = document.querySelector('.lang-switch');
+    document.addEventListener('pointerdown', function(e){ if (d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && d.open){ d.open = false; d.querySelector('summary').focus(); } });
+  })();
+</script>
+<main id="conteudo">
+  <section class="page-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <nav class="crumbs mono" aria-label="Estás en">
+        <ol>
+          <li><a href="/es">Inicio</a></li>
+          <li><a href="/es#clientes">Clientes</a></li>
+          <li aria-current="page">CargOn</li>
+        </ol>
+      </nav>
+      <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>Caso de cliente</div>
+      <h1 class="display">CargOn: data warehouse y 4 dashboards predictivos en 30 días</h1>
+      <p class="lead muted">CargOn convirtió los datos generados dentro de su plataforma en un nuevo producto para sus clientes: un data warehouse, pipelines ETL y dashboards logísticos en Power BI con previsiones, para que la operación deje de mirar hacia atrás y empiece a anticiparse.</p>
+      <div class="case-stats" aria-label="En números">
+        <div class="card case-stat"><div class="display case-num">4</div><p class="muted">dashboards entregados a los clientes de CargOn</p></div>
+        <div class="card case-stat"><div class="display case-num">30</div><p class="muted">días para crear la base de datos y los dashboards</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>El caso en preguntas</div>
+        <h2 class="display">Cómo fue el proyecto.</h2>
+        <p class="muted case-visit"><a href="https://cargon.com.br/" target="_blank" rel="noopener noreferrer" class="ul-link">Sitio de CargOn →</a></p>
+      </div>
+      <div class="case-qa">
+        <div>
+          <h3>¿Quién es CargOn?</h3>
+          <p class="muted">CargOn es una plataforma de logística, y sus clientes generan datos de operación dentro de ella. Es cliente de Agencia Byte.</p>
+        </div>
+        <div>
+          <h3>¿Cuál era el objetivo del proyecto?</h3>
+          <p class="muted">Crear un producto más, para monetizar su base de clientes, a partir de los datos que genera la propia plataforma. Para eso, los datos debían organizarse en una base única y confiable, lista para el análisis.</p>
+        </div>
+        <div>
+          <h3>¿Qué hizo Agencia Byte?</h3>
+          <p class="muted">Creó un data warehouse, construyó el ETL que lleva los datos de la plataforma hasta él y entregó un dashboard logístico en Power BI para todos los clientes. Los dashboards incluyen previsiones, y la logística pasa a ver lo que viene en lugar de analizar solo el historial.</p>
+        </div>
+        <div>
+          <h3>¿Cuáles fueron los números?</h3>
+          <p class="muted">4 dashboards para los clientes de CargOn, creados en 30 días.</p>
+        </div>
+        <div>
+          <h3>¿Qué cambió para la logística?</h3>
+          <p class="muted">El análisis dejó de ser solo un espejo retrovisor. Con datos organizados y previsiones, la operación de los clientes de CargOn pasa a ser predictiva y CargOn gana un producto de datos para ofrecer.</p>
+        </div>
+        <div>
+          <h3>¿Cuánto tiempo llevó?</h3>
+          <p class="muted">30 días, desde la organización de los datos hasta tener los dashboards en producción.</p>
+        </div>
+        <div>
+          <h3>¿Qué tecnologías se usaron?</h3>
+          <p class="muted">Base de datos con los datos generados en la plataforma, data warehouse y ETL alojados en Azure, y dashboards en Power BI.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="wrap">
+      <div class="stack">
+        <div class="mono muted">// stack y prácticas</div>
+        <ul>
+          <li class="chip">Azure</li>
+          <li class="chip">Data warehouse</li>
+          <li class="chip">ETL</li>
+          <li class="chip">Base de datos</li>
+          <li class="chip">Power BI</li>
+          <li class="chip">Previsión de datos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#8B5CF6"></span>Ver también</div>
+        <h2 class="display">Servicios relacionados</h2>
+      </div>
+      <div class="related-grid">
+        <a class="card related-card" href="/es/servicios/datos-y-power-bi">
+          <span class="mono muted">// 04</span>
+          <h3>Datos y Business Intelligence</h3>
+          <p class="muted">Dashboards en Power BI, pipelines de datos e indicadores confiables. Datos unificados de tus sistemas para decidir con rapidez.</p>
+          <span class="related-more mono">Ver servicio →</span>
+        </a>
+        <a class="card related-card" href="/es/servicios/integracion-de-sistemas">
+          <span class="mono muted">// 03</span>
+          <h3>Integración de Sistemas</h3>
+          <p class="muted">Integramos ERP, CRM, e-commerce y APIs para sincronizar datos entre sistemas y acabar con la digitación manual y los errores de registro.</p>
+          <span class="related-more mono">Ver servicio →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="section-dark cta-band">
+    <div class="wrap">
+      <h2 class="display">¿Quieres algo parecido para tu operación?</h2>
+      <p>Tú explicas el problema. Nosotros creamos la solución. Respuesta directa, sin propuestas genéricas.</p>
+      <div class="cta-actions">
+        <a href="/es#contato" class="btn btn-accent">Empezar un proyecto →</a>
+        <a href="https://wa.me/5542984224363" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="section-dark site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">Agencia Byte</div>
+        <p class="muted footer-tagline">Código que funciona. Sistemas que crecen. Ingeniería para empresas con prisa.</p>
+      </div>
+      <div>
+          <div class="mono footer-title">Servicios</div>
+          <ul class="footer-list">
+            <li><a href="/es/servicios/desarrollo-de-software" class="ul-link">Desarrollo</a></li>
+            <li><a href="/es/servicios/automatizacion-con-ia" class="ul-link">Automatización IA</a></li>
+            <li><a href="/es/servicios/integracion-de-sistemas" class="ul-link">Integraciones</a></li>
+            <li><a href="/es/servicios/datos-y-power-bi" class="ul-link">Datos y Power BI</a></li>
+          </ul>
+        </div>
+      <div>
+          <div class="mono footer-title">Empresa</div>
+          <ul class="footer-list">
+            <li><a href="/es#sobre" class="ul-link">Nosotros</a></li>
+            <li><a href="/es#processo" class="ul-link">Proceso</a></li>
+            <li><a href="/es/transformacion" class="ul-link">Antes y después</a></li>
+            <li><a href="https://blog.agenciabyte.com/" class="ul-link">Blog</a></li>
+          </ul>
+        </div>
+      <div>
+        <div class="mono footer-title">Contacto</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@agenciabyte.com" class="ul-link">hello@agenciabyte.com</a></li>
+          <li><a href="https://wa.me/5542984224363" target="_blank" rel="noopener noreferrer" class="ul-link">+55 42 98422-4363</a></li>
+          <li><a href="https://www.instagram.com/agenciabyte.ia" target="_blank" rel="noopener noreferrer" class="ul-link">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/company/byte-agencia" target="_blank" rel="noopener noreferrer" class="ul-link">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="muted mono">© 2026 Agencia Byte · todos los derechos reservados</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,6 +1,6 @@
 /* global React, AB */
 import { T, LANG } from "./i18n/home.jsx";
-import { ROUTES, svcRoute } from "./i18n/routes.mjs";
+import { ROUTES, svcRoute, caseRoute } from "./i18n/routes.mjs";
 const { useState: useState2, useRef: useRef2 } = React;
 
 /* -------------------- Process -------------------- */
@@ -65,7 +65,7 @@ const CLIENT_LOGOS = [
   { name: 'Nyl',           url: 'https://www.nylhairdesign.com.br/' },
   { name: 'Aline Nail',   url: 'https://www.instagram.com/alinebukowski.naildesigner/' },
   { name: 'StarTrade',    url: 'https://startrade.com.br/' },
-  { name: 'CargOn', url: 'https://cargon.com.br/' },
+  { name: 'CargOn', url: 'https://cargon.com.br/', caseSlug: 'cargon' },
 ];
 
 
@@ -80,9 +80,13 @@ function Clients(){
         </div>
 
         <div style={{display:'flex', flexWrap:'wrap', gap:'40px 56px', justifyContent:'center', padding:'48px 0', borderBottom:'1px solid var(--line)'}}>
-          {CLIENT_LOGOS.map(({ name, url }) => (
-            <a key={name} href={url} target="_blank" rel="noopener noreferrer" className="client-logo-link display" style={{fontSize:24, letterSpacing:'-0.01em', color:'var(--ink-3)', opacity:.7, textDecoration:'none', transition:'opacity .2s, color .2s'}}>{name}<span style={{color:'var(--accent)'}}>·</span></a>
-          ))}
+          {CLIENT_LOGOS.map(({ name, url, caseSlug }) => {
+            const style = {fontSize:24, letterSpacing:'-0.01em', color:'var(--ink-3)', opacity:.7, textDecoration:'none', transition:'opacity .2s, color .2s'};
+            if (caseSlug) return (
+              <a key={name} href={caseRoute(caseSlug, LANG)} className="client-logo-link display" style={{...style, display:'inline-flex', alignItems:'baseline', gap:8}}>{name}<span style={{color:'var(--accent)'}}>·</span><span className="mono" style={{fontSize:11, letterSpacing:'.06em', textTransform:'uppercase', color:'var(--accent)'}}>{T.clients.caseTag} →</span></a>
+            );
+            return <a key={name} href={url} target="_blank" rel="noopener noreferrer" className="client-logo-link display" style={style}>{name}<span style={{color:'var(--accent)'}}>·</span></a>;
+          })}
         </div>
 
       </div>
