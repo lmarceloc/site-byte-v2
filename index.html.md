@@ -44,6 +44,7 @@ Veja também: [Antes e depois da automação](https://agenciabyte.com/transforma
 - Instagram: https://www.instagram.com/agenciabyte.ia
 
 ## Posicionamento
-- Foco em empresas que precisam de execução técnica real, não apenas marketing.
+A Agência Byte é uma empresa de engenharia de software. Não fazemos marketing, tráfego pago, gestão de redes sociais nem criação de conteúdo: desenvolvemos sistemas, integrações, automações com IA e dashboards de dados.
+
 - Ênfase em confiança, precisão e clareza.
 - Tom de agência de tecnologia avançada, com linguagem direta e profissional.

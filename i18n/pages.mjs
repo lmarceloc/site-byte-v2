@@ -38,9 +38,9 @@ const pt = {
   },
   home: {
     title: "Agência Byte | Desenvolvimento de Sistemas e Automação com IA",
-    description: "Agência de IA, sites, sistemas, integração e dados. Desenvolvemos soluções sob medida para acelerar sua empresa.",
-    keywords: "Agência de ia, criação de sites, desenvolvimento de sistemas, integração de sistemas, dados, automação com IA, desenvolvimento web",
-    noscriptLead: "Agência de IA, sites, sistemas, integração e dados. Transformamos gargalos em eficiência através de soluções sob medida de alta velocidade.",
+    description: "Engenharia de software para empresas: sistemas sob medida, integração de ERP, CRM e TMS, automação com IA e dashboards em Power BI. Não é marketing.",
+    keywords: "engenharia de software, desenvolvimento de sistemas, integração de sistemas, automação com IA, dados, Power BI",
+    noscriptLead: "Engenharia de software: sistemas, integração, automação com IA e dados. Transformamos gargalos em eficiência através de soluções sob medida de alta velocidade.",
     orgDescription: "A Agência Byte desenvolve software sob medida, automações com IA, integrações de sistemas e soluções de dados e Power BI para empresas.",
     serviceDescription: "Serviços de desenvolvimento de software sob medida, automação com IA, integrações de sistemas, pipelines de dados e soluções de Business Intelligence (Power BI).",
     catalogName: "Serviços de Engenharia",
@@ -83,6 +83,7 @@ const pt = {
     clientsText: "Empresas que já trabalharam com a Agência Byte:",
     faqTitle: "Perguntas frequentes",
     faq: [
+      { q: "A Agência Byte faz marketing ou tráfego pago?", a: "Não. Somos uma empresa de engenharia de software. Não fazemos marketing, tráfego pago, gestão de redes sociais nem criação de conteúdo: desenvolvemos sistemas, integrações, automações com IA e dashboards de dados." },
       { q: "O que a Agência Byte faz?", a: "Desenvolve software sob medida, automações com inteligência artificial, integrações entre sistemas (ERP, CRM, e-commerce e APIs) e dashboards em Power BI com pipelines de dados. Atende principalmente empresas de indústria, logística e distribuição." },
       { q: "Quanto custa integrar ERP e e-commerce?", a: "O valor depende de quais sistemas entram, de quantos fluxos serão sincronizados (pedidos, produtos, preços, estoque) e do que as APIs de cada sistema permitem. Depois da descoberta (2 a 3 dias), a etapa de estratégia (2 a 4 dias) entrega uma proposta técnica com escopo, cronograma e investimento definidos por escrito, sem surpresa no orçamento." },
       { q: "Quanto tempo leva um projeto?", a: "Um primeiro módulo em produção costuma levar de 3 a 6 semanas. Projetos maiores são divididos em entregas menores, para você usar o sistema antes do fim do projeto." },
@@ -363,9 +364,9 @@ const en = {
   },
   home: {
     title: "Agência Byte | Custom Software Development and AI Automation",
-    description: "AI, websites, systems, integration and data agency. We build custom solutions to accelerate your business.",
-    keywords: "AI agency, website development, custom software development, systems integration, data, AI automation, web development",
-    noscriptLead: "AI, websites, systems, integration and data agency. We turn bottlenecks into efficiency with fast, custom-built solutions.",
+    description: "Software engineering for businesses: custom systems, ERP, CRM and TMS integration, AI automation and Power BI dashboards. Not a marketing agency.",
+    keywords: "software engineering, custom software development, systems integration, AI automation, data, Power BI",
+    noscriptLead: "Software engineering: systems, integration, AI automation and data. We turn bottlenecks into efficiency with fast, custom-built solutions.",
     orgDescription: "Agência Byte builds custom software, AI automations, systems integrations and data and Power BI solutions for businesses.",
     serviceDescription: "Custom software development, AI automation, systems integration, data pipelines and Business Intelligence (Power BI) services.",
     catalogName: "Engineering Services",
@@ -408,6 +409,7 @@ const en = {
     clientsText: "Companies that have worked with Agência Byte:",
     faqTitle: "Frequently asked questions",
     faq: [
+      { q: "Does Agência Byte do marketing or paid ads?", a: "No. We are a software engineering company. We do not do marketing, paid ads, social media management or content creation: we build systems, integrations, AI automations and data dashboards." },
       { q: "What does Agência Byte do?", a: "It builds custom software, AI automations, systems integrations (ERP, CRM, e-commerce and APIs) and Power BI dashboards with data pipelines. It mainly serves industrial, logistics and distribution companies." },
       { q: "How much does it cost to integrate an ERP and an e-commerce store?", a: "The price depends on which systems are involved, how many flows are synchronized (orders, products, prices, stock) and what each system's APIs allow. After discovery (2 to 3 days), the strategy stage (2 to 4 days) delivers a technical proposal with scope, timeline and investment defined in writing, with no budget surprises." },
       { q: "How long does a project take?", a: "A first module in production usually takes 3 to 6 weeks. Larger projects are split into smaller deliveries, so you use the system before the project ends." },
@@ -688,9 +690,9 @@ const es = {
   },
   home: {
     title: "Agência Byte | Desarrollo de Sistemas y Automatización con IA",
-    description: "Agencia de IA, sitios web, sistemas, integración y datos. Desarrollamos soluciones a medida para acelerar tu empresa.",
-    keywords: "agencia de IA, creación de sitios web, desarrollo de sistemas, integración de sistemas, datos, automatización con IA, desarrollo web",
-    noscriptLead: "Agencia de IA, sitios web, sistemas, integración y datos. Convertimos cuellos de botella en eficiencia con soluciones a medida y de alta velocidad.",
+    description: "Ingeniería de software para empresas: sistemas a medida, integración de ERP, CRM y TMS, automatización con IA y dashboards en Power BI. No es marketing.",
+    keywords: "ingeniería de software, desarrollo de sistemas, integración de sistemas, automatización con IA, datos, Power BI",
+    noscriptLead: "Ingeniería de software: sistemas, integración, automatización con IA y datos. Convertimos cuellos de botella en eficiencia con soluciones a medida y de alta velocidad.",
     orgDescription: "Agência Byte desarrolla software a medida, automatizaciones con IA, integraciones de sistemas y soluciones de datos y Power BI para empresas.",
     serviceDescription: "Servicios de desarrollo de software a medida, automatización con IA, integración de sistemas, pipelines de datos y soluciones de Business Intelligence (Power BI).",
     catalogName: "Servicios de Ingeniería",
@@ -733,6 +735,7 @@ const es = {
     clientsText: "Empresas que ya trabajaron con Agência Byte:",
     faqTitle: "Preguntas frecuentes",
     faq: [
+      { q: "¿Agência Byte hace marketing o tráfico pago?", a: "No. Somos una empresa de ingeniería de software. No hacemos marketing, tráfico pago, gestión de redes sociales ni creación de contenido: desarrollamos sistemas, integraciones, automatizaciones con IA y dashboards de datos." },
       { q: "¿Qué hace Agência Byte?", a: "Desarrolla software a medida, automatizaciones con inteligencia artificial, integraciones entre sistemas (ERP, CRM, e-commerce y APIs) y dashboards en Power BI con pipelines de datos. Atiende principalmente a empresas de industria, logística y distribución." },
       { q: "¿Cuánto cuesta integrar un ERP y un e-commerce?", a: "El valor depende de qué sistemas participan, de cuántos flujos se sincronizan (pedidos, productos, precios, stock) y de lo que permiten las APIs de cada sistema. Después del descubrimiento (2 a 3 días), la etapa de estrategia (2 a 4 días) entrega una propuesta técnica con alcance, cronograma e inversión definidos por escrito, sin sorpresas en el presupuesto." },
       { q: "¿Cuánto tarda un proyecto?", a: "Un primer módulo en producción suele tardar de 3 a 6 semanas. Los proyectos más grandes se dividen en entregas más pequeñas, para que uses el sistema antes de que termine el proyecto." },
