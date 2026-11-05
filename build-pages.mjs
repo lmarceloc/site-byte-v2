@@ -14,7 +14,7 @@ import { LANGS, LANG_META, ROUTES, FLAGS, SWITCH_LABEL, route, svcRoute } from "
 import { PAGES, SERVICE_ORDER } from "./i18n/pages.mjs";
 
 const SITE = "https://agenciabyte.com";
-const BRAND = "Agencia Byte";
+const BRAND = "Agência Byte";
 const OG_IMAGE = `${SITE}/img/og-image.png`;
 const WHATSAPP = "https://wa.me/5542984224363";
 const EMAIL = "hello@agenciabyte.com";
@@ -181,7 +181,7 @@ function nav(lang, key, current) {
           <img src="/img/logo_byte_64.png" alt="" width="32" height="32" />
         </picture>
       </span>
-      <span>Agencia Byte</span>
+      <span>Agência Byte</span>
     </a>
     <nav class="nav-pill" aria-label="${u.mainMenu}">
       ${links.map(([h, l]) => `<a href="${h}" class="nav-pill-link"${cur(h)}>${l}</a>`).join("\n      ")}
@@ -232,7 +232,7 @@ function footer(lang) {
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="brand">Agencia Byte</div>
+        <div class="brand">Agência Byte</div>
         <p class="muted footer-tagline">${u.footer.tagline}</p>
       </div>
       ${col(u.footer.services, servicesFor(lang).map((s) => [s.path, s.nav]))}
@@ -518,7 +518,7 @@ ${h.faq.map((f) => `      <h3>${f.q}</h3>
       <h2>${h.contactTitle}</h2>
       <p>Email: <a href="mailto:${EMAIL}">${EMAIL}</a></p>
       <p>WhatsApp: <a href="${WHATSAPP}">+55 (42) 98422-4363</a></p>
-      <p>LinkedIn: <a href="${LINKEDIN}">Agencia Byte</a></p>
+      <p>LinkedIn: <a href="${LINKEDIN}">Agência Byte</a></p>
     </section>
     <p>${LANGS.filter((l) => l !== lang).map((l) => `<a href="${route("home", l)}" hreflang="${LANG_META[l].hreflang}" lang="${LANG_META[l].html}">${LANG_META[l].name}</a>`).join(" · ")}</p>
   </main>

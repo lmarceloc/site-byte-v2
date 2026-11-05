@@ -238,7 +238,7 @@ function Footer(){
         <div style={{display:'grid', gridTemplateColumns:'1.4fr 1fr 1fr 1fr', gap:48}} className="footer-grid">
           <div>
             <div className="brand" style={{color:'var(--dark-ink)'}}>
-              <span>Agencia Byte</span>
+              <span>Agência Byte</span>
             </div>
             <p className="muted" style={{maxWidth:280, marginTop:16, fontSize:14}}>{T.footer.tagline}</p>
             {/* <div className="mono muted" style={{fontSize:12, marginTop:24}}>v2.0 · 2026.05</div> */}
