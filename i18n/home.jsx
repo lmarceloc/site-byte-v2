@@ -9,7 +9,7 @@ const pt = {
   nav: {
     about: "Sobre", transformation: "Antes e depois", services: "Serviços", process: "Processo",
     clients: "Clientes", contact: "Contato →", menuOpen: "Abrir menu", menuClose: "Fechar menu",
-    menuLabel: "Menu de navegação", home: "Agencia Byte, página inicial",
+    menuLabel: "Menu de navegação", home: "Agência Byte, página inicial",
   },
   hero: {
     titleA: ["Transforme processos manuais", "em operação inteligente"],
@@ -116,7 +116,7 @@ const pt = {
       "dados-e-power-bi": "Dados e Power BI",
     },
     about: "Sobre", process: "Processo", transformation: "Antes e depois",
-    rights: "© 2026 Agencia Byte · todos os direitos reservados",
+    rights: "© 2026 Agência Byte · todos os direitos reservados",
     operational: "● operacional",
   },
 };
@@ -125,7 +125,7 @@ const en = {
   nav: {
     about: "About", transformation: "Before & after", services: "Services", process: "Process",
     clients: "Clients", contact: "Contact →", menuOpen: "Open menu", menuClose: "Close menu",
-    menuLabel: "Navigation menu", home: "Agencia Byte, home page",
+    menuLabel: "Navigation menu", home: "Agência Byte, home page",
   },
   hero: {
     titleA: ["Turn manual processes", "into intelligent operations"],
@@ -142,7 +142,7 @@ const en = {
     beforeTitle: <>100% manual,<br />disconnected processes.</>,
     symptoms: ["Isolated ERPs, WMS and spreadsheets", "Repetitive manual work", "Scattered, unreliable data", "Little intelligence day to day", "Inflated operating costs"],
     beforeNote: "// every step creates more rework",
-    bridgeAria: "Agencia Byte engineering",
+    bridgeAria: "Agência Byte engineering",
     bridgeLabel: "Applied automation + AI",
     afterKicker: "02 / transformed",
     afterTitle: <>Integrated,<br />automated operation.</>,
@@ -232,7 +232,7 @@ const en = {
       "dados-e-power-bi": "Data & Power BI",
     },
     about: "About", process: "Process", transformation: "Before and after",
-    rights: "© 2026 Agencia Byte · all rights reserved",
+    rights: "© 2026 Agência Byte · all rights reserved",
     operational: "● operational",
   },
 };
@@ -241,7 +241,7 @@ const es = {
   nav: {
     about: "Nosotros", transformation: "Antes y después", services: "Servicios", process: "Proceso",
     clients: "Clientes", contact: "Contacto →", menuOpen: "Abrir menú", menuClose: "Cerrar menú",
-    menuLabel: "Menú de navegación", home: "Agencia Byte, página de inicio",
+    menuLabel: "Menú de navegación", home: "Agência Byte, página de inicio",
   },
   hero: {
     titleA: ["Transforma procesos manuales", "en una operación inteligente"],
@@ -258,7 +258,7 @@ const es = {
     beforeTitle: <>Procesos 100%<br />manuales y desconectados.</>,
     symptoms: ["ERPs, WMS y hojas de cálculo aisladas", "Trabajo manual y repetitivo", "Datos dispersos y poco confiables", "Poca inteligencia en el día a día", "Costos operativos inflados"],
     beforeNote: "// cada etapa genera más retrabajo",
-    bridgeAria: "La ingeniería de Agencia Byte",
+    bridgeAria: "La ingeniería de Agência Byte",
     bridgeLabel: "Automatización + IA aplicadas",
     afterKicker: "02 / escenario transformado",
     afterTitle: <>Operación integrada<br />y automatizada.</>,
@@ -348,7 +348,7 @@ const es = {
       "dados-e-power-bi": "Datos y Power BI",
     },
     about: "Nosotros", process: "Proceso", transformation: "Antes y después",
-    rights: "© 2026 Agencia Byte · todos los derechos reservados",
+    rights: "© 2026 Agência Byte · todos los derechos reservados",
     operational: "● operativo",
   },
 };

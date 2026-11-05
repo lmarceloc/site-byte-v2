@@ -98,10 +98,10 @@ function Nav(){
           <div className="glyph">
             <picture>
               <source srcSet="/img/logo_byte.webp" type="image/webp" />
-              <img src="/img/logo_byte_64.png" alt="Agencia Byte" width="32" height="32" />
+              <img src="/img/logo_byte_64.png" alt="Agência Byte" width="32" height="32" />
             </picture>
           </div>
-          <span>Agencia Byte</span>
+          <span>Agência Byte</span>
         </div>
         <nav className="nav-pill">
           <a href="#sobre" className="nav-pill-link">{n.about}</a>
