@@ -1,5 +1,5 @@
 // Casos de uso de IA (/casos-de-uso e /casos-de-uso/<slug>), gerados por build-pages.mjs.
-// Por enquanto só em português; inglês e espanhol entram depois da revisão do texto.
+// Textos em português, inglês e espanhol; as chaves dos casos são os slugs em português.
 // A ordem de USE_CASE_ORDER é a ordem dos cards na página de entrada.
 
 export const USE_CASE_ORDER = [
@@ -333,4 +333,652 @@ const pt = {
   },
 };
 
-export const USE_CASES = { pt };
+/* ================================================================== */
+/* English                                                             */
+/* ================================================================== */
+
+const en = {
+  ui: {
+    nav: "Use cases",
+    eyebrow: "Use case",
+    scenarioEyebrow: "The scenario", scenarioTitle: "How it works today, without automation.",
+    flowEyebrow: "How it works with AI", flowTitle: "The flow, step by step.",
+    flowLabel: "Automated process flow",
+    proposalEyebrow: "Sample proposal", proposalTitle: "What would be delivered.",
+    deliverables: "Deliverables", systems: "// connected systems", stages: "Stages", deadline: "Typical timeline",
+    deadlineNote: "The final timeline is set in the proposal, after discovery.",
+    faqTitle: "Questions about this use case.",
+    cta: "Want to see how it would work in your company?",
+    serviceLink: "See the AI Automation service →",
+    more: "See use case →",
+    otherEyebrow: "Other use cases", otherTitle: "See also.",
+    proofEyebrow: "Related real project",
+    svcEyebrow: "Use cases", svcTitle: "See examples of AI automation.", svcAll: "See all use cases →",
+  },
+  hub: {
+    title: "AI use cases in business: practical examples | Agência Byte",
+    description: "AI use cases in business: WhatsApp customer service, invoice data extraction, order triage, administrative routines and automated reports.",
+    eyebrow: "Use cases",
+    h1: "AI use cases for businesses",
+    lead: "Practical examples of where artificial intelligence takes manual work out of operations. Each case shows how it works today, how it works with AI, what would be delivered and the typical timeline.",
+    itemList: "Agência Byte AI use cases",
+    cta: "Didn't find your case? Tell us about your process.",
+    choose: {
+      eyebrow: "Where to start",
+      title: "How to choose the first use case.",
+      intro: "A first AI project works when the problem is small, frequent and easy to measure. Four signs that a process is a good candidate:",
+      items: [
+        { t: "The task repeats", d: "It happens every day or every week, the same way. The more often it repeats, the more time automation gives back to the team." },
+        { t: "The information is already digital", d: "Data arrives by email, PDF, WhatsApp or a system. If it still depends on paper, the first step is to digitize it." },
+        { t: "The rule can be explained", d: "If a person can explain how they decide, AI can follow it. Decisions that rely only on intuition come later." },
+        { t: "The cost of errors is known", d: "Fines, rework, lost customers or overtime. With the cost of errors in hand, measuring the project's return is easy." },
+      ],
+    },
+  },
+  items: {
+    "atendimento-whatsapp-ia": {
+      name: "AI customer service on WhatsApp",
+      card: "Answers customers 24 hours a day, checks orders in your system and hands over to a person when needed.",
+      title: "WhatsApp customer service automation with AI | Agência Byte",
+      description: "WhatsApp customer service automation with AI: answers 24/7, checks the order in the ERP and hands over to a person when needed, with a conversation summary.",
+      h1: "WhatsApp customer service automation with AI, 24 hours a day",
+      lead: "An AI agent answers customers on WhatsApp at any time, checks the order status in your system and hands the conversation to a person when the subject calls for it.",
+      scenario: {
+        text: "A customer asks about their order at 10 p.m. and only gets an answer the next day. By morning the WhatsApp queue is full, and most messages are the same question: \"where is my order?\".",
+        pains: [
+          "Outside business hours, nobody answers, and the customer buys from a competitor.",
+          "To answer, the agent opens the ERP, looks up the order and copies the status into the chat.",
+          "Repeated questions about delivery times, shipping and returns take up the team's day.",
+          "The history is scattered across phones, and nobody knows what was already agreed.",
+        ],
+      },
+      flow: [
+        { t: "Customer sends a message", d: "At any time, to the company's WhatsApp number." },
+        { t: "AI understands the request", d: "Identifies the customer and the subject: status, delivery time, return, quote." },
+        { t: "Checks the system", d: "Looks up the order in the ERP or e-commerce platform and answers with real data." },
+        { t: "Hands over to a person", d: "Complaints, negotiations or off-script questions go to an agent, with a summary." },
+        { t: "Everything is logged", d: "The conversation and the outcome go into the CRM or help desk." },
+      ],
+      proposal: {
+        deliverables: [
+          "AI agent on WhatsApp with the company's rules and tone of voice.",
+          "Order, delivery time and status lookups straight from your system.",
+          "Handover to a human agent, with a conversation summary.",
+          "Conversations logged in the CRM and a dashboard of the main topics.",
+        ],
+        systems: ["WhatsApp Business API", "ERP (Bling, Tiny, Omie and others)", "E-commerce", "CRM"],
+        stages: [
+          { t: "Discovery", d: "Mapping the most common questions and the data the AI can access.", dur: "2 to 3 days" },
+          { t: "Building the agent", d: "Integration with WhatsApp and your system, rules and answers.", dur: "2 to 3 weeks" },
+          { t: "Testing with the team", d: "The agent answers in a test environment and the team fine-tunes the answers.", dur: "1 week" },
+          { t: "Go-live and tuning", d: "Production launch, conversation monitoring and improvements.", dur: "1 week" },
+        ],
+        deadline: "4 to 6 weeks",
+      },
+      faq: [
+        { q: "Does the customer know they are talking to an AI?", a: "Yes. We recommend making it clear from the first message, and the customer can ask to talk to a person at any time." },
+        { q: "What if the AI doesn't know the answer?", a: "It doesn't make things up. When a question falls outside what was configured, the conversation goes to an agent, with a summary of what the customer already said." },
+        { q: "Do I need to change my WhatsApp number?", a: "Not necessarily. Your current number can be migrated to the official WhatsApp API. We assess this during discovery." },
+        { q: "Can the AI check my ERP?", a: "Yes, if the system has an API or another way to access the data. Bling, Tiny, Omie and most e-commerce platforms offer this." },
+      ],
+    },
+    "leitura-automatica-de-documentos": {
+      name: "Automatic document reading",
+      card: "Invoices, freight bills (CT-e), contracts and receipts read by AI and posted to the ERP.",
+      title: "AI data extraction: invoices and freight bills | Agência Byte",
+      description: "AI data extraction: invoices, freight bills (CT-e), contracts and receipts read, checked and posted to the ERP. The team only reviews what doesn't match.",
+      h1: "Automatic document reading with AI",
+      lead: "Invoices, freight bills (CT-e), contracts and receipts arrive by email or upload, and the AI extracts the data, checks it and posts it to the ERP. The team only reviews what the AI flags as doubtful.",
+      scenario: {
+        text: "Dozens of PDFs arrive by email every day. Someone opens them one by one, copies the tax ID, amount, due date and items into the ERP, and checks again at month-end, when the books don't add up.",
+        pains: [
+          "Hours every week spent typing what is already written in the document.",
+          "A typo in an amount or due date turns into a fine, interest or a wrong charge.",
+          "Documents sit in the inbox waiting for someone to have time.",
+          "Nobody knows for sure which documents have already been posted.",
+        ],
+      },
+      flow: [
+        { t: "Document arrives", d: "By email, upload, shared folder or WhatsApp." },
+        { t: "AI reads and extracts", d: "Identifies the document type and extracts the fields: tax ID, amounts, dates, items." },
+        { t: "Checks the data", d: "Compares it with the order, the supplier and the company's rules." },
+        { t: "Posts to the ERP", d: "Creates the entry, the payable or the right record in the system." },
+        { t: "A person reviews exceptions", d: "Only what doesn't match goes to review, with the reason shown." },
+      ],
+      proposal: {
+        deliverables: [
+          "Reading of invoices, freight bills (CT-e), contracts, bank slips and receipts.",
+          "Checking rules against orders, suppliers and amounts.",
+          "Automatic posting to the ERP or finance system.",
+          "Review queue for exceptions and a history of every document read.",
+        ],
+        systems: ["Email", "Google Drive or OneDrive", "ERP", "Finance", "SEFAZ (NF-e and CT-e XML)"],
+        stages: [
+          { t: "Discovery", d: "Document types, required fields and checking rules.", dur: "2 to 3 days" },
+          { t: "Reading and rules", d: "Extraction models, checks and ERP integration.", dur: "2 to 3 weeks" },
+          { t: "Testing with real documents", d: "We run documents from recent months and measure accuracy.", dur: "1 week" },
+          { t: "Go-live and tuning", d: "Production launch with the review queue active.", dur: "1 week" },
+        ],
+        deadline: "3 to 5 weeks",
+      },
+      faq: [
+        { q: "Can the AI read scanned documents or photos?", a: "Yes. Digital PDFs, scanned documents and legible photos. When the invoice XML exists, it is used first because it is more accurate." },
+        { q: "What if the AI gets an amount wrong?", a: "The checking rules compare the document with the order and the supplier. Anything that doesn't match is not posted: it goes to a person for review." },
+        { q: "Does it work with my ERP?", a: "It works with ERPs that have an API or file import. During discovery we confirm how to post to your system." },
+        { q: "Which documents can be automated?", a: "Invoices, freight bills (CT-e), bank slips, payment receipts, contracts, purchase orders and other documents with a similar structure. Freight bills can also be checked against the freight table and quote before posting." },
+      ],
+    },
+    "automacao-de-processos-administrativos": {
+      name: "Administrative routines on autopilot",
+      card: "Bank reconciliation, registrations and collections done by AI, with human approval where it matters.",
+      title: "Administrative process automation with AI | Agência Byte",
+      description: "Administrative process automation with AI: bank reconciliation, collections and registrations done automatically, with human approval for payments.",
+      h1: "Administrative process automation with AI",
+      lead: "The tasks that repeat every day in admin and finance, such as collecting, reconciling, registering and answering routine emails, are done by AI. The team approves what matters and handles the exceptions.",
+      scenario: {
+        text: "The admin team's day starts with the same list: check the bank statement, record payments, chase late payers, register the new customer and answer the same old emails. Little time is left for what needs a decision.",
+        pains: [
+          "Payment recording and bank reconciliation done line by line.",
+          "Collections are late because nobody had time to send the reminder.",
+          "Customer and supplier records typed by hand, with tax ID and address errors.",
+          "The same routine emails written from scratch several times a week.",
+        ],
+      },
+      flow: [
+        { t: "The routine starts", d: "On a schedule, when an email arrives or when something changes in the system." },
+        { t: "AI gathers the data", d: "Pulls what the task needs from the ERP, the bank, email and spreadsheets." },
+        { t: "Performs the task", d: "Reconciles, collects, registers or drafts the reply, following the company's rules." },
+        { t: "A person approves what matters", d: "Payments, amounts above the limit and exceptions wait for approval." },
+        { t: "Everything is logged", d: "Every action is recorded, with what was done and why." },
+      ],
+      proposal: {
+        deliverables: [
+          "Mapping of routines and selection of the most time-consuming ones.",
+          "Automation of each routine with the company's rules.",
+          "Human approval steps and exception alerts.",
+          "History of every action and a dashboard of time saved.",
+        ],
+        systems: ["ERP (Bling, Tiny, Omie and others)", "Bank (statement and API)", "Email", "Google Sheets or Excel", "WhatsApp", "Federal Revenue (CNPJ lookup)"],
+        stages: [
+          { t: "Discovery", d: "Mapping the routines, the time each one takes and the rules.", dur: "2 to 3 days" },
+          { t: "First routines", d: "Automation of the 2 or 3 most time-consuming routines.", dur: "2 to 3 weeks" },
+          { t: "Testing with the team", d: "The routines run alongside the manual work until the results match.", dur: "1 week" },
+          { t: "Go-live and next routines", d: "Production launch and choice of the next routines.", dur: "ongoing" },
+        ],
+        deadline: "3 to 5 weeks",
+      },
+      faq: [
+        { q: "Which routines can be automated first?", a: "The ones that repeat with a clear rule: payment recording, reconciliation, collection reminders, registration from the tax ID and routine emails. During discovery we measure which takes the most time." },
+        { q: "Does the AI handle the company's money?", a: "Not without approval. Payments and any action above the defined limit wait for a person to approve them." },
+        { q: "What if the routine changes?", a: "The rules are documented and can be adjusted. Small changes are covered by support; new routines become a new stage." },
+        { q: "Do I need to change my ERP?", a: "No. The automation works with the ERP you already use, through an API, file import or database access." },
+      ],
+    },
+    "triagem-de-pedidos-e-leads": {
+      name: "Order and lead triage",
+      card: "Requests from several channels classified and sent to the right person.",
+      title: "Order and lead triage with AI | Agência Byte",
+      description: "AI triage: orders and leads from email, WhatsApp and the website classified by type and urgency and sent to the right person, with a summary in the CRM.",
+      h1: "Order and lead triage with AI",
+      proof: { slug: "divina-argila", text: "At Divina Argila, orders from TikTok Shop and Mercado Livre now land in Trello on their own, where the factory team builds and ships them." },
+      lead: "Requests arrive by email, WhatsApp, web forms and marketplaces. The AI reads each one, classifies it by type and urgency, and sends it to the right person or queue, with a summary.",
+      scenario: {
+        text: "Orders, quotes, complaints and résumés arrive mixed together in the same inbox and the same WhatsApp. Someone has to read everything, decide who it goes to and forward it by hand. When that person is out, the queue stops.",
+        pains: [
+          "A good lead waits hours because it got buried among unimportant messages.",
+          "The same request is answered by two people, or by nobody.",
+          "There is no record of how many requests came in or how long they took.",
+          "Sales reps receive the contact without context and have to ask everything again.",
+        ],
+      },
+      flow: [
+        { t: "Request arrives", d: "Email, WhatsApp, website form or marketplace." },
+        { t: "AI classifies", d: "Type (order, quote, support, complaint), urgency and lead potential." },
+        { t: "Fills in the data", d: "Looks up the customer in the CRM and attaches history and company data." },
+        { t: "Sends to the right person", d: "Creates the record in the CRM or system and notifies the owner." },
+        { t: "Tracks the deadline", d: "If nobody replies within the agreed time, the manager is alerted." },
+      ],
+      proposal: {
+        deliverables: [
+          "Automatic classification by type, urgency and potential.",
+          "Routing rules by region, product or team.",
+          "CRM record created with a summary and the customer's history.",
+          "Deadline alerts and a dashboard of volume and response time.",
+        ],
+        systems: ["Email", "WhatsApp", "Website forms", "Marketplaces", "CRM", "Slack or Teams"],
+        stages: [
+          { t: "Discovery", d: "Input channels, request types and routing rules.", dur: "2 to 3 days" },
+          { t: "Classification and integrations", d: "Connecting the channels, classification model and CRM handoff.", dur: "2 to 3 weeks" },
+          { t: "Testing with real requests", d: "We compare the AI's classification with the team's and adjust.", dur: "1 week" },
+          { t: "Go-live and tuning", d: "Production launch and monitoring of the first days.", dur: "1 week" },
+        ],
+        deadline: "3 to 5 weeks",
+      },
+      faq: [
+        { q: "How does the AI know who to send it to?", a: "Through the rules your company already uses, such as region, product, customer size or rep portfolio. The AI classifies and the rules route." },
+        { q: "What if the classification is wrong?", a: "The person who receives it can reclassify it in one click. These corrections are used to improve the classification." },
+        { q: "Do I need a CRM?", a: "It helps, but it isn't required. Routing can go to email, Slack, Teams or a spreadsheet, and the CRM can come later." },
+        { q: "Can leads most likely to close be prioritized?", a: "Yes. The AI can score each lead based on the criteria your sales team uses, and the best ones go first." },
+      ],
+    },
+    "assistente-documentos-da-empresa": {
+      name: "Assistant for company documents",
+      card: "The team asks and the AI answers based on internal manuals and policies.",
+      title: "AI assistant for company documents | Agência Byte",
+      description: "An AI assistant that answers the team based on the company's manuals and policies, always showing the document the answer came from.",
+      h1: "AI assistant for company documents",
+      lead: "The team asks in plain language and the AI answers based on the company's manuals, policies and procedures, always showing which document the answer came from.",
+      scenario: {
+        text: "The answer exists, but it is in an 80-page PDF, in a folder few people can find. So the team asks the most senior person, who stops what they are doing to answer for the tenth time.",
+        pains: [
+          "New hires take weeks to learn procedures that are already written down.",
+          "Everyone answers differently, and the official procedure isn't followed.",
+          "The most experienced people spend the day answering questions.",
+          "Outdated manuals sit next to new versions and nobody knows which one applies.",
+        ],
+      },
+      flow: [
+        { t: "Documents organized", d: "Manuals, policies and procedures gathered into one knowledge base." },
+        { t: "A person asks", d: "In the internal chat, Teams, Slack or WhatsApp." },
+        { t: "AI searches the documents", d: "Finds the passages that answer the question." },
+        { t: "Answers with the source", d: "The answer comes with the document name and the passage used." },
+        { t: "No answer, it says so", d: "If it isn't in the documents, the AI says it doesn't know and points to who to ask." },
+      ],
+      proposal: {
+        deliverables: [
+          "Knowledge base with the company's documents, updated automatically.",
+          "AI assistant in the channel the team already uses.",
+          "Answers with the source shown and access control by department.",
+          "Report of the most asked questions and the ones left unanswered.",
+        ],
+        systems: ["Google Drive", "SharePoint or OneDrive", "Notion or Confluence", "Microsoft Teams", "Slack", "WhatsApp"],
+        stages: [
+          { t: "Discovery", d: "Which documents go in, who can see what and where the team will ask.", dur: "2 to 3 days" },
+          { t: "Knowledge base and assistant", d: "Organizing the documents, search and channel integration.", dur: "2 to 3 weeks" },
+          { t: "Testing with the team", d: "A group uses it day to day and rates the answers.", dur: "1 week" },
+          { t: "Go-live and tuning", d: "Rollout to everyone and monitoring of the questions.", dur: "1 week" },
+        ],
+        deadline: "3 to 5 weeks",
+      },
+      faq: [
+        { q: "Can the AI make up an answer?", a: "It is configured to answer only from the documents and to show the source. When the answer isn't there, it says it doesn't know." },
+        { q: "Does each person only see what they are allowed to see?", a: "Yes. Access follows department permissions: an HR document, for example, only shows up for people who have access to it." },
+        { q: "When a manual changes, does the AI update?", a: "Yes. The knowledge base is synced with the documents folder, and the new version applies from the next sync." },
+        { q: "Are company documents used to train third-party AI?", a: "No. Documents are consulted at the time of the question, with providers and contracts that don't use the data for training." },
+      ],
+    },
+    "relatorios-automaticos": {
+      name: "Reports that build themselves",
+      card: "The weekly summary comes out ready, without anyone merging spreadsheets.",
+      title: "Automated reports with AI, no spreadsheets | Agência Byte",
+      description: "Automated reports with AI: numbers come from your systems, the AI writes the summary and the report arrives ready every week, with no spreadsheet merging.",
+      h1: "Reports that build themselves",
+      proof: { slug: "cargon", text: "At CargOn, the platform's records became a data warehouse and 4 Power BI dashboards with forecasts, delivered to its customers." },
+      lead: "Data comes straight from your systems, numbers are always calculated the same way and the AI writes a summary of what changed. Every Monday, the report arrives ready.",
+      scenario: {
+        text: "Every Friday, someone spends the afternoon exporting spreadsheets from the ERP, the CRM and finance, merging everything, building charts and writing the weekly summary. When that person goes on vacation, there is no report.",
+        pains: [
+          "Hours every week spent merging spreadsheets instead of analyzing.",
+          "Each department calculates the same metric differently.",
+          "A formula error goes unnoticed and decisions are made on the wrong number.",
+          "The report arrives late, when the problem has already grown.",
+        ],
+      },
+      flow: [
+        { t: "Data comes from your systems", d: "ERP, CRM, finance and spreadsheets are read automatically." },
+        { t: "Metrics calculated", d: "Each number follows a single definition, the same for every department." },
+        { t: "AI writes the summary", d: "What went up, what went down and what needs attention, in plain language." },
+        { t: "Report delivered", d: "Arrives by email, WhatsApp or Teams on the agreed day and time." },
+        { t: "Details on the dashboard", d: "Anyone who wants to dig deeper opens the dashboard with the same numbers." },
+      ],
+      proposal: {
+        deliverables: [
+          "Automatic data collection from the company's systems.",
+          "A single, documented definition for each metric.",
+          "AI-written summary with highlights and alerts.",
+          "Scheduled delivery and a Power BI dashboard with the same numbers.",
+        ],
+        systems: ["ERP", "CRM", "Finance", "Google Sheets or Excel", "Power BI", "Email, WhatsApp or Teams"],
+        stages: [
+          { t: "Discovery", d: "Which reports exist today, where the data comes from and who receives them.", dur: "2 to 3 days" },
+          { t: "Data and metrics", d: "Connecting to the systems and calculating the metrics.", dur: "1 to 2 weeks" },
+          { t: "Summary and delivery", d: "AI-generated text, report format and delivery schedule.", dur: "1 week" },
+          { t: "Validation", d: "We compare with the manual report until the numbers match.", dur: "1 week" },
+        ],
+        deadline: "2 to 4 weeks",
+      },
+      faq: [
+        { q: "Can the AI get the numbers wrong?", a: "The numbers aren't calculated by the AI: they come straight from the systems, with fixed formulas. The AI only writes the text from those numbers." },
+        { q: "Can I get a daily report as well as the weekly one?", a: "Yes. You set the frequency and delivery time, and each person can receive only what matters to their department." },
+        { q: "Do I need Power BI?", a: "No. The report can arrive by email or WhatsApp only. The Power BI dashboard is optional, for those who want the details." },
+        { q: "What if a system has no API?", a: "We can read automatic exports, the database or shared spreadsheets. We assess the best route during discovery." },
+      ],
+    },
+  },
+};
+
+/* ================================================================== */
+/* Español                                                             */
+/* ================================================================== */
+
+const es = {
+  ui: {
+    nav: "Casos de uso",
+    eyebrow: "Caso de uso",
+    scenarioEyebrow: "El escenario", scenarioTitle: "Cómo funciona hoy, sin automatización.",
+    flowEyebrow: "Cómo queda con IA", flowTitle: "El flujo, paso a paso.",
+    flowLabel: "Flujo del proceso automatizado",
+    proposalEyebrow: "Propuesta de ejemplo", proposalTitle: "Lo que se entregaría.",
+    deliverables: "Entregables", systems: "// sistemas que se conectan", stages: "Etapas", deadline: "Plazo típico",
+    deadlineNote: "El plazo final se define en la propuesta, después del descubrimiento.",
+    faqTitle: "Preguntas sobre este caso.",
+    cta: "¿Quieres ver cómo quedaría en tu empresa?",
+    serviceLink: "Ver el servicio de Automatización con IA →",
+    more: "Ver caso de uso →",
+    otherEyebrow: "Otros casos de uso", otherTitle: "Ver también.",
+    proofEyebrow: "Proyecto real relacionado",
+    svcEyebrow: "Casos de uso", svcTitle: "Mira ejemplos de automatización con IA.", svcAll: "Ver todos los casos de uso →",
+  },
+  hub: {
+    title: "Casos de uso de IA en empresas: ejemplos prácticos | Agência Byte",
+    description: "Casos de uso de IA en empresas: atención por WhatsApp, extracción de datos de facturas, triaje de pedidos, rutinas administrativas e informes.",
+    eyebrow: "Casos de uso",
+    h1: "Casos de uso de IA para empresas",
+    lead: "Ejemplos prácticos de dónde la inteligencia artificial quita trabajo manual de la operación. Cada caso muestra cómo es hoy, cómo queda con IA, qué se entregaría y el plazo típico.",
+    itemList: "Casos de uso de IA de Agência Byte",
+    cta: "¿No encontraste tu caso? Cuéntanos tu proceso.",
+    choose: {
+      eyebrow: "Por dónde empezar",
+      title: "Cómo elegir el primer caso.",
+      intro: "El primer proyecto de IA funciona cuando el problema es pequeño, frecuente y fácil de medir. Cuatro señales de que un proceso es un buen candidato:",
+      items: [
+        { t: "La tarea se repite", d: "Ocurre todos los días o todas las semanas, de la misma forma. Cuanto más se repite, más tiempo le devuelve la automatización al equipo." },
+        { t: "La información ya es digital", d: "Los datos llegan por correo, PDF, WhatsApp o sistema. Si todavía dependen del papel, el primer paso es digitalizar." },
+        { t: "La regla se puede explicar", d: "Si una persona puede explicar cómo decide, la IA puede seguirlo. Las decisiones que dependen solo de la intuición quedan para después." },
+        { t: "El error tiene un costo conocido", d: "Multas, retrabajo, clientes perdidos u horas extra. Con el costo del error en la mano, es fácil medir el retorno del proyecto." },
+      ],
+    },
+  },
+  items: {
+    "atendimento-whatsapp-ia": {
+      name: "Atención con IA en WhatsApp",
+      card: "Responde a los clientes las 24 horas, consulta pedidos en tu sistema y pasa a una persona cuando hace falta.",
+      title: "Automatización de atención en WhatsApp con IA | Agência Byte",
+      description: "Automatización de atención en WhatsApp con IA: responde 24 horas, consulta el pedido en el ERP y pasa a una persona cuando hace falta, con el resumen.",
+      h1: "Automatización de atención en WhatsApp con IA, las 24 horas",
+      lead: "Un agente de IA responde a los clientes en WhatsApp a cualquier hora, consulta el estado del pedido en tu sistema y pasa la conversación a una persona cuando el tema lo requiere.",
+      scenario: {
+        text: "El cliente pregunta por su pedido a las 22 h y recién recibe respuesta al día siguiente. Por la mañana, la cola de WhatsApp ya está llena, y buena parte de los mensajes es la misma pregunta: \"¿dónde está mi pedido?\".",
+        pains: [
+          "Fuera del horario laboral nadie responde, y el cliente le compra a la competencia.",
+          "Para responder, el agente abre el ERP, busca el pedido y copia el estado en la conversación.",
+          "Las preguntas repetidas sobre plazos, envío y cambios ocupan el día del equipo.",
+          "El historial queda repartido entre celulares, y nadie sabe qué se acordó.",
+        ],
+      },
+      flow: [
+        { t: "El cliente escribe", d: "A cualquier hora, al número de WhatsApp de la empresa." },
+        { t: "La IA entiende el pedido", d: "Identifica al cliente y el tema: estado, plazo, cambio, presupuesto." },
+        { t: "Consulta el sistema", d: "Busca el pedido en el ERP o el e-commerce y responde con el dato real." },
+        { t: "Pasa a una persona", d: "Reclamos, negociaciones o dudas fuera del guion van al agente, con el resumen." },
+        { t: "Todo queda registrado", d: "La conversación y el resultado entran en el CRM o el sistema de atención." },
+      ],
+      proposal: {
+        deliverables: [
+          "Agente de IA en WhatsApp con las reglas y el tono de voz de la empresa.",
+          "Consulta de pedidos, plazos y estados directamente en tu sistema.",
+          "Derivación a un agente humano, con el resumen de la conversación.",
+          "Registro de las conversaciones en el CRM y panel con los temas principales.",
+        ],
+        systems: ["WhatsApp Business API", "ERP (Bling, Tiny, Omie y otros)", "E-commerce", "CRM"],
+        stages: [
+          { t: "Descubrimiento", d: "Relevamiento de las preguntas más comunes y de los datos que la IA puede consultar.", dur: "2 a 3 días" },
+          { t: "Armado del agente", d: "Integración con WhatsApp y con el sistema, reglas y respuestas.", dur: "2 a 3 semanas" },
+          { t: "Prueba con el equipo", d: "El agente responde en un entorno de prueba y el equipo ajusta las respuestas.", dur: "1 semana" },
+          { t: "Puesta en marcha y ajustes", d: "Paso a producción, seguimiento de las conversaciones y mejoras.", dur: "1 semana" },
+        ],
+        deadline: "4 a 6 semanas",
+      },
+      faq: [
+        { q: "¿El cliente sabe que está hablando con una IA?", a: "Sí. Recomendamos dejarlo claro desde el primer mensaje, y el cliente puede pedir hablar con una persona en cualquier momento." },
+        { q: "¿Y si la IA no sabe responder?", a: "No inventa. Cuando la pregunta sale de lo configurado, la conversación pasa a un agente, con el resumen de lo que el cliente ya dijo." },
+        { q: "¿Tengo que cambiar el número de WhatsApp?", a: "No necesariamente. El número actual puede migrarse a la API oficial de WhatsApp. Lo evaluamos en el descubrimiento." },
+        { q: "¿La IA puede consultar mi ERP?", a: "Sí, si el sistema tiene API u otra forma de acceso a los datos. Bling, Tiny, Omie y la mayoría de los e-commerce lo ofrecen." },
+      ],
+    },
+    "leitura-automatica-de-documentos": {
+      name: "Lectura automática de documentos",
+      card: "Facturas, guías de transporte (CT-e), contratos y comprobantes leídos por la IA y cargados en el ERP.",
+      title: "Extracción de datos con IA: facturas y CT-e | Agência Byte",
+      description: "Extracción de datos con IA: facturas, CT-e, contratos y comprobantes leídos, verificados y cargados en el ERP. El equipo solo revisa lo que no coincide.",
+      h1: "Lectura automática de documentos con IA",
+      lead: "Facturas, guías de transporte (CT-e), contratos y comprobantes llegan por correo o carga de archivos, la IA extrae los datos, los verifica y los carga en el ERP. El equipo solo revisa lo que la IA marca como duda.",
+      scenario: {
+        text: "Todos los días llegan decenas de PDF por correo. Alguien los abre uno por uno, copia el CNPJ, el monto, el vencimiento y los ítems al ERP, y vuelve a revisar a fin de mes, cuando el cierre no cuadra.",
+        pains: [
+          "Horas por semana tipeando lo que ya está escrito en el documento.",
+          "Un error de tipeo en el monto o el vencimiento se convierte en multa, intereses o cobro equivocado.",
+          "Los documentos quedan parados en la bandeja de entrada esperando que alguien tenga tiempo.",
+          "Nadie sabe con certeza qué documentos ya se cargaron.",
+        ],
+      },
+      flow: [
+        { t: "Llega el documento", d: "Por correo, carga de archivos, carpeta compartida o WhatsApp." },
+        { t: "La IA lee y extrae", d: "Identifica el tipo de documento y extrae los campos: CNPJ, montos, fechas, ítems." },
+        { t: "Verifica los datos", d: "Los compara con el pedido, el proveedor y las reglas de la empresa." },
+        { t: "Carga en el ERP", d: "Crea el asiento, la cuenta por pagar o el registro correcto en el sistema." },
+        { t: "Una persona revisa las excepciones", d: "Solo lo que no coincide va a revisión, con el motivo indicado." },
+      ],
+      proposal: {
+        deliverables: [
+          "Lectura de facturas, guías de transporte (CT-e), contratos, boletos y comprobantes.",
+          "Reglas de verificación con pedidos, proveedores y montos.",
+          "Carga automática en el ERP o el sistema financiero.",
+          "Cola de revisión para excepciones e historial de cada documento leído.",
+        ],
+        systems: ["Correo", "Google Drive u OneDrive", "ERP", "Finanzas", "SEFAZ (XML de NF-e y CT-e)"],
+        stages: [
+          { t: "Descubrimiento", d: "Tipos de documento, campos necesarios y reglas de verificación.", dur: "2 a 3 días" },
+          { t: "Lectura y reglas", d: "Modelos de extracción, verificación e integración con el ERP.", dur: "2 a 3 semanas" },
+          { t: "Prueba con documentos reales", d: "Procesamos documentos de los últimos meses y medimos la precisión.", dur: "1 semana" },
+          { t: "Puesta en marcha y ajustes", d: "Paso a producción con la cola de revisión activa.", dur: "1 semana" },
+        ],
+        deadline: "3 a 5 semanas",
+      },
+      faq: [
+        { q: "¿La IA lee documentos escaneados o fotos?", a: "Sí. PDF digitales, documentos escaneados y fotos legibles. Cuando existe el XML de la factura, se usa primero porque es más preciso." },
+        { q: "¿Y si la IA se equivoca en un monto?", a: "Las reglas de verificación comparan el documento con el pedido y el proveedor. Lo que no coincide no se carga: va a revisión de una persona." },
+        { q: "¿Funciona con mi ERP?", a: "Funciona con ERP que tengan API o importación de archivos. En el descubrimiento confirmamos cómo cargar en tu sistema." },
+        { q: "¿Qué documentos se pueden automatizar?", a: "Facturas, guías de transporte (CT-e), boletos, comprobantes de pago, contratos, órdenes de compra y otros documentos con estructura parecida. El CT-e también puede verificarse contra la tabla de fletes y la cotización antes de cargarlo." },
+      ],
+    },
+    "automacao-de-processos-administrativos": {
+      name: "Rutinas administrativas en automático",
+      card: "Conciliación bancaria, altas y cobranza hechas por la IA, con aprobación humana donde importa.",
+      title: "Automatización de procesos administrativos con IA | Agência Byte",
+      description: "Automatización de procesos administrativos con IA: conciliación bancaria, cobranza y altas de clientes hechas solas, con aprobación humana en los pagos.",
+      h1: "Automatización de procesos administrativos con IA",
+      lead: "Las tareas que se repiten todos los días en administración y finanzas, como cobrar, conciliar, dar de alta y responder correos de rutina, pasan a hacerlas la IA. El equipo aprueba lo que importa y se ocupa de las excepciones.",
+      scenario: {
+        text: "El día de administración empieza con la misma lista: revisar el extracto, registrar los pagos, cobrar a quien se atrasó, dar de alta al cliente nuevo y responder los mismos correos de siempre. Queda poco tiempo para lo que exige decisión.",
+        pains: [
+          "Registro de pagos y conciliación bancaria hechos línea por línea.",
+          "La cobranza se atrasa porque nadie tuvo tiempo de enviar el recordatorio.",
+          "Altas de clientes y proveedores tipeadas a mano, con errores de CNPJ y dirección.",
+          "Los mismos correos de rutina escritos desde cero varias veces por semana.",
+        ],
+      },
+      flow: [
+        { t: "La rutina se activa", d: "Por horario, por un correo que llega o por un cambio en el sistema." },
+        { t: "La IA reúne los datos", d: "Busca en el ERP, el banco, el correo y las planillas lo que la tarea necesita." },
+        { t: "Ejecuta la tarea", d: "Concilia, cobra, da de alta o prepara la respuesta, siguiendo las reglas de la empresa." },
+        { t: "Una persona aprueba lo que importa", d: "Pagos, montos por encima del límite y excepciones esperan aprobación." },
+        { t: "Todo queda registrado", d: "Cada acción queda en el historial, con lo que se hizo y por qué." },
+      ],
+      proposal: {
+        deliverables: [
+          "Mapeo de las rutinas y elección de las que más tiempo consumen.",
+          "Automatización de cada rutina con las reglas de la empresa.",
+          "Etapas de aprobación humana y alertas de excepción.",
+          "Historial de cada acción y panel con el tiempo ahorrado.",
+        ],
+        systems: ["ERP (Bling, Tiny, Omie y otros)", "Banco (extracto y API)", "Correo", "Google Sheets o Excel", "WhatsApp", "Receita Federal (consulta de CNPJ)"],
+        stages: [
+          { t: "Descubrimiento", d: "Relevamiento de las rutinas, el tiempo que consume cada una y las reglas.", dur: "2 a 3 días" },
+          { t: "Primeras rutinas", d: "Automatización de las 2 o 3 rutinas que más tiempo consumen.", dur: "2 a 3 semanas" },
+          { t: "Prueba con el equipo", d: "Las rutinas corren en paralelo con el trabajo manual hasta que coinciden.", dur: "1 semana" },
+          { t: "Puesta en marcha y próximas rutinas", d: "Paso a producción y elección de las próximas rutinas.", dur: "continuo" },
+        ],
+        deadline: "3 a 5 semanas",
+      },
+      faq: [
+        { q: "¿Qué rutinas conviene automatizar primero?", a: "Las que se repiten con una regla clara: registro de pagos, conciliación, recordatorios de cobranza, altas a partir del CNPJ y correos de rutina. En el descubrimiento medimos cuál consume más tiempo." },
+        { q: "¿La IA maneja el dinero de la empresa?", a: "No sin aprobación. Los pagos y cualquier acción con un monto por encima del límite definido esperan a que una persona los apruebe." },
+        { q: "¿Y si la rutina cambia?", a: "Las reglas quedan documentadas y se pueden ajustar. Los cambios pequeños entran en el soporte; las rutinas nuevas se convierten en una nueva etapa." },
+        { q: "¿Tengo que cambiar mi ERP?", a: "No. La automatización trabaja con el ERP que ya usan, por API, importación de archivos o acceso a la base de datos." },
+      ],
+    },
+    "triagem-de-pedidos-e-leads": {
+      name: "Triaje de pedidos y leads",
+      card: "Solicitudes de varios canales clasificadas y enviadas a la persona correcta.",
+      title: "Triaje de pedidos y leads con IA | Agência Byte",
+      description: "Triaje con IA: pedidos y leads de correo, WhatsApp y el sitio clasificados por tipo y urgencia y enviados a la persona correcta, con el resumen en el CRM.",
+      h1: "Triaje de pedidos y leads con IA",
+      proof: { slug: "divina-argila", text: "En Divina Argila, los pedidos de TikTok Shop y Mercado Livre pasaron a llegar solos a Trello, donde el equipo de fábrica los produce y despacha." },
+      lead: "Las solicitudes llegan por correo, WhatsApp, formularios y marketplaces. La IA lee cada una, la clasifica por tipo y urgencia, y la envía a la persona o la cola correcta, con el resumen.",
+      scenario: {
+        text: "Pedidos, presupuestos, reclamos y currículos llegan mezclados en el mismo correo y el mismo WhatsApp. Alguien tiene que leer todo, decidir a quién va y reenviarlo a mano. Cuando esa persona falta, la cola se detiene.",
+        pains: [
+          "Un buen lead espera horas porque quedó entre mensajes sin importancia.",
+          "La misma solicitud la responden dos personas, o ninguna.",
+          "No hay registro de cuántas solicitudes llegaron ni de cuánto tardaron.",
+          "El vendedor recibe el contacto sin contexto y tiene que preguntar todo de nuevo.",
+        ],
+      },
+      flow: [
+        { t: "Llega la solicitud", d: "Correo, WhatsApp, formulario del sitio o marketplace." },
+        { t: "La IA clasifica", d: "Tipo (pedido, presupuesto, soporte, reclamo), urgencia y potencial del lead." },
+        { t: "Completa los datos", d: "Busca al cliente en el CRM y adjunta el historial y los datos de la empresa." },
+        { t: "Envía a la persona correcta", d: "Crea el registro en el CRM o el sistema y avisa al responsable." },
+        { t: "Controla el plazo", d: "Si nadie responde en el tiempo acordado, se avisa al gerente." },
+      ],
+      proposal: {
+        deliverables: [
+          "Clasificación automática por tipo, urgencia y potencial.",
+          "Reglas de distribución por región, producto o equipo.",
+          "Creación del registro en el CRM con resumen e historial del cliente.",
+          "Alertas de plazo y panel con volumen y tiempo de respuesta.",
+        ],
+        systems: ["Correo", "WhatsApp", "Formularios del sitio", "Marketplaces", "CRM", "Slack o Teams"],
+        stages: [
+          { t: "Descubrimiento", d: "Canales de entrada, tipos de solicitud y reglas de distribución.", dur: "2 a 3 días" },
+          { t: "Clasificación e integraciones", d: "Conexión de los canales, modelo de clasificación y envío al CRM.", dur: "2 a 3 semanas" },
+          { t: "Prueba con solicitudes reales", d: "Comparamos la clasificación de la IA con la del equipo y ajustamos.", dur: "1 semana" },
+          { t: "Puesta en marcha y ajustes", d: "Paso a producción y seguimiento de los primeros días.", dur: "1 semana" },
+        ],
+        deadline: "3 a 5 semanas",
+      },
+      faq: [
+        { q: "¿Cómo sabe la IA a quién enviar?", a: "Por las reglas que tu empresa ya usa, como región, producto, tamaño del cliente o cartera del vendedor. La IA clasifica y las reglas distribuyen." },
+        { q: "¿Y si la clasificación está mal?", a: "La persona que la recibe puede reclasificarla con un clic. Esos ajustes se usan para mejorar la clasificación." },
+        { q: "¿Necesito un CRM?", a: "Ayuda, pero no es obligatorio. La distribución puede ir a correo, Slack, Teams o una planilla, y el CRM puede llegar después." },
+        { q: "¿Se puede priorizar a los leads con más probabilidad de cerrar?", a: "Sí. La IA puede puntuar cada lead según los criterios que usa tu equipo de ventas, y los mejores van primero." },
+      ],
+    },
+    "assistente-documentos-da-empresa": {
+      name: "Asistente sobre los documentos de la empresa",
+      card: "El equipo pregunta y la IA responde con base en los manuales y políticas internas.",
+      title: "Asistente de IA para documentos de la empresa | Agência Byte",
+      description: "Un asistente de IA que responde al equipo con base en los manuales y políticas de la empresa, mostrando siempre el documento del que sacó la respuesta.",
+      h1: "Asistente de IA sobre los documentos de la empresa",
+      lead: "El equipo pregunta en lenguaje común y la IA responde con base en los manuales, políticas y procedimientos de la empresa, indicando siempre de qué documento sacó la respuesta.",
+      scenario: {
+        text: "La respuesta existe, pero está en un PDF de 80 páginas, en una carpeta que poca gente sabe dónde está. Entonces el equipo le pregunta a la persona más antigua, que deja lo que está haciendo para responder por décima vez.",
+        pains: [
+          "Un empleado nuevo tarda semanas en aprender procedimientos que ya están escritos.",
+          "Cada persona responde a su manera, y el procedimiento oficial no se sigue.",
+          "Las personas con más experiencia pasan el día respondiendo dudas.",
+          "Manuales desactualizados conviven con versiones nuevas y nadie sabe cuál vale.",
+        ],
+      },
+      flow: [
+        { t: "Documentos organizados", d: "Manuales, políticas y procedimientos reunidos en una base." },
+        { t: "Una persona pregunta", d: "En el chat interno, Teams, Slack o WhatsApp." },
+        { t: "La IA busca en los documentos", d: "Encuentra los fragmentos que responden la pregunta." },
+        { t: "Responde con la fuente", d: "La respuesta viene con el nombre del documento y el fragmento usado." },
+        { t: "Sin respuesta, avisa", d: "Si no está en los documentos, la IA dice que no sabe e indica a quién consultar." },
+      ],
+      proposal: {
+        deliverables: [
+          "Base de conocimiento con los documentos de la empresa, actualizada automáticamente.",
+          "Asistente de IA en el canal que el equipo ya usa.",
+          "Respuestas con la fuente indicada y control de acceso por área.",
+          "Informe de las preguntas más frecuentes y de las que quedaron sin respuesta.",
+        ],
+        systems: ["Google Drive", "SharePoint u OneDrive", "Notion o Confluence", "Microsoft Teams", "Slack", "WhatsApp"],
+        stages: [
+          { t: "Descubrimiento", d: "Qué documentos entran, quién puede ver qué y dónde va a preguntar el equipo.", dur: "2 a 3 días" },
+          { t: "Base y asistente", d: "Organización de los documentos, búsqueda e integración con el canal.", dur: "2 a 3 semanas" },
+          { t: "Prueba con el equipo", d: "Un grupo lo usa en el día a día y evalúa las respuestas.", dur: "1 semana" },
+          { t: "Puesta en marcha y ajustes", d: "Apertura para todos y seguimiento de las preguntas.", dur: "1 semana" },
+        ],
+        deadline: "3 a 5 semanas",
+      },
+      faq: [
+        { q: "¿La IA puede inventar una respuesta?", a: "Está configurada para responder solo con base en los documentos y mostrar la fuente. Cuando la respuesta no está ahí, dice que no sabe." },
+        { q: "¿Cada persona ve solo lo que puede ver?", a: "Sí. El acceso sigue los permisos por área: un documento de RR. HH., por ejemplo, solo aparece para quien tiene acceso a él." },
+        { q: "Cuando un manual cambia, ¿la IA se actualiza?", a: "Sí. La base se sincroniza con la carpeta de documentos, y la versión nueva rige desde la próxima actualización." },
+        { q: "¿Los documentos de la empresa se usan para entrenar IA de terceros?", a: "No. Los documentos se consultan en el momento de la pregunta, con proveedores y contratos que no usan los datos para entrenamiento." },
+      ],
+    },
+    "relatorios-automaticos": {
+      name: "Informes que se arman solos",
+      card: "El resumen semanal sale listo, sin que nadie junte planillas.",
+      title: "Informes automáticos con IA, sin planillas | Agência Byte",
+      description: "Informes automáticos con IA: los números salen de los sistemas, la IA escribe el resumen y el informe llega listo cada semana, sin juntar planillas.",
+      h1: "Informes que se arman solos",
+      proof: { slug: "cargon", text: "En CargOn, los registros de la plataforma se convirtieron en un data warehouse y 4 dashboards en Power BI con previsiones, entregados a sus clientes." },
+      lead: "Los datos salen directo de los sistemas, los números se calculan siempre de la misma forma y la IA escribe el resumen de lo que cambió. Cada lunes, el informe llega listo.",
+      scenario: {
+        text: "Cada viernes, alguien pasa la tarde exportando planillas del ERP, el CRM y finanzas, junta todo, arma gráficos y escribe el resumen de la semana. Cuando esa persona se va de vacaciones, no hay informe.",
+        pains: [
+          "Horas por semana juntando planillas en lugar de analizar.",
+          "Cada área calcula el mismo indicador de una forma distinta.",
+          "Un error de fórmula pasa inadvertido y la decisión se toma con el número equivocado.",
+          "El informe llega tarde, cuando el problema ya creció.",
+        ],
+      },
+      flow: [
+        { t: "Los datos salen de los sistemas", d: "ERP, CRM, finanzas y planillas se leen automáticamente." },
+        { t: "Indicadores calculados", d: "Cada número sigue una única definición, igual para todas las áreas." },
+        { t: "La IA escribe el resumen", d: "Qué subió, qué bajó y qué requiere atención, en texto simple." },
+        { t: "Informe enviado", d: "Llega por correo, WhatsApp o Teams el día y la hora acordados." },
+        { t: "Detalle en el dashboard", d: "Quien quiera profundizar abre el dashboard con los mismos números." },
+      ],
+      proposal: {
+        deliverables: [
+          "Recolección automática de los datos de los sistemas de la empresa.",
+          "Definición única de los indicadores, documentada.",
+          "Resumen escrito por la IA, con destacados y alertas.",
+          "Envío programado y dashboard en Power BI con los mismos números.",
+        ],
+        systems: ["ERP", "CRM", "Finanzas", "Google Sheets o Excel", "Power BI", "Correo, WhatsApp o Teams"],
+        stages: [
+          { t: "Descubrimiento", d: "Qué informes existen hoy, de dónde vienen los datos y quién los recibe.", dur: "2 a 3 días" },
+          { t: "Datos e indicadores", d: "Conexión con los sistemas y cálculo de los indicadores.", dur: "1 a 2 semanas" },
+          { t: "Resumen y envío", d: "Texto generado por la IA, formato del informe y programación del envío.", dur: "1 semana" },
+          { t: "Validación", d: "Comparamos con el informe manual hasta que los números coinciden.", dur: "1 semana" },
+        ],
+        deadline: "2 a 4 semanas",
+      },
+      faq: [
+        { q: "¿La IA puede equivocarse en los números?", a: "Los números no los calcula la IA: vienen directo de los sistemas, con fórmulas fijas. La IA solo escribe el texto a partir de esos números." },
+        { q: "¿Se puede tener un informe diario, además del semanal?", a: "Sí. Tú defines la frecuencia y el horario de envío, y cada persona puede recibir solo lo que le interesa a su área." },
+        { q: "¿Necesito Power BI?", a: "No. El informe puede llegar solo por correo o WhatsApp. El dashboard en Power BI es opcional, para quien quiere ver los detalles." },
+        { q: "¿Y si un sistema no tiene API?", a: "Se pueden leer exportaciones automáticas, la base de datos o planillas compartidas. Evaluamos el mejor camino en el descubrimiento." },
+      ],
+    },
+  },
+};
+
+export const USE_CASES = { pt, en, es };

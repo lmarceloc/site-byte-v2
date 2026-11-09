@@ -26,7 +26,8 @@ npm run build # gera app.js (minificado, com React embutido)
 
 ## Páginas internas (estáticas)
 
-`/transformacao`, `/servicos`, `/servicos/<slug>` e `404.html` são HTML puro,
+`/transformacao`, `/servicos`, `/servicos/<slug>`, `/clientes/<slug>`, `/casos-de-uso`,
+`/casos-de-uso/<slug>` e `404.html` são HTML puro,
 sem React, gerados por `build-pages.mjs`. O `index.html` de cada idioma também
 é gerado por ele (é a casca com SEO que carrega o `app.js`).
 
@@ -44,6 +45,7 @@ A bandeira no topo troca o idioma e leva para a mesma página no outro idioma.
 | `i18n/routes.mjs` | Idiomas, URL de cada página em cada idioma, bandeiras (SVG) |
 | `i18n/home.jsx` | Textos da home (React). O idioma vem do `<html lang>` |
 | `i18n/pages.mjs` | Textos das páginas estáticas e metadados da home |
+| `i18n/use-cases.mjs` | Textos dos casos de uso de IA (`/casos-de-uso`) e ordem dos cards |
 
 Ao mudar um texto, mude nos três idiomas e rode `npm run build && npm run pages`.
 Para criar uma página nova, registre a rota dela nos três idiomas em `i18n/routes.mjs`.
