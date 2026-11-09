@@ -807,6 +807,24 @@ function useCasesHub(lang) {
   </section>
 
   ${useCaseCards(lang, { tight: true })}
+  <section class="page-section page-section-alt">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>${U.hub.choose.eyebrow}</div>
+        <h2 class="display">${U.hub.choose.title}</h2>
+      </div>
+      <div>
+        <p class="uc-scenario">${esc(U.hub.choose.intro)}</p>
+        <ol class="case-qa uc-criteria">
+          ${U.hub.choose.items.map((x, i) => `<li>
+            <h3><span class="mono">0${i + 1}</span> ${esc(x.t)}</h3>
+            <p class="muted">${esc(x.d)}</p>
+          </li>`).join("\n          ")}
+        </ol>
+      </div>
+    </div>
+  </section>
+
   ${ctaSection(lang, U.hub.cta)}
 </main>
 ` +
@@ -928,7 +946,14 @@ function useCasePage(lang, slug) {
     </div>
   </section>
 
-  <section class="page-section page-section-alt">
+  ${c.proof ? `<section class="page-section">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>${U.ui.proofEyebrow}</div>
+      <p class="uc-proof">${esc(c.proof.text)}</p>
+      ${caseQuote(lang, c.proof.slug, { link: true })}
+    </div>
+  </section>
+  ` : ""}<section class="page-section page-section-alt">
     <div class="wrap two-col">
       <div>
         <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>${p.ui.faq.eyebrow}</div>

@@ -5,10 +5,10 @@
 export const USE_CASE_ORDER = [
   "atendimento-whatsapp-ia",
   "leitura-automatica-de-documentos",
-  "conferencia-de-cte",
   "triagem-de-pedidos-e-leads",
   "automacao-de-processos-administrativos",
   "assistente-documentos-da-empresa",
+  "relatorios-automaticos",
 ];
 
 const pt = {
@@ -27,23 +27,36 @@ const pt = {
     more: "Ver caso de uso →",
     otherEyebrow: "Outros casos de uso", otherTitle: "Veja também.",
     // Bloco na página de Automação com IA
+    proofEyebrow: "Projeto real relacionado",
     svcEyebrow: "Casos de uso", svcTitle: "Veja exemplos de automação com IA.", svcAll: "Ver todos os casos de uso →",
   },
   hub: {
-    title: "Casos de uso de IA para empresas: exemplos práticos | Agência Byte",
-    description: "Exemplos de como a IA entra na operação de uma empresa: atendimento no WhatsApp, leitura de notas fiscais e documentos, triagem de pedidos, assistente interno e relatórios automáticos.",
+    title: "Casos de uso de IA em empresas: exemplos práticos | Agência Byte",
+    description: "Casos de uso de IA em empresas: atendimento no WhatsApp, extração de dados de notas fiscais, triagem de pedidos, rotinas administrativas e relatórios.",
     eyebrow: "Casos de uso",
     h1: "Casos de uso de IA para empresas",
     lead: "Exemplos práticos de onde a inteligência artificial tira trabalho manual da operação. Cada caso mostra como é hoje, como fica com IA, o que seria entregue e o prazo típico.",
     itemList: "Casos de uso de IA da Agência Byte",
     cta: "Não achou o seu caso? Conte o seu processo.",
+    // Seção abaixo dos cards (texto provisório; pode ser trocado pelo texto do rascunho do blog)
+    choose: {
+      eyebrow: "Por onde começar",
+      title: "Como escolher o primeiro caso.",
+      intro: "O primeiro projeto de IA dá certo quando o problema é pequeno, frequente e fácil de medir. Quatro sinais de que um processo é um bom candidato:",
+      items: [
+        { t: "A tarefa se repete", d: "Acontece todo dia ou toda semana, do mesmo jeito. Quanto mais vezes se repete, mais tempo a automação devolve para a equipe." },
+        { t: "A informação já é digital", d: "Os dados chegam por e-mail, PDF, WhatsApp ou sistema. Se ainda dependem de papel, o primeiro passo é digitalizar." },
+        { t: "A regra dá para explicar", d: "Se uma pessoa consegue explicar como decide, a IA consegue seguir. Decisões que dependem só de intuição ficam para depois." },
+        { t: "O erro tem custo conhecido", d: "Multa, retrabalho, cliente perdido ou horas extras. Com o custo do erro na mão, fica fácil medir o retorno do projeto." },
+      ],
+    },
   },
   items: {
     "atendimento-whatsapp-ia": {
       name: "Atendimento com IA no WhatsApp",
       card: "Responde clientes 24 horas, consulta pedidos no seu sistema e passa para uma pessoa quando precisa.",
-      title: "Automação de atendimento no WhatsApp com IA, 24 horas | Agência Byte",
-      description: "Automação de atendimento no WhatsApp com IA: o agente responde clientes 24 horas, consulta pedidos no ERP ou no e-commerce e passa para uma pessoa quando precisa. Fluxo, entregas e prazo típico.",
+      title: "Automação de atendimento no WhatsApp com IA | Agência Byte",
+      description: "Automação de atendimento no WhatsApp com IA: responde 24 horas, consulta o pedido no ERP e passa para uma pessoa quando precisa, com o resumo da conversa.",
       h1: "Automação de atendimento no WhatsApp com IA, 24 horas por dia",
       lead: "Um agente de IA responde os clientes no WhatsApp a qualquer hora, consulta o status do pedido no seu sistema e passa a conversa para uma pessoa quando o assunto pede.",
       scenario: {
@@ -87,11 +100,11 @@ const pt = {
     },
     "leitura-automatica-de-documentos": {
       name: "Leitura automática de documentos",
-      card: "Notas fiscais, boletos, contratos e comprovantes lidos pela IA e lançados no ERP.",
-      title: "Extração de dados de documentos com IA: notas fiscais e contratos | Agência Byte",
-      description: "Como a IA lê notas fiscais, boletos, contratos e comprovantes, extrai os dados, confere e lança no ERP sem digitação. Fluxo, entregas, sistemas e prazo típico.",
+      card: "Notas fiscais, CT-e, contratos e comprovantes lidos pela IA e lançados no ERP.",
+      title: "Extração de dados com IA: notas fiscais e CT-e | Agência Byte",
+      description: "Extração de dados com IA: notas fiscais, CT-e, contratos e comprovantes lidos, conferidos e lançados no ERP. A equipe só revisa o que não bateu.",
       h1: "Leitura automática de documentos com IA",
-      lead: "Notas fiscais, boletos, contratos e comprovantes chegam por e-mail ou upload, a IA extrai os dados, confere e lança no ERP. A equipe só revisa o que a IA marcar como dúvida.",
+      lead: "Notas fiscais, CT-e, contratos e comprovantes chegam por e-mail ou upload, a IA extrai os dados, confere e lança no ERP. A equipe só revisa o que a IA marcar como dúvida.",
       scenario: {
         text: "Todo dia chegam dezenas de PDFs por e-mail. Alguém abre um por um, copia CNPJ, valor, vencimento e itens para o ERP, e confere de novo no fim do mês, quando o fechamento não bate.",
         pains: [
@@ -115,7 +128,7 @@ const pt = {
           "Lançamento automático no ERP ou no financeiro.",
           "Fila de revisão para exceções e histórico de cada documento lido.",
         ],
-        systems: ["E-mail", "Google Drive ou OneDrive", "ERP", "Financeiro", "SEFAZ (XML de NF-e)"],
+        systems: ["E-mail", "Google Drive ou OneDrive", "ERP", "Financeiro", "SEFAZ (XML de NF-e e CT-e)"],
         stages: [
           { t: "Descoberta", d: "Tipos de documento, campos necessários e regras de conferência.", dur: "2 a 3 dias" },
           { t: "Leitura e regras", d: "Modelos de extração, conferência e integração com o ERP.", dur: "2 a 3 semanas" },
@@ -128,60 +141,14 @@ const pt = {
         { q: "A IA lê documento escaneado ou foto?", a: "Sim. PDFs digitais, documentos escaneados e fotos legíveis. Quando existe o XML da nota, ele é usado primeiro, por ser mais preciso." },
         { q: "E se a IA errar um valor?", a: "As regras de conferência comparam o documento com o pedido e o fornecedor. O que não bate não é lançado: vai para revisão de uma pessoa." },
         { q: "Funciona com o meu ERP?", a: "Funciona com ERPs que tenham API ou importação de arquivos. Na descoberta confirmamos como lançar no seu sistema." },
-        { q: "Quais documentos dá para automatizar?", a: "Notas fiscais, boletos, comprovantes de pagamento, contratos, pedidos de compra e outros documentos com estrutura parecida. Para conferir CT-e contra a tabela de frete, veja o caso Conferência de CT-e." },
-      ],
-    },
-    "conferencia-de-cte": {
-      name: "Conferência de CT-e",
-      card: "Cada CT-e conferido com a tabela de frete e o pedido. Só a divergência vai para uma pessoa.",
-      title: "Conferência de CT-e automática com IA: auditoria de frete | Agência Byte",
-      description: "Como automatizar a conferência de CT-e: cada conhecimento de transporte é comparado com a tabela de frete, a cotação e a nota fiscal, e só as divergências vão para revisão. Fluxo, entregas e prazo típico.",
-      h1: "Conferência de CT-e automática, com IA",
-      lead: "Cada CT-e que chega é comparado com a tabela de frete, a cotação e a nota fiscal da carga. O que bate é aprovado e lançado; o que não bate vai para uma pessoa, já com a diferença calculada.",
-      scenario: {
-        text: "No fim do mês chegam centenas de CT-e. Alguém abre um por um, procura a tabela da transportadora, confere peso, rota e valor, e lança no sistema. Como não dá tempo de olhar tudo, a maior parte é paga sem conferência.",
-        pains: [
-          "Frete cobrado acima da tabela ou da cotação passa sem ninguém ver.",
-          "Taxas extras, peso divergente e ICMS errado só aparecem quando alguém procura.",
-          "A conferência manual atrasa o pagamento e o fechamento do mês.",
-          "Não existe histórico de quanto cada transportadora errou e de quanto foi recuperado.",
-        ],
-      },
-      flow: [
-        { t: "CT-e chega", d: "O XML vem da SEFAZ, do e-mail da transportadora ou do TMS." },
-        { t: "IA lê o documento", d: "Extrai transportadora, origem, destino, peso, valores, taxas e impostos." },
-        { t: "Confere com as regras", d: "Compara com a tabela de frete, a cotação, a nota fiscal e o contrato." },
-        { t: "Aprova ou aponta a divergência", d: "O que bate é lançado no ERP; o que não bate mostra a diferença em reais." },
-        { t: "Pessoa decide e contesta", d: "A equipe revisa só as divergências e manda a contestação para a transportadora." },
-      ],
-      proposal: {
-        deliverables: [
-          "Leitura automática dos CT-e a partir do XML.",
-          "Regras de conferência com tabelas de frete, cotações e contratos.",
-          "Fila de divergências com a diferença calculada e o motivo.",
-          "Lançamento no ERP e painel por transportadora: erros, valores e recuperações.",
-        ],
-        systems: ["SEFAZ (XML de CT-e)", "E-mail", "TMS", "ERP", "Tabelas de frete (planilha ou sistema)"],
-        stages: [
-          { t: "Descoberta", d: "Transportadoras, formatos de tabela, regras de cobrança e onde os CT-e chegam.", dur: "2 a 3 dias" },
-          { t: "Leitura e regras", d: "Importação dos CT-e, cadastro das tabelas e regras de conferência.", dur: "2 a 3 semanas" },
-          { t: "Teste com CT-e reais", d: "Rodamos com os CT-e dos últimos meses e comparamos com a conferência manual.", dur: "1 semana" },
-          { t: "Go-live e ajustes", d: "Entrada em produção com a fila de divergências ativa.", dur: "1 semana" },
-        ],
-        deadline: "4 a 6 semanas",
-      },
-      faq: [
-        { q: "Serve para embarcador e para transportadora?", a: "Sim. O embarcador confere o que está pagando; a transportadora confere os CT-e que emite antes de enviar, para evitar erro e retrabalho." },
-        { q: "E se cada transportadora tiver uma tabela diferente?", a: "É o mais comum. Cada tabela é cadastrada com as suas regras: faixas de peso, rotas, taxas e generalidades. Tabelas em planilha também servem." },
-        { q: "A IA aprova pagamento sozinha?", a: "Só o que bate com as regras definidas por vocês. Qualquer diferença acima do limite combinado vai para uma pessoa decidir." },
-        { q: "Funciona com o meu TMS ou ERP?", a: "Funciona com sistemas que tenham API, banco de dados ou importação de arquivos. Na descoberta confirmamos como ler e lançar no seu sistema." },
+        { q: "Quais documentos dá para automatizar?", a: "Notas fiscais, CT-e, boletos, comprovantes de pagamento, contratos, pedidos de compra e outros documentos com estrutura parecida. O CT-e também pode ser conferido com a tabela de frete e a cotação antes do lançamento." },
       ],
     },
     "automacao-de-processos-administrativos": {
       name: "Rotinas administrativas no automático",
-      card: "Cobrança, conciliação, cadastros e e-mails de rotina feitos pela IA, com aprovação onde importa.",
+      card: "Conciliação bancária, cadastro e cobrança feitos pela IA, com aprovação humana onde importa.",
       title: "Automação de processos administrativos com IA | Agência Byte",
-      description: "Automação de processos administrativos com IA: cobrança, conciliação bancária, cadastro de clientes e fornecedores e e-mails de rotina feitos automaticamente, com aprovação humana onde importa. Fluxo, entregas e prazo típico.",
+      description: "Automação de processos administrativos com IA: conciliação bancária, cobrança e cadastros feitos sozinhos, com aprovação humana nos pagamentos.",
       h1: "Automação de processos administrativos com IA",
       lead: "As tarefas que se repetem todo dia no administrativo e no financeiro, como cobrar, conciliar, cadastrar e responder e-mails de rotina, passam a ser feitas pela IA. A equipe aprova o que importa e cuida das exceções.",
       scenario: {
@@ -226,9 +193,10 @@ const pt = {
     "triagem-de-pedidos-e-leads": {
       name: "Triagem de pedidos e leads",
       card: "Solicitações de vários canais classificadas e enviadas para a pessoa certa.",
-      title: "Triagem de pedidos e leads com IA | Caso de uso | Agência Byte",
-      description: "Como a IA recebe solicitações de e-mail, WhatsApp, formulário e marketplace, classifica cada uma e envia para a pessoa ou a fila certa, com o resumo pronto. Fluxo, entregas e prazo típico.",
+      title: "Triagem de pedidos e leads com IA | Agência Byte",
+      description: "Triagem com IA: pedidos e leads de e-mail, WhatsApp e site classificados por tipo e urgência e enviados à pessoa certa, já com o resumo no CRM.",
       h1: "Triagem de pedidos e leads com IA",
+      proof: { slug: "divina-argila", text: "Na Divina Argila, os pedidos do TikTok Shop e do Mercado Livre passaram a chegar sozinhos ao Trello, onde o time da fábrica cria e expede." },
       lead: "Solicitações chegam por e-mail, WhatsApp, formulário e marketplace. A IA lê cada uma, classifica por tipo e urgência, e envia para a pessoa ou a fila certa, já com o resumo.",
       scenario: {
         text: "Pedidos, orçamentos, reclamações e currículos chegam misturados no mesmo e-mail e no mesmo WhatsApp. Alguém precisa ler tudo, decidir para quem vai e encaminhar à mão. Quando essa pessoa falta, a fila para.",
@@ -272,8 +240,8 @@ const pt = {
     "assistente-documentos-da-empresa": {
       name: "Assistente sobre os documentos da empresa",
       card: "A equipe pergunta e a IA responde com base nos manuais e políticas internas.",
-      title: "Assistente de IA sobre manuais e políticas internas | Caso de uso | Agência Byte",
-      description: "Como funciona um assistente de IA que responde a equipe com base nos manuais, políticas e procedimentos da empresa, sempre indicando a fonte. Fluxo, entregas e prazo típico.",
+      title: "Assistente de IA para documentos da empresa | Agência Byte",
+      description: "Assistente de IA que responde a equipe com base nos manuais e políticas da empresa, sempre mostrando o documento de onde tirou a resposta.",
       h1: "Assistente de IA sobre os documentos da empresa",
       lead: "A equipe pergunta em linguagem comum e a IA responde com base nos manuais, políticas e procedimentos da empresa, sempre indicando de qual documento tirou a resposta.",
       scenario: {
@@ -313,6 +281,53 @@ const pt = {
         { q: "Cada pessoa vê só o que pode ver?", a: "Sim. O acesso segue as permissões por área: um documento do RH, por exemplo, só aparece para quem tem acesso a ele." },
         { q: "Quando um manual muda, a IA atualiza?", a: "Sim. A base é sincronizada com a pasta de documentos, e a versão nova passa a valer na próxima atualização." },
         { q: "Os documentos da empresa são usados para treinar a IA de terceiros?", a: "Não. Os documentos são consultados no momento da pergunta, com provedores e contratos que não usam os dados para treinamento." },
+      ],
+    },
+    "relatorios-automaticos": {
+      name: "Relatórios que se montam sozinhos",
+      card: "O resumo semanal sai pronto, sem ninguém juntar planilha.",
+      title: "Relatórios automáticos com IA, sem planilha | Agência Byte",
+      description: "Relatórios automáticos com IA: os números saem dos sistemas, a IA escreve o resumo e o relatório chega pronto toda semana, sem juntar planilha.",
+      h1: "Relatórios que se montam sozinhos",
+      proof: { slug: "cargon", text: "Na CargOn, os registros da plataforma viraram um data warehouse e 4 dashboards em Power BI com previsões, entregues aos clientes." },
+      lead: "Os dados saem direto dos sistemas, os números são calculados sempre do mesmo jeito e a IA escreve o resumo do que mudou. Toda segunda-feira, o relatório chega pronto.",
+      scenario: {
+        text: "Toda sexta, alguém passa a tarde exportando planilhas do ERP, do CRM e do financeiro, junta tudo, monta gráficos e escreve o resumo da semana. Quando essa pessoa sai de férias, o relatório não sai.",
+        pains: [
+          "Horas por semana gastas juntando planilhas em vez de analisar.",
+          "Cada área calcula o mesmo indicador de um jeito diferente.",
+          "Um erro de fórmula passa despercebido e a decisão é tomada com o número errado.",
+          "O relatório chega tarde, quando o problema já cresceu.",
+        ],
+      },
+      flow: [
+        { t: "Dados saem dos sistemas", d: "ERP, CRM, financeiro e planilhas são lidos automaticamente." },
+        { t: "Indicadores calculados", d: "Cada número segue uma única definição, igual para todas as áreas." },
+        { t: "IA escreve o resumo", d: "O que subiu, o que caiu e o que pede atenção, em texto simples." },
+        { t: "Relatório enviado", d: "Chega por e-mail, WhatsApp ou Teams no dia e na hora combinados." },
+        { t: "Detalhe no dashboard", d: "Quem quiser se aprofundar abre o dashboard com os mesmos números." },
+      ],
+      proposal: {
+        deliverables: [
+          "Coleta automática dos dados dos sistemas da empresa.",
+          "Definição única dos indicadores, documentada.",
+          "Resumo escrito pela IA, com destaques e alertas.",
+          "Envio programado e dashboard em Power BI com os mesmos números.",
+        ],
+        systems: ["ERP", "CRM", "Financeiro", "Google Sheets ou Excel", "Power BI", "E-mail, WhatsApp ou Teams"],
+        stages: [
+          { t: "Descoberta", d: "Quais relatórios existem hoje, de onde vêm os dados e quem recebe.", dur: "2 a 3 dias" },
+          { t: "Dados e indicadores", d: "Conexão com os sistemas e cálculo dos indicadores.", dur: "1 a 2 semanas" },
+          { t: "Resumo e envio", d: "Texto gerado pela IA, formato do relatório e programação do envio.", dur: "1 semana" },
+          { t: "Validação", d: "Comparamos com o relatório manual até os números baterem.", dur: "1 semana" },
+        ],
+        deadline: "2 a 4 semanas",
+      },
+      faq: [
+        { q: "A IA pode errar os números?", a: "Os números não são calculados pela IA: vêm direto dos sistemas, com fórmulas fixas. A IA só escreve o texto a partir desses números." },
+        { q: "Dá para ter relatório diário, além do semanal?", a: "Sim. A frequência e o horário de envio são definidos por você, e cada pessoa pode receber só o que interessa à sua área." },
+        { q: "Preciso ter Power BI?", a: "Não. O relatório pode chegar só por e-mail ou WhatsApp. O dashboard em Power BI é opcional, para quem quer ver os detalhes." },
+        { q: "E se um sistema não tiver API?", a: "Dá para ler exportações automáticas, banco de dados ou planilhas compartilhadas. Avaliamos o melhor caminho na descoberta." },
       ],
     },
   },

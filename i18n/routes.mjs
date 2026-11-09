@@ -42,10 +42,10 @@ export const ROUTES = {
   usecases: { pt: "/casos-de-uso" },
   "uc:atendimento-whatsapp-ia": { pt: "/casos-de-uso/atendimento-whatsapp-ia" },
   "uc:leitura-automatica-de-documentos": { pt: "/casos-de-uso/leitura-automatica-de-documentos" },
-  "uc:conferencia-de-cte": { pt: "/casos-de-uso/conferencia-de-cte" },
   "uc:triagem-de-pedidos-e-leads": { pt: "/casos-de-uso/triagem-de-pedidos-e-leads" },
   "uc:automacao-de-processos-administrativos": { pt: "/casos-de-uso/automacao-de-processos-administrativos" },
   "uc:assistente-documentos-da-empresa": { pt: "/casos-de-uso/assistente-documentos-da-empresa" },
+  "uc:relatorios-automaticos": { pt: "/casos-de-uso/relatorios-automaticos" },
 };
 
 // Idiomas em que a página existe (os casos de uso ainda não têm todos).
