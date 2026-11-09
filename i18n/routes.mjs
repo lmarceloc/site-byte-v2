@@ -38,7 +38,17 @@ export const ROUTES = {
   transformation: { pt: "/transformacao", en: "/en/transformation", es: "/es/transformacion" },
   "case:cargon": { pt: "/clientes/cargon", en: "/en/clients/cargon", es: "/es/clientes/cargon" },
   "case:divina-argila": { pt: "/clientes/divina-argila", en: "/en/clients/divina-argila", es: "/es/clientes/divina-argila" },
+  // Casos de uso de IA: por enquanto só em português (en/es entram depois da revisão).
+  usecases: { pt: "/casos-de-uso" },
+  "uc:atendimento-whatsapp-ia": { pt: "/casos-de-uso/atendimento-whatsapp-ia" },
+  "uc:leitura-automatica-de-documentos": { pt: "/casos-de-uso/leitura-automatica-de-documentos" },
+  "uc:triagem-de-pedidos-e-leads": { pt: "/casos-de-uso/triagem-de-pedidos-e-leads" },
+  "uc:assistente-documentos-da-empresa": { pt: "/casos-de-uso/assistente-documentos-da-empresa" },
+  "uc:relatorios-automaticos": { pt: "/casos-de-uso/relatorios-automaticos" },
 };
+
+// Idiomas em que a página existe (os casos de uso ainda não têm todos).
+export const langsFor = (key) => LANGS.filter((l) => ROUTES[key][l]);
 
 export const route = (key, lang) => ROUTES[key][lang];
 export const svcRoute = (slug, lang) => ROUTES[`svc:${slug}`][lang];

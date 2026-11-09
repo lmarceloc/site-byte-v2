@@ -73,6 +73,42 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/clientes/cargon"/>
   </url>
   <url>
+    <loc>https://agenciabyte.com/casos-de-uso</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/casos-de-uso/relatorios-automaticos</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/relatorios-automaticos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/relatorios-automaticos"/>
+  </url>
+  <url>
     <loc>https://agenciabyte.com/en</loc>
     <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/"/>
