@@ -219,3 +219,12 @@ a.nav-brand-wrap:focus-visible{ outline: 2px solid var(--accent); outline-offset
 .case-qa h3{ margin: 0; }
 .case-qa p{ margin: 10px 0 0; font-size: 16px; line-height: 1.6; max-width: 640px; }
 .case-visit{ margin-top: 24px; font-size: 15px; }
+
+/* Frase do cliente (casos, serviços) */
+.case-quote{ margin: 40px 0 0; max-width: 760px; padding-left: 24px; border-left: 3px solid var(--accent); }
+.case-quote blockquote{ margin: 0; }
+.case-quote blockquote p{ margin: 0; font-size: clamp(19px, 2.2vw, 24px); line-height: 1.45; color: var(--ink); letter-spacing: -0.01em; }
+.case-quote figcaption{ margin-top: 14px; font-size: 14px; color: var(--ink-2); }
+.case-quote cite{ font-style: normal; font-weight: 600; color: var(--ink); }
+.case-quote a{ color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.case-quote a:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }

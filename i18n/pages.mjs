@@ -154,7 +154,8 @@ const pt = {
   caseUi: {
     eyebrow: "Caso de cliente", clients: "Clientes", statsEyebrow: "Em números",
     qaEyebrow: "O caso em perguntas", qaTitle: "Como foi o projeto.",
-    visit: "Site da", cta: "Quer algo parecido para a sua operação?",
+    visit: "Site da", quoteEyebrow: "O que o cliente diz", quoteBy: "cliente da Agência Byte",
+    cta: "Quer algo parecido para a sua operação?",
   },
   cases: {
     cargon: {
@@ -164,6 +165,7 @@ const pt = {
       h1: "CargOn: data warehouse e 4 dashboards preditivos em 30 dias",
       lead: "A CargOn transformou as informações geradas dentro da sua plataforma em um novo produto para os clientes: um data warehouse, pipelines ETL e dashboards logísticos em Power BI com previsões, para a operação deixar de olhar para trás e passar a antecipar.",
       summary: "A CargOn queria criar mais um produto para os seus clientes a partir das informações geradas na plataforma. Em 30 dias, a Agência Byte entregou o data warehouse, o ETL e 4 dashboards logísticos em Power BI, com previsões.",
+      quote: "Agora, nossos clientes têm dados estruturados da operação deles, insights e dados preditivos para poder usar na sua logística, e nós criamos mais um produto monetizado.",
       stats: [["4", "dashboards entregues para os clientes da CargOn"], ["30", "dias para criar a base analítica e os dashboards"]],
       qa: [
         { q: "Quem é a CargOn?", a: "A CargOn é uma plataforma de logística, e os seus clientes geram registros de operação dentro dela. É cliente da Agência Byte." },
@@ -184,6 +186,7 @@ const pt = {
       h1: "Divina Argila: 4 sistemas integrados em 40 dias",
       lead: "A Divina Argila tinha processos fragmentados e tarefas repetidas em vários lugares. Integramos Bling, Trello, TikTok Shop e Mercado Livre: todo pedido dos canais de e-commerce chega ao Trello, o time da fábrica cria e expede a partir de um só lugar, e o vendedor volta a focar em vender.",
       summary: "A Divina Argila tinha processos fragmentados e pedidos para acertar em 4 lugares diferentes. Em 40 dias, a Agência Byte integrou Bling, Trello, TikTok Shop e Mercado Livre, e hoje o time da fábrica trabalha só no Trello.",
+      quote: "Agora, o nosso time não precisa mais ficar copiando e colando o mesmo pedido em vários lugares. A fábrica já sabe o que produzir junto com a emissão do pedido.",
       stats: [["4", "sistemas integrados: Bling, Trello, TikTok Shop e Mercado Livre"], ["40", "dias para integrar os sistemas"], ["1", "lugar para o time acompanhar os pedidos: o Trello, no lugar de 4"]],
       qa: [
         { q: "Quem é a Divina Argila?", a: "A Divina Argila é uma empresa com fábrica própria que vende pelos canais de e-commerce, como Mercado Livre e TikTok Shop. É cliente da Agência Byte." },
@@ -480,7 +483,8 @@ const en = {
   caseUi: {
     eyebrow: "Client case", clients: "Clients", statsEyebrow: "In numbers",
     qaEyebrow: "The case in questions", qaTitle: "How the project went.",
-    visit: "Website of", cta: "Want something similar for your operation?",
+    visit: "Website of", quoteEyebrow: "What the client says", quoteBy: "Agência Byte client",
+    cta: "Want something similar for your operation?",
   },
   cases: {
     cargon: {
@@ -490,6 +494,7 @@ const en = {
       h1: "CargOn: data warehouse and 4 predictive dashboards in 30 days",
       lead: "CargOn turned the data generated inside its platform into a new product for its customers: a data warehouse, ETL pipelines and Power BI logistics dashboards with forecasts, so operations stop looking backward and start anticipating.",
       summary: "CargOn wanted a new product for its customers built on the data generated in its platform. In 30 days, Agência Byte delivered the data warehouse, the ETL and 4 logistics dashboards in Power BI, with forecasts.",
+      quote: "Now our customers have structured data on their own operations, insights and predictive data to use in their logistics, and we've created one more monetized product.",
       stats: [["4", "dashboards delivered to CargOn's customers"], ["30", "days to build the data foundation and the dashboards"]],
       qa: [
         { q: "Who is CargOn?", a: "CargOn is a logistics platform, and its customers generate operational data inside it. It is an Agência Byte client." },
@@ -510,6 +515,7 @@ const en = {
       h1: "Divina Argila: 4 systems integrated in 40 days",
       lead: "Divina Argila had fragmented processes and tasks repeated in several places. We integrated Bling, Trello, TikTok Shop and Mercado Livre: every e-commerce order lands in Trello, the factory team creates and ships from a single place, and sellers go back to selling.",
       summary: "Divina Argila had fragmented processes and orders to fix in 4 different places. In 40 days, Agência Byte integrated Bling, Trello, TikTok Shop and Mercado Livre, and today the factory team works only in Trello.",
+      quote: "Now our team no longer has to copy and paste the same order into several places. The factory already knows what to produce as soon as the order is issued.",
       stats: [["4", "systems integrated: Bling, Trello, TikTok Shop and Mercado Livre"], ["40", "days to integrate the systems"], ["1", "place for the team to follow orders: Trello, instead of 4"]],
       qa: [
         { q: "Who is Divina Argila?", a: "Divina Argila is a company with its own factory that sells through e-commerce channels such as Mercado Livre and TikTok Shop. It is an Agência Byte client." },
@@ -806,7 +812,8 @@ const es = {
   caseUi: {
     eyebrow: "Caso de cliente", clients: "Clientes", statsEyebrow: "En números",
     qaEyebrow: "El caso en preguntas", qaTitle: "Cómo fue el proyecto.",
-    visit: "Sitio de", cta: "¿Quieres algo parecido para tu operación?",
+    visit: "Sitio de", quoteEyebrow: "Lo que dice el cliente", quoteBy: "cliente de Agência Byte",
+    cta: "¿Quieres algo parecido para tu operación?",
   },
   cases: {
     cargon: {
@@ -816,6 +823,7 @@ const es = {
       h1: "CargOn: data warehouse y 4 dashboards predictivos en 30 días",
       lead: "CargOn convirtió los datos generados dentro de su plataforma en un nuevo producto para sus clientes: un data warehouse, pipelines ETL y dashboards logísticos en Power BI con previsiones, para que la operación deje de mirar hacia atrás y empiece a anticiparse.",
       summary: "CargOn quería crear un producto más para sus clientes a partir de los datos generados en la plataforma. En 30 días, Agência Byte entregó el data warehouse, el ETL y 4 dashboards logísticos en Power BI, con previsiones.",
+      quote: "Ahora nuestros clientes tienen datos estructurados de su propia operación, insights y datos predictivos para usar en su logística, y nosotros creamos un producto más monetizado.",
       stats: [["4", "dashboards entregados a los clientes de CargOn"], ["30", "días para crear la base de datos y los dashboards"]],
       qa: [
         { q: "¿Quién es CargOn?", a: "CargOn es una plataforma de logística, y sus clientes generan datos de operación dentro de ella. Es cliente de Agência Byte." },
@@ -836,6 +844,7 @@ const es = {
       h1: "Divina Argila: 4 sistemas integrados en 40 días",
       lead: "Divina Argila tenía procesos fragmentados y tareas repetidas en varios lugares. Integramos Bling, Trello, TikTok Shop y Mercado Livre: cada pedido de los canales de e-commerce llega a Trello, el equipo de fábrica crea y despacha desde un solo lugar, y el vendedor vuelve a enfocarse en vender.",
       summary: "Divina Argila tenía procesos fragmentados y pedidos que arreglar en 4 lugares distintos. En 40 días, Agência Byte integró Bling, Trello, TikTok Shop y Mercado Livre, y hoy el equipo de fábrica trabaja solo en Trello.",
+      quote: "Ahora nuestro equipo ya no tiene que copiar y pegar el mismo pedido en varios lugares. La fábrica ya sabe qué producir en cuanto se emite el pedido.",
       stats: [["4", "sistemas integrados: Bling, Trello, TikTok Shop y Mercado Livre"], ["40", "días para integrar los sistemas"], ["1", "lugar para que el equipo siga los pedidos: Trello, en lugar de 4"]],
       qa: [
         { q: "¿Quién es Divina Argila?", a: "Divina Argila es una empresa con fábrica propia que vende por canales de e-commerce, como Mercado Livre y TikTok Shop. Es cliente de Agência Byte." },

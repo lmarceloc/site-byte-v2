@@ -51,8 +51,8 @@ As principais áreas de especialização da Agência Byte incluem:
 - [Automação com IA](https://agenciabyte.com/servicos/automacao-com-ia): agentes de atendimento, extração de documentos, triagem e RAG.
 - [Integração de sistemas](https://agenciabyte.com/servicos/integracao-de-sistemas): ERP, CRM, e-commerce, APIs e webhooks.
 - [Dados e Power BI](https://agenciabyte.com/servicos/dados-e-power-bi): dashboards Power BI, pipelines ETL/ELT e alertas.
-- [Caso Divina Argila](https://agenciabyte.com/clientes/divina-argila): integração de Bling, Trello, TikTok Shop e Mercado Livre em 40 dias; pedidos de e-commerce centralizados no Trello.
-- [Caso CargOn](https://agenciabyte.com/clientes/cargon): data warehouse, ETL e 4 dashboards em Power BI com previsões, criados em 30 dias.
+- [Caso Divina Argila](https://agenciabyte.com/clientes/divina-argila): integração de Bling, Trello, TikTok Shop e Mercado Livre em 40 dias; pedidos de e-commerce centralizados no Trello. Frase do cliente: "Agora, o nosso time não precisa mais ficar copiando e colando o mesmo pedido em vários lugares. A fábrica já sabe o que produzir junto com a emissão do pedido."
+- [Caso CargOn](https://agenciabyte.com/clientes/cargon): data warehouse, ETL e 4 dashboards em Power BI com previsões, criados em 30 dias. Frase do cliente: "Agora, nossos clientes têm dados estruturados da operação deles, insights e dados preditivos para poder usar na sua logística, e nós criamos mais um produto monetizado."
 - [Antes e depois](https://agenciabyte.com/transformacao): o que muda em vendas, pedidos, processos internos e gestão após a automação.
 - [English version](https://agenciabyte.com/en): site completo em inglês ([services](https://agenciabyte.com/en/services)).
 - [Versión en español](https://agenciabyte.com/es): site completo em espanhol ([servicios](https://agenciabyte.com/es/servicios)).
