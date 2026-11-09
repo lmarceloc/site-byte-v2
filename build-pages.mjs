@@ -306,6 +306,16 @@ function processSection(lang) {
   </section>`;
 }
 
+// Resposta da pergunta frequente em HTML. Com f.link = { text, key }, o trecho
+// "text" da resposta vira link para a rota "key" (os dados estruturados levam só o texto).
+function faqAnswer(lang, f) {
+  const html = esc(f.a);
+  if (!f.link) return html;
+  const t = esc(f.link.text);
+  if (!html.includes(t)) throw new Error(`Link da FAQ não encontrado na resposta: ${f.link.text}`);
+  return html.replace(t, `<a href="${route(f.link.key, lang)}" class="ul-link">${t}</a>`);
+}
+
 function faqSection(lang, faq) {
   const u = PAGES[lang].ui;
   return `<section class="page-section page-section-alt">
@@ -317,7 +327,7 @@ function faqSection(lang, faq) {
       <div class="faq">
         ${faq.map((f) => `<details>
           <summary>${esc(f.q)}</summary>
-          <p class="muted">${esc(f.a)}</p>
+          <p class="muted">${faqAnswer(lang, f)}</p>
         </details>`).join("\n        ")}
       </div>
     </div>
@@ -570,6 +580,12 @@ function servicePage(lang, s) {
         provider: { "@id": `${SITE}/#organization` },
         areaServed: ["BR", "US", "ES"],
       },
+      // Perguntas frequentes como dados estruturados (por enquanto só nas páginas em português).
+      ...(lang === "pt" ? [{
+        "@type": "FAQPage",
+        "@id": `${SITE}${s.path}#faq`,
+        mainEntity: s.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+      }] : []),
       breadcrumbLd(trail),
     ],
   };

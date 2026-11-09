@@ -250,9 +250,9 @@ const pt = {
     "automacao-com-ia": {
       nav: "Automação IA",
       name: "Automação com Inteligência Artificial",
-      title: "Automação com IA para Empresas | Agência Byte",
-      description: "Automação de processos com IA: agentes, triagem, extração de documentos e atendimento 24/7 integrados aos sistemas da sua empresa.",
-      h1: "Automação com IA para empresas",
+      title: "Automação de Processos com IA para Empresas | Agência Byte",
+      description: "Automação de processos com IA para empresas: agentes no WhatsApp, leitura de documentos e triagem integrados ao ERP e CRM, com aprovação humana.",
+      h1: "Automação de processos com IA para empresas",
       lead: "Aplicamos inteligência artificial em tarefas repetitivas da operação: ler documentos, classificar solicitações, responder clientes e alimentar sistemas. Sempre com regras claras, aprovação humana onde importa e custo previsível.",
       problems: [
         "A equipe passa horas copiando dados de e-mails, PDFs e notas fiscais para o sistema.",
@@ -272,6 +272,12 @@ const pt = {
         { q: "A IA vai tomar decisões sozinha?", a: "Só onde você definir. Etapas sensíveis passam por aprovação humana, e cada decisão da IA fica registrada para auditoria." },
         { q: "Meus dados ficam seguros?", a: "Os dados trafegam apenas entre os seus sistemas e os provedores escolhidos no projeto, com acesso restrito e registro de uso." },
         { q: "Quanto custa rodar uma automação com IA?", a: "O custo de execução é estimado antes de começar, por volume de tarefas, e monitorado depois do lançamento para não haver surpresa na fatura." },
+        { q: "Qual a diferença entre automação com e sem IA?", a: "A automação comum segue regras fixas: se chegou isto, faça aquilo. Ela funciona bem quando os dados chegam sempre no mesmo formato. A IA entra quando a informação vem solta, como um e-mail, um PDF ou uma mensagem no WhatsApp: ela lê, entende e transforma em dado organizado, e as regras fazem o resto. Na maioria dos projetos, as duas trabalham juntas." },
+        {
+          q: "Vocês fazem automação com IA no WhatsApp?",
+          a: "Sim. O agente usa a API oficial do WhatsApp Business, responde com base nos dados do seu sistema e passa a conversa para uma pessoa quando precisa. Veja o exemplo completo no caso de atendimento com IA no WhatsApp.",
+          link: { text: "caso de atendimento com IA no WhatsApp", key: "uc:atendimento-whatsapp-ia" },
+        },
       ],
     },
     "integracao-de-sistemas": {
