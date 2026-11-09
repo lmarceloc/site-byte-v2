@@ -228,3 +228,56 @@ a.nav-brand-wrap:focus-visible{ outline: 2px solid var(--accent); outline-offset
 .case-quote cite{ font-style: normal; font-weight: 600; color: var(--ink); }
 .case-quote a{ color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .case-quote a:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Casos de uso de IA (/casos-de-uso) */
+.uc-grid{ display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.uc-card h2, .uc-card h3{ font-family: var(--font-display); font-weight: 600; letter-spacing: -0.01em; font-size: 22px; line-height: 1.2; margin: 0; }
+.uc-scenario{ margin: 0 0 28px; font-size: clamp(19px, 2vw, 22px); line-height: 1.5; color: var(--ink); max-width: 680px; }
+
+/* Fluxo: caixas numeradas ligadas por setas (vertical no celular) */
+.uc-flow{ list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 36px; }
+.uc-step{ position: relative; padding: 22px 20px; }
+.uc-step h3{ font-size: 17px; margin: 14px 0 0; }
+.uc-step p{ margin: 8px 0 0 !important; font-size: 14px !important; line-height: 1.5; }
+.uc-step-num{ display: inline-block; font-size: 12px; color: var(--accent-ink); background: var(--accent-soft); border-radius: 4px; padding: 2px 6px; }
+.uc-step:not(:last-child)::after{
+  content: ""; position: absolute; top: 50%; right: -28px; width: 20px; height: 12px; transform: translateY(-50%);
+  background: var(--accent);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 12'%3E%3Cpath d='M0 6h17M12 1l5 5-5 5' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 12'%3E%3Cpath d='M0 6h17M12 1l5 5-5 5' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.uc-step:last-child{ border-color: var(--accent); }
+@media (max-width: 980px){
+  .uc-flow{ grid-template-columns: 1fr; gap: 28px; max-width: 560px; }
+  .uc-step:not(:last-child)::after{ top: auto; bottom: -22px; right: auto; left: 32px; transform: rotate(90deg); }
+}
+
+/* Proposta de exemplo */
+.uc-proposal{ display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+@media (max-width: 880px){ .uc-proposal{ grid-template-columns: 1fr; gap: 48px; } }
+.uc-proposal h3{ margin: 0 0 18px; font-size: 20px; }
+.uc-check{ list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.uc-check li{ position: relative; padding-left: 30px; line-height: 1.5; color: var(--ink); }
+.uc-check li::before{ content: "✓"; position: absolute; left: 0; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-ink); font-size: 12px; display: grid; place-items: center; }
+.uc-stages{ list-style: none; padding: 0; margin: 0; }
+.uc-stages li{ display: flex; justify-content: space-between; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line); }
+.uc-stages li:last-child{ border-bottom: 1px solid var(--line); }
+.uc-stages strong{ font-weight: 600; color: var(--ink); }
+.uc-stages p{ margin: 4px 0 0; font-size: 14px; line-height: 1.5; }
+.uc-stages .mono{ flex: none; font-size: 12px; color: var(--ink-2); white-space: nowrap; padding-top: 3px; }
+.uc-deadline{ margin-top: 24px; padding: 22px; }
+.uc-deadline .mono{ font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.uc-deadline-num{ font-size: 36px; line-height: 1.1; color: var(--accent); margin-top: 8px; }
+.uc-deadline p{ margin: 8px 0 0 !important; font-size: 14px !important; }
+.uc-svc-link{ margin-top: 20px; }
+.uc-svc-link a{ color: inherit; }
+/* Página de entrada: cards logo abaixo do texto inicial */
+.page-hero:has(+ .uc-tight){ padding-bottom: 48px; border-bottom: 0; }
+.uc-tight{ padding-top: 8px; border-top: 0; }
+.uc-all{ margin-top: 28px; font-size: 15px; }
+.uc-criteria{ list-style: none; padding: 0; margin: 0; }
+.uc-criteria .mono{ font-size: 12px; color: var(--accent-ink); background: var(--accent-soft); border-radius: 4px; padding: 2px 6px; margin-right: 8px; vertical-align: 2px; }
+.uc-criteria > li{ padding: 24px 0; border-top: 1px solid var(--line); }
+.uc-criteria > li:last-child{ border-bottom: 1px solid var(--line); }
+.uc-proof{ margin: 18px 0 0; max-width: 760px; font-size: 17px; line-height: 1.6; color: var(--ink-2); }
+.uc-proof + .case-quote{ margin-top: 24px; }

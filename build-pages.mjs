@@ -10,8 +10,9 @@
 
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
-import { LANGS, LANG_META, ROUTES, FLAGS, SWITCH_LABEL, route, svcRoute } from "./i18n/routes.mjs";
+import { LANGS, LANG_META, ROUTES, FLAGS, SWITCH_LABEL, route, svcRoute, langsFor } from "./i18n/routes.mjs";
 import { PAGES, SERVICE_ORDER } from "./i18n/pages.mjs";
+import { USE_CASES, USE_CASE_ORDER } from "./i18n/use-cases.mjs";
 
 const SITE = "https://agenciabyte.com";
 const BRAND = "Agência Byte";
@@ -94,7 +95,7 @@ const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com" />
 function hreflangLinks(key) {
   const r = ROUTES[key];
   return [
-    ...LANGS.map((l) => `<link rel="alternate" hreflang="${LANG_META[l].hreflang}" href="${abs(r[l])}" />`),
+    ...langsFor(key).map((l) => `<link rel="alternate" hreflang="${LANG_META[l].hreflang}" href="${abs(r[l])}" />`),
     `<link rel="alternate" hreflang="x-default" href="${abs(r.pt)}" />`,
   ].join("\n");
 }
@@ -122,7 +123,7 @@ ${hreflangLinks(key)}
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="${m.og}" />
-${LANGS.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alternate" content="${LANG_META[l].og}" />`).join("\n")}
+${langsFor(key).filter((l) => l !== lang).map((l) => `<meta property="og:locale:alternate" content="${LANG_META[l].og}" />`).join("\n")}
 <meta property="og:site_name" content="${BRAND}" />
 
 <!-- Twitter Card -->
@@ -150,7 +151,7 @@ function langSwitch(lang, key) {
   const m = LANG_META[lang];
   const items = LANGS.map((l) => {
     const cur = l === lang ? ' aria-current="true"' : "";
-    return `<li><a href="${ROUTES[key][l]}" hreflang="${LANG_META[l].hreflang}" lang="${LANG_META[l].html}"${cur}><span class="lang-flag">${FLAGS[l]}</span>${LANG_META[l].name}</a></li>`;
+    return `<li><a href="${ROUTES[key][l] || route("home", l)}" hreflang="${LANG_META[l].hreflang}" lang="${LANG_META[l].html}"${cur}><span class="lang-flag">${FLAGS[l]}</span>${LANG_META[l].name}</a></li>`;
   }).join("\n          ");
   return `<details class="lang-switch">
         <summary aria-label="${SWITCH_LABEL[lang]}: ${m.name}"><span class="lang-flag">${FLAGS[lang]}</span><span class="lang-code">${m.short}</span><svg class="lang-chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
@@ -238,7 +239,7 @@ function footer(lang) {
         <p class="muted footer-tagline">${u.footer.tagline}</p>
       </div>
       ${col(u.footer.services, servicesFor(lang).map((s) => [s.path, s.nav]))}
-      ${col(u.footer.company, [[anchor("sobre"), u.footer.about], [anchor("processo"), u.footer.process], [route("transformation", lang), u.footer.transformation], ["https://blog.agenciabyte.com/", "Blog"]])}
+      ${col(u.footer.company, [[anchor("sobre"), u.footer.about], [anchor("processo"), u.footer.process], [route("transformation", lang), u.footer.transformation], ...(USE_CASES[lang] ? [[route("usecases", lang), USE_CASES[lang].ui.nav]] : []), ["https://blog.agenciabyte.com/", "Blog"]])}
       <div>
         <div class="mono footer-title">${u.footer.contact}</div>
         <ul class="footer-list">
@@ -519,7 +520,14 @@ ${h.cases.map((c) => `      <article>
     <section>
       <h2>${h.beforeAfterTitle}</h2>
       <p>${h.beforeAfterText} <a href="${route("transformation", lang)}">${h.beforeAfterLink}</a>.</p>
-    </section>
+    </section>${USE_CASES[lang] ? `
+    <section>
+      <h2><a href="${route("usecases", lang)}">${USE_CASES[lang].hub.h1}</a></h2>
+${useCaseList(lang).map((u) => `      <article>
+        <h3><a href="${u.path}">${u.name}</a></h3>
+        <p>${u.card}</p>
+      </article>`).join("\n")}
+    </section>` : ""}
     <section>
       <h2>${h.clientsTitle}</h2>
       <p>${h.clientsText} ${CLIENTS.map(([n, u]) => { const slug = CASE_SLUGS.find((x) => PAGES[lang].cases[x].name === n); return `<a href="${slug ? route(`case:${slug}`, lang) : u}">${n}</a>`; }).join(", ")}.</p>
@@ -620,7 +628,7 @@ function servicePage(lang, s) {
       ${caseQuote(lang, SERVICE_CASE[s.slug], { link: true })}
     </div>
   </section>
-  ` : ""}${processSection(lang)}
+  ` : ""}${s.slug === "automacao-com-ia" && USE_CASES[lang] ? useCaseCards(lang, { heading: true, title: USE_CASES[lang].ui.svcTitle, eyebrow: USE_CASES[lang].ui.svcEyebrow, all: true }) : ""}${processSection(lang)}
   ${faqSection(lang, s.faq)}
   ${relatedSection(lang, s.related)}
   ${ctaSection(lang, p.ui.service.cta)}
@@ -718,6 +726,258 @@ function casePage(lang, slug) {
 
   ${relatedSection(lang, c.related)}
   ${ctaSection(lang, ui.cta)}
+</main>
+` +
+    footer(lang)
+  );
+}
+
+/* ---------- Casos de uso de IA (/casos-de-uso) ---------- */
+
+function useCaseList(lang) {
+  return USE_CASE_ORDER.map((slug, i) => ({ slug, num: String(i + 1).padStart(2, "0"), ...USE_CASES[lang].items[slug], path: route(`uc:${slug}`, lang) }));
+}
+
+// Grade de cards dos casos de uso. Com heading, vira uma seção com título (h3 nos cards);
+// sem heading, é a lista principal da página de entrada (h2 nos cards).
+function useCaseCards(lang, { heading = false, exclude = null, title = null, eyebrow = null, all = false, tight = false } = {}) {
+  const U = USE_CASES[lang];
+  const list = useCaseList(lang).filter((u) => u.slug !== exclude);
+  const h = heading ? `<div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>${eyebrow || U.hub.eyebrow}</div>
+        <h2 class="display">${title || U.hub.h1}</h2>
+      </div>
+      ` : "";
+  const tag = heading ? "h3" : "h2";
+  return `<section class="page-section${tight ? " uc-tight" : ""}">
+    <div class="wrap">
+      ${h}<div class="uc-grid">
+        ${list.map((u) => `<a class="card related-card uc-card" href="${u.path}">
+          <span class="mono muted">// ${u.num}</span>
+          <${tag}>${u.name}</${tag}>
+          <p class="muted">${u.card}</p>
+          <span class="related-more mono">${U.ui.more}</span>
+        </a>`).join("\n        ")}
+      </div>
+      ${all ? `<p class="uc-all"><a href="${route("usecases", lang)}" class="ul-link">${U.ui.svcAll}</a></p>` : ""}
+    </div>
+  </section>
+  `;
+}
+
+function useCasesHub(lang) {
+  const p = PAGES[lang];
+  const U = USE_CASES[lang];
+  const path = route("usecases", lang);
+  const list = useCaseList(lang);
+  const trail = [[route("home", lang), p.ui.crumbHome], [path, U.ui.nav]];
+  const jsonld = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${SITE}${path}#page`,
+        name: U.hub.h1,
+        description: U.hub.description,
+        url: SITE + path,
+        inLanguage: LANG_META[lang].html,
+        publisher: { "@id": `${SITE}/#organization` },
+        mainEntity: {
+          "@type": "ItemList",
+          name: U.hub.itemList,
+          itemListElement: list.map((u, i) => ({ "@type": "ListItem", position: i + 1, name: u.name, url: SITE + u.path })),
+        },
+      },
+      breadcrumbLd(trail),
+    ],
+  };
+  return (
+    head({ lang, key: "usecases", title: U.hub.title, description: U.hub.description, jsonld }) +
+    nav(lang, "usecases", "") +
+    `
+<main id="conteudo">
+  <section class="page-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      ${crumbs(lang, trail)}
+      <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>${U.hub.eyebrow}</div>
+      <h1 class="display">${U.hub.h1}</h1>
+      <p class="lead muted">${U.hub.lead}</p>
+    </div>
+  </section>
+
+  ${useCaseCards(lang, { tight: true })}
+  <section class="page-section page-section-alt">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>${U.hub.choose.eyebrow}</div>
+        <h2 class="display">${U.hub.choose.title}</h2>
+      </div>
+      <div>
+        <p class="uc-scenario">${esc(U.hub.choose.intro)}</p>
+        <ol class="case-qa uc-criteria">
+          ${U.hub.choose.items.map((x, i) => `<li>
+            <h3><span class="mono">0${i + 1}</span> ${esc(x.t)}</h3>
+            <p class="muted">${esc(x.d)}</p>
+          </li>`).join("\n          ")}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  ${ctaSection(lang, U.hub.cta)}
+</main>
+` +
+    footer(lang)
+  );
+}
+
+function useCasePage(lang, slug) {
+  const p = PAGES[lang];
+  const U = USE_CASES[lang];
+  const c = U.items[slug];
+  const key = `uc:${slug}`;
+  const path = route(key, lang);
+  const svc = route("svc:automacao-com-ia", lang);
+  const trail = [[route("home", lang), p.ui.crumbHome], [route("usecases", lang), U.ui.nav], [path, c.name]];
+  const jsonld = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${SITE}${path}#service`,
+        name: c.name,
+        serviceType: p.services["automacao-com-ia"].name,
+        description: c.description,
+        url: SITE + path,
+        inLanguage: LANG_META[lang].html,
+        provider: { "@id": `${SITE}/#organization` },
+        isRelatedTo: { "@id": `${SITE}${svc}#service` },
+        areaServed: "BR",
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: c.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+      },
+      breadcrumbLd(trail),
+    ],
+  };
+  return (
+    head({ lang, key, title: c.title, description: c.description, jsonld }) +
+    nav(lang, key, "") +
+    `
+<main id="conteudo">
+  <section class="page-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      ${crumbs(lang, trail)}
+      <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>${U.ui.eyebrow}</div>
+      <h1 class="display">${c.h1}</h1>
+      <p class="lead muted">${c.lead}</p>
+      ${ctaButtons(lang)}
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>${U.ui.scenarioEyebrow}</div>
+        <h2 class="display">${U.ui.scenarioTitle}</h2>
+      </div>
+      <div>
+        <p class="uc-scenario">${esc(c.scenario.text)}</p>
+        <ol class="signal-list">
+          ${c.scenario.pains.map((x, i) => `<li><span class="mono">0${i + 1}</span><span>${esc(x)}</span></li>`).join("\n          ")}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>${U.ui.flowEyebrow}</div>
+        <h2 class="display">${U.ui.flowTitle}</h2>
+      </div>
+      <ol class="uc-flow" aria-label="${U.ui.flowLabel}">
+        ${c.flow.map((f, i) => `<li class="card uc-step">
+          <span class="uc-step-num mono">${String(i + 1).padStart(2, "0")}</span>
+          <h3>${esc(f.t)}</h3>
+          <p class="muted">${esc(f.d)}</p>
+        </li>`).join("\n        ")}
+      </ol>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#8B5CF6"></span>${U.ui.proposalEyebrow}</div>
+        <h2 class="display">${U.ui.proposalTitle}</h2>
+      </div>
+      <div class="uc-proposal">
+        <div>
+          <h3>${U.ui.deliverables}</h3>
+          <ul class="uc-check">
+            ${c.proposal.deliverables.map((d) => `<li>${esc(d)}</li>`).join("\n            ")}
+          </ul>
+          <div class="stack">
+            <div class="mono muted">${U.ui.systems}</div>
+            <ul>
+              ${c.proposal.systems.map((b) => `<li class="chip">${esc(b)}</li>`).join("\n              ")}
+            </ul>
+          </div>
+        </div>
+        <div>
+          <h3>${U.ui.stages}</h3>
+          <ol class="uc-stages">
+            ${c.proposal.stages.map((st) => `<li>
+              <div><strong>${esc(st.t)}</strong><p class="muted">${esc(st.d)}</p></div>
+              <span class="mono">${esc(st.dur)}</span>
+            </li>`).join("\n            ")}
+          </ol>
+          <div class="card uc-deadline">
+            <div class="mono muted">${U.ui.deadline}</div>
+            <div class="display uc-deadline-num">${esc(c.proposal.deadline)}</div>
+            <p class="muted">${U.ui.deadlineNote}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  ${c.proof ? `<section class="page-section">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>${U.ui.proofEyebrow}</div>
+      <p class="uc-proof">${esc(c.proof.text)}</p>
+      ${caseQuote(lang, c.proof.slug, { link: true })}
+    </div>
+  </section>
+  ` : ""}<section class="page-section page-section-alt">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>${p.ui.faq.eyebrow}</div>
+        <h2 class="display">${U.ui.faqTitle}</h2>
+      </div>
+      <div class="faq">
+        ${c.faq.map((f) => `<details>
+          <summary>${esc(f.q)}</summary>
+          <p class="muted">${esc(f.a)}</p>
+        </details>`).join("\n        ")}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark cta-band">
+    <div class="wrap">
+      <h2 class="display">${U.ui.cta}</h2>
+      <p>${p.ui.cta.text}</p>
+      ${ctaButtons(lang)}
+      <p class="uc-svc-link"><a href="${svc}" class="ul-link">${U.ui.serviceLink}</a></p>
+    </div>
+  </section>
+
+  ${useCaseCards(lang, { heading: true, exclude: slug, title: U.ui.otherTitle, eyebrow: U.ui.otherEyebrow })}
 </main>
 ` +
     footer(lang)
@@ -949,6 +1209,10 @@ for (const lang of LANGS) {
   out[prefix ? `${prefix}/404.html` : "404.html"] = notFoundPage(lang);
   for (const s of servicesFor(lang)) out[fileFor(s.path)] = servicePage(lang, s);
   for (const slug of CASE_SLUGS) out[fileFor(route(`case:${slug}`, lang))] = casePage(lang, slug);
+  if (USE_CASES[lang]) {
+    out[fileFor(route("usecases", lang))] = useCasesHub(lang);
+    for (const slug of USE_CASE_ORDER) out[fileFor(route(`uc:${slug}`, lang))] = useCasePage(lang, slug);
+  }
 }
 
 for (const [file, html] of Object.entries(out)) {
@@ -959,12 +1223,13 @@ for (const [file, html] of Object.entries(out)) {
 
 // Sitemap com todas as páginas nos três idiomas, cada uma com suas alternativas (hreflang).
 const today = new Date().toISOString().slice(0, 10);
-const keys = ["home", "services", ...SERVICE_ORDER.map((s) => `svc:${s.slug}`), "transformation", ...CASE_SLUGS.map((x) => `case:${x}`)];
+const keys = ["home", "services", ...SERVICE_ORDER.map((s) => `svc:${s.slug}`), "transformation", ...CASE_SLUGS.map((x) => `case:${x}`), "usecases", ...USE_CASE_ORDER.map((x) => `uc:${x}`)];
 const entries = [];
 for (const lang of LANGS) {
   for (const key of keys) {
+    if (!ROUTES[key][lang]) continue;
     const alts = [
-      ...LANGS.map((l) => `    <xhtml:link rel="alternate" hreflang="${LANG_META[l].hreflang}" href="${abs(ROUTES[key][l])}"/>`),
+      ...langsFor(key).map((l) => `    <xhtml:link rel="alternate" hreflang="${LANG_META[l].hreflang}" href="${abs(ROUTES[key][l])}"/>`),
       `    <xhtml:link rel="alternate" hreflang="x-default" href="${abs(ROUTES[key].pt)}"/>`,
     ].join("\n");
     entries.push(`  <url>\n    <loc>${abs(ROUTES[key][lang])}</loc>\n    <lastmod>${today}</lastmod>\n${alts}\n  </url>`);

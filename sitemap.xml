@@ -73,6 +73,62 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/clientes/cargon"/>
   </url>
   <url>
+    <loc>https://agenciabyte.com/casos-de-uso</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/whatsapp-ai-customer-service"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/atencion-whatsapp-ia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/ai-document-data-extraction"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/extraccion-de-datos-de-documentos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/order-and-lead-triage"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/triaje-de-pedidos-y-leads"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/administrative-process-automation"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/automatizacion-de-procesos-administrativos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/ai-assistant-company-documents"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/asistente-documentos-de-la-empresa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/casos-de-uso/relatorios-automaticos</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/relatorios-automaticos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/automated-reports"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/informes-automaticos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/relatorios-automaticos"/>
+  </url>
+  <url>
     <loc>https://agenciabyte.com/en</loc>
     <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/"/>
@@ -145,6 +201,62 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/clientes/cargon"/>
   </url>
   <url>
+    <loc>https://agenciabyte.com/en/use-cases</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/en/use-cases/whatsapp-ai-customer-service</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/whatsapp-ai-customer-service"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/atencion-whatsapp-ia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/en/use-cases/ai-document-data-extraction</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/ai-document-data-extraction"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/extraccion-de-datos-de-documentos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/en/use-cases/order-and-lead-triage</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/order-and-lead-triage"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/triaje-de-pedidos-y-leads"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/en/use-cases/administrative-process-automation</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/administrative-process-automation"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/automatizacion-de-procesos-administrativos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/en/use-cases/ai-assistant-company-documents</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/ai-assistant-company-documents"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/asistente-documentos-de-la-empresa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/en/use-cases/automated-reports</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/relatorios-automaticos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/automated-reports"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/informes-automaticos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/relatorios-automaticos"/>
+  </url>
+  <url>
     <loc>https://agenciabyte.com/es</loc>
     <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/"/>
@@ -215,5 +327,61 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/clients/cargon"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/clientes/cargon"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/clientes/cargon"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/es/casos-de-uso</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/es/casos-de-uso/atencion-whatsapp-ia</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/whatsapp-ai-customer-service"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/atencion-whatsapp-ia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/es/casos-de-uso/extraccion-de-datos-de-documentos</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/ai-document-data-extraction"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/extraccion-de-datos-de-documentos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/es/casos-de-uso/triaje-de-pedidos-y-leads</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/order-and-lead-triage"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/triaje-de-pedidos-y-leads"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/es/casos-de-uso/automatizacion-de-procesos-administrativos</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/administrative-process-automation"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/automatizacion-de-procesos-administrativos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/es/casos-de-uso/asistente-documentos-de-la-empresa</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/ai-assistant-company-documents"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/asistente-documentos-de-la-empresa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/es/casos-de-uso/informes-automaticos</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/relatorios-automaticos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/automated-reports"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/informes-automaticos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/relatorios-automaticos"/>
   </url>
 </urlset>

@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI data extraction: invoices and freight bills | Agência Byte</title>
+<meta name="description" content="AI data extraction: invoices, freight bills (CT-e), contracts and receipts read, checked and posted to the ERP. The team only reviews what doesn't match." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://agenciabyte.com/en/use-cases/ai-document-data-extraction" />
+<link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos" />
+<link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/ai-document-data-extraction" />
+<link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/extraccion-de-datos-de-documentos" />
+<link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://agenciabyte.com/en/use-cases/ai-document-data-extraction" />
+<meta property="og:title" content="AI data extraction: invoices and freight bills | Agência Byte" />
+<meta property="og:description" content="AI data extraction: invoices, freight bills (CT-e), contracts and receipts read, checked and posted to the ERP. The team only reviews what doesn't match." />
+<meta property="og:image" content="https://agenciabyte.com/img/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:site_name" content="Agência Byte" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI data extraction: invoices and freight bills | Agência Byte" />
+<meta name="twitter:description" content="AI data extraction: invoices, freight bills (CT-e), contracts and receipts read, checked and posted to the ERP. The team only reviews what doesn't match." />
+<meta name="twitter:image" content="https://agenciabyte.com/img/og-image.png" />
+
+<meta name="theme-color" content="#FF6A1A" />
+<link rel="icon" href="/img/logo_byte_64.png" sizes="64x64" type="image/png" />
+<link rel="apple-touch-icon" href="/img/logo_byte.png" sizes="180x180" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://agenciabyte.com/en/use-cases/ai-document-data-extraction#service",
+      "name": "Automatic document reading",
+      "serviceType": "Artificial Intelligence Automation",
+      "description": "AI data extraction: invoices, freight bills (CT-e), contracts and receipts read, checked and posted to the ERP. The team only reviews what doesn't match.",
+      "url": "https://agenciabyte.com/en/use-cases/ai-document-data-extraction",
+      "inLanguage": "en",
+      "provider": {
+        "@id": "https://agenciabyte.com/#organization"
+      },
+      "isRelatedTo": {
+        "@id": "https://agenciabyte.com/en/services/ai-automation#service"
+      },
+      "areaServed": "BR"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can the AI read scanned documents or photos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Digital PDFs, scanned documents and legible photos. When the invoice XML exists, it is used first because it is more accurate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if the AI gets an amount wrong?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The checking rules compare the document with the order and the supplier. Anything that doesn't match is not posted: it goes to a person for review."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work with my ERP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It works with ERPs that have an API or file import. During discovery we confirm how to post to your system."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which documents can be automated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Invoices, freight bills (CT-e), bank slips, payment receipts, contracts, purchase orders and other documents with a similar structure. Freight bills can also be checked against the freight table and quote before posting."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://agenciabyte.com/en"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Use cases",
+          "item": "https://agenciabyte.com/en/use-cases"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Automatic document reading",
+          "item": "https://agenciabyte.com/en/use-cases/ai-document-data-extraction"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SFBNK4KDQ');
+  (function(){
+    var done = false, evts = ['pointerdown','keydown','scroll','touchstart'];
+    function load(){
+      if (done) return; done = true;
+      evts.forEach(function(e){ removeEventListener(e, load); });
+      var g = document.createElement('script');
+      g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-8SFBNK4KDQ';
+      document.head.appendChild(g);
+      var a = document.createElement('script');
+      a.async = true; a.src = 'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' + Math.random().toString(36).substring(7);
+      a.onload = function(){ window.trackingFunctions.onLoad({ appId: '6a5fc15502199500103f7f77' }); };
+      document.head.appendChild(a);
+    }
+    evts.forEach(function(e){ addEventListener(e, load, { once: true, passive: true }); });
+    addEventListener('load', function(){ setTimeout(load, 4000); });
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/pages.css" />
+</head>
+<body data-theme="light"><a class="skip-link" href="#conteudo">Skip to content</a>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/en" class="nav-brand-wrap" aria-label="Agência Byte, home page">
+      <span class="glyph">
+        <picture>
+          <source srcset="/img/logo_byte.webp" type="image/webp" />
+          <img src="/img/logo_byte_64.png" alt="" width="32" height="32" />
+        </picture>
+      </span>
+      <span>Agência Byte</span>
+    </a>
+    <nav class="nav-pill" aria-label="Main menu">
+      <a href="/en#sobre" class="nav-pill-link">About</a>
+      <a href="/en/transformation" class="nav-pill-link">Before & after</a>
+      <a href="/en/services" class="nav-pill-link">Services</a>
+      <a href="/en#processo" class="nav-pill-link">Process</a>
+      <a href="/en#clientes" class="nav-pill-link">Clients</a>
+      <a href="https://blog.agenciabyte.com/" class="nav-pill-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    </nav>
+    <div class="nav-cta">
+      <details class="lang-switch">
+        <summary aria-label="Language: English"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#fff"/><path d="M0 0h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28V20H0z" fill="#B22234"/><rect width="12" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2" cy="1.8" r=".6"/><circle cx="6" cy="1.8" r=".6"/><circle cx="10" cy="1.8" r=".6"/><circle cx="4" cy="3.9" r=".6"/><circle cx="8" cy="3.9" r=".6"/><circle cx="2" cy="6" r=".6"/><circle cx="6" cy="6" r=".6"/><circle cx="10" cy="6" r=".6"/><circle cx="4" cy="8.1" r=".6"/><circle cx="8" cy="8.1" r=".6"/></g></svg></span><span class="lang-code">EN</span><svg class="lang-chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <ul class="lang-menu">
+          <li><a href="/casos-de-uso/leitura-automatica-de-documentos" hreflang="pt-BR" lang="pt-BR"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#009C3B"/><path d="M14 2.6 25.4 10 14 17.4 2.6 10z" fill="#FFDF00"/><circle cx="14" cy="10" r="4.4" fill="#002776"/><path d="M9.8 9.2c2.9-.5 5.9.1 8.3 1.6" stroke="#fff" stroke-width=".9" fill="none"/></svg></span>Português</a></li>
+          <li><a href="/en/use-cases/ai-document-data-extraction" hreflang="en" lang="en" aria-current="true"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#fff"/><path d="M0 0h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28V20H0z" fill="#B22234"/><rect width="12" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2" cy="1.8" r=".6"/><circle cx="6" cy="1.8" r=".6"/><circle cx="10" cy="1.8" r=".6"/><circle cx="4" cy="3.9" r=".6"/><circle cx="8" cy="3.9" r=".6"/><circle cx="2" cy="6" r=".6"/><circle cx="6" cy="6" r=".6"/><circle cx="10" cy="6" r=".6"/><circle cx="4" cy="8.1" r=".6"/><circle cx="8" cy="8.1" r=".6"/></g></svg></span>English</a></li>
+          <li><a href="/es/casos-de-uso/extraccion-de-datos-de-documentos" hreflang="es" lang="es"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#AA151B"/><rect y="5" width="28" height="10" fill="#F1BF00"/></svg></span>Español</a></li>
+        </ul>
+      </details>
+      <a href="/en#contato" class="btn btn-accent nav-cta-desktop">Contact →</a>
+      <button class="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu-mobile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile-menu" id="menu-mobile" aria-label="Navigation menu" hidden>
+    <a href="/en#sobre">About</a>
+    <a href="/en/transformation">Before & after</a>
+    <a href="/en/services">Services</a>
+    <a href="/en#processo">Process</a>
+    <a href="/en#clientes">Clients</a>
+    <a href="https://blog.agenciabyte.com/" class="ul-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    <a href="/en#contato" class="nav-mobile-cta">Contact →</a>
+  </nav>
+</header>
+<script>
+  (function(){
+    var b = document.querySelector('.nav-burger'), m = document.getElementById('menu-mobile');
+    b.addEventListener('click', function(){
+      var open = m.hidden;
+      m.hidden = !open;
+      b.setAttribute('aria-expanded', String(open));
+      b.setAttribute('aria-label', open ? "Close menu" : "Open menu");
+    });
+    // Fecha o seletor de idioma ao clicar fora ou apertar Esc.
+    var d = document.querySelector('.lang-switch');
+    document.addEventListener('pointerdown', function(e){ if (d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && d.open){ d.open = false; d.querySelector('summary').focus(); } });
+  })();
+</script>
+<main id="conteudo">
+  <section class="page-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <nav class="crumbs mono" aria-label="You are here">
+        <ol>
+          <li><a href="/en">Home</a></li>
+          <li><a href="/en/use-cases">Use cases</a></li>
+          <li aria-current="page">Automatic document reading</li>
+        </ol>
+      </nav>
+      <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>Use case</div>
+      <h1 class="display">Automatic document reading with AI</h1>
+      <p class="lead muted">Invoices, freight bills (CT-e), contracts and receipts arrive by email or upload, and the AI extracts the data, checks it and posts it to the ERP. The team only reviews what the AI flags as doubtful.</p>
+      <div class="cta-actions">
+        <a href="/en#contato" class="btn btn-accent">Start a project →</a>
+        <a href="https://wa.me/5542984224363" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>The scenario</div>
+        <h2 class="display">How it works today, without automation.</h2>
+      </div>
+      <div>
+        <p class="uc-scenario">Dozens of PDFs arrive by email every day. Someone opens them one by one, copies the tax ID, amount, due date and items into the ERP, and checks again at month-end, when the books don't add up.</p>
+        <ol class="signal-list">
+          <li><span class="mono">01</span><span>Hours every week spent typing what is already written in the document.</span></li>
+          <li><span class="mono">02</span><span>A typo in an amount or due date turns into a fine, interest or a wrong charge.</span></li>
+          <li><span class="mono">03</span><span>Documents sit in the inbox waiting for someone to have time.</span></li>
+          <li><span class="mono">04</span><span>Nobody knows for sure which documents have already been posted.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>How it works with AI</div>
+        <h2 class="display">The flow, step by step.</h2>
+      </div>
+      <ol class="uc-flow" aria-label="Automated process flow">
+        <li class="card uc-step">
+          <span class="uc-step-num mono">01</span>
+          <h3>Document arrives</h3>
+          <p class="muted">By email, upload, shared folder or WhatsApp.</p>
+        </li>
+        <li class="card uc-step">
+          <span class="uc-step-num mono">02</span>
+          <h3>AI reads and extracts</h3>
+          <p class="muted">Identifies the document type and extracts the fields: tax ID, amounts, dates, items.</p>
+        </li>
+        <li class="card uc-step">
+          <span class="uc-step-num mono">03</span>
+          <h3>Checks the data</h3>
+          <p class="muted">Compares it with the order, the supplier and the company's rules.</p>
+        </li>
+        <li class="card uc-step">
+          <span class="uc-step-num mono">04</span>
+          <h3>Posts to the ERP</h3>
+          <p class="muted">Creates the entry, the payable or the right record in the system.</p>
+        </li>
+        <li class="card uc-step">
+          <span class="uc-step-num mono">05</span>
+          <h3>A person reviews exceptions</h3>
+          <p class="muted">Only what doesn't match goes to review, with the reason shown.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#8B5CF6"></span>Sample proposal</div>
+        <h2 class="display">What would be delivered.</h2>
+      </div>
+      <div class="uc-proposal">
+        <div>
+          <h3>Deliverables</h3>
+          <ul class="uc-check">
+            <li>Reading of invoices, freight bills (CT-e), contracts, bank slips and receipts.</li>
+            <li>Checking rules against orders, suppliers and amounts.</li>
+            <li>Automatic posting to the ERP or finance system.</li>
+            <li>Review queue for exceptions and a history of every document read.</li>
+          </ul>
+          <div class="stack">
+            <div class="mono muted">// connected systems</div>
+            <ul>
+              <li class="chip">Email</li>
+              <li class="chip">Google Drive or OneDrive</li>
+              <li class="chip">ERP</li>
+              <li class="chip">Finance</li>
+              <li class="chip">SEFAZ (NF-e and CT-e XML)</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <h3>Stages</h3>
+          <ol class="uc-stages">
+            <li>
+              <div><strong>Discovery</strong><p class="muted">Document types, required fields and checking rules.</p></div>
+              <span class="mono">2 to 3 days</span>
+            </li>
+            <li>
+              <div><strong>Reading and rules</strong><p class="muted">Extraction models, checks and ERP integration.</p></div>
+              <span class="mono">2 to 3 weeks</span>
+            </li>
+            <li>
+              <div><strong>Testing with real documents</strong><p class="muted">We run documents from recent months and measure accuracy.</p></div>
+              <span class="mono">1 week</span>
+            </li>
+            <li>
+              <div><strong>Go-live and tuning</strong><p class="muted">Production launch with the review queue active.</p></div>
+              <span class="mono">1 week</span>
+            </li>
+          </ol>
+          <div class="card uc-deadline">
+            <div class="mono muted">Typical timeline</div>
+            <div class="display uc-deadline-num">3 to 5 weeks</div>
+            <p class="muted">The final timeline is set in the proposal, after discovery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>Frequently asked questions</div>
+        <h2 class="display">Questions about this use case.</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Can the AI read scanned documents or photos?</summary>
+          <p class="muted">Yes. Digital PDFs, scanned documents and legible photos. When the invoice XML exists, it is used first because it is more accurate.</p>
+        </details>
+        <details>
+          <summary>What if the AI gets an amount wrong?</summary>
+          <p class="muted">The checking rules compare the document with the order and the supplier. Anything that doesn't match is not posted: it goes to a person for review.</p>
+        </details>
+        <details>
+          <summary>Does it work with my ERP?</summary>
+          <p class="muted">It works with ERPs that have an API or file import. During discovery we confirm how to post to your system.</p>
+        </details>
+        <details>
+          <summary>Which documents can be automated?</summary>
+          <p class="muted">Invoices, freight bills (CT-e), bank slips, payment receipts, contracts, purchase orders and other documents with a similar structure. Freight bills can also be checked against the freight table and quote before posting.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark cta-band">
+    <div class="wrap">
+      <h2 class="display">Want to see how it would work in your company?</h2>
+      <p>You explain the problem. We build the solution. A straight answer, no generic proposal.</p>
+      <div class="cta-actions">
+        <a href="/en#contato" class="btn btn-accent">Start a project →</a>
+        <a href="https://wa.me/5542984224363" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+      </div>
+      <p class="uc-svc-link"><a href="/en/services/ai-automation" class="ul-link">See the AI Automation service →</a></p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>Other use cases</div>
+        <h2 class="display">See also.</h2>
+      </div>
+      <div class="uc-grid">
+        <a class="card related-card uc-card" href="/en/use-cases/whatsapp-ai-customer-service">
+          <span class="mono muted">// 01</span>
+          <h3>AI customer service on WhatsApp</h3>
+          <p class="muted">Answers customers 24 hours a day, checks orders in your system and hands over to a person when needed.</p>
+          <span class="related-more mono">See use case →</span>
+        </a>
+        <a class="card related-card uc-card" href="/en/use-cases/order-and-lead-triage">
+          <span class="mono muted">// 03</span>
+          <h3>Order and lead triage</h3>
+          <p class="muted">Requests from several channels classified and sent to the right person.</p>
+          <span class="related-more mono">See use case →</span>
+        </a>
+        <a class="card related-card uc-card" href="/en/use-cases/administrative-process-automation">
+          <span class="mono muted">// 04</span>
+          <h3>Administrative routines on autopilot</h3>
+          <p class="muted">Bank reconciliation, registrations and collections done by AI, with human approval where it matters.</p>
+          <span class="related-more mono">See use case →</span>
+        </a>
+        <a class="card related-card uc-card" href="/en/use-cases/ai-assistant-company-documents">
+          <span class="mono muted">// 05</span>
+          <h3>Assistant for company documents</h3>
+          <p class="muted">The team asks and the AI answers based on internal manuals and policies.</p>
+          <span class="related-more mono">See use case →</span>
+        </a>
+        <a class="card related-card uc-card" href="/en/use-cases/automated-reports">
+          <span class="mono muted">// 06</span>
+          <h3>Reports that build themselves</h3>
+          <p class="muted">The weekly summary comes out ready, without anyone merging spreadsheets.</p>
+          <span class="related-more mono">See use case →</span>
+        </a>
+      </div>
+      
+    </div>
+  </section>
+  
+</main>
+<footer class="section-dark site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">Agência Byte</div>
+        <p class="muted footer-tagline">Code that works. Systems that grow. Engineering for companies in a hurry.</p>
+      </div>
+      <div>
+          <div class="mono footer-title">Services</div>
+          <ul class="footer-list">
+            <li><a href="/en/services/custom-software-development" class="ul-link">Development</a></li>
+            <li><a href="/en/services/ai-automation" class="ul-link">AI Automation</a></li>
+            <li><a href="/en/services/systems-integration" class="ul-link">Integrations</a></li>
+            <li><a href="/en/services/data-and-power-bi" class="ul-link">Data & Power BI</a></li>
+          </ul>
+        </div>
+      <div>
+          <div class="mono footer-title">Company</div>
+          <ul class="footer-list">
+            <li><a href="/en#sobre" class="ul-link">About</a></li>
+            <li><a href="/en#processo" class="ul-link">Process</a></li>
+            <li><a href="/en/transformation" class="ul-link">Before and after</a></li>
+            <li><a href="/en/use-cases" class="ul-link">Use cases</a></li>
+            <li><a href="https://blog.agenciabyte.com/" class="ul-link">Blog</a></li>
+          </ul>
+        </div>
+      <div>
+        <div class="mono footer-title">Contact</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@agenciabyte.com" class="ul-link">hello@agenciabyte.com</a></li>
+          <li><a href="https://wa.me/5542984224363" target="_blank" rel="noopener noreferrer" class="ul-link">+55 42 98422-4363</a></li>
+          <li><a href="https://www.instagram.com/agenciabyte.ia" target="_blank" rel="noopener noreferrer" class="ul-link">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/company/byte-agencia" target="_blank" rel="noopener noreferrer" class="ul-link">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="muted mono">© 2026 Agência Byte · all rights reserved</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Automação de processos administrativos com IA | Agência Byte</title>
+<meta name="description" content="Automação de processos administrativos com IA: conciliação bancária, cobrança e cadastros feitos sozinhos, com aprovação humana nos pagamentos." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos" />
+<link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos" />
+<link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/administrative-process-automation" />
+<link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/automatizacion-de-procesos-administrativos" />
+<link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos" />
+<meta property="og:title" content="Automação de processos administrativos com IA | Agência Byte" />
+<meta property="og:description" content="Automação de processos administrativos com IA: conciliação bancária, cobrança e cadastros feitos sozinhos, com aprovação humana nos pagamentos." />
+<meta property="og:image" content="https://agenciabyte.com/img/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:site_name" content="Agência Byte" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Automação de processos administrativos com IA | Agência Byte" />
+<meta name="twitter:description" content="Automação de processos administrativos com IA: conciliação bancária, cobrança e cadastros feitos sozinhos, com aprovação humana nos pagamentos." />
+<meta name="twitter:image" content="https://agenciabyte.com/img/og-image.png" />
+
+<meta name="theme-color" content="#FF6A1A" />
+<link rel="icon" href="/img/logo_byte_64.png" sizes="64x64" type="image/png" />
+<link rel="apple-touch-icon" href="/img/logo_byte.png" sizes="180x180" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos#service",
+      "name": "Rotinas administrativas no automático",
+      "serviceType": "Automação com Inteligência Artificial",
+      "description": "Automação de processos administrativos com IA: conciliação bancária, cobrança e cadastros feitos sozinhos, com aprovação humana nos pagamentos.",
+      "url": "https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos",
+      "inLanguage": "pt-BR",
+      "provider": {
+        "@id": "https://agenciabyte.com/#organization"
+      },
+      "isRelatedTo": {
+        "@id": "https://agenciabyte.com/servicos/automacao-com-ia#service"
+      },
+      "areaServed": "BR"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quais rotinas dá para automatizar primeiro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As que se repetem com regra clara: baixa de pagamentos, conciliação, lembretes de cobrança, cadastro a partir do CNPJ e e-mails de rotina. Na descoberta medimos qual toma mais tempo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A IA mexe no dinheiro da empresa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não sem aprovação. Pagamentos e qualquer ação com valor acima do limite definido ficam esperando uma pessoa aprovar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "E se a rotina mudar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As regras ficam documentadas e podem ser ajustadas. Mudanças pequenas entram no suporte; rotinas novas viram uma nova etapa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Preciso trocar o meu ERP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. A automação trabalha com o ERP que vocês já usam, por API, importação de arquivos ou acesso ao banco de dados."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://agenciabyte.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Casos de uso",
+          "item": "https://agenciabyte.com/casos-de-uso"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Rotinas administrativas no automático",
+          "item": "https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SFBNK4KDQ');
+  (function(){
+    var done = false, evts = ['pointerdown','keydown','scroll','touchstart'];
+    function load(){
+      if (done) return; done = true;
+      evts.forEach(function(e){ removeEventListener(e, load); });
+      var g = document.createElement('script');
+      g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-8SFBNK4KDQ';
+      document.head.appendChild(g);
+      var a = document.createElement('script');
+      a.async = true; a.src = 'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' + Math.random().toString(36).substring(7);
+      a.onload = function(){ window.trackingFunctions.onLoad({ appId: '6a5fc15502199500103f7f77' }); };
+      document.head.appendChild(a);
+    }
+    evts.forEach(function(e){ addEventListener(e, load, { once: true, passive: true }); });
+    addEventListener('load', function(){ setTimeout(load, 4000); });
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/pages.css" />
+</head>
+<body data-theme="light"><a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand-wrap" aria-label="Agência Byte, página inicial">
+      <span class="glyph">
+        <picture>
+          <source srcset="/img/logo_byte.webp" type="image/webp" />
+          <img src="/img/logo_byte_64.png" alt="" width="32" height="32" />
+        </picture>
+      </span>
+      <span>Agência Byte</span>
+    </a>
+    <nav class="nav-pill" aria-label="Menu principal">
+      <a href="/#sobre" class="nav-pill-link">Sobre</a>
+      <a href="/transformacao" class="nav-pill-link">Antes e depois</a>
+      <a href="/servicos" class="nav-pill-link">Serviços</a>
+      <a href="/#processo" class="nav-pill-link">Processo</a>
+      <a href="/#clientes" class="nav-pill-link">Clientes</a>
+      <a href="https://blog.agenciabyte.com/" class="nav-pill-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    </nav>
+    <div class="nav-cta">
+      <details class="lang-switch">
+        <summary aria-label="Idioma: Português"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#009C3B"/><path d="M14 2.6 25.4 10 14 17.4 2.6 10z" fill="#FFDF00"/><circle cx="14" cy="10" r="4.4" fill="#002776"/><path d="M9.8 9.2c2.9-.5 5.9.1 8.3 1.6" stroke="#fff" stroke-width=".9" fill="none"/></svg></span><span class="lang-code">PT</span><svg class="lang-chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <ul class="lang-menu">
+          <li><a href="/casos-de-uso/automacao-de-processos-administrativos" hreflang="pt-BR" lang="pt-BR" aria-current="true"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#009C3B"/><path d="M14 2.6 25.4 10 14 17.4 2.6 10z" fill="#FFDF00"/><circle cx="14" cy="10" r="4.4" fill="#002776"/><path d="M9.8 9.2c2.9-.5 5.9.1 8.3 1.6" stroke="#fff" stroke-width=".9" fill="none"/></svg></span>Português</a></li>
+          <li><a href="/en/use-cases/administrative-process-automation" hreflang="en" lang="en"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#fff"/><path d="M0 0h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28V20H0z" fill="#B22234"/><rect width="12" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2" cy="1.8" r=".6"/><circle cx="6" cy="1.8" r=".6"/><circle cx="10" cy="1.8" r=".6"/><circle cx="4" cy="3.9" r=".6"/><circle cx="8" cy="3.9" r=".6"/><circle cx="2" cy="6" r=".6"/><circle cx="6" cy="6" r=".6"/><circle cx="10" cy="6" r=".6"/><circle cx="4" cy="8.1" r=".6"/><circle cx="8" cy="8.1" r=".6"/></g></svg></span>English</a></li>
+          <li><a href="/es/casos-de-uso/automatizacion-de-procesos-administrativos" hreflang="es" lang="es"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#AA151B"/><rect y="5" width="28" height="10" fill="#F1BF00"/></svg></span>Español</a></li>
+        </ul>
+      </details>
+      <a href="/#contato" class="btn btn-accent nav-cta-desktop">Contato →</a>
+      <button class="nav-burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile-menu" id="menu-mobile" aria-label="Menu de navegação" hidden>
+    <a href="/#sobre">Sobre</a>
+    <a href="/transformacao">Antes e depois</a>
+    <a href="/servicos">Serviços</a>
+    <a href="/#processo">Processo</a>
+    <a href="/#clientes">Clientes</a>
+    <a href="https://blog.agenciabyte.com/" class="ul-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    <a href="/#contato" class="nav-mobile-cta">Contato →</a>
+  </nav>
+</header>
+<script>
+  (function(){
+    var b = document.querySelector('.nav-burger'), m = document.getElementById('menu-mobile');
+    b.addEventListener('click', function(){
+      var open = m.hidden;
+      m.hidden = !open;
+      b.setAttribute('aria-expanded', String(open));
+      b.setAttribute('aria-label', open ? "Fechar menu" : "Abrir menu");
+    });
+    // Fecha o seletor de idioma ao clicar fora ou apertar Esc.
+    var d = document.querySelector('.lang-switch');
+    document.addEventListener('pointerdown', function(e){ if (d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && d.open){ d.open = false; d.querySelector('summary').focus(); } });
+  })();
+</script>
+<main id="conteudo">
+  <section class="page-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <nav class="crumbs mono" aria-label="Você está em">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/casos-de-uso">Casos de uso</a></li>
+          <li aria-current="page">Rotinas administrativas no automático</li>
+        </ol>
+      </nav>
+      <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>Caso de uso</div>
+      <h1 class="display">Automação de processos administrativos com IA</h1>
+      <p class="lead muted">As tarefas que se repetem todo dia no administrativo e no financeiro, como cobrar, conciliar, cadastrar e responder e-mails de rotina, passam a ser feitas pela IA. A equipe aprova o que importa e cuida das exceções.</p>
+      <div class="cta-actions">
+        <a href="/#contato" class="btn btn-accent">Começar um projeto →</a>
+        <a href="https://wa.me/5542984224363" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>O cenário</div>
+        <h2 class="display">Como funciona hoje, sem automação.</h2>
+      </div>
+      <div>
+        <p class="uc-scenario">O dia do administrativo começa com a mesma lista: conferir o extrato, dar baixa nos pagamentos, cobrar quem atrasou, cadastrar o cliente novo e responder os mesmos e-mails de sempre. Sobra pouco tempo para o que exige decisão.</p>
+        <ol class="signal-list">
+          <li><span class="mono">01</span><span>Baixa de pagamentos e conciliação bancária feitas linha por linha.</span></li>
+          <li><span class="mono">02</span><span>Cobrança atrasa porque ninguém teve tempo de mandar o lembrete.</span></li>
+          <li><span class="mono">03</span><span>Cadastro de cliente e fornecedor digitado à mão, com erro de CNPJ e endereço.</span></li>
+          <li><span class="mono">04</span><span>Os mesmos e-mails de rotina escritos do zero várias vezes por semana.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>Como fica com IA</div>
+        <h2 class="display">O fluxo, passo a passo.</h2>
+      </div>
+      <ol class="uc-flow" aria-label="Fluxo do processo automatizado">
+        <li class="card uc-step">
+          <span class="uc-step-num mono">01</span>
+          <h3>A rotina dispara</h3>
+          <p class="muted">Por horário, por um e-mail que chega ou por uma mudança no sistema.</p>
+        </li>
+        <li class="card uc-step">
+          <span class="uc-step-num mono">02</span>
+          <h3>IA coleta os dados</h3>
+          <p class="muted">Busca no ERP, no banco, no e-mail e nas planilhas o que a tarefa precisa.</p>
+        </li>
+        <li class="card uc-step">
+          <span class="uc-step-num mono">03</span>
+          <h3>Executa a tarefa</h3>
+          <p class="muted">Concilia, cobra, cadastra ou prepara a resposta, seguindo as regras da empresa.</p>
+        </li>
+        <li class="card uc-step">
+          <span class="uc-step-num mono">04</span>
+          <h3>Pessoa aprova o que importa</h3>
+          <p class="muted">Pagamentos, valores acima do limite e exceções esperam aprovação.</p>
+        </li>
+        <li class="card uc-step">
+          <span class="uc-step-num mono">05</span>
+          <h3>Tudo fica registrado</h3>
+          <p class="muted">Cada ação fica no histórico, com o que foi feito e por quê.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#8B5CF6"></span>Proposta de exemplo</div>
+        <h2 class="display">O que seria entregue.</h2>
+      </div>
+      <div class="uc-proposal">
+        <div>
+          <h3>Entregas</h3>
+          <ul class="uc-check">
+            <li>Mapeamento das rotinas e escolha das que mais tomam tempo.</li>
+            <li>Automação de cada rotina com as regras da empresa.</li>
+            <li>Etapas de aprovação humana e alertas de exceção.</li>
+            <li>Histórico de cada ação e painel com o tempo economizado.</li>
+          </ul>
+          <div class="stack">
+            <div class="mono muted">// sistemas que se conectam</div>
+            <ul>
+              <li class="chip">ERP (Bling, Tiny, Omie e outros)</li>
+              <li class="chip">Banco (extrato e API)</li>
+              <li class="chip">E-mail</li>
+              <li class="chip">Google Sheets ou Excel</li>
+              <li class="chip">WhatsApp</li>
+              <li class="chip">Receita Federal (consulta de CNPJ)</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <h3>Etapas</h3>
+          <ol class="uc-stages">
+            <li>
+              <div><strong>Descoberta</strong><p class="muted">Levantamento das rotinas, do tempo que cada uma toma e das regras.</p></div>
+              <span class="mono">2 a 3 dias</span>
+            </li>
+            <li>
+              <div><strong>Primeiras rotinas</strong><p class="muted">Automação das 2 ou 3 rotinas que mais tomam tempo.</p></div>
+              <span class="mono">2 a 3 semanas</span>
+            </li>
+            <li>
+              <div><strong>Teste com a equipe</strong><p class="muted">As rotinas rodam em paralelo com o trabalho manual até baterem.</p></div>
+              <span class="mono">1 semana</span>
+            </li>
+            <li>
+              <div><strong>Go-live e próximas rotinas</strong><p class="muted">Entrada em produção e escolha das próximas rotinas.</p></div>
+              <span class="mono">contínuo</span>
+            </li>
+          </ol>
+          <div class="card uc-deadline">
+            <div class="mono muted">Prazo típico</div>
+            <div class="display uc-deadline-num">3 a 5 semanas</div>
+            <p class="muted">O prazo final é definido na proposta, depois da descoberta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>Perguntas frequentes</div>
+        <h2 class="display">Perguntas sobre este caso.</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Quais rotinas dá para automatizar primeiro?</summary>
+          <p class="muted">As que se repetem com regra clara: baixa de pagamentos, conciliação, lembretes de cobrança, cadastro a partir do CNPJ e e-mails de rotina. Na descoberta medimos qual toma mais tempo.</p>
+        </details>
+        <details>
+          <summary>A IA mexe no dinheiro da empresa?</summary>
+          <p class="muted">Não sem aprovação. Pagamentos e qualquer ação com valor acima do limite definido ficam esperando uma pessoa aprovar.</p>
+        </details>
+        <details>
+          <summary>E se a rotina mudar?</summary>
+          <p class="muted">As regras ficam documentadas e podem ser ajustadas. Mudanças pequenas entram no suporte; rotinas novas viram uma nova etapa.</p>
+        </details>
+        <details>
+          <summary>Preciso trocar o meu ERP?</summary>
+          <p class="muted">Não. A automação trabalha com o ERP que vocês já usam, por API, importação de arquivos ou acesso ao banco de dados.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark cta-band">
+    <div class="wrap">
+      <h2 class="display">Quer ver como ficaria na sua empresa?</h2>
+      <p>Você explica o problema. A gente constrói a solução. Resposta direta, sem proposta genérica.</p>
+      <div class="cta-actions">
+        <a href="/#contato" class="btn btn-accent">Começar um projeto →</a>
+        <a href="https://wa.me/5542984224363" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+      </div>
+      <p class="uc-svc-link"><a href="/servicos/automacao-com-ia" class="ul-link">Ver o serviço de Automação com IA →</a></p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>Outros casos de uso</div>
+        <h2 class="display">Veja também.</h2>
+      </div>
+      <div class="uc-grid">
+        <a class="card related-card uc-card" href="/casos-de-uso/atendimento-whatsapp-ia">
+          <span class="mono muted">// 01</span>
+          <h3>Atendimento com IA no WhatsApp</h3>
+          <p class="muted">Responde clientes 24 horas, consulta pedidos no seu sistema e passa para uma pessoa quando precisa.</p>
+          <span class="related-more mono">Ver caso de uso →</span>
+        </a>
+        <a class="card related-card uc-card" href="/casos-de-uso/leitura-automatica-de-documentos">
+          <span class="mono muted">// 02</span>
+          <h3>Leitura automática de documentos</h3>
+          <p class="muted">Notas fiscais, CT-e, contratos e comprovantes lidos pela IA e lançados no ERP.</p>
+          <span class="related-more mono">Ver caso de uso →</span>
+        </a>
+        <a class="card related-card uc-card" href="/casos-de-uso/triagem-de-pedidos-e-leads">
+          <span class="mono muted">// 03</span>
+          <h3>Triagem de pedidos e leads</h3>
+          <p class="muted">Solicitações de vários canais classificadas e enviadas para a pessoa certa.</p>
+          <span class="related-more mono">Ver caso de uso →</span>
+        </a>
+        <a class="card related-card uc-card" href="/casos-de-uso/assistente-documentos-da-empresa">
+          <span class="mono muted">// 05</span>
+          <h3>Assistente sobre os documentos da empresa</h3>
+          <p class="muted">A equipe pergunta e a IA responde com base nos manuais e políticas internas.</p>
+          <span class="related-more mono">Ver caso de uso →</span>
+        </a>
+        <a class="card related-card uc-card" href="/casos-de-uso/relatorios-automaticos">
+          <span class="mono muted">// 06</span>
+          <h3>Relatórios que se montam sozinhos</h3>
+          <p class="muted">O resumo semanal sai pronto, sem ninguém juntar planilha.</p>
+          <span class="related-more mono">Ver caso de uso →</span>
+        </a>
+      </div>
+      
+    </div>
+  </section>
+  
+</main>
+<footer class="section-dark site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">Agência Byte</div>
+        <p class="muted footer-tagline">Código que funciona. Sistemas que crescem. Engenharia para empresas com pressa.</p>
+      </div>
+      <div>
+          <div class="mono footer-title">Serviços</div>
+          <ul class="footer-list">
+            <li><a href="/servicos/desenvolvimento-de-software" class="ul-link">Desenvolvimento</a></li>
+            <li><a href="/servicos/automacao-com-ia" class="ul-link">Automação IA</a></li>
+            <li><a href="/servicos/integracao-de-sistemas" class="ul-link">Integrações</a></li>
+            <li><a href="/servicos/dados-e-power-bi" class="ul-link">Dados e Power BI</a></li>
+          </ul>
+        </div>
+      <div>
+          <div class="mono footer-title">Empresa</div>
+          <ul class="footer-list">
+            <li><a href="/#sobre" class="ul-link">Sobre</a></li>
+            <li><a href="/#processo" class="ul-link">Processo</a></li>
+            <li><a href="/transformacao" class="ul-link">Antes e depois</a></li>
+            <li><a href="/casos-de-uso" class="ul-link">Casos de uso</a></li>
+            <li><a href="https://blog.agenciabyte.com/" class="ul-link">Blog</a></li>
+          </ul>
+        </div>
+      <div>
+        <div class="mono footer-title">Contato</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@agenciabyte.com" class="ul-link">hello@agenciabyte.com</a></li>
+          <li><a href="https://wa.me/5542984224363" target="_blank" rel="noopener noreferrer" class="ul-link">+55 42 98422-4363</a></li>
+          <li><a href="https://www.instagram.com/agenciabyte.ia" target="_blank" rel="noopener noreferrer" class="ul-link">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/company/byte-agencia" target="_blank" rel="noopener noreferrer" class="ul-link">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="muted mono">© 2026 Agência Byte · todos os direitos reservados</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

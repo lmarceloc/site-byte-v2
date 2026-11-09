@@ -38,7 +38,41 @@ export const ROUTES = {
   transformation: { pt: "/transformacao", en: "/en/transformation", es: "/es/transformacion" },
   "case:cargon": { pt: "/clientes/cargon", en: "/en/clients/cargon", es: "/es/clientes/cargon" },
   "case:divina-argila": { pt: "/clientes/divina-argila", en: "/en/clients/divina-argila", es: "/es/clientes/divina-argila" },
+  usecases: { pt: "/casos-de-uso", en: "/en/use-cases", es: "/es/casos-de-uso" },
+  "uc:atendimento-whatsapp-ia": {
+    pt: "/casos-de-uso/atendimento-whatsapp-ia",
+    en: "/en/use-cases/whatsapp-ai-customer-service",
+    es: "/es/casos-de-uso/atencion-whatsapp-ia",
+  },
+  "uc:leitura-automatica-de-documentos": {
+    pt: "/casos-de-uso/leitura-automatica-de-documentos",
+    en: "/en/use-cases/ai-document-data-extraction",
+    es: "/es/casos-de-uso/extraccion-de-datos-de-documentos",
+  },
+  "uc:triagem-de-pedidos-e-leads": {
+    pt: "/casos-de-uso/triagem-de-pedidos-e-leads",
+    en: "/en/use-cases/order-and-lead-triage",
+    es: "/es/casos-de-uso/triaje-de-pedidos-y-leads",
+  },
+  "uc:automacao-de-processos-administrativos": {
+    pt: "/casos-de-uso/automacao-de-processos-administrativos",
+    en: "/en/use-cases/administrative-process-automation",
+    es: "/es/casos-de-uso/automatizacion-de-procesos-administrativos",
+  },
+  "uc:assistente-documentos-da-empresa": {
+    pt: "/casos-de-uso/assistente-documentos-da-empresa",
+    en: "/en/use-cases/ai-assistant-company-documents",
+    es: "/es/casos-de-uso/asistente-documentos-de-la-empresa",
+  },
+  "uc:relatorios-automaticos": {
+    pt: "/casos-de-uso/relatorios-automaticos",
+    en: "/en/use-cases/automated-reports",
+    es: "/es/casos-de-uso/informes-automaticos",
+  },
 };
+
+// Idiomas em que a página existe (toda página nova deve ter os três).
+export const langsFor = (key) => LANGS.filter((l) => ROUTES[key][l]);
 
 export const route = (key, lang) => ROUTES[key][lang];
 export const svcRoute = (slug, lang) => ROUTES[`svc:${slug}`][lang];
