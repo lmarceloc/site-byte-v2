@@ -53,6 +53,13 @@ As principais áreas de especialização da Agência Byte incluem:
 - [Dados e Power BI](https://agenciabyte.com/servicos/dados-e-power-bi): dashboards Power BI, pipelines ETL/ELT e alertas.
 - [Caso Divina Argila](https://agenciabyte.com/clientes/divina-argila): integração de Bling, Trello, TikTok Shop e Mercado Livre em 40 dias; pedidos de e-commerce centralizados no Trello. Frase do cliente: "Agora, o nosso time não precisa mais ficar copiando e colando o mesmo pedido em vários lugares. A fábrica já sabe o que produzir junto com a emissão do pedido."
 - [Caso CargOn](https://agenciabyte.com/clientes/cargon): data warehouse, ETL e 4 dashboards em Power BI com previsões, criados em 30 dias. Frase do cliente: "Agora, nossos clientes têm dados estruturados da operação deles, insights e dados preditivos para poder usar na sua logística, e nós criamos mais um produto monetizado."
+- [Casos de uso de IA](https://agenciabyte.com/casos-de-uso): exemplos práticos de automação com IA, com cenário, fluxo, entregas e prazo típico.
+  - [Atendimento com IA no WhatsApp](https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia): Responde clientes 24 horas, consulta pedidos no seu sistema e passa para uma pessoa quando precisa.
+  - [Leitura automática de documentos](https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos): Notas fiscais, boletos, contratos e comprovantes lidos pela IA e lançados no ERP.
+  - [Conferência de CT-e](https://agenciabyte.com/casos-de-uso/conferencia-de-cte): Cada CT-e conferido com a tabela de frete e o pedido. Só a divergência vai para uma pessoa.
+  - [Triagem de pedidos e leads](https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads): Solicitações de vários canais classificadas e enviadas para a pessoa certa.
+  - [Rotinas administrativas no automático](https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos): Cobrança, conciliação, cadastros e e-mails de rotina feitos pela IA, com aprovação onde importa.
+  - [Assistente sobre os documentos da empresa](https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa): A equipe pergunta e a IA responde com base nos manuais e políticas internas.
 - [Antes e depois](https://agenciabyte.com/transformacao): o que muda em vendas, pedidos, processos internos e gestão após a automação.
 - [English version](https://agenciabyte.com/en): site completo em inglês ([services](https://agenciabyte.com/en/services)).
 - [Versión en español](https://agenciabyte.com/es): site completo em espanhol ([servicios](https://agenciabyte.com/es/servicios)).

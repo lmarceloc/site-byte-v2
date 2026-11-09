@@ -628,7 +628,7 @@ function servicePage(lang, s) {
       ${caseQuote(lang, SERVICE_CASE[s.slug], { link: true })}
     </div>
   </section>
-  ` : ""}${s.slug === "automacao-com-ia" && USE_CASES[lang] ? useCaseCards(lang, { heading: true }) : ""}${processSection(lang)}
+  ` : ""}${s.slug === "automacao-com-ia" && USE_CASES[lang] ? useCaseCards(lang, { heading: true, title: USE_CASES[lang].ui.svcTitle, eyebrow: USE_CASES[lang].ui.svcEyebrow, all: true }) : ""}${processSection(lang)}
   ${faqSection(lang, s.faq)}
   ${relatedSection(lang, s.related)}
   ${ctaSection(lang, p.ui.service.cta)}
@@ -740,7 +740,7 @@ function useCaseList(lang) {
 
 // Grade de cards dos casos de uso. Com heading, vira uma seção com título (h3 nos cards);
 // sem heading, é a lista principal da página de entrada (h2 nos cards).
-function useCaseCards(lang, { heading = false, exclude = null, title = null, eyebrow = null } = {}) {
+function useCaseCards(lang, { heading = false, exclude = null, title = null, eyebrow = null, all = false, tight = false } = {}) {
   const U = USE_CASES[lang];
   const list = useCaseList(lang).filter((u) => u.slug !== exclude);
   const h = heading ? `<div class="section-head">
@@ -749,7 +749,7 @@ function useCaseCards(lang, { heading = false, exclude = null, title = null, eye
       </div>
       ` : "";
   const tag = heading ? "h3" : "h2";
-  return `<section class="page-section">
+  return `<section class="page-section${tight ? " uc-tight" : ""}">
     <div class="wrap">
       ${h}<div class="uc-grid">
         ${list.map((u) => `<a class="card related-card uc-card" href="${u.path}">
@@ -759,6 +759,7 @@ function useCaseCards(lang, { heading = false, exclude = null, title = null, eye
           <span class="related-more mono">${U.ui.more}</span>
         </a>`).join("\n        ")}
       </div>
+      ${all ? `<p class="uc-all"><a href="${route("usecases", lang)}" class="ul-link">${U.ui.svcAll}</a></p>` : ""}
     </div>
   </section>
   `;
@@ -805,7 +806,7 @@ function useCasesHub(lang) {
     </div>
   </section>
 
-  ${useCaseCards(lang)}
+  ${useCaseCards(lang, { tight: true })}
   ${ctaSection(lang, U.hub.cta)}
 </main>
 ` +

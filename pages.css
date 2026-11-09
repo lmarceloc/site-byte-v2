@@ -271,3 +271,7 @@ a.nav-brand-wrap:focus-visible{ outline: 2px solid var(--accent); outline-offset
 .uc-deadline p{ margin: 8px 0 0 !important; font-size: 14px !important; }
 .uc-svc-link{ margin-top: 20px; }
 .uc-svc-link a{ color: inherit; }
+/* Página de entrada: cards logo abaixo do texto inicial */
+.page-hero:has(+ .uc-tight){ padding-bottom: 48px; border-bottom: 0; }
+.uc-tight{ padding-top: 8px; border-top: 0; }
+.uc-all{ margin-top: 28px; font-size: 15px; }
