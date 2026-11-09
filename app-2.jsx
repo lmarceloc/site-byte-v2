@@ -89,9 +89,25 @@ function Clients(){
           })}
         </div>
 
+        <div className="client-quotes">
+          {CLIENT_LOGOS.filter((c) => c.caseSlug && T.clients.quotes[c.caseSlug]).map(({ name, caseSlug }) => (
+            <figure key={caseSlug} className="client-quote">
+              <blockquote><p>“{T.clients.quotes[caseSlug]}”</p></blockquote>
+              <figcaption>— <cite><a href={caseRoute(caseSlug, LANG)}>{name}</a></cite>, {T.clients.quoteBy}</figcaption>
+            </figure>
+          ))}
+        </div>
+
       </div>
       <style>{`
         .client-logo-link:hover { opacity: 1 !important; color: var(--ink) !important; }
+        .client-quotes { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px 48px; padding-top: 48px; }
+        .client-quote { margin: 0; padding-left: 20px; border-left: 3px solid var(--accent); }
+        .client-quote blockquote { margin: 0; }
+        .client-quote blockquote p { margin: 0; font-size: 19px; line-height: 1.5; color: var(--ink); }
+        .client-quote figcaption { margin-top: 12px; font-size: 14px; color: var(--ink-2); }
+        .client-quote cite { font-style: normal; font-weight: 600; }
+        .client-quote cite a { color: var(--ink); text-underline-offset: 3px; }
       `}</style>
     </section>
   );

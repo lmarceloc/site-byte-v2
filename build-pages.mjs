@@ -22,6 +22,8 @@ const INSTAGRAM = "https://www.instagram.com/agenciabyte.ia";
 const LINKEDIN = "https://www.linkedin.com/company/byte-agencia";
 // Clientes citados na home (mesma lista de CLIENT_LOGOS em app-2.jsx).
 const CASE_SLUGS = ["divina-argila", "cargon"]; // casos de clientes com página própria (/clientes/<slug>)
+// Serviço → caso cuja frase do cliente aparece na página do serviço.
+const SERVICE_CASE = { "integracao-de-sistemas": "divina-argila", "dados-e-power-bi": "cargon" };
 const CLIENTS = [
   ["Divina Argila", "https://divinaargila.com.br/"],
   ["Bouwman", "https://bouwman.com.br/"],
@@ -272,6 +274,17 @@ function breadcrumbLd(items) {
   };
 }
 
+// Frase do cliente (citação com autoria): ajuda IAs a citarem a página.
+function caseQuote(lang, slug, { link = false } = {}) {
+  const ui = PAGES[lang].caseUi;
+  const c = PAGES[lang].cases[slug];
+  const who = link ? `<a href="${route(`case:${slug}`, lang)}">${c.name}</a>` : c.name;
+  return `<figure class="case-quote">
+        <blockquote><p>“${esc(c.quote)}”</p></blockquote>
+        <figcaption>— <cite>${who}</cite>, ${ui.quoteBy}</figcaption>
+      </figure>`;
+}
+
 function processSection(lang) {
   const p = PAGES[lang];
   return `<section class="page-section">
@@ -493,6 +506,8 @@ ${svcs.map((s, i) => `      <article>
 ${CASE_SLUGS.map((slug) => `      <article>
         <h3><a href="${route(`case:${slug}`, lang)}">${PAGES[lang].cases[slug].h1}</a></h3>
         <p>${PAGES[lang].cases[slug].summary}</p>
+        <blockquote><p>“${esc(PAGES[lang].cases[slug].quote)}”</p></blockquote>
+        <p>— ${PAGES[lang].cases[slug].name}, ${PAGES[lang].caseUi.quoteBy}</p>
       </article>`).join("\n")}
 ${h.cases.map((c) => `      <article>
         <h3>${c.t}</h3>
@@ -599,7 +614,13 @@ function servicePage(lang, s) {
     </div>
   </section>
 
-  ${processSection(lang)}
+  ${SERVICE_CASE[s.slug] ? `<section class="page-section">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>${p.caseUi.quoteEyebrow}</div>
+      ${caseQuote(lang, SERVICE_CASE[s.slug], { link: true })}
+    </div>
+  </section>
+  ` : ""}${processSection(lang)}
   ${faqSection(lang, s.faq)}
   ${relatedSection(lang, s.related)}
   ${ctaSection(lang, p.ui.service.cta)}
@@ -635,6 +656,14 @@ function casePage(lang, slug) {
         publisher: { "@id": `${SITE}/#organization` },
       },
       {
+        "@type": "Review",
+        "@id": `${SITE}${path}#review`,
+        reviewBody: c.quote,
+        inLanguage: LANG_META[lang].html,
+        author: { "@type": "Organization", name: c.name, url: clientUrl },
+        itemReviewed: { "@id": `${SITE}/#organization` },
+      },
+      {
         "@type": "FAQPage",
         mainEntity: c.qa.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
       },
@@ -656,6 +685,7 @@ function casePage(lang, slug) {
       <div class="case-stats" aria-label="${ui.statsEyebrow}">
         ${c.stats.map(([n, l]) => `<div class="card case-stat"><div class="display case-num">${n}</div><p class="muted">${l}</p></div>`).join("\n        ")}
       </div>
+      ${caseQuote(lang, slug)}
     </div>
   </section>
 

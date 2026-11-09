@@ -89,7 +89,12 @@ const pt = {
       { t: "Suporte", d: "Deploy, documentação, treinamento e evolução contínua.", dur: "contínuo" },
     ],
   },
-  clients: { eyebrow: "Clientes", caseTag: "ver caso" },
+  clients: { eyebrow: "Clientes", caseTag: "ver caso", quoteBy: "cliente da Agência Byte",
+    quotes: {
+      "divina-argila": "Agora, o nosso time não precisa mais ficar copiando e colando o mesmo pedido em vários lugares. A fábrica já sabe o que produzir junto com a emissão do pedido.",
+      cargon: "Agora, nossos clientes têm dados estruturados da operação deles, insights e dados preditivos para poder usar na sua logística, e nós criamos mais um produto monetizado.",
+    },
+  },
   contact: {
     eyebrow: "Contato",
     title: <>Você explica o<br />problema<Acc>.</Acc><br />A gente constrói<br />a <Acc>solução</Acc>.</>,
@@ -205,7 +210,12 @@ const en = {
       { t: "Support", d: "Deploy, documentation, training and continuous evolution.", dur: "ongoing" },
     ],
   },
-  clients: { eyebrow: "Clients", caseTag: "see case" },
+  clients: { eyebrow: "Clients", caseTag: "see case", quoteBy: "Agência Byte client",
+    quotes: {
+      "divina-argila": "Now our team no longer has to copy and paste the same order into several places. The factory already knows what to produce as soon as the order is issued.",
+      cargon: "Now our customers have structured data on their own operations, insights and predictive data to use in their logistics, and we've created one more monetized product.",
+    },
+  },
   contact: {
     eyebrow: "Contact",
     title: <>You explain the<br />problem<Acc>.</Acc><br />We build<br />the <Acc>solution</Acc>.</>,
@@ -321,7 +331,12 @@ const es = {
       { t: "Soporte", d: "Deploy, documentación, capacitación y evolución continua.", dur: "continuo" },
     ],
   },
-  clients: { eyebrow: "Clientes", caseTag: "ver caso" },
+  clients: { eyebrow: "Clientes", caseTag: "ver caso", quoteBy: "cliente de Agência Byte",
+    quotes: {
+      "divina-argila": "Ahora nuestro equipo ya no tiene que copiar y pegar el mismo pedido en varios lugares. La fábrica ya sabe qué producir en cuanto se emite el pedido.",
+      cargon: "Ahora nuestros clientes tienen datos estructurados de su propia operación, insights y datos predictivos para usar en su logística, y nosotros creamos un producto más monetizado.",
+    },
+  },
   contact: {
     eyebrow: "Contacto",
     title: <>Tú explicas el<br />problema<Acc>.</Acc><br />Nosotros creamos<br />la <Acc>solución</Acc>.</>,
