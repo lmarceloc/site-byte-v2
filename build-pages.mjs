@@ -203,7 +203,7 @@ function nav(lang, key, current) {
     [anchor("clientes"), u.nav.clients],
   ];
   const cur = (href) => (href === current ? ' aria-current="page"' : "");
-  const blog = '<a href="https://agenciabyte.com/blog" class="nav-pill-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>';
+  const blog = '<a href="https://agenciabyte.com/blog" class="nav-pill-link blog-link">Blog</a>';
   return `<a class="skip-link" href="#conteudo">${u.skip}</a>
 <header class="nav">
   <div class="nav-inner">
@@ -230,7 +230,7 @@ function nav(lang, key, current) {
   </div>
   <nav class="nav-mobile-menu" id="menu-mobile" aria-label="${u.mobileMenu}" hidden>
     ${links.map(([h, l]) => `<a href="${h}"${cur(h)}>${l}</a>`).join("\n    ")}
-    <a href="https://agenciabyte.com/blog" class="ul-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    <a href="https://agenciabyte.com/blog" class="ul-link blog-link">Blog</a>
     <a href="${anchor("contato")}" class="nav-mobile-cta">${u.contact}</a>
   </nav>
 </header>

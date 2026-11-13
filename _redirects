@@ -2,7 +2,3 @@
 /sobre     /#sobre    301
 /processo  /#processo 301
 /stack     /servicos  301
-
-# Blog: o post pilar fica em /blog/<slug>; a entrada do blog continua no subdomínio
-/blog      https://blog.agenciabyte.com/  302
-/blog/     https://blog.agenciabyte.com/  302

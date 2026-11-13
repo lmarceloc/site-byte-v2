@@ -109,7 +109,7 @@ function Nav(){
           <a href="#servicos" className="nav-pill-link">{n.services}</a>
           <a href="#processo" className="nav-pill-link">{n.process}</a>
           <a href="#clientes" className="nav-pill-link">{n.clients}</a>
-          <a href="https://agenciabyte.com/blog" className="nav-pill-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+          <a href="https://agenciabyte.com/blog" className="nav-pill-link blog-link">Blog</a>
         </nav>
         <div className="nav-cta">
           <LangSwitch />
@@ -135,7 +135,7 @@ function Nav(){
           <a href="#servicos" onClick={close}>{n.services}</a>
           <a href="#processo" onClick={close}>{n.process}</a>
           <a href="#clientes" onClick={close}>{n.clients}</a>
-          <a href="https://agenciabyte.com/blog" className="ul-link blog-link" target="_blank" rel="noopener noreferrer" onClick={close}>Blog</a>
+          <a href="https://agenciabyte.com/blog" className="ul-link blog-link" onClick={close}>Blog</a>
           <a href="#contato" className="nav-mobile-cta" onClick={close}>{n.contact}</a>
         </nav>
       )}
