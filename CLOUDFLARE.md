@@ -1,12 +1,13 @@
 # Deploy na Cloudflare (Workers + Static Assets)
 
-O site é estático, então roda como Worker **só de assets** (sem código, sem custo de request de Worker).
+O site é estático e roda como Worker de assets. Há um `worker.js` mínimo que só atende `/rb/*` (proxy do PostHog, via `run_worker_first`); todas as outras rotas vão direto para os assets, sem passar por código e sem custo de request de Worker.
 A Cloudflare hoje recomenda Workers Static Assets no lugar de Pages para projetos novos; o fluxo Git é o mesmo.
 
 ## Arquivos
 | Arquivo | Papel |
 |---|---|
-| `wrangler.jsonc` | Config do Worker: pasta de assets, 404, sem barra final, domínios |
+| `wrangler.jsonc` | Config do Worker: pasta de assets, 404, sem barra final, domínios, `/rb/*` para o worker |
+| `worker.js` | Proxy reverso do PostHog em `/rb/*` (eventos saem pelo domínio do site) |
 | `.assetsignore` | O que NÃO é publicado (node_modules, .jsx, .md internos, configs) |
 | `_redirects` | `/sobre`, `/processo`, `/stack` |
 | `_headers` | Headers de segurança e cache |

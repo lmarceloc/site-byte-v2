@@ -67,7 +67,33 @@ const BENEFIT_GLYPHS = ["gear", "plug", "ai", "chart", "gear", "ai"];
 
 // GA e Apollo só carregam na primeira interação (ou após 4s ocioso),
 // para não competir com o conteúdo no carregamento inicial.
-const ANALYTICS = `<script>
+// PostHog (analytics de produto): carregado pelo proxy /rb (worker.js) para não
+// ser bloqueado por ad blocker. Só roda no domínio de produção (?ph=debug força).
+// Antes do consentimento (aviso de cookies em /byte.js) usa persistence "memory":
+// conta visitas e cliques sem gravar cookie nem localStorage. Depois de "Aceitar",
+// passa a gravar cookie para reconhecer quem volta.
+const POSTHOG_TOKEN = "phc_ox6NgnfM8qYQVLiWC2TTXsB8GU7X5E5xUvVefJdcbt3p";
+const POSTHOG = `<script>
+  (function(){
+    if (!/(^|\\.)agenciabyte\\.com$/.test(location.hostname) && !/[?&]ph=debug/.test(location.search)) return;
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog&&window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    var consent = null;
+    try { consent = localStorage.getItem('byte_consent'); } catch (e) {}
+    posthog.init('${POSTHOG_TOKEN}', {
+      api_host: location.origin + '/rb',
+      ui_host: 'https://us.posthog.com',
+      defaults: '2026-08-30',
+      person_profiles: 'identified_only',
+      persistence: consent === 'yes' ? 'localStorage+cookie' : 'memory',
+      capture_dead_clicks: true
+    });
+    posthog.register({ site_language: document.documentElement.lang });
+  })();
+</script>
+<script src="/byte.js" defer></script>`;
+
+const ANALYTICS = POSTHOG + `
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -1076,7 +1102,7 @@ function calculatorPage(lang) {
     </div>
   </section>
 
-  <section class="page-section calc-section">
+  <section class="page-section calc-section" id="calculadora">
     <div class="wrap calc">
       <form class="calc-panel" onsubmit="return false">
         <div class="calc-row">

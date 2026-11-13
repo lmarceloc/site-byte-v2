@@ -58,3 +58,12 @@ Cada página sai com `hreflang` apontando para as outras versões, e o
 
 Estilos específicos em `pages.css` (reaproveita os tokens de `styles.css`).
 Hospedagem e redirects: ver `CLOUDFLARE.md`.
+
+## Analytics (PostHog)
+
+- Snippet no `<head>` de todas as páginas (`POSTHOG` em `build-pages.mjs`). Só carrega em `agenciabyte.com`; para testar em outro host, abra com `?ph=debug`.
+- Eventos passam pelo proxy `/rb/*` (`worker.js`) para não serem bloqueados.
+- `byte.js`: aviso de cookies (sem aceite = `persistence: memory`, sem cookie) e eventos globais: `whatsapp_clicked`, `email_clicked`, `contact_cta_clicked`, `language_switched`, `blog_link_clicked`, `faq_opened`, `cookie_consent`.
+- `calc.js`: `calculator_started`, `calculator_bottleneck_selected`, `calculator_cta_clicked`, `calculator_left`.
+- `checklist.js`: `checklist_scored`, `checklist_cta_clicked`.
+- Home (React): `hero_viewed`, `hero_cta_clicked` (com `hero_variant`), `contact_form_submitted`, `contact_form_failed`.

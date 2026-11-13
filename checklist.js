@@ -17,6 +17,22 @@
     $("ck-text").textContent = r.text;
     $("ck-cta").href = D.whatsapp + "?text=" + encodeURIComponent(fill(D.wa, { n: n, total: D.total, title: r.title }));
   }
-  form.addEventListener("change", update);
+  // Eventos (PostHog, via window.byteTrack de /byte.js): checklist_scored, 1,5 s
+  // depois da última marcação, com a pontuação e os itens que ficaram de fora;
+  // e checklist_cta_clicked no botão do resultado.
+  var track = function (name, props) { if (window.byteTrack) window.byteTrack(name, props); };
+  var timer = null;
+  function result() {
+    var n = 0, missing = [];
+    boxes.forEach(function (b, i) { if (b.checked) n++; else missing.push(i + 1); });
+    var r = D.results.filter(function (x) { return n >= x.min; })[0];
+    return { score: n, total: D.total, result: r.title, missing_items: missing.join(",") };
+  }
+  form.addEventListener("change", function () {
+    update();
+    clearTimeout(timer);
+    timer = setTimeout(function () { track("checklist_scored", result()); }, 1500);
+  });
+  $("ck-cta").addEventListener("click", function () { track("checklist_cta_clicked", result()); });
   update();
 })();
