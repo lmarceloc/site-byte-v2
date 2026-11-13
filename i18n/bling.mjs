@@ -108,7 +108,7 @@ export const BLING = {
     time: {
       eyebrow: "Prazo",
       h2: "Quanto tempo leva",
-      intro: "Um primeiro módulo em produção costuma levar de 3 a 6 semanas. A integração completa da Divina Argila, com 4 sistemas, levou 40 dias. O prazo depende de quantos canais, quantas regras e quais sistemas entram.",
+      intro: "Um primeiro módulo em produção costuma levar de 3 a 6 semanas. Na Divina Argila, com 4 sistemas, foram 40 dias do início ao go-live: integração, testes, ajustes e a operação rodando no modo novo. O prazo depende de quantos canais, quantas regras e quais sistemas entram.",
       steps: [
         { t: "Diagnóstico", d: "Mapeamos canais, SKUs, kits, regras fiscais e onde o pedido precisa chegar.", dur: "1 semana" },
         { t: "Integração", d: "API do Bling e dos canais, webhooks, regras de estoque, fiscal e preço.", dur: "2 a 4 semanas" },
@@ -150,7 +150,7 @@ export const BLING = {
       faq: [
         { q: "O Bling emite nota fiscal para pedidos do Mercado Livre?", a: "Sim. A emissão da NF-e é nativa, e os dados da nota seguem para o Mercado Livre. A integração via API entra quando a regra fiscal muda por filial ou por tipo de venda." },
         { q: "A integração funciona com o Mercado Envios Full?", a: "Sim. O ponto de atenção é o estoque: o que está no Full fica no centro de distribuição do Mercado Livre, e a integração precisa considerar esse saldo junto com os demais depósitos." },
-        { q: "Quanto tempo leva integrar Bling e Mercado Livre via API?", a: "Um primeiro módulo costuma entrar em produção em 3 a 6 semanas. Na Divina Argila, Bling, Mercado Livre, TikTok Shop e Trello foram integrados em 40 dias." },
+        { q: "Quanto tempo leva integrar Bling e Mercado Livre via API?", a: "Um primeiro módulo costuma entrar em produção em 3 a 6 semanas. Na Divina Argila, Bling, Mercado Livre, TikTok Shop e Trello foram do início ao go-live em 40 dias, com testes e ajustes incluídos." },
       ],
     },
     "tiktok-shop": {
@@ -176,7 +176,7 @@ export const BLING = {
       faq: [
         { q: "O Bling tem integração nativa com o TikTok Shop?", a: "Sim. Pedidos, estoque, preço e nota fiscal funcionam pela integração nativa. A API entra quando o volume em picos, os kits ou a produção exigem regras que a integração nativa não cobre." },
         { q: "Como evitar vender sem estoque durante uma live?", a: "Atualizando o estoque de todos os canais a cada venda, via webhook, e reservando uma quantidade para a live quando o produto também vende em outros canais." },
-        { q: "Quanto tempo leva integrar Bling e TikTok Shop via API?", a: "Um primeiro módulo costuma entrar em produção em 3 a 6 semanas. Na Divina Argila, a integração com TikTok Shop, Mercado Livre, Bling e Trello levou 40 dias." },
+        { q: "Quanto tempo leva integrar Bling e TikTok Shop via API?", a: "Um primeiro módulo costuma entrar em produção em 3 a 6 semanas. Na Divina Argila, a integração com TikTok Shop, Mercado Livre, Bling e Trello levou 40 dias do início ao go-live, com testes e ajustes incluídos." },
       ],
     },
     shopee: {
