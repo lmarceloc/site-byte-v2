@@ -60,20 +60,6 @@
       "<div><span>" + fill(T.mathTotal, { rate: brl(c) }) + "</span><b>" + hTot + " h = " + brl(costM) + "</b></div>" +
       '<div class="calc-tot"><span>' + hTot + " h × " + pct(a) + " → " + hEnd + " h × " + brl(c) + "</span><b>" + brl(endM) + T.perMonth + "</b></div>";
 
-    $("proj-k").textContent = fill(T.project, { short: T.short[g.id] });
-    $("proj").textContent = brl(g.project[0]) + " – " + brl(g.project[1]);
-    $("ops").textContent = brl(g.ops[0]) + " – " + brl(g.ops[1]);
-    var netMin = endM - g.ops[1], netMax = endM - g.ops[0];
-    if (netMax <= 0) {
-      $("payback").innerHTML = '<span class="calc-warn">' + T.noPayback + "</span>";
-      $("payback-sub").textContent = T.noPaybackSub;
-    } else {
-      var best = Math.max(1, Math.ceil(g.project[0] / netMax));
-      var worst = netMin > 0 ? Math.ceil(g.project[1] / netMin) : null;
-      $("payback").textContent = worst ? fill(T.paybackRange, { a: best, b: worst }) : fill(T.paybackFrom, { a: best });
-      $("payback-sub").textContent = fill(T.paybackSub, { min: brl(Math.max(0, netMin)), max: brl(netMax) }) + (mode === "grow" ? T.paybackGrow : T.paybackCut);
-    }
-
     $("cta").href = D.whatsapp + "?text=" + encodeURIComponent(fill(T.wa, {
       name: T.names[g.id], hTot: hTot, hEnd: hEnd, value: brl(endM), goal: mode === "grow" ? T.grow : T.cut,
     }));

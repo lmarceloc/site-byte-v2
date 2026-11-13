@@ -1100,13 +1100,6 @@ function calculatorPage(lang) {
           <div class="calc-k mono">${C.math}</div>
           <div class="calc-math mono" id="calc-math"></div>
         </div>
-        <div class="calc-block">
-          <div class="calc-k mono">${C.other}${CALC_CONFIG.provisional ? ` <span class="calc-prov">${C.provisional}</span>` : ""}</div>
-          <div class="calc-line"><span id="calc-proj-k"></span><b class="mono" id="calc-proj"></b></div>
-          <div class="calc-line"><span>${C.ops}</span><b class="mono" id="calc-ops"></b></div>
-          <div class="calc-payback" id="calc-payback"></div>
-          <div class="calc-sub" id="calc-payback-sub"></div>
-        </div>
         <a class="btn btn-accent calc-cta" id="calc-cta" href="${WHATSAPP}" target="_blank" rel="noopener noreferrer">${C.cta}</a>
         <p class="calc-note">${C.note}</p>
       </aside>

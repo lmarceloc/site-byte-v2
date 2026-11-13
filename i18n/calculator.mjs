@@ -1,25 +1,22 @@
 // Calculadora de automação (/calculadora), gerada por build-pages.mjs.
 //
-// CALC_CONFIG guarda as premissas e os preços. Os preços estão marcados como
-// PROVISÓRIOS na página (CALC_CONFIG.provisional): quando a Byte tiver as
-// faixas reais, troque os números aqui, mude provisional para false e rode
-// `npm run pages`.
+// CALC_CONFIG guarda as premissas (horas, % automatizável por gargalo e
+// valores iniciais). A página não mostra preço de projeto nem de operação:
+// isso fica para o diagnóstico. Depois de editar, rode `npm run pages`.
 //
 // Cada gargalo aponta para um caso de uso publicado (chave = slug em português).
 
 export const CALC_CONFIG = {
-  provisional: true,
   weeksPerMonth: 4.33, // semanas por mês
   hoursPerFte: 176, // horas de trabalho de uma pessoa por mês
   defaults: { people: 2, hours: 6, rate: 45, rework: 10, fixMin: 30 },
   bottlenecks: [
     // auto = % padrão automatizável (premissa ajustável pelo visitante)
-    // project / ops = faixas em R$ do projeto e da operação mensal (IA, WhatsApp, servidor)
-    { id: "atend", useCase: "atendimento-whatsapp-ia", auto: 0.5, project: [15000, 40000], ops: [500, 1500] },
-    { id: "triag", useCase: "triagem-de-pedidos-e-leads", auto: 0.6, project: [12000, 30000], ops: [300, 800] },
-    { id: "docs", useCase: "leitura-automatica-de-documentos", auto: 0.65, project: [15000, 35000], ops: [300, 1000] },
-    { id: "rel", useCase: "relatorios-automaticos", auto: 0.7, project: [8000, 25000], ops: [150, 500] },
-    { id: "fin", useCase: "automacao-de-processos-administrativos", auto: 0.45, project: [12000, 35000], ops: [200, 600] },
+    { id: "atend", useCase: "atendimento-whatsapp-ia", auto: 0.5 },
+    { id: "triag", useCase: "triagem-de-pedidos-e-leads", auto: 0.6 },
+    { id: "docs", useCase: "leitura-automatica-de-documentos", auto: 0.65 },
+    { id: "rel", useCase: "relatorios-automaticos", auto: 0.7 },
+    { id: "fin", useCase: "automacao-de-processos-administrativos", auto: 0.45 },
   ],
 };
 
@@ -28,10 +25,10 @@ export const CALC = {
   pt: {
     nav: "Calculadora",
     title: "Calculadora de automação: quanto custa o trabalho manual | Agência Byte",
-    description: "Calcule quanto o trabalho manual custa hoje para a sua empresa, quanto dá para automatizar, o custo do projeto e o payback. Conta aberta, premissas à vista.",
+    description: "Calcule quanto o trabalho manual custa hoje para a sua empresa, quanto dá para automatizar e o que isso libera de capacidade. Conta aberta, premissas à vista.",
     eyebrow: "Calculadora de automação",
     h1: "Quanto o trabalho manual custa hoje, e quanto dá pra tirar dele?",
-    lead: "Coloque os números da sua operação. A conta aparece aberta, com as premissas à vista e o custo do projeto do outro lado.",
+    lead: "Coloque os números da sua operação. A conta aparece aberta, com as premissas à vista.",
     bottleneck: "Onde está o gargalo?",
     names: { atend: "Atendimento no WhatsApp", triag: "Triagem de pedidos e leads", docs: "Leitura de documentos", rel: "Relatórios", fin: "Financeiro / administrativo" },
     short: { atend: "atendimento", triag: "triagem", docs: "leitura de documentos", rel: "relatórios", fin: "automação administrativa" },
@@ -56,17 +53,6 @@ export const CALC = {
     mathTask: "{p} × {h} h × {w} sem",
     mathRework: "{e} retrabalhos × {m} min",
     mathTotal: "Total × {rate}/h",
-    other: "O outro lado da conta",
-    provisional: "valores provisórios",
-    project: "Projeto de {short}",
-    ops: "Operação mensal (IA, WhatsApp, servidor)",
-    noPayback: "Não se paga só com horas",
-    noPaybackSub: "Nesse volume, a operação mensal custa mais que as horas liberadas. O motivo para automatizar seria escala, prazo ou qualidade, não economia.",
-    paybackRange: "Payback: {a} a {b} meses",
-    paybackFrom: "Payback: a partir de {a} meses",
-    paybackSub: "Ganho líquido de {min} a {max}/mês, já descontada a operação",
-    paybackGrow: ", contando o valor das horas liberadas.",
-    paybackCut: ", se a redução de custo acontecer de fato.",
     cta: "Validar esses números em 30 min, sem custo →",
     note: "As premissas são pontos de partida. No diagnóstico a gente mede o seu processo e troca estimativa por número real.",
     wa: "Oi! Fiz a calculadora no site ({name}): {hTot} h/mês de trabalho manual, {hEnd} h endereçáveis ({value}/mês). Objetivo: {goal}. Quero validar esses números.",
@@ -74,10 +60,10 @@ export const CALC = {
   en: {
     nav: "Calculator",
     title: "Automation calculator: what manual work really costs | Agência Byte",
-    description: "Calculate what manual work costs your company today, how much of it can be automated, the project cost and the payback. Open math, visible assumptions.",
+    description: "Calculate what manual work costs your company today, how much of it can be automated and the capacity it frees up. Open math, visible assumptions.",
     eyebrow: "Automation calculator",
     h1: "What does manual work cost you today, and how much of it can go?",
-    lead: "Enter your operation's numbers. The math is shown in full, with the assumptions in plain sight and the project cost on the other side.",
+    lead: "Enter your operation's numbers. The math is shown in full, with the assumptions in plain sight.",
     bottleneck: "Where is the bottleneck?",
     names: { atend: "WhatsApp customer service", triag: "Order and lead triage", docs: "Document reading", rel: "Reports", fin: "Finance / admin" },
     short: { atend: "customer service", triag: "triage", docs: "document reading", rel: "reports", fin: "admin automation" },
@@ -102,17 +88,6 @@ export const CALC = {
     mathTask: "{p} × {h} h × {w} wk",
     mathRework: "{e} reworks × {m} min",
     mathTotal: "Total × {rate}/h",
-    other: "The other side of the math",
-    provisional: "provisional figures",
-    project: "{short} project",
-    ops: "Monthly operation (AI, WhatsApp, servers)",
-    noPayback: "Hours alone won't pay for it",
-    noPaybackSub: "At this volume, the monthly operation costs more than the hours freed. The reason to automate would be scale, speed or quality, not savings.",
-    paybackRange: "Payback: {a} to {b} months",
-    paybackFrom: "Payback: from {a} months",
-    paybackSub: "Net gain of {min} to {max}/month, after operating costs",
-    paybackGrow: ", counting the value of the hours freed.",
-    paybackCut: ", if the cost cut actually happens.",
     cta: "Validate these numbers in 30 min, free →",
     note: "The assumptions are starting points. In the assessment we measure your process and replace estimates with real numbers.",
     wa: "Hi! I used the calculator on your site ({name}): {hTot} h/month of manual work, {hEnd} h addressable ({value}/month). Goal: {goal}. I'd like to validate these numbers.",
@@ -120,10 +95,10 @@ export const CALC = {
   es: {
     nav: "Calculadora",
     title: "Calculadora de automatización: cuánto cuesta el trabajo manual | Agência Byte",
-    description: "Calcule cuánto cuesta hoy el trabajo manual en su empresa, cuánto se puede automatizar, el costo del proyecto y el payback. Cuenta abierta, premisas a la vista.",
+    description: "Calcule cuánto cuesta hoy el trabajo manual en su empresa, cuánto se puede automatizar y la capacidad que eso libera. Cuenta abierta, premisas a la vista.",
     eyebrow: "Calculadora de automatización",
     h1: "¿Cuánto cuesta hoy el trabajo manual, y cuánto se puede sacar de él?",
-    lead: "Ingrese los números de su operación. La cuenta aparece abierta, con las premisas a la vista y el costo del proyecto del otro lado.",
+    lead: "Ingrese los números de su operación. La cuenta aparece abierta, con las premisas a la vista.",
     bottleneck: "¿Dónde está el cuello de botella?",
     names: { atend: "Atención por WhatsApp", triag: "Triaje de pedidos y leads", docs: "Lectura de documentos", rel: "Informes", fin: "Finanzas / administración" },
     short: { atend: "atención", triag: "triaje", docs: "lectura de documentos", rel: "informes", fin: "automatización administrativa" },
@@ -148,17 +123,6 @@ export const CALC = {
     mathTask: "{p} × {h} h × {w} sem",
     mathRework: "{e} retrabajos × {m} min",
     mathTotal: "Total × {rate}/h",
-    other: "El otro lado de la cuenta",
-    provisional: "valores provisionales",
-    project: "Proyecto de {short}",
-    ops: "Operación mensual (IA, WhatsApp, servidor)",
-    noPayback: "No se paga solo con horas",
-    noPaybackSub: "Con este volumen, la operación mensual cuesta más que las horas liberadas. El motivo para automatizar sería escala, plazo o calidad, no ahorro.",
-    paybackRange: "Payback: de {a} a {b} meses",
-    paybackFrom: "Payback: desde {a} meses",
-    paybackSub: "Ganancia neta de {min} a {max}/mes, ya descontada la operación",
-    paybackGrow: ", contando el valor de las horas liberadas.",
-    paybackCut: ", si la reducción de costos ocurre de verdad.",
     cta: "Validar estos números en 30 min, sin costo →",
     note: "Las premisas son puntos de partida. En el diagnóstico medimos su proceso y cambiamos estimación por número real.",
     wa: "¡Hola! Usé la calculadora del sitio ({name}): {hTot} h/mes de trabajo manual, {hEnd} h que se pueden cubrir ({value}/mes). Objetivo: {goal}. Quiero validar estos números.",
