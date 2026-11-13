@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Integração Bling com Mercado Livre e TikTok Shop: quando usar API | Agência Byte</title>
+<meta name="description" content="O que o Bling já faz sozinho com Mercado Livre, Shopee e TikTok Shop, os 5 limites que pedem integração via API (kits, fiscal, estoque, produção e preço por canal) e quanto tempo leva." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://agenciabyte.com/servicos/integracao-bling-marketplaces" />
+<link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/integracao-bling-marketplaces" />
+<link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/servicos/integracao-bling-marketplaces" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://agenciabyte.com/servicos/integracao-bling-marketplaces" />
+<meta property="og:title" content="Integração Bling com Mercado Livre e TikTok Shop: quando usar API | Agência Byte" />
+<meta property="og:description" content="O que o Bling já faz sozinho com Mercado Livre, Shopee e TikTok Shop, os 5 limites que pedem integração via API (kits, fiscal, estoque, produção e preço por canal) e quanto tempo leva." />
+<meta property="og:image" content="https://agenciabyte.com/img/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="pt_BR" />
+
+<meta property="og:site_name" content="Agência Byte" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Integração Bling com Mercado Livre e TikTok Shop: quando usar API | Agência Byte" />
+<meta name="twitter:description" content="O que o Bling já faz sozinho com Mercado Livre, Shopee e TikTok Shop, os 5 limites que pedem integração via API (kits, fiscal, estoque, produção e preço por canal) e quanto tempo leva." />
+<meta name="twitter:image" content="https://agenciabyte.com/img/og-image.png" />
+
+<meta name="theme-color" content="#FF6A1A" />
+<link rel="icon" href="/img/logo_byte_64.png" sizes="64x64" type="image/png" />
+<link rel="apple-touch-icon" href="/img/logo_byte.png" sizes="180x180" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://agenciabyte.com/servicos/integracao-bling-marketplaces#service",
+      "name": "Integração Bling com marketplaces",
+      "serviceType": "Integração de sistemas",
+      "description": "O que o Bling já faz sozinho com Mercado Livre, Shopee e TikTok Shop, os 5 limites que pedem integração via API (kits, fiscal, estoque, produção e preço por canal) e quanto tempo leva.",
+      "url": "https://agenciabyte.com/servicos/integracao-bling-marketplaces",
+      "inLanguage": "pt-BR",
+      "provider": {
+        "@id": "https://agenciabyte.com/#organization"
+      },
+      "areaServed": "BR"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://agenciabyte.com/servicos/integracao-bling-marketplaces#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O Bling integra com Mercado Livre, Shopee e TikTok Shop sem programação?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. As integrações nativas sincronizam pedidos, estoque e preço e emitem a NF-e. A integração via API só é necessária quando a operação foge do fluxo padrão, como kits por canal, regra fiscal por filial ou pedido que precisa chegar à produção."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Preciso trocar o Bling para ter uma integração sob medida?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. A integração usa a API v3 do Bling e mantém o Bling como centro da operação. O que muda é o que acontece em volta dele, de forma automática."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A integração via API substitui a integração nativa do Bling?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Normalmente não. A nativa continua cuidando do que faz bem, e a integração via API cobre só as regras que ela não cobre. Isso reduz custo e risco."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "E se o Bling ou o marketplace ficar fora do ar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Os pedidos e atualizações entram numa fila e são reprocessados quando o sistema volta. Se a falha persistir, a equipe recebe um alerta. Nenhum pedido se perde em silêncio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Funciona com Tiny, Olist ou outro ERP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. O mesmo tipo de integração vale para outros ERPs com API, como o Tiny. Na descoberta avaliamos o que cada sistema permite."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto custa uma integração do Bling via API?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende de quantos canais, regras e sistemas entram. O diagnóstico de 30 minutos é gratuito e termina com escopo e prazo."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://agenciabyte.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Serviços",
+          "item": "https://agenciabyte.com/servicos"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Integração Bling com marketplaces",
+          "item": "https://agenciabyte.com/servicos/integracao-bling-marketplaces"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SFBNK4KDQ');
+  (function(){
+    var done = false, evts = ['pointerdown','keydown','scroll','touchstart'];
+    function load(){
+      if (done) return; done = true;
+      evts.forEach(function(e){ removeEventListener(e, load); });
+      var g = document.createElement('script');
+      g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-8SFBNK4KDQ';
+      document.head.appendChild(g);
+      var a = document.createElement('script');
+      a.async = true; a.src = 'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' + Math.random().toString(36).substring(7);
+      a.onload = function(){ window.trackingFunctions.onLoad({ appId: '6a5fc15502199500103f7f77' }); };
+      document.head.appendChild(a);
+    }
+    evts.forEach(function(e){ addEventListener(e, load, { once: true, passive: true }); });
+    addEventListener('load', function(){ setTimeout(load, 4000); });
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Elms+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Elms+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" /></noscript>
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/pages.css" />
+</head>
+<body data-theme="light"><a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand-wrap" aria-label="Agência Byte, página inicial">
+      <span class="glyph">
+        <picture>
+          <source srcset="/img/logo_byte.webp" type="image/webp" />
+          <img src="/img/logo_byte_64.png" alt="" width="32" height="32" />
+        </picture>
+      </span>
+      <span>Agência Byte</span>
+    </a>
+    <nav class="nav-pill" aria-label="Menu principal">
+      <a href="/#sobre" class="nav-pill-link">Sobre</a>
+      <a href="/transformacao" class="nav-pill-link">Antes e depois</a>
+      <a href="/servicos" class="nav-pill-link" aria-current="page">Serviços</a>
+      <a href="/#processo" class="nav-pill-link">Processo</a>
+      <a href="/#clientes" class="nav-pill-link">Clientes</a>
+      <a href="https://blog.agenciabyte.com/" class="nav-pill-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    </nav>
+    <div class="nav-cta">
+      <details class="lang-switch">
+        <summary aria-label="Idioma: Português"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#009C3B"/><path d="M14 2.6 25.4 10 14 17.4 2.6 10z" fill="#FFDF00"/><circle cx="14" cy="10" r="4.4" fill="#002776"/><path d="M9.8 9.2c2.9-.5 5.9.1 8.3 1.6" stroke="#fff" stroke-width=".9" fill="none"/></svg></span><span class="lang-code">PT</span><svg class="lang-chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <ul class="lang-menu">
+          <li><a href="/servicos/integracao-bling-marketplaces" hreflang="pt-BR" lang="pt-BR" aria-current="true"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#009C3B"/><path d="M14 2.6 25.4 10 14 17.4 2.6 10z" fill="#FFDF00"/><circle cx="14" cy="10" r="4.4" fill="#002776"/><path d="M9.8 9.2c2.9-.5 5.9.1 8.3 1.6" stroke="#fff" stroke-width=".9" fill="none"/></svg></span>Português</a></li>
+          <li><a href="/en" hreflang="en" lang="en"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#fff"/><path d="M0 0h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28V20H0z" fill="#B22234"/><rect width="12" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2" cy="1.8" r=".6"/><circle cx="6" cy="1.8" r=".6"/><circle cx="10" cy="1.8" r=".6"/><circle cx="4" cy="3.9" r=".6"/><circle cx="8" cy="3.9" r=".6"/><circle cx="2" cy="6" r=".6"/><circle cx="6" cy="6" r=".6"/><circle cx="10" cy="6" r=".6"/><circle cx="4" cy="8.1" r=".6"/><circle cx="8" cy="8.1" r=".6"/></g></svg></span>English</a></li>
+          <li><a href="/es" hreflang="es" lang="es"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#AA151B"/><rect y="5" width="28" height="10" fill="#F1BF00"/></svg></span>Español</a></li>
+        </ul>
+      </details>
+      <a href="/#contato" class="btn btn-accent nav-cta-desktop">Contato →</a>
+      <button class="nav-burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile-menu" id="menu-mobile" aria-label="Menu de navegação" hidden>
+    <a href="/#sobre">Sobre</a>
+    <a href="/transformacao">Antes e depois</a>
+    <a href="/servicos" aria-current="page">Serviços</a>
+    <a href="/#processo">Processo</a>
+    <a href="/#clientes">Clientes</a>
+    <a href="https://blog.agenciabyte.com/" class="ul-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    <a href="/#contato" class="nav-mobile-cta">Contato →</a>
+  </nav>
+</header>
+<script>
+  (function(){
+    var b = document.querySelector('.nav-burger'), m = document.getElementById('menu-mobile');
+    b.addEventListener('click', function(){
+      var open = m.hidden;
+      m.hidden = !open;
+      b.setAttribute('aria-expanded', String(open));
+      b.setAttribute('aria-label', open ? "Fechar menu" : "Abrir menu");
+    });
+    // Fecha o seletor de idioma ao clicar fora ou apertar Esc.
+    var d = document.querySelector('.lang-switch');
+    document.addEventListener('pointerdown', function(e){ if (d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && d.open){ d.open = false; d.querySelector('summary').focus(); } });
+  })();
+</script>
+<main id="conteudo">
+  <section class="page-hero bling-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <nav class="crumbs mono" aria-label="Você está em">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/servicos">Serviços</a></li>
+          <li aria-current="page">Integração Bling com marketplaces</li>
+        </ol>
+      </nav>
+      <div class="eyebrow"><span class="dot"></span>Integração Bling</div>
+      <h1 class="display">Integração Bling com Mercado Livre e TikTok Shop: o que o Bling faz sozinho e quando você precisa de API</h1>
+      <p class="lead muted">Para a maioria das lojas, a integração nativa do Bling resolve. Este guia mostra onde ela para, e como saber se o seu caso pede uma integração via API do Bling.</p>
+      <aside class="bling-tldr" aria-label="Resposta curta">
+        <div class="mono bling-tldr-k">Resposta curta</div>
+        <p>O Bling já integra nativamente com Mercado Livre, Shopee e TikTok Shop para sincronizar pedidos, estoque e preço. A integração via API passa a fazer sentido em cinco situações: quando o produto é kit ou tem composição, quando a regra fiscal muda por canal ou por filial, quando o estoque é compartilhado com loja física, quando o pedido precisa chegar à produção e não só ao financeiro, e quando o preço muda por canal. A Agência Byte integrou Bling, Trello, TikTok Shop e Mercado Livre para a Divina Argila, fábrica própria com venda em marketplace, em 40 dias: o pedido passou a chegar à fábrica junto com a emissão.</p>
+      </aside>
+      <div class="cta-actions">
+        <a href="/#contato" class="btn btn-accent">Começar um projeto →</a>
+        <a href="https://wa.me/5542984224363" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section" id="o-que-o-bling-faz">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>Sem desenvolvimento</div>
+        <h2 class="display">O que o Bling já faz sem nenhum desenvolvimento</h2>
+      </div>
+      <div class="bling-prose">
+        <p>O Bling é um ERP online com integrações nativas com os principais marketplaces do Brasil: Mercado Livre, Shopee, TikTok Shop, Magalu e Amazon, além de lojas como Nuvemshop e Shopify. Para conectar, basta autorizar a conta do canal dentro do Bling. Sem código, ele cobre o fluxo padrão de uma loja:</p>
+        <ul class="bling-check">
+          <li>Importa os pedidos de cada marketplace para um só lugar.</li>
+          <li>Sincroniza estoque e preço do Bling para os anúncios.</li>
+          <li>Emite a NF-e do pedido e envia os dados da nota para o canal.</li>
+          <li>Gera etiquetas e acompanha o envio, incluindo Mercado Envios no Mercado Livre.</li>
+          <li>Vincula cada anúncio a um SKU do cadastro de produtos.</li>
+        </ul>
+        <p>Se a sua loja vende produto simples, com uma regra fiscal, um estoque e o mesmo preço em todo canal, a integração nativa costuma bastar. Não pague por API antes de esgotar o que o Bling já faz.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt" id="limites">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>Os limites</div>
+        <h2 class="display">Os 5 limites nativos que fazem o lojista procurar integração via API</h2>
+        <p class="muted bling-intro">Os problemas aparecem quando a operação foge do fluxo padrão. Estes são os cinco casos que mais levam uma loja a integrar o Bling via API:</p>
+      </div>
+      <ol class="bling-limits">
+        <li class="card bling-limit" id="kits-e-composicao">
+          <div class="bling-limit-head"><span class="mono bling-n">01</span><h3>Kits, combos e composição de produto</h3></div>
+          <dl>
+            <div><dt class="mono">Nativo no Bling</dt><dd>O Bling aceita produto com composição e calcula o estoque do kit a partir dos itens.</dd></div>
+            <div><dt class="mono">Onde trava</dt><dd>A conta complica quando o mesmo item entra em kits diferentes em cada canal, quando o combo é montado só no anúncio, ou quando a composição é de insumo de produção, não de produto pronto. O estoque some de um lado e sobra do outro, e o anúncio continua vendendo o que não existe.</dd></div>
+            <div class="bling-api"><dt class="mono">Com integração via API</dt><dd>A integração aplica a regra de composição de cada canal, baixa o estoque dos componentes certos e pausa o anúncio do kit quando um item acaba.</dd></div>
+          </dl>
+        </li>
+        <li class="card bling-limit" id="regras-fiscais">
+          <div class="bling-limit-head"><span class="mono bling-n">02</span><h3>Regras fiscais por canal e por filial</h3></div>
+          <dl>
+            <div><dt class="mono">Nativo no Bling</dt><dd>O Bling usa a natureza de operação e as regras de tributação configuradas para emitir a NF-e.</dd></div>
+            <div><dt class="mono">Onde trava</dt><dd>Quando cada canal fatura por uma filial diferente, ou a mesma venda muda de CFOP, natureza ou tributação conforme canal, estado de destino e tipo de cliente, a configuração manual vira fonte de erro e nota rejeitada.</dd></div>
+            <div class="bling-api"><dt class="mono">Com integração via API</dt><dd>A integração decide a filial e a regra fiscal de cada pedido antes da emissão, de forma consistente, e registra o motivo de cada escolha.</dd></div>
+          </dl>
+        </li>
+        <li class="card bling-limit" id="estoque-compartilhado">
+          <div class="bling-limit-head"><span class="mono bling-n">03</span><h3>Estoque compartilhado entre canais e loja física</h3></div>
+          <dl>
+            <div><dt class="mono">Nativo no Bling</dt><dd>O Bling envia um saldo de estoque para os anúncios de cada canal.</dd></div>
+            <div><dt class="mono">Onde trava</dt><dd>Se a loja física vende do mesmo estoque e o PDV não está no Bling, ou se parte do estoque fica num depósito do marketplace, o saldo enviado não representa o que existe. Em dia de pico, isso vira venda sem produto.</dd></div>
+            <div class="bling-api"><dt class="mono">Com integração via API</dt><dd>A integração junta os saldos de todos os depósitos e da loja física, reserva estoque por canal quando faz sentido e atualiza os anúncios a cada movimento, via webhook.</dd></div>
+          </dl>
+        </li>
+        <li class="card bling-limit" id="pedido-para-producao">
+          <div class="bling-limit-head"><span class="mono bling-n">04</span><h3>Pedido do marketplace para a produção</h3></div>
+          <dl>
+            <div><dt class="mono">Nativo no Bling</dt><dd>O pedido entra no Bling, gera a nota e segue para o financeiro e a expedição.</dd></div>
+            <div><dt class="mono">Onde trava</dt><dd>Para quem fabrica ou personaliza, o pedido precisa chegar a quem produz, com o que produzir e o prazo. Sem isso, alguém copia o pedido para planilha, WhatsApp ou quadro de tarefas, e o erro entra junto.</dd></div>
+            <div class="bling-api"><dt class="mono">Com integração via API</dt><dd>A integração cria o cartão de produção automaticamente (no Trello, por exemplo), com itens, variações e prazo do canal, e devolve o status ao Bling quando o pedido fica pronto.</dd></div>
+          </dl>
+        </li>
+        <li class="card bling-limit" id="preco-por-canal">
+          <div class="bling-limit-head"><span class="mono bling-n">05</span><h3>Preço dinâmico por canal</h3></div>
+          <dl>
+            <div><dt class="mono">Nativo no Bling</dt><dd>O Bling permite listas de preço e ajuste de preço por integração.</dd></div>
+            <div><dt class="mono">Onde trava</dt><dd>Comissão, frete subsidiado, cupom e campanha mudam de canal para canal e de semana para semana. Recalcular preço à mão em cada anúncio para manter a margem não escala.</dd></div>
+            <div class="bling-api"><dt class="mono">Com integração via API</dt><dd>A integração calcula o preço de cada canal a partir do custo, da comissão e da margem mínima, e atualiza os anúncios pela API do Bling.</dd></div>
+          </dl>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page-section" id="quando-compensa">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#8B5CF6"></span>Decisão</div>
+        <h2 class="display">Quando integrar via API compensa</h2>
+      </div>
+      <div class="bling-prose">
+        <p>Integração via API do Bling (API v3, com autorização por token OAuth e webhooks) compensa quando o trabalho manual em volta do Bling já custa mais que o projeto. Na prática:</p>
+        <ol class="signal-list">
+          <li><span class="mono">01</span><span>Alguém da equipe copia pedido do Bling para outro lugar todos os dias.</span></li>
+          <li><span class="mono">02</span><span>Você já vendeu produto sem estoque por causa de kit ou de loja física.</span></li>
+          <li><span class="mono">03</span><span>Nota fiscal volta rejeitada por regra que muda de canal para canal.</span></li>
+          <li><span class="mono">04</span><span>O preço dos anúncios é recalculado à mão a cada campanha.</span></li>
+          <li><span class="mono">05</span><span>A fábrica ou a expedição descobre o pedido tarde.</span></li>
+        </ol>
+        <h3>Quando não compensa</h3>
+        <p>Se o volume é pequeno e o fluxo é o padrão, ajuste a configuração do Bling ou use um conector pronto antes. Uma integração própria também precisa ser monitorada: a API do Bling tem limite de requisições (rate limit) e o token precisa ser renovado. Por isso a Byte entrega a integração com fila, reprocessamento e alerta de falha.</p>
+        <p><a href="/calculadora" class="ul-link">Use a calculadora de automação para estimar quanto o trabalho manual custa hoje →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>Caso real</div>
+      <h2 class="display">Divina Argila: 4 sistemas integrados em 40 dias</h2>
+      <div class="case-stats bling-stats">
+        <div class="card case-stat"><div class="display case-num">4</div><p class="muted">sistemas integrados: Bling, Trello, TikTok Shop e Mercado Livre</p></div>
+        <div class="card case-stat"><div class="display case-num">40</div><p class="muted">dias para integrar os sistemas</p></div>
+        <div class="card case-stat"><div class="display case-num">1</div><p class="muted">lugar para o time acompanhar os pedidos: o Trello, no lugar de 4</p></div>
+      </div>
+      <figure class="case-quote">
+        <blockquote><p>“Agora, o nosso time não precisa mais ficar copiando e colando o mesmo pedido em vários lugares. A fábrica já sabe o que produzir junto com a emissão do pedido.”</p></blockquote>
+        <figcaption>— <cite><a href="/clientes/divina-argila">Divina Argila</a></cite>, cliente da Agência Byte</figcaption>
+      </figure>
+      <p class="case-visit"><a href="/clientes/divina-argila" class="ul-link">Ver o caso Divina Argila →</a></p>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt" id="prazo">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#EC4899"></span>Prazo</div>
+        <h2 class="display">Quanto tempo leva</h2>
+        <p class="muted bling-intro">Um primeiro módulo em produção costuma levar de 3 a 6 semanas. A integração completa da Divina Argila, com 4 sistemas, levou 40 dias. O prazo depende de quantos canais, quantas regras e quais sistemas entram.</p>
+      </div>
+      <ol class="steps bling-steps">
+        <li class="card">
+          <div class="display step-code">01</div>
+          <h3>Diagnóstico</h3>
+          <p class="muted">Mapeamos canais, SKUs, kits, regras fiscais e onde o pedido precisa chegar.</p>
+          <div class="mono step-dur">1 semana</div>
+        </li>
+        <li class="card">
+          <div class="display step-code">02</div>
+          <h3>Integração</h3>
+          <p class="muted">API do Bling e dos canais, webhooks, regras de estoque, fiscal e preço.</p>
+          <div class="mono step-dur">2 a 4 semanas</div>
+        </li>
+        <li class="card">
+          <div class="display step-code">03</div>
+          <h3>Validação</h3>
+          <p class="muted">Pedidos reais em paralelo com a operação atual, até os números baterem.</p>
+          <div class="mono step-dur">1 semana</div>
+        </li>
+        <li class="card">
+          <div class="display step-code">04</div>
+          <h3>Operação</h3>
+          <p class="muted">Monitoramento, alertas e ajustes depois da virada.</p>
+          <div class="mono step-dur">contínuo</div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>Por canal</div>
+        <h2 class="display">Integração Bling com cada marketplace.</h2>
+      </div>
+      <div class="uc-grid">
+        <a class="card related-card uc-card" href="/servicos/integracao-bling-marketplaces/integracao-bling-mercado-livre">
+          <span class="mono muted">// Bling + Mercado Livre</span>
+          <h3>Integração Bling com Mercado Livre</h3>
+          <p class="muted">Anúncios com variação, Mercado Envios e Full, kits e preço por comissão.</p>
+          <span class="related-more mono">Ver integração →</span>
+        </a>
+        <a class="card related-card uc-card" href="/servicos/integracao-bling-marketplaces/integracao-bling-tiktok-shop">
+          <span class="mono muted">// Bling + TikTok Shop</span>
+          <h3>Integração Bling com TikTok Shop</h3>
+          <p class="muted">Picos de venda em live, afiliados, kits e pedido direto para a produção.</p>
+          <span class="related-more mono">Ver integração →</span>
+        </a>
+        <a class="card related-card uc-card" href="/servicos/integracao-bling-marketplaces/integracao-bling-shopee">
+          <span class="mono muted">// Bling + Shopee</span>
+          <h3>Integração Bling com Shopee</h3>
+          <p class="muted">Campanhas e datas duplas, muitas variações, cupons e preço por canal.</p>
+          <span class="related-more mono">Ver integração →</span>
+        </a>
+      </div>
+      
+    </div>
+  </section>
+  <section class="page-section page-section-alt">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>Perguntas frequentes</div>
+        <h2 class="display">Perguntas frequentes</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>O Bling integra com Mercado Livre, Shopee e TikTok Shop sem programação?</summary>
+          <p class="muted">Sim. As integrações nativas sincronizam pedidos, estoque e preço e emitem a NF-e. A integração via API só é necessária quando a operação foge do fluxo padrão, como kits por canal, regra fiscal por filial ou pedido que precisa chegar à produção.</p>
+        </details>
+        <details>
+          <summary>Preciso trocar o Bling para ter uma integração sob medida?</summary>
+          <p class="muted">Não. A integração usa a API v3 do Bling e mantém o Bling como centro da operação. O que muda é o que acontece em volta dele, de forma automática.</p>
+        </details>
+        <details>
+          <summary>A integração via API substitui a integração nativa do Bling?</summary>
+          <p class="muted">Normalmente não. A nativa continua cuidando do que faz bem, e a integração via API cobre só as regras que ela não cobre. Isso reduz custo e risco.</p>
+        </details>
+        <details>
+          <summary>E se o Bling ou o marketplace ficar fora do ar?</summary>
+          <p class="muted">Os pedidos e atualizações entram numa fila e são reprocessados quando o sistema volta. Se a falha persistir, a equipe recebe um alerta. Nenhum pedido se perde em silêncio.</p>
+        </details>
+        <details>
+          <summary>Funciona com Tiny, Olist ou outro ERP?</summary>
+          <p class="muted">Sim. O mesmo tipo de integração vale para outros ERPs com API, como o Tiny. Na descoberta avaliamos o que cada sistema permite.</p>
+        </details>
+        <details>
+          <summary>Quanto custa uma integração do Bling via API?</summary>
+          <p class="muted">Depende de quantos canais, regras e sistemas entram. O diagnóstico de 30 minutos é gratuito e termina com escopo e prazo.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+  <section class="page-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#8B5CF6"></span>Veja também</div>
+        <h2 class="display">Serviços relacionados</h2>
+      </div>
+      <div class="related-grid">
+        <a class="card related-card" href="/servicos/integracao-de-sistemas">
+          <span class="mono muted">// 03</span>
+          <h3>Integração de Sistemas</h3>
+          <p class="muted">Integramos ERP, CRM, e-commerce e APIs para sincronizar dados entre sistemas e acabar com a digitação manual e os erros de cadastro.</p>
+          <span class="related-more mono">Ver serviço →</span>
+        </a>
+        <a class="card related-card" href="/servicos/automacao-com-ia">
+          <span class="mono muted">// 02</span>
+          <h3>Automação com Inteligência Artificial</h3>
+          <p class="muted">Automação de processos com IA para empresas: agentes no WhatsApp, leitura de documentos e triagem integrados ao ERP e CRM, com aprovação humana.</p>
+          <span class="related-more mono">Ver serviço →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="section-dark cta-band">
+    <div class="wrap">
+      <h2 class="display">Quer saber se o seu caso precisa de API?</h2>
+      <p>Você explica o problema. A gente constrói a solução. Resposta direta, sem proposta genérica.</p>
+      <div class="cta-actions">
+        <a href="/#contato" class="btn btn-accent">Começar um projeto →</a>
+        <a href="https://wa.me/5542984224363" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="section-dark site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">Agência Byte</div>
+        <p class="muted footer-tagline">Código que funciona. Sistemas que crescem. Engenharia para empresas com pressa.</p>
+      </div>
+      <div>
+          <div class="mono footer-title">Serviços</div>
+          <ul class="footer-list">
+            <li><a href="/servicos/desenvolvimento-de-software" class="ul-link">Desenvolvimento</a></li>
+            <li><a href="/servicos/automacao-com-ia" class="ul-link">Automação IA</a></li>
+            <li><a href="/servicos/integracao-de-sistemas" class="ul-link">Integrações</a></li>
+            <li><a href="/servicos/dados-e-power-bi" class="ul-link">Dados e Power BI</a></li>
+          </ul>
+        </div>
+      <div>
+          <div class="mono footer-title">Empresa</div>
+          <ul class="footer-list">
+            <li><a href="/#sobre" class="ul-link">Sobre</a></li>
+            <li><a href="/#processo" class="ul-link">Processo</a></li>
+            <li><a href="/transformacao" class="ul-link">Antes e depois</a></li>
+            <li><a href="/calculadora" class="ul-link">Calculadora</a></li>
+            <li><a href="/casos-de-uso" class="ul-link">Casos de uso</a></li>
+            <li><a href="https://blog.agenciabyte.com/" class="ul-link">Blog</a></li>
+          </ul>
+        </div>
+      <div>
+        <div class="mono footer-title">Contato</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@agenciabyte.com" class="ul-link">hello@agenciabyte.com</a></li>
+          <li><a href="https://wa.me/5542984224363" target="_blank" rel="noopener noreferrer" class="ul-link">+55 42 98422-4363</a></li>
+          <li><a href="https://www.instagram.com/agenciabyte.ia" target="_blank" rel="noopener noreferrer" class="ul-link">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/company/byte-agencia" target="_blank" rel="noopener noreferrer" class="ul-link">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="muted mono">© 2026 Agência Byte · todos os direitos reservados</div>
+      <div class="muted mono footer-legal">Fundada em 2026 · CNPJ 61.592.175/0001-20 · Ponta Grossa - PR</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

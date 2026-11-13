@@ -14,6 +14,7 @@ import { LANGS, LANG_META, ROUTES, FLAGS, SWITCH_LABEL, route, svcRoute, langsFo
 import { PAGES, SERVICE_ORDER } from "./i18n/pages.mjs";
 import { USE_CASES, USE_CASE_ORDER } from "./i18n/use-cases.mjs";
 import { CALC, CALC_CONFIG } from "./i18n/calculator.mjs";
+import { BLING, BLING_CHANNELS } from "./i18n/bling.mjs";
 
 const SITE = "https://agenciabyte.com";
 const BRAND = "Agência Byte";
@@ -318,13 +319,13 @@ function faqAnswer(lang, f) {
   return html.replace(t, `<a href="${route(f.link.key, lang)}" class="ul-link">${t}</a>`);
 }
 
-function faqSection(lang, faq) {
+function faqSection(lang, faq, title = null) {
   const u = PAGES[lang].ui;
   return `<section class="page-section page-section-alt">
     <div class="wrap two-col">
       <div>
         <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>${u.faq.eyebrow}</div>
-        <h2 class="display">${u.faq.title}</h2>
+        <h2 class="display">${title || u.faq.title}</h2>
       </div>
       <div class="faq">
         ${faq.map((f) => `<details>
@@ -646,7 +647,7 @@ function servicePage(lang, s) {
       ${caseQuote(lang, SERVICE_CASE[s.slug], { link: true })}
     </div>
   </section>
-  ` : ""}${s.slug === "automacao-com-ia" && USE_CASES[lang] ? useCaseCards(lang, { heading: true, title: USE_CASES[lang].ui.svcTitle, eyebrow: USE_CASES[lang].ui.svcEyebrow, all: true }) : ""}${processSection(lang)}
+  ` : ""}${s.slug === "integracao-de-sistemas" && lang === "pt" ? blingChannelCards(null, { parentLink: true }) + "\n  " : ""}${s.slug === "automacao-com-ia" && USE_CASES[lang] ? useCaseCards(lang, { heading: true, title: USE_CASES[lang].ui.svcTitle, eyebrow: USE_CASES[lang].ui.svcEyebrow, all: true }) : ""}${processSection(lang)}
   ${faqSection(lang, s.faq)}
   ${relatedSection(lang, s.related)}
   ${ctaSection(lang, p.ui.service.cta)}
@@ -711,7 +712,8 @@ function casePage(lang, slug) {
       <div class="case-stats" aria-label="${ui.statsEyebrow}">
         ${c.stats.map(([n, l]) => `<div class="card case-stat"><div class="display case-num">${n}</div><p class="muted">${l}</p></div>`).join("\n        ")}
       </div>
-      ${caseQuote(lang, slug)}
+      ${caseQuote(lang, slug)}${slug === "divina-argila" && lang === "pt" ? `
+      <p class="case-visit"><a href="${route("bling", lang)}" class="ul-link">Guia: integração Bling com Mercado Livre e TikTok Shop →</a></p>` : ""}
     </div>
   </section>
 
@@ -1079,10 +1081,6 @@ function calculatorPage(lang) {
       </form>
 
       <aside class="calc-result" aria-live="polite">
-        <div class="calc-seg" role="group" aria-label="${C.goal}">
-          <button type="button" id="calc-grow" aria-pressed="true">${C.grow}</button>
-          <button type="button" id="calc-cut" aria-pressed="false">${C.cut}</button>
-        </div>
         <div class="calc-block">
           <div class="calc-k mono">${C.costNow}</div>
           <div class="calc-n1" id="calc-cost-y"></div>
@@ -1092,18 +1090,10 @@ function calculatorPage(lang) {
           <div class="calc-k mono" id="calc-addr-k"></div>
           <div class="calc-n2" id="calc-addr-y"></div>
           <div class="calc-sub" id="calc-addr-sub"></div>
-          <p class="calc-outcome" id="calc-outcome"></p>
         </div>
         <div class="calc-block">
           <div class="calc-k mono">${C.math}</div>
           <div class="calc-math mono" id="calc-math"></div>
-        </div>
-        <div class="calc-block">
-          <div class="calc-k mono">${C.other}${CALC_CONFIG.provisional ? ` <span class="calc-prov">${C.provisional}</span>` : ""}</div>
-          <div class="calc-line"><span id="calc-proj-k"></span><b class="mono" id="calc-proj"></b></div>
-          <div class="calc-line"><span>${C.ops}</span><b class="mono" id="calc-ops"></b></div>
-          <div class="calc-payback" id="calc-payback"></div>
-          <div class="calc-sub" id="calc-payback-sub"></div>
         </div>
         <a class="btn btn-accent calc-cta" id="calc-cta" href="${WHATSAPP}" target="_blank" rel="noopener noreferrer">${C.cta}</a>
         <p class="calc-note">${C.note}</p>
@@ -1115,6 +1105,253 @@ function calculatorPage(lang) {
 </main>
 <script id="calc-data" type="application/json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>
 <script src="/calc.js" defer></script>
+` +
+    footer(lang)
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Integração Bling com marketplaces (só pt)                           */
+/* ------------------------------------------------------------------ */
+
+const blingFaqLd = (path, faq) => ({
+  "@type": "FAQPage",
+  "@id": `${SITE}${path}#faq`,
+  mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+});
+
+const blingServiceLd = (path, name, description) => ({
+  "@type": "Service",
+  "@id": `${SITE}${path}#service`,
+  name,
+  serviceType: "Integração de sistemas",
+  description,
+  url: SITE + path,
+  inLanguage: "pt-BR",
+  provider: { "@id": `${SITE}/#organization` },
+  areaServed: "BR",
+});
+
+function blingTldr(text) {
+  const B = BLING.ui;
+  return `<aside class="bling-tldr" aria-label="${B.tldr}">
+        <div class="mono bling-tldr-k">${B.tldr}</div>
+        <p>${esc(text)}</p>
+      </aside>`;
+}
+
+function blingCase(lang) {
+  const B = BLING.ui;
+  const c = PAGES[lang].cases["divina-argila"];
+  return `<section class="page-section">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>${B.caseEyebrow}</div>
+      <h2 class="display">${c.h1}</h2>
+      <div class="case-stats bling-stats">
+        ${c.stats.map(([n, t]) => `<div class="card case-stat"><div class="display case-num">${n}</div><p class="muted">${t}</p></div>`).join("\n        ")}
+      </div>
+      ${caseQuote(lang, "divina-argila", { link: true })}
+      <p class="case-visit"><a href="${route("case:divina-argila", lang)}" class="ul-link">${B.caseLink}</a></p>
+    </div>
+  </section>`;
+}
+
+function blingChannelCards(exclude = null, { parentLink = !!exclude } = {}) {
+  const B = BLING.ui;
+  return `<section class="page-section page-section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>${B.channelsEyebrow}</div>
+        <h2 class="display">${B.channelsTitle}</h2>
+      </div>
+      <div class="uc-grid">
+        ${BLING_CHANNELS.filter((x) => x !== exclude).map((slug) => {
+          const ch = BLING.channels[slug];
+          return `<a class="card related-card uc-card" href="${route(`bling:${slug}`, "pt")}">
+          <span class="mono muted">// Bling + ${ch.name}</span>
+          <h3>Integração Bling com ${ch.name}</h3>
+          <p class="muted">${ch.card}</p>
+          <span class="related-more mono">${B.more}</span>
+        </a>`;
+        }).join("\n        ")}
+      </div>
+      ${parentLink ? `<p class="uc-all"><a href="${route("bling", "pt")}" class="ul-link">${B.parent}</a></p>` : ""}
+    </div>
+  </section>`;
+}
+
+function blingHub() {
+  const lang = "pt";
+  const p = PAGES[lang];
+  const B = BLING.ui;
+  const H = BLING.hub;
+  const path = route("bling", lang);
+  const trail = [[route("home", lang), p.ui.crumbHome], [route("services", lang), p.ui.nav.services], [path, B.crumb]];
+  const jsonld = { "@context": "https://schema.org", "@graph": [blingServiceLd(path, B.crumb, H.description), blingFaqLd(path, H.faq), breadcrumbLd(trail)] };
+  const native = H.sections[0];
+  return (
+    head({ lang, key: "bling", title: H.title, description: H.description, jsonld }) +
+    nav(lang, "bling", route("services", lang)) +
+    `
+<main id="conteudo">
+  <section class="page-hero bling-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      ${crumbs(lang, trail)}
+      <div class="eyebrow"><span class="dot"></span>${B.eyebrow}</div>
+      <h1 class="display">${H.h1}</h1>
+      <p class="lead muted">${H.lead}</p>
+      ${blingTldr(H.tldr)}
+      ${ctaButtons(lang)}
+    </div>
+  </section>
+
+  <section class="page-section" id="${native.id}">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>${native.eyebrow}</div>
+        <h2 class="display">${native.h2}</h2>
+      </div>
+      <div class="bling-prose">
+        <p>${native.intro}</p>
+        <ul class="bling-check">
+          ${native.list.map((x) => `<li>${x}</li>`).join("\n          ")}
+        </ul>
+        <p>${native.outro}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt" id="limites">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>${H.limitsEyebrow}</div>
+        <h2 class="display">${H.limitsH2}</h2>
+        <p class="muted bling-intro">${H.limitsIntro}</p>
+      </div>
+      <ol class="bling-limits">
+        ${H.limits.map((l, i) => `<li class="card bling-limit" id="${l.id}">
+          <div class="bling-limit-head"><span class="mono bling-n">0${i + 1}</span><h3>${l.h3}</h3></div>
+          <dl>
+            <div><dt class="mono">${B.native}</dt><dd>${l.native}</dd></div>
+            <div><dt class="mono">${B.limit}</dt><dd>${l.limit}</dd></div>
+            <div class="bling-api"><dt class="mono">${B.api}</dt><dd>${l.api}</dd></div>
+          </dl>
+        </li>`).join("\n        ")}
+      </ol>
+    </div>
+  </section>
+
+  <section class="page-section" id="quando-compensa">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#8B5CF6"></span>${H.when.eyebrow}</div>
+        <h2 class="display">${H.when.h2}</h2>
+      </div>
+      <div class="bling-prose">
+        <p>${H.when.intro}</p>
+        <ol class="signal-list">
+          ${H.when.yes.map((x, i) => `<li><span class="mono">0${i + 1}</span><span>${x}</span></li>`).join("\n          ")}
+        </ol>
+        <h3>${H.when.noTitle}</h3>
+        <p>${H.when.no}</p>
+        <p><a href="${route("calculator", lang)}" class="ul-link">${H.when.calc}</a></p>
+      </div>
+    </div>
+  </section>
+
+  ${blingCase(lang)}
+
+  <section class="page-section page-section-alt" id="prazo">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#EC4899"></span>${H.time.eyebrow}</div>
+        <h2 class="display">${H.time.h2}</h2>
+        <p class="muted bling-intro">${H.time.intro}</p>
+      </div>
+      <ol class="steps bling-steps">
+        ${H.time.steps.map((st, i) => `<li class="card">
+          <div class="display step-code">0${i + 1}</div>
+          <h3>${st.t}</h3>
+          <p class="muted">${st.d}</p>
+          <div class="mono step-dur">${st.dur}</div>
+        </li>`).join("\n        ")}
+      </ol>
+    </div>
+  </section>
+
+  ${blingChannelCards()}
+  ${faqSection(lang, H.faq, "Perguntas frequentes")}
+  ${relatedSection(lang, ["integracao-de-sistemas", "automacao-com-ia"])}
+  ${ctaSection(lang, B.cta)}
+</main>
+` +
+    footer(lang)
+  );
+}
+
+function blingChannelPage(slug) {
+  const lang = "pt";
+  const p = PAGES[lang];
+  const B = BLING.ui;
+  const ch = BLING.channels[slug];
+  const key = `bling:${slug}`;
+  const path = route(key, lang);
+  const trail = [[route("home", lang), p.ui.crumbHome], [route("services", lang), p.ui.nav.services], [route("bling", lang), B.crumb], [path, ch.name]];
+  const jsonld = { "@context": "https://schema.org", "@graph": [blingServiceLd(path, `Integração Bling com ${ch.name}`, ch.description), blingFaqLd(path, ch.faq), breadcrumbLd(trail)] };
+  return (
+    head({ lang, key, title: ch.title, description: ch.description, jsonld }) +
+    nav(lang, key, route("services", lang)) +
+    `
+<main id="conteudo">
+  <section class="page-hero bling-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      ${crumbs(lang, trail)}
+      <div class="eyebrow"><span class="dot"></span>${B.eyebrow} · ${ch.name}</div>
+      <h1 class="display">${ch.h1}</h1>
+      <p class="lead muted">${ch.lead}</p>
+      ${blingTldr(ch.tldr)}
+      ${ctaButtons(lang)}
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>${B.native}</div>
+        <h2 class="display">O que o Bling já faz com o ${ch.name}</h2>
+      </div>
+      <div class="bling-prose">
+        <ul class="bling-check">
+          ${ch.native.map((x) => `<li>${x}</li>`).join("\n          ")}
+        </ul>
+        <p>Para a maioria das lojas, isso basta. Os pontos abaixo são onde a integração nativa para.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>${B.limit}</div>
+        <h2 class="display">Quando Bling e ${ch.name} precisam de integração via API</h2>
+      </div>
+      <div class="deliv-grid">
+        ${ch.limits.map((l) => `<div class="card">
+          <h3>${l.h3}</h3>
+          <p class="muted">${l.p}</p>
+        </div>`).join("\n        ")}
+      </div>
+      <p class="uc-all"><a href="${route("bling", lang)}#limites" class="ul-link">Os 5 limites nativos do Bling, em detalhe →</a></p>
+    </div>
+  </section>
+
+  ${blingCase(lang)}
+  ${faqSection(lang, ch.faq, `Perguntas sobre Bling e ${ch.name}`)}
+  ${blingChannelCards(slug)}
+  ${ctaSection(lang, B.cta)}
+</main>
 ` +
     footer(lang)
   );
@@ -1346,6 +1583,10 @@ for (const lang of LANGS) {
   out[prefix ? `${prefix}/404.html` : "404.html"] = notFoundPage(lang);
   for (const s of servicesFor(lang)) out[fileFor(s.path)] = servicePage(lang, s);
   for (const slug of CASE_SLUGS) out[fileFor(route(`case:${slug}`, lang))] = casePage(lang, slug);
+  if (lang === "pt") {
+    out[fileFor(route("bling", lang))] = blingHub();
+    for (const slug of BLING_CHANNELS) out[fileFor(route(`bling:${slug}`, lang))] = blingChannelPage(slug);
+  }
   if (USE_CASES[lang]) {
     out[fileFor(route("usecases", lang))] = useCasesHub(lang);
     for (const slug of USE_CASE_ORDER) out[fileFor(route(`uc:${slug}`, lang))] = useCasePage(lang, slug);
@@ -1360,7 +1601,7 @@ for (const [file, html] of Object.entries(out)) {
 
 // Sitemap com todas as páginas nos três idiomas, cada uma com suas alternativas (hreflang).
 const today = new Date().toISOString().slice(0, 10);
-const keys = ["home", "services", ...SERVICE_ORDER.map((s) => `svc:${s.slug}`), "transformation", "calculator", ...CASE_SLUGS.map((x) => `case:${x}`), "usecases", ...USE_CASE_ORDER.map((x) => `uc:${x}`)];
+const keys = ["home", "services", ...SERVICE_ORDER.map((s) => `svc:${s.slug}`), "transformation", "calculator", "bling", ...BLING_CHANNELS.map((x) => `bling:${x}`), ...CASE_SLUGS.map((x) => `case:${x}`), "usecases", ...USE_CASE_ORDER.map((x) => `uc:${x}`)];
 const entries = [];
 for (const lang of LANGS) {
   for (const key of keys) {

@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Automation calculator: what manual work really costs | Agência Byte</title>
-<meta name="description" content="Calculate what manual work costs your company today, how much of it can be automated, the project cost and the payback. Open math, visible assumptions." />
+<meta name="description" content="Calculate what manual work costs your company today, how much of it can be automated and the capacity it frees up. Open math, visible assumptions." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://agenciabyte.com/en/automation-calculator" />
 <link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/calculadora" />
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://agenciabyte.com/en/automation-calculator" />
 <meta property="og:title" content="Automation calculator: what manual work really costs | Agência Byte" />
-<meta property="og:description" content="Calculate what manual work costs your company today, how much of it can be automated, the project cost and the payback. Open math, visible assumptions." />
+<meta property="og:description" content="Calculate what manual work costs your company today, how much of it can be automated and the capacity it frees up. Open math, visible assumptions." />
 <meta property="og:image" content="https://agenciabyte.com/img/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -28,7 +28,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Automation calculator: what manual work really costs | Agência Byte" />
-<meta name="twitter:description" content="Calculate what manual work costs your company today, how much of it can be automated, the project cost and the payback. Open math, visible assumptions." />
+<meta name="twitter:description" content="Calculate what manual work costs your company today, how much of it can be automated and the capacity it frees up. Open math, visible assumptions." />
 <meta name="twitter:image" content="https://agenciabyte.com/img/og-image.png" />
 
 <meta name="theme-color" content="#FF6A1A" />
@@ -42,7 +42,7 @@
     {
       "@type": "WebApplication",
       "name": "Automation calculator",
-      "description": "Calculate what manual work costs your company today, how much of it can be automated, the project cost and the payback. Open math, visible assumptions.",
+      "description": "Calculate what manual work costs your company today, how much of it can be automated and the capacity it frees up. Open math, visible assumptions.",
       "url": "https://agenciabyte.com/en/automation-calculator",
       "inLanguage": "en",
       "applicationCategory": "BusinessApplication",
@@ -181,7 +181,7 @@
       </nav>
       <div class="eyebrow"><span class="dot"></span>Automation calculator</div>
       <h1 class="display">What does manual work cost you today, and how much of it can go?</h1>
-      <p class="lead muted">Enter your operation's numbers. The math is shown in full, with the assumptions in plain sight and the project cost on the other side.</p>
+      <p class="lead muted">Enter your operation's numbers. The math is shown in full, with the assumptions in plain sight.</p>
     </div>
   </section>
 
@@ -234,10 +234,6 @@
       </form>
 
       <aside class="calc-result" aria-live="polite">
-        <div class="calc-seg" role="group" aria-label="Goal">
-          <button type="button" id="calc-grow" aria-pressed="true">Grow without hiring</button>
-          <button type="button" id="calc-cut" aria-pressed="false">Cut costs</button>
-        </div>
         <div class="calc-block">
           <div class="calc-k mono">Cost of manual work today</div>
           <div class="calc-n1" id="calc-cost-y"></div>
@@ -247,18 +243,10 @@
           <div class="calc-k mono" id="calc-addr-k"></div>
           <div class="calc-n2" id="calc-addr-y"></div>
           <div class="calc-sub" id="calc-addr-sub"></div>
-          <p class="calc-outcome" id="calc-outcome"></p>
         </div>
         <div class="calc-block">
           <div class="calc-k mono">The math</div>
           <div class="calc-math mono" id="calc-math"></div>
-        </div>
-        <div class="calc-block">
-          <div class="calc-k mono">The other side of the math <span class="calc-prov">provisional figures</span></div>
-          <div class="calc-line"><span id="calc-proj-k"></span><b class="mono" id="calc-proj"></b></div>
-          <div class="calc-line"><span>Monthly operation (AI, WhatsApp, servers)</span><b class="mono" id="calc-ops"></b></div>
-          <div class="calc-payback" id="calc-payback"></div>
-          <div class="calc-sub" id="calc-payback-sub"></div>
         </div>
         <a class="btn btn-accent calc-cta" id="calc-cta" href="https://wa.me/5542984224363" target="_blank" rel="noopener noreferrer">Validate these numbers in 30 min, free →</a>
         <p class="calc-note">The assumptions are starting points. In the assessment we measure your process and replace estimates with real numbers.</p>
@@ -315,7 +303,7 @@
   </section>
   
 </main>
-<script id="calc-data" type="application/json">{"lang":"en","whatsapp":"https://wa.me/5542984224363","cfg":{"provisional":true,"weeksPerMonth":4.33,"hoursPerFte":176,"defaults":{"people":2,"hours":6,"rate":45,"rework":10,"fixMin":30},"bottlenecks":[{"id":"atend","useCase":"atendimento-whatsapp-ia","auto":0.5,"project":[15000,40000],"ops":[500,1500]},{"id":"triag","useCase":"triagem-de-pedidos-e-leads","auto":0.6,"project":[12000,30000],"ops":[300,800]},{"id":"docs","useCase":"leitura-automatica-de-documentos","auto":0.65,"project":[15000,35000],"ops":[300,1000]},{"id":"rel","useCase":"relatorios-automaticos","auto":0.7,"project":[8000,25000],"ops":[150,500]},{"id":"fin","useCase":"automacao-de-processos-administrativos","auto":0.45,"project":[12000,35000],"ops":[200,600]}]},"t":{"nav":"Calculator","title":"Automation calculator: what manual work really costs | Agência Byte","description":"Calculate what manual work costs your company today, how much of it can be automated, the project cost and the payback. Open math, visible assumptions.","eyebrow":"Automation calculator","h1":"What does manual work cost you today, and how much of it can go?","lead":"Enter your operation's numbers. The math is shown in full, with the assumptions in plain sight and the project cost on the other side.","bottleneck":"Where is the bottleneck?","names":{"atend":"WhatsApp customer service","triag":"Order and lead triage","docs":"Document reading","rel":"Reports","fin":"Finance / admin"},"short":{"atend":"customer service","triag":"triage","docs":"document reading","rel":"reports","fin":"admin automation"},"caseLink":"see use case: {name} →","people":["People","doing this task"],"hours":["Hours per week","per person, on this task"],"rate":["Hourly cost","Salary + payroll taxes ÷ hours worked per month"],"rework":["Rework per month","wrong orders, data typed twice…"],"fixMin":["Time to fix","each one, on average"],"auto":["How much of it can be automated","Default for {short}: {pct}. Adjust if you like."],"premise":"assumption","goal":"Goal","grow":"Grow without hiring","cut":"Cut costs","costNow":"Cost of manual work today","addressable":"Share automation can address ({pct})","perYear":"/year","perMonth":"/month","hMonth":"h/month","hFreed":"h/month freed","person":"person","persons":"people","growText":"\u003cb>Same team, more volume.\u003c/b> The {h} h/month come back as capacity: enough to absorb growth equal to \u003cb>{fte}\u003c/b> without a new hire. No cash leaves the till; the gain is not having to hire.","cutText":"\u003cb>It only becomes cash if something changes on the payroll:\u003c/b> less overtime, a role that isn't refilled or a hire that doesn't happen. It equals \u003cb>{fte}\u003c/b>. If nobody leaves and nothing stops being paid, the cash saving is R$ 0.","math":"The math","mathTask":"{p} × {h} h × {w} wk","mathRework":"{e} reworks × {m} min","mathTotal":"Total × {rate}/h","other":"The other side of the math","provisional":"provisional figures","project":"{short} project","ops":"Monthly operation (AI, WhatsApp, servers)","noPayback":"Hours alone won't pay for it","noPaybackSub":"At this volume, the monthly operation costs more than the hours freed. The reason to automate would be scale, speed or quality, not savings.","paybackRange":"Payback: {a} to {b} months","paybackFrom":"Payback: from {a} months","paybackSub":"Net gain of {min} to {max}/month, after operating costs","paybackGrow":", counting the value of the hours freed.","paybackCut":", if the cost cut actually happens.","cta":"Validate these numbers in 30 min, free →","note":"The assumptions are starting points. In the assessment we measure your process and replace estimates with real numbers.","wa":"Hi! I used the calculator on your site ({name}): {hTot} h/month of manual work, {hEnd} h addressable ({value}/month). Goal: {goal}. I'd like to validate these numbers."},"useCases":{"atend":"/en/use-cases/whatsapp-ai-customer-service","triag":"/en/use-cases/order-and-lead-triage","docs":"/en/use-cases/ai-document-data-extraction","rel":"/en/use-cases/automated-reports","fin":"/en/use-cases/administrative-process-automation"}}</script>
+<script id="calc-data" type="application/json">{"lang":"en","whatsapp":"https://wa.me/5542984224363","cfg":{"weeksPerMonth":4.33,"defaults":{"people":2,"hours":6,"rate":45,"rework":10,"fixMin":30},"bottlenecks":[{"id":"atend","useCase":"atendimento-whatsapp-ia","auto":0.5},{"id":"triag","useCase":"triagem-de-pedidos-e-leads","auto":0.6},{"id":"docs","useCase":"leitura-automatica-de-documentos","auto":0.65},{"id":"rel","useCase":"relatorios-automaticos","auto":0.7},{"id":"fin","useCase":"automacao-de-processos-administrativos","auto":0.45}]},"t":{"nav":"Calculator","title":"Automation calculator: what manual work really costs | Agência Byte","description":"Calculate what manual work costs your company today, how much of it can be automated and the capacity it frees up. Open math, visible assumptions.","eyebrow":"Automation calculator","h1":"What does manual work cost you today, and how much of it can go?","lead":"Enter your operation's numbers. The math is shown in full, with the assumptions in plain sight.","bottleneck":"Where is the bottleneck?","names":{"atend":"WhatsApp customer service","triag":"Order and lead triage","docs":"Document reading","rel":"Reports","fin":"Finance / admin"},"short":{"atend":"customer service","triag":"triage","docs":"document reading","rel":"reports","fin":"admin automation"},"caseLink":"see use case: {name} →","people":["People","doing this task"],"hours":["Hours per week","per person, on this task"],"rate":["Hourly cost","Salary + payroll taxes ÷ hours worked per month"],"rework":["Rework per month","wrong orders, data typed twice…"],"fixMin":["Time to fix","each one, on average"],"auto":["How much of it can be automated","Default for {short}: {pct}. Adjust if you like."],"premise":"assumption","costNow":"Cost of manual work today","addressable":"Potential savings with automation ({pct})","perYear":"/year","perMonth":"/month","hMonth":"h/month","hFreed":"h/month freed","math":"The math","mathTask":"{p} × {h} h × {w} wk","mathRework":"{e} reworks × {m} min","mathTotal":"Total × {rate}/h","cta":"Validate these numbers in 30 min, free →","note":"The assumptions are starting points. In the assessment we measure your process and replace estimates with real numbers.","wa":"Hi! I used the calculator on your site ({name}): {hTot} h/month of manual work, {hEnd} h automatable (potential savings of {value}/month). I'd like to validate these numbers."},"useCases":{"atend":"/en/use-cases/whatsapp-ai-customer-service","triag":"/en/use-cases/order-and-lead-triage","docs":"/en/use-cases/ai-document-data-extraction","rel":"/en/use-cases/automated-reports","fin":"/en/use-cases/administrative-process-automation"}}</script>
 <script src="/calc.js" defer></script>
 <footer class="section-dark site-footer">
   <div class="wrap">
