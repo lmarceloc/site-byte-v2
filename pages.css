@@ -309,24 +309,19 @@ a.nav-brand-wrap:focus-visible{ outline: 2px solid var(--accent); outline-offset
   background: repeating-linear-gradient(-45deg, transparent 0 8px, rgba(255,106,26,.04) 8px 16px); }
 .calc-ptag{ font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); border: 1px solid currentColor; border-radius: 4px; padding: 1px 6px; margin-left: 8px; vertical-align: 2px; font-weight: 400; }
 
-.calc-result{ position: sticky; top: 96px; background: var(--dark-bg); color: var(--dark-ink); border-radius: var(--radius); padding: 28px; overflow: hidden; isolation: isolate; }
+.calc-result{ --saving: #5DD3A8; position: sticky; top: 96px; background: var(--dark-bg); color: var(--dark-ink); border-radius: var(--radius); padding: 28px; overflow: hidden; isolation: isolate; }
 .calc-result::before{ content: ""; position: absolute; inset: 0; z-index: -1; background-image: radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px); background-size: 16px 16px; pointer-events: none; }
-.calc-seg{ display: grid; grid-template-columns: 1fr 1fr; background: var(--dark-elev); border: 1px solid var(--dark-line); border-radius: 10px; padding: 4px; margin-bottom: 24px; }
-.calc-seg button{ border: 0; background: transparent; color: var(--dark-ink-2); font: 600 14px var(--font-body); padding: 10px; border-radius: 7px; cursor: pointer; }
-.calc-seg button[aria-pressed="true"]{ background: var(--dark-ink); color: var(--ink); }
 .calc-block{ padding: 18px 0; border-top: 1px solid var(--dark-line); }
-.calc-seg + .calc-block{ border-top: 0; padding-top: 0; }
+.calc-result > .calc-block:first-child{ border-top: 0; padding-top: 0; }
 .calc-k{ font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--dark-ink-2); margin-bottom: 6px; }
 .calc-n1{ font-family: var(--font-display); font-weight: 700; font-size: 34px; letter-spacing: -.02em; line-height: 1.1; }
-.calc-n2{ font-family: var(--font-display); font-weight: 700; font-size: clamp(36px, 4.4vw, 52px); letter-spacing: -.02em; line-height: 1; margin: 4px 0; color: var(--accent); }
+.calc-n2{ font-family: var(--font-display); font-weight: 700; font-size: clamp(36px, 4.4vw, 52px); letter-spacing: -.02em; line-height: 1; margin: 4px 0; color: var(--saving); }
 .calc-sub{ color: var(--dark-ink-2); font-size: 13.5px; }
-.calc-outcome{ background: var(--dark-elev); border: 1px solid var(--dark-line); border-radius: 10px; padding: 16px; font-size: 14px; color: var(--dark-ink-2); margin: 14px 0 0; }
-.calc-outcome b{ color: var(--dark-ink); font-weight: 600; }
 .calc-math{ font-size: 12.5px; line-height: 1.9; color: var(--dark-ink-2); }
 .calc-math div{ display: flex; justify-content: space-between; gap: 12px; }
 .calc-math b{ color: var(--dark-ink); font-weight: 500; white-space: nowrap; }
 .calc-math .calc-tot{ border-top: 1px solid var(--dark-line); margin-top: 6px; padding-top: 6px; }
-.calc-math .calc-tot b{ color: var(--accent); }
+.calc-math .calc-tot b{ color: var(--saving); }
 .calc-cta{ display: flex; width: 100%; justify-content: center; margin-top: 18px; }
 .calc-note{ font-size: 12px; color: var(--dark-ink-2); margin: 12px 0 0; }
 @media (max-width: 900px){

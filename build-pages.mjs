@@ -1081,10 +1081,6 @@ function calculatorPage(lang) {
       </form>
 
       <aside class="calc-result" aria-live="polite">
-        <div class="calc-seg" role="group" aria-label="${C.goal}">
-          <button type="button" id="calc-grow" aria-pressed="true">${C.grow}</button>
-          <button type="button" id="calc-cut" aria-pressed="false">${C.cut}</button>
-        </div>
         <div class="calc-block">
           <div class="calc-k mono">${C.costNow}</div>
           <div class="calc-n1" id="calc-cost-y"></div>
@@ -1094,7 +1090,6 @@ function calculatorPage(lang) {
           <div class="calc-k mono" id="calc-addr-k"></div>
           <div class="calc-n2" id="calc-addr-y"></div>
           <div class="calc-sub" id="calc-addr-sub"></div>
-          <p class="calc-outcome" id="calc-outcome"></p>
         </div>
         <div class="calc-block">
           <div class="calc-k mono">${C.math}</div>
