@@ -236,6 +236,108 @@ function FlowGlyph({ type }){
   return <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>;
 }
 
+/* Antes e depois com alça arrastável: o Byte Engine é a alça. Cada linha do
+   "antes" (à esquerda) vira a linha correspondente do "depois" (à direita).
+   Ao entrar na tela, a alça desliza sozinha uma vez para mostrar que é arrastável.
+   Evento no PostHog: transformation_slider_used (uma vez por página). */
+const FLIP_ICONS = {
+  sheet: <path d="M5 4h12v15H5zM8 8h6M8 12h6M8 16h4"/>,
+  hand: <path d="M8 13V5a1.5 1.5 0 0 1 3 0v6M11 11V4a1.5 1.5 0 0 1 3 0v7M14 11V6a1.5 1.5 0 0 1 3 0v8c0 4-2.5 6-6 6s-5-2-6-5l-1.5-3a1.5 1.5 0 0 1 2.6-1.4L8 13"/>,
+  dots: <g><circle cx="6" cy="7" r="1.6"/><circle cx="17" cy="6" r="1.6"/><circle cx="9" cy="17" r="1.6"/><circle cx="18" cy="16" r="1.6"/></g>,
+  fog: <path d="M4 9h16M6 13h12M8 17h8"/>,
+  coin: <g><circle cx="12" cy="12" r="8"/><path d="M12 7v10M9 9.5h4.5a2 2 0 0 1 0 4H10a2 2 0 0 0 0 4h5"/></g>,
+  plug: <g><rect x="3" y="9" width="8" height="6" rx="1.5"/><rect x="13" y="9" width="8" height="6" rx="1.5"/><path d="M11 12h2"/></g>,
+  bolt: <path d="M13 3 5 14h6l-1 7 8-11h-6z"/>,
+  db: <g><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3 3 7 3s7-1.3 7-3"/></g>,
+  chart: <path d="M4 19V5M4 19h16M8 16v-4M12 16V8M16 16v-7"/>,
+  up: <path d="M4 17 10 11l4 4 6-7M15 8h5v5"/>,
+};
+function FlipRows({ rows }){
+  return (
+    <ul className="flip-rows">
+      {rows.map(([icon, text, tag]) => (
+        <li className="flip-row" key={text}>
+          <span className="flip-ic"><svg viewBox="0 0 24 24" aria-hidden="true">{FLIP_ICONS[icon]}</svg></span>
+          <span className="flip-text">{text}</span>
+          <span className="flip-tag mono">{tag}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+function FlipCompare(){
+  const t = T.transformation;
+  const ref = useRef(null);
+  const [x, setX] = useState(92);
+  const [intro, setIntro] = useState(true);
+  const drag = useRef(false), used = useRef(false), maxReveal = useRef(0);
+  const set = (p) => {
+    const v = Math.max(0, Math.min(100, p));
+    setX(v);
+    maxReveal.current = Math.max(maxReveal.current, 100 - v);
+  };
+  const touched = () => {
+    setIntro(false);
+    if (!used.current) { used.current = true; if (window.byteTrack) window.byteTrack('transformation_slider_used', { language: LANG }); }
+  };
+  const fromEvent = (e) => { const r = ref.current.getBoundingClientRect(); return (e.clientX - r.left) / r.width * 100; };
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !('IntersectionObserver' in window)) { setX(18); setIntro(false); return; }
+    let t1, t2;
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      t1 = setTimeout(() => setX(window.innerWidth < 700 ? 10 : 18), 600); // no celular o "depois" fica quase inteiro à mostra
+      t2 = setTimeout(() => setIntro(false), 2200);
+    }, { threshold: 0.45 });
+    io.observe(el);
+    return () => { io.disconnect(); clearTimeout(t1); clearTimeout(t2); };
+  }, []);
+  return (
+    <div className="flip">
+      <p className="flip-hint mono">↔ {t.hint[0]} <b>{t.hint[1]}</b> {t.hint[2]}</p>
+      <div
+        ref={ref}
+        className={'flip-cmp' + (intro ? ' is-intro' : '')}
+        style={{'--x': x + '%'}}
+        onPointerDown={(e) => { drag.current = true; touched(); e.currentTarget.setPointerCapture(e.pointerId); set(fromEvent(e)); }}
+        onPointerMove={(e) => { if (drag.current) set(fromEvent(e)); }}
+        onPointerUp={() => { drag.current = false; }}
+        onPointerCancel={() => { drag.current = false; }}
+      >
+        <div className="flip-layer flip-before">
+          <div className="transformation-kicker mono">{t.beforeKicker}</div>
+          <h3 className="display">{t.beforeTitle}</h3>
+          <FlipRows rows={t.before} />
+          <div className="flip-note mono">{t.beforeNote}</div>
+        </div>
+        <div className="flip-layer flip-after" aria-hidden={x > 95 ? 'true' : undefined}>
+          <div className="transformation-kicker mono">{t.afterKicker}</div>
+          <h3 className="display">{t.afterTitle}</h3>
+          <FlipRows rows={t.after} />
+          <div className="flip-note mono">{t.afterNote}</div>
+        </div>
+        <div className="flip-handle">
+          <button
+            type="button" className="flip-knob mono" role="slider"
+            aria-label={t.slider} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(x)}
+            onKeyDown={(e) => {
+              if (e.key === 'ArrowLeft') { touched(); set(x - 5); e.preventDefault(); }
+              if (e.key === 'ArrowRight') { touched(); set(x + 5); e.preventDefault(); }
+            }}
+          >
+            <span className="flip-arr flip-arr-l" aria-hidden="true">‹</span>
+            <span><FlowGlyph type="ai" />BYTE<br />ENGINE</span>
+            <span className="flip-arr flip-arr-r" aria-hidden="true">›</span>
+          </button>
+        </div>
+      </div>
+      <div className="flip-legend mono"><span><b className="flip-dot-bad">●</b> {t.legend[0]}</span><span>{t.legend[1]} <b className="flip-dot-ok">●</b></span></div>
+    </div>
+  );
+}
+
 function Transformation(){
   return (
     <section id="transformacao" className="transformation-section section-dark">
@@ -246,30 +348,7 @@ function Transformation(){
           <h2 className="display">{T.transformation.title}</h2>
           <p>{T.transformation.sub}</p>
         </div>
-        <div className="transformation-stage reveal-stagger">
-          <div className="transformation-panel transformation-before">
-            <div className="transformation-kicker mono">{T.transformation.beforeKicker}</div>
-            <h3 className="display">{T.transformation.beforeTitle}</h3>
-            <div className="fragment-timeline">
-              {T.transformation.symptoms.map((symptom, index) => <div className="fragment-step" key={symptom}><span className="fragment-index mono">0{index + 1}</span><span className="fragment-node"><FlowGlyph type={['sheet','mail','gear','chart','sheet'][index]} /></span><span>{symptom}</span></div>)}
-            </div>
-            <div className="transformation-note mono">{T.transformation.beforeNote}</div>
-          </div>
-          <div className="transformation-bridge" aria-label={T.transformation.bridgeAria}>
-            <div className="bridge-lines" aria-hidden="true"><span/></div>
-            <div className="bridge-core"><FlowGlyph type="ai" /><span className="mono">BYTE<br/>ENGINE</span></div>
-            <div className="bridge-output-line" aria-hidden="true" />
-            <div className="bridge-label mono">{T.transformation.bridgeLabel}</div>
-          </div>
-          <div className="transformation-panel transformation-after">
-            <div className="transformation-kicker mono">{T.transformation.afterKicker}</div>
-            <h3 className="display">{T.transformation.afterTitle}</h3>
-            <div className="order-flow"><div className="order-line" aria-hidden="true"/><div className="benefit-list">
-              {T.transformation.benefits.map((benefit, index) => <div className="benefit-step" key={benefit}><span className="benefit-node"><FlowGlyph type={['gear','plug','ai','chart','gear','ai'][index]} /></span><span>{benefit}</span><span className="benefit-check" aria-hidden="true">OK</span></div>)}
-            </div></div>
-            <div className="transformation-note mono">{T.transformation.afterNote}</div>
-          </div>
-        </div>
+        <FlipCompare />
         <div style={{marginTop:32, textAlign:'center'}}>
           <a href={ROUTES.transformation[LANG]} className="ul-link mono" style={{fontSize:14, textDecoration:'none', color:'var(--dark-ink)'}}>{T.transformation.more}</a>
         </div>
