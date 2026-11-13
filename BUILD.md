@@ -47,6 +47,8 @@ A bandeira no topo troca o idioma e leva para a mesma página no outro idioma.
 | `i18n/pages.mjs` | Textos das páginas estáticas e metadados da home |
 | `i18n/use-cases.mjs` | Textos dos casos de uso de IA (`/casos-de-uso`) e ordem dos cards |
 | `i18n/bling.mjs` | Integração Bling com marketplaces (`/servicos/integracao-bling-marketplaces` + Mercado Livre, TikTok Shop e Shopee). Só em português |
+| `i18n/powerbi-logistica.mjs` | Power BI para distribuidoras e transportadoras (`/servicos/power-bi-para-distribuidoras-e-transportadoras`). Só em português |
+| `i18n/blog-ia-pme.mjs` | Post pilar `/blog/automacao-com-ia-para-pme` com checklist de prontidão (script `checklist.js`). Só em português. `/blog` redireciona para blog.agenciabyte.com |
 | `i18n/calculator.mjs` | Calculadora (`/calculadora`): textos e premissas por gargalo (sem preço de projeto). O script da página é `calc.js` |
 
 Ao mudar um texto, mude nos três idiomas e rode `npm run build && npm run pages`.
@@ -56,3 +58,12 @@ Cada página sai com `hreflang` apontando para as outras versões, e o
 
 Estilos específicos em `pages.css` (reaproveita os tokens de `styles.css`).
 Hospedagem e redirects: ver `CLOUDFLARE.md`.
+
+## Analytics (PostHog)
+
+- Snippet no `<head>` de todas as páginas (`POSTHOG` em `build-pages.mjs`). Só carrega em `agenciabyte.com`; para testar em outro host, abra com `?ph=debug`.
+- Eventos passam pelo proxy `/rb/*` (`worker.js`) para não serem bloqueados.
+- `byte.js`: aviso de cookies (sem aceite = `persistence: memory`, sem cookie) e eventos globais: `whatsapp_clicked`, `email_clicked`, `contact_cta_clicked`, `language_switched`, `blog_link_clicked`, `faq_opened`, `cookie_consent`.
+- `calc.js`: `calculator_started`, `calculator_bottleneck_selected`, `calculator_cta_clicked`, `calculator_left`.
+- `checklist.js`: `checklist_scored`, `checklist_cta_clicked`.
+- Home (React): `hero_viewed`, `hero_cta_clicked` (com `hero_variant`), `contact_form_submitted`, `contact_form_failed`.

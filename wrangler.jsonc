@@ -2,9 +2,13 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "site-byte-v2",
   "compatibility_date": "2026-10-01",
-  // Site 100% estático: só Static Assets, sem código de Worker.
+  // Site estático servido pelos Static Assets. O worker.js só atende /rb/*
+  // (proxy do PostHog, ver run_worker_first); o resto nunca passa por ele.
+  "main": "worker.js",
   "assets": {
     "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/rb/*"],
     // /servicos/ -> /servicos (equivale ao trailingSlash: false da Vercel)
     "html_handling": "drop-trailing-slash",
     // Rotas inexistentes servem 404.html com status 404

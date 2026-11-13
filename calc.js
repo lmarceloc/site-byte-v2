@@ -1,5 +1,7 @@
-// Calculadora de automação (/calculadora). Textos, premissas e preços vêm do
-// JSON #calc-data, gerado por build-pages.mjs a partir de i18n/calculator.mjs.
+// Calculadora de automação (/calculadora). Textos e premissas vêm do JSON
+// #calc-data, gerado por build-pages.mjs a partir de i18n/calculator.mjs.
+// Eventos (PostHog, via window.byteTrack de /byte.js): calculator_started,
+// calculator_bottleneck_selected, calculator_cta_clicked e calculator_left.
 (function () {
   var D = JSON.parse(document.getElementById("calc-data").textContent);
   var T = D.t, CFG = D.cfg, B = CFG.bottlenecks;
@@ -9,6 +11,21 @@
   var pct = function (v) { return Math.round(v * 100) + "%"; };
   var fill = function (s, o) { return s.replace(/\{(\w+)\}/g, function (_, k) { return k in o ? o[k] : "{" + k + "}"; }); };
   var g = B[0];
+  var track = function (name, props) { if (window.byteTrack) window.byteTrack(name, props); };
+  var state = {}, started = false, converted = false;
+  function snapshot() {
+    return {
+      bottleneck: g.id, people: state.p, hours_per_week: state.h, hourly_cost: state.c,
+      rework_per_month: state.e, fix_minutes: state.m, automatable_pct: Math.round(state.a * 100),
+      hours_total_month: state.hTot, hours_automatable_month: state.hEnd,
+      monthly_cost: state.costM, monthly_savings: state.endM, annual_savings: state.endM * 12,
+    };
+  }
+  function touch(how) {
+    if (started) return;
+    started = true;
+    track("calculator_started", { first_interaction: how, bottleneck: g.id });
+  }
 
   var chips = document.querySelectorAll("#calc-area .calc-chip");
   chips.forEach(function (b) {
@@ -17,6 +34,8 @@
       g = B[+b.dataset.i];
       $("a").value = Math.round(g.auto * 100);
       calc();
+      touch("bottleneck");
+      track("calculator_bottleneck_selected", { bottleneck: g.id });
     });
   });
 
@@ -35,6 +54,7 @@
     // Horas inteiras antes de multiplicar: a conta mostrada fecha exatamente.
     var hTask = Math.round(p * h * CFG.weeksPerMonth), hRework = Math.round((e * m) / 60), hTot = hTask + hRework;
     var hEnd = Math.round(hTot * a), costM = hTot * c, endM = hEnd * c;
+    state = { p: p, h: h, c: c, e: e, m: m, a: a, hTot: hTot, hEnd: hEnd, costM: costM, endM: endM };
 
     $("cost-y").textContent = brl(costM * 12) + T.perYear;
     $("cost-sub").textContent = brl(costM) + T.perMonth + " · " + hTot + " " + T.hMonth;
@@ -54,6 +74,16 @@
     }));
   }
 
-  ["p", "h", "c", "e", "m", "a"].forEach(function (id) { $(id).addEventListener("input", calc); });
+  ["p", "h", "c", "e", "m", "a"].forEach(function (id) {
+    $(id).addEventListener("input", calc);
+    $(id).addEventListener("change", function () { touch(id); });
+  });
+  $("cta").addEventListener("click", function () { converted = true; track("calculator_cta_clicked", snapshot()); });
+  // Quem mexeu e saiu sem clicar: guarda os últimos números para comparar com quem clicou.
+  addEventListener("pagehide", function () {
+    if (started && !converted && window.posthog && window.posthog.capture) {
+      window.posthog.capture("calculator_left", snapshot(), { transport: "sendBeacon" });
+    }
+  });
   calc();
 })();

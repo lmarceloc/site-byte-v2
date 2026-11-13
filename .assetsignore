@@ -22,3 +22,4 @@ PRODUCT.md
 CLOUDFLARE.md
 transformacao/project.json
 _worker.js
+worker.js

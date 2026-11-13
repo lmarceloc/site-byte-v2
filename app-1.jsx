@@ -146,7 +146,9 @@ function Nav(){
 /* -------------------- Hero -------------------- */
 
 /* Teste A/B do título do hero. Variante fixa por visitante (localStorage);
-   ?v=a|b força uma variante para pré-visualizar. Eventos vão para o GA4. */
+   ?v=a|b força uma variante para pré-visualizar. Eventos vão para o GA4 e o
+   PostHog; no PostHog a variante também fica registrada em todos os eventos da
+   página (hero_variant), para comparar conversão por variante. */
 const HERO_VARIANTS = ['a', 'b'];
 function pickHeroVariant(){
   try {
@@ -163,6 +165,10 @@ function pickHeroVariant(){
 }
 function trackHero(name, variant){
   if (typeof window.gtag === 'function') window.gtag('event', name, { hero_variant: variant, language: LANG });
+  if (window.posthog && window.posthog.register) {
+    window.posthog.register({ hero_variant: variant });
+    window.posthog.capture(name === 'hero_view' ? 'hero_viewed' : 'hero_cta_clicked', { hero_variant: variant });
+  }
 }
 
 function HeroTitle({ variant }){

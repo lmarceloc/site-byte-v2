@@ -15,6 +15,8 @@ import { PAGES, SERVICE_ORDER } from "./i18n/pages.mjs";
 import { USE_CASES, USE_CASE_ORDER } from "./i18n/use-cases.mjs";
 import { CALC, CALC_CONFIG } from "./i18n/calculator.mjs";
 import { BLING, BLING_CHANNELS } from "./i18n/bling.mjs";
+import { PBI } from "./i18n/powerbi-logistica.mjs";
+import { IA_PME } from "./i18n/blog-ia-pme.mjs";
 
 const SITE = "https://agenciabyte.com";
 const BRAND = "Agência Byte";
@@ -42,7 +44,7 @@ const CLIENTS = [
 /* ------------------------------------------------------------------ */
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const abs = (path) => SITE + (path === "/" ? "/" : path);
+const abs = (path) => (/^https?:/.test(path) ? path : SITE + (path === "/" ? "/" : path));
 
 // Serviços de um idioma, já com slug, código, URL e relacionados.
 function servicesFor(lang) {
@@ -65,7 +67,33 @@ const BENEFIT_GLYPHS = ["gear", "plug", "ai", "chart", "gear", "ai"];
 
 // GA e Apollo só carregam na primeira interação (ou após 4s ocioso),
 // para não competir com o conteúdo no carregamento inicial.
-const ANALYTICS = `<script>
+// PostHog (analytics de produto): carregado pelo proxy /rb (worker.js) para não
+// ser bloqueado por ad blocker. Só roda no domínio de produção (?ph=debug força).
+// Antes do consentimento (aviso de cookies em /byte.js) usa persistence "memory":
+// conta visitas e cliques sem gravar cookie nem localStorage. Depois de "Aceitar",
+// passa a gravar cookie para reconhecer quem volta.
+const POSTHOG_TOKEN = "phc_ox6NgnfM8qYQVLiWC2TTXsB8GU7X5E5xUvVefJdcbt3p";
+const POSTHOG = `<script>
+  (function(){
+    if (!/(^|\\.)agenciabyte\\.com$/.test(location.hostname) && !/[?&]ph=debug/.test(location.search)) return;
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog&&window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    var consent = null;
+    try { consent = localStorage.getItem('byte_consent'); } catch (e) {}
+    posthog.init('${POSTHOG_TOKEN}', {
+      api_host: location.origin + '/rb',
+      ui_host: 'https://us.posthog.com',
+      defaults: '2026-08-30',
+      person_profiles: 'identified_only',
+      persistence: consent === 'yes' ? 'localStorage+cookie' : 'memory',
+      capture_dead_clicks: true
+    });
+    posthog.register({ site_language: document.documentElement.lang });
+  })();
+</script>
+<script src="/byte.js" defer></script>`;
+
+const ANALYTICS = POSTHOG + `
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -647,6 +675,26 @@ function servicePage(lang, s) {
       ${caseQuote(lang, SERVICE_CASE[s.slug], { link: true })}
     </div>
   </section>
+  ` : ""}${s.slug === "automacao-com-ia" && lang === "pt" ? `<section class="page-section">
+    <div class="wrap">
+      <a class="card related-card pbi-promo" href="${route("blog:ia-pme", lang)}">
+        <span class="mono muted">// Guia</span>
+        <h2>${IA_PME.h1}</h2>
+        <p class="muted">${IA_PME.lead}</p>
+        <span class="related-more mono">Ler o guia →</span>
+      </a>
+    </div>
+  </section>
+  ` : ""}${s.slug === "dados-e-power-bi" && lang === "pt" ? `<section class="page-section">
+    <div class="wrap">
+      <a class="card related-card pbi-promo" href="${route("pbi-logistica", "blog:ia-pme", lang)}">
+        <span class="mono muted">// Guia por setor</span>
+        <h2>${PBI.h1}</h2>
+        <p class="muted">${PBI.lead}</p>
+        <span class="related-more mono">Ver o guia →</span>
+      </a>
+    </div>
+  </section>
   ` : ""}${s.slug === "integracao-de-sistemas" && lang === "pt" ? blingChannelCards(null, { parentLink: true }) + "\n  " : ""}${s.slug === "automacao-com-ia" && USE_CASES[lang] ? useCaseCards(lang, { heading: true, title: USE_CASES[lang].ui.svcTitle, eyebrow: USE_CASES[lang].ui.svcEyebrow, all: true }) : ""}${processSection(lang)}
   ${faqSection(lang, s.faq)}
   ${relatedSection(lang, s.related)}
@@ -712,7 +760,7 @@ function casePage(lang, slug) {
       <div class="case-stats" aria-label="${ui.statsEyebrow}">
         ${c.stats.map(([n, l]) => `<div class="card case-stat"><div class="display case-num">${n}</div><p class="muted">${l}</p></div>`).join("\n        ")}
       </div>
-      ${caseQuote(lang, slug)}${slug === "divina-argila" && lang === "pt" ? `
+      ${caseQuote(lang, slug)}${slug === "cargon" && lang === "pt" ? `\n      <p class="case-visit"><a href="${route("pbi-logistica", lang)}" class="ul-link">Guia: Power BI para distribuidoras e transportadoras →</a></p>` : ""}${slug === "divina-argila" && lang === "pt" ? `
       <p class="case-visit"><a href="${route("bling", lang)}" class="ul-link">Guia: integração Bling com Mercado Livre e TikTok Shop →</a></p>` : ""}
     </div>
   </section>
@@ -1054,7 +1102,7 @@ function calculatorPage(lang) {
     </div>
   </section>
 
-  <section class="page-section calc-section">
+  <section class="page-section calc-section" id="calculadora">
     <div class="wrap calc">
       <form class="calc-panel" onsubmit="return false">
         <div class="calc-row">
@@ -1357,6 +1405,328 @@ function blingChannelPage(slug) {
   );
 }
 
+/* ------------------------------------------------------------------ */
+/* Power BI para distribuidoras e transportadoras (só pt)              */
+/* ------------------------------------------------------------------ */
+
+function cargonCase(lang, { eyebrow, link }) {
+  const c = PAGES[lang].cases.cargon;
+  return `<section class="page-section">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>${eyebrow}</div>
+      <h2 class="display">${c.h1}</h2>
+      <p class="muted bling-intro">${c.summary}</p>
+      <div class="case-stats bling-stats">
+        ${c.stats.map(([n, t]) => `<div class="card case-stat"><div class="display case-num">${n}</div><p class="muted">${t}</p></div>`).join("\n        ")}
+      </div>
+      ${caseQuote(lang, "cargon", { link: true })}
+      <p class="case-visit"><a href="${route("case:cargon", lang)}" class="ul-link">${link}</a></p>
+    </div>
+  </section>`;
+}
+
+function powerbiLogisticsPage() {
+  const lang = "pt";
+  const p = PAGES[lang];
+  const P = PBI;
+  const key = "pbi-logistica";
+  const path = route(key, lang);
+  const trail = [[route("home", lang), p.ui.crumbHome], [route("services", lang), p.ui.nav.services], [svcRoute("dados-e-power-bi", lang), p.services["dados-e-power-bi"].nav], [path, P.crumb]];
+  const jsonld = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${SITE}${path}#service`,
+        name: P.crumb,
+        serviceType: "Business Intelligence",
+        description: P.description,
+        url: SITE + path,
+        inLanguage: "pt-BR",
+        provider: { "@id": `${SITE}/#organization` },
+        areaServed: "BR",
+      },
+      blingFaqLd(path, P.faq),
+      breadcrumbLd(trail),
+    ],
+  };
+  const L = P.indicators.labels;
+  let n = 0;
+  return (
+    head({ lang, key, title: P.title, description: P.description, jsonld }) +
+    nav(lang, key, route("services", lang)) +
+    `
+<main id="conteudo">
+  <section class="page-hero bling-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      ${crumbs(lang, trail)}
+      <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>${P.eyebrow}</div>
+      <h1 class="display">${P.h1}</h1>
+      <p class="lead muted">${P.lead}</p>
+      <aside class="bling-tldr" aria-label="${P.tldrLabel}">
+        <div class="mono bling-tldr-k">${P.tldrLabel}</div>
+        <p>${esc(P.tldr)}</p>
+      </aside>
+      ${ctaButtons(lang)}
+    </div>
+  </section>
+
+  <section class="page-section" id="para-quem">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>${P.audience.eyebrow}</div>
+        <h2 class="display">${P.audience.h2}</h2>
+        <p class="muted bling-intro">${P.audience.intro}</p>
+      </div>
+      <div class="deliv-grid">
+        ${P.audience.cards.map((c) => `<div class="card">
+          <h3>${c.h3}</h3>
+          <p class="muted">${c.p}</p>
+          <ul class="bling-check pbi-check">
+            ${c.items.map((x) => `<li>${x}</li>`).join("\n            ")}
+          </ul>
+        </div>`).join("\n        ")}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt" id="fontes">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#8B5CF6"></span>${P.sources.eyebrow}</div>
+        <h2 class="display">${P.sources.h2}</h2>
+        <p class="muted bling-intro">${P.sources.intro}</p>
+      </div>
+      <div class="deliv-grid">
+        ${P.sources.cards.map((c) => `<div class="card">
+          <h3>${c.h3}</h3>
+          <p class="muted">${c.p}</p>
+        </div>`).join("\n        ")}
+      </div>
+      <div class="stack">
+        <div class="mono muted">// da fonte ao painel</div>
+        <ul>
+          ${P.sources.stack.map((b) => `<li class="chip">${b}</li>`).join("\n          ")}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section" id="indicadores">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>${P.indicators.eyebrow}</div>
+        <h2 class="display">${P.indicators.h2}</h2>
+        <p class="muted bling-intro">${P.indicators.intro}</p>
+      </div>
+      ${P.indicators.groups.map((g) => `<h3 class="pbi-group mono">${g.name}</h3>
+      <ol class="pbi-kpis" start="${n + 1}">
+        ${g.items.map((k) => `<li class="card pbi-kpi">
+          <div class="pbi-kpi-head"><span class="mono bling-n">${String(++n).padStart(2, "0")}</span><h4>${k.n}</h4></div>
+          <dl>
+            <div><dt class="mono">${L.what}</dt><dd>${k.what}</dd></div>
+            <div><dt class="mono">${L.from}</dt><dd>${k.from}</dd></div>
+            <div class="bling-api"><dt class="mono">${L.decision}</dt><dd>${k.decision}</dd></div>
+          </dl>
+        </li>`).join("\n        ")}
+      </ol>`).join("\n      ")}
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt" id="previsao">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#EC4899"></span>${P.forecast.eyebrow}</div>
+        <h2 class="display">${P.forecast.h2}</h2>
+      </div>
+      <div class="bling-prose">
+        <p>${P.forecast.intro}</p>
+        <h3>${P.forecast.yesTitle}</h3>
+        <ul class="bling-check">
+          ${P.forecast.yes.map((x) => `<li>${x}</li>`).join("\n          ")}
+        </ul>
+        <p>${P.forecast.examples}</p>
+        <h3>${P.forecast.noTitle}</h3>
+        <p>${P.forecast.no}</p>
+      </div>
+    </div>
+  </section>
+
+  ${cargonCase(lang, { eyebrow: P.caseEyebrow, link: P.caseLink })}
+
+  <section class="page-section page-section-alt" id="prazo">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#EC4899"></span>${P.time.eyebrow}</div>
+        <h2 class="display">${P.time.h2}</h2>
+        <p class="muted bling-intro">${P.time.intro}</p>
+      </div>
+      <ol class="steps bling-steps">
+        ${P.time.steps.map((st, i) => `<li class="card">
+          <div class="display step-code">0${i + 1}</div>
+          <h3>${st.t}</h3>
+          <p class="muted">${st.d}</p>
+          <div class="mono step-dur">${st.dur}</div>
+        </li>`).join("\n        ")}
+      </ol>
+    </div>
+  </section>
+
+  ${faqSection(lang, P.faq, "Perguntas frequentes")}
+  ${relatedSection(lang, ["dados-e-power-bi", "integracao-de-sistemas"])}
+  ${ctaSection(lang, P.cta)}
+</main>
+` +
+    footer(lang)
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Post pilar: Automação com IA para PME (só pt)                       */
+/* ------------------------------------------------------------------ */
+
+function iaPmePost() {
+  const lang = "pt";
+  const p = PAGES[lang];
+  const A = IA_PME;
+  const U = USE_CASES[lang];
+  const key = "blog:ia-pme";
+  const path = route(key, lang);
+  const trail = [[route("home", lang), p.ui.crumbHome], ["https://blog.agenciabyte.com/", "Blog"], [path, A.crumb]];
+  const jsonld = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${SITE}${path}#article`,
+        headline: A.h1,
+        description: A.description,
+        url: SITE + path,
+        inLanguage: "pt-BR",
+        datePublished: A.published,
+        dateModified: A.published,
+        image: OG_IMAGE,
+        author: { "@id": `${SITE}/#organization` },
+        publisher: { "@id": `${SITE}/#organization` },
+        mainEntityOfPage: SITE + path,
+        about: ["Automação com IA", "Automação de processos", "PME"],
+      },
+      breadcrumbLd(trail),
+    ],
+  };
+  const C = A.checklist;
+  const dataJson = JSON.stringify({ results: C.results, score: C.score, wa: C.wa, whatsapp: WHATSAPP, total: C.items.length }).replace(/</g, "\\u003c");
+  const fmtDate = new Date(A.published + "T12:00:00Z").toLocaleDateString("pt-BR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  return (
+    head({ lang, key, title: A.title, description: A.description, jsonld, extraHead: `<meta property="article:published_time" content="${A.published}" />\n` }) +
+    nav(lang, key, "") +
+    `
+<main id="conteudo">
+  <article class="post">
+  <section class="page-hero post-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      ${crumbs(lang, trail)}
+      <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>${A.eyebrow}</div>
+      <h1 class="display">${A.h1}</h1>
+      <p class="lead muted">${A.lead}</p>
+      <p class="mono post-meta">Agência Byte · <time datetime="${A.published}">${fmtDate}</time> · ${A.readTime}</p>
+    </div>
+  </section>
+
+  <section class="page-section post-body" id="resposta-curta">
+    <div class="wrap post-wrap">
+      <h2 class="display">${A.short.h2}</h2>
+      <div class="bling-tldr post-short"><p>${esc(A.short.text)}</p></div>
+      <ul class="post-criteria">
+        ${A.short.criteria.map(([t, d]) => `<li class="card"><b>${t}</b><span class="muted">${d}</span></li>`).join("\n        ")}
+      </ul>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt post-body" id="os-7">
+    <div class="wrap post-wrap">
+      <h2 class="display">${A.pays.h2}</h2>
+      <p class="post-p">${A.pays.intro}</p>
+      <ol class="post-items">
+        ${A.pays.items.map((it, i) => `<li class="card post-item">
+          <div class="post-item-head"><span class="mono bling-n" aria-hidden="true">0${i + 1}</span><h3>${it.h3}</h3></div>
+          <p>${it.why}</p>
+          <dl>
+            <div><dt class="mono">${A.pays.labels.does}</dt><dd>${it.does}</dd></div>
+            <div class="bling-api"><dt class="mono">${A.pays.labels.human}</dt><dd>${it.human}</dd></div>
+          </dl>
+          ${it.useCase ? `<a class="related-more mono" href="${route(`uc:${it.useCase}`, lang)}">${U.items[it.useCase].name}: ${A.pays.labels.link}</a>` : `<a class="related-more mono" href="${svcRoute("automacao-com-ia", lang)}">Automação com IA: ver o serviço →</a>`}
+        </li>`).join("\n        ")}
+      </ol>
+    </div>
+  </section>
+
+  <section class="page-section post-body" id="os-3">
+    <div class="wrap post-wrap">
+      <h2 class="display">${A.skip.h2}</h2>
+      <p class="post-p">${A.skip.intro}</p>
+      ${A.skip.items.map((it) => `<h3 class="post-h3 post-no">${it.h3}</h3>
+      <p class="post-p">${it.p}</p>`).join("\n      ")}
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt post-body" id="antes-de-automatizar">
+    <div class="wrap post-wrap">
+      <h2 class="display">${A.before.h2}</h2>
+      <p class="post-p">${A.before.intro}</p>
+      <ol class="steps post-steps">
+        ${A.before.steps.map(([t, d], i) => `<li class="card">
+          <div class="display step-code">0${i + 1}</div>
+          <h3>${t}</h3>
+          <p class="muted">${d}</p>
+        </li>`).join("\n        ")}
+      </ol>
+      <p class="post-p">${A.before.outro}</p>
+    </div>
+  </section>
+
+  <section class="page-section post-body" id="quanto-custa">
+    <div class="wrap post-wrap">
+      <h2 class="display">${A.cost.h2}</h2>
+      <p class="post-p">${A.cost.p1}</p>
+      <p class="post-p">${A.cost.p2}</p>
+      <p class="post-p"><a href="${route("calculator", lang)}" class="ul-link">${A.cost.calc}</a></p>
+      <p class="post-p">${A.cost.p3}</p>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt post-body" id="checklist">
+    <div class="wrap post-wrap">
+      <h2 class="display">${C.h2}</h2>
+      <p class="post-p">${C.intro}</p>
+      <form class="card post-checklist" id="ck" onsubmit="return false">
+        <ul>
+          ${C.items.map((t, i) => `<li><label><input type="checkbox" name="ck${i}" /><span>${t}</span></label></li>`).join("\n          ")}
+        </ul>
+        <div class="post-ck-result" id="ck-result" aria-live="polite" hidden>
+          <div class="mono post-ck-score" id="ck-score"></div>
+          <div class="post-ck-title" id="ck-title"></div>
+          <p class="muted" id="ck-text"></p>
+          <a class="btn btn-accent" id="ck-cta" href="${WHATSAPP}" target="_blank" rel="noopener noreferrer">${C.cta}</a>
+        </div>
+      </form>
+      <noscript><p class="post-p">${C.results.map((r) => `<b>${r.min}+ itens:</b> ${r.title}. ${r.text}`).join("<br>")}</p></noscript>
+    </div>
+  </section>
+  </article>
+
+  ${useCaseCards(lang, { heading: true, all: true })}
+  ${ctaSection(lang, A.cta)}
+</main>
+<script id="ck-data" type="application/json">${dataJson}</script>
+<script src="/checklist.js" defer></script>
+` +
+    footer(lang)
+  );
+}
+
 function servicesHub(lang) {
   const p = PAGES[lang];
   const hub = p.hub;
@@ -1586,6 +1956,8 @@ for (const lang of LANGS) {
   if (lang === "pt") {
     out[fileFor(route("bling", lang))] = blingHub();
     for (const slug of BLING_CHANNELS) out[fileFor(route(`bling:${slug}`, lang))] = blingChannelPage(slug);
+    out[fileFor(route("pbi-logistica", lang))] = powerbiLogisticsPage();
+    out[fileFor(route("blog:ia-pme", lang))] = iaPmePost();
   }
   if (USE_CASES[lang]) {
     out[fileFor(route("usecases", lang))] = useCasesHub(lang);
@@ -1601,7 +1973,7 @@ for (const [file, html] of Object.entries(out)) {
 
 // Sitemap com todas as páginas nos três idiomas, cada uma com suas alternativas (hreflang).
 const today = new Date().toISOString().slice(0, 10);
-const keys = ["home", "services", ...SERVICE_ORDER.map((s) => `svc:${s.slug}`), "transformation", "calculator", "bling", ...BLING_CHANNELS.map((x) => `bling:${x}`), ...CASE_SLUGS.map((x) => `case:${x}`), "usecases", ...USE_CASE_ORDER.map((x) => `uc:${x}`)];
+const keys = ["home", "services", ...SERVICE_ORDER.map((s) => `svc:${s.slug}`), "transformation", "calculator", "bling", ...BLING_CHANNELS.map((x) => `bling:${x}`), "pbi-logistica", ...CASE_SLUGS.map((x) => `case:${x}`), "usecases", ...USE_CASE_ORDER.map((x) => `uc:${x}`)];
 const entries = [];
 for (const lang of LANGS) {
   for (const key of keys) {

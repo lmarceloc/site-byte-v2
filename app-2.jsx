@@ -133,8 +133,10 @@ function Contact(){
       });
       if (!res.ok) throw new Error('HTTP ' + res.status);
       setStatus('sent');
+      if (window.byteTrack) window.byteTrack('contact_form_submitted', { budget, language: LANG });
     } catch (err) {
       setStatus('error');
+      if (window.byteTrack) window.byteTrack('contact_form_failed', { language: LANG });
     }
   }
 

@@ -162,6 +162,24 @@
 </script>
 
 <script>
+  (function(){
+    if (!/(^|\.)agenciabyte\.com$/.test(location.hostname) && !/[?&]ph=debug/.test(location.search)) return;
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog&&window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    var consent = null;
+    try { consent = localStorage.getItem('byte_consent'); } catch (e) {}
+    posthog.init('phc_ox6NgnfM8qYQVLiWC2TTXsB8GU7X5E5xUvVefJdcbt3p', {
+      api_host: location.origin + '/rb',
+      ui_host: 'https://us.posthog.com',
+      defaults: '2026-08-30',
+      person_profiles: 'identified_only',
+      persistence: consent === 'yes' ? 'localStorage+cookie' : 'memory',
+      capture_dead_clicks: true
+    });
+    posthog.register({ site_language: document.documentElement.lang });
+  })();
+</script>
+<script src="/byte.js" defer></script>
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -267,12 +285,13 @@
       <p class="lead muted">A CargOn transformou as informações geradas dentro da sua plataforma em um novo produto para os clientes: um data warehouse, pipelines ETL e dashboards logísticos em Power BI com previsões, para a operação deixar de olhar para trás e passar a antecipar.</p>
       <div class="case-stats" aria-label="Em números">
         <div class="card case-stat"><div class="display case-num">4</div><p class="muted">dashboards entregues para os clientes da CargOn</p></div>
-        <div class="card case-stat"><div class="display case-num">30</div><p class="muted">dias para criar a base analítica e os dashboards</p></div>
+        <div class="card case-stat"><div class="display case-num">30</div><p class="muted">dias do início ao go-live: base analítica, ETL e dashboards no ar</p></div>
       </div>
       <figure class="case-quote">
         <blockquote><p>“Agora, nossos clientes têm dados estruturados da operação deles, insights e dados preditivos para poder usar na sua logística, e nós criamos mais um produto monetizado.”</p></blockquote>
         <figcaption>— <cite>CargOn</cite>, cliente da Agência Byte</figcaption>
       </figure>
+      <p class="case-visit"><a href="/servicos/power-bi-para-distribuidoras-e-transportadoras" class="ul-link">Guia: Power BI para distribuidoras e transportadoras →</a></p>
     </div>
   </section>
 
