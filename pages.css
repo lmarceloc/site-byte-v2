@@ -362,3 +362,18 @@ a.nav-brand-wrap:focus-visible{ outline: 2px solid var(--accent); outline-offset
   .bling-limit{ padding: 22px; }
 }
 @media (max-width: 560px){ .bling-steps{ grid-template-columns: 1fr; } }
+
+/* ----- Power BI para distribuidoras e transportadoras ----- */
+.pbi-check{ margin: 18px 0 0; }
+.pbi-check li{ font-size: 15px; }
+.pbi-group{ font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 40px 0 14px; font-weight: 500; }
+.pbi-group:first-of-type{ margin-top: 0; }
+.pbi-kpis{ list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.pbi-kpi{ padding: 24px; }
+.pbi-kpi-head{ display: flex; align-items: baseline; gap: 12px; }
+.pbi-kpi-head h4{ margin: 0; font-family: var(--font-display); font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+.pbi-kpi dl{ display: grid; gap: 12px; margin: 16px 0 0; }
+.pbi-kpi dt{ font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 4px; }
+.pbi-kpi dd{ margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+.pbi-promo h2{ font-size: clamp(22px, 2.4vw, 30px); margin: 0; }
+@media (max-width: 900px){ .pbi-kpis{ grid-template-columns: 1fr; } }

@@ -15,6 +15,7 @@ import { PAGES, SERVICE_ORDER } from "./i18n/pages.mjs";
 import { USE_CASES, USE_CASE_ORDER } from "./i18n/use-cases.mjs";
 import { CALC, CALC_CONFIG } from "./i18n/calculator.mjs";
 import { BLING, BLING_CHANNELS } from "./i18n/bling.mjs";
+import { PBI } from "./i18n/powerbi-logistica.mjs";
 
 const SITE = "https://agenciabyte.com";
 const BRAND = "Agência Byte";
@@ -647,6 +648,16 @@ function servicePage(lang, s) {
       ${caseQuote(lang, SERVICE_CASE[s.slug], { link: true })}
     </div>
   </section>
+  ` : ""}${s.slug === "dados-e-power-bi" && lang === "pt" ? `<section class="page-section">
+    <div class="wrap">
+      <a class="card related-card pbi-promo" href="${route("pbi-logistica", lang)}">
+        <span class="mono muted">// Guia por setor</span>
+        <h2>${PBI.h1}</h2>
+        <p class="muted">${PBI.lead}</p>
+        <span class="related-more mono">Ver o guia →</span>
+      </a>
+    </div>
+  </section>
   ` : ""}${s.slug === "integracao-de-sistemas" && lang === "pt" ? blingChannelCards(null, { parentLink: true }) + "\n  " : ""}${s.slug === "automacao-com-ia" && USE_CASES[lang] ? useCaseCards(lang, { heading: true, title: USE_CASES[lang].ui.svcTitle, eyebrow: USE_CASES[lang].ui.svcEyebrow, all: true }) : ""}${processSection(lang)}
   ${faqSection(lang, s.faq)}
   ${relatedSection(lang, s.related)}
@@ -712,7 +723,7 @@ function casePage(lang, slug) {
       <div class="case-stats" aria-label="${ui.statsEyebrow}">
         ${c.stats.map(([n, l]) => `<div class="card case-stat"><div class="display case-num">${n}</div><p class="muted">${l}</p></div>`).join("\n        ")}
       </div>
-      ${caseQuote(lang, slug)}${slug === "divina-argila" && lang === "pt" ? `
+      ${caseQuote(lang, slug)}${slug === "cargon" && lang === "pt" ? `\n      <p class="case-visit"><a href="${route("pbi-logistica", lang)}" class="ul-link">Guia: Power BI para distribuidoras e transportadoras →</a></p>` : ""}${slug === "divina-argila" && lang === "pt" ? `
       <p class="case-visit"><a href="${route("bling", lang)}" class="ul-link">Guia: integração Bling com Mercado Livre e TikTok Shop →</a></p>` : ""}
     </div>
   </section>
@@ -1357,6 +1368,183 @@ function blingChannelPage(slug) {
   );
 }
 
+/* ------------------------------------------------------------------ */
+/* Power BI para distribuidoras e transportadoras (só pt)              */
+/* ------------------------------------------------------------------ */
+
+function cargonCase(lang, { eyebrow, link }) {
+  const c = PAGES[lang].cases.cargon;
+  return `<section class="page-section">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>${eyebrow}</div>
+      <h2 class="display">${c.h1}</h2>
+      <p class="muted bling-intro">${c.summary}</p>
+      <div class="case-stats bling-stats">
+        ${c.stats.map(([n, t]) => `<div class="card case-stat"><div class="display case-num">${n}</div><p class="muted">${t}</p></div>`).join("\n        ")}
+      </div>
+      ${caseQuote(lang, "cargon", { link: true })}
+      <p class="case-visit"><a href="${route("case:cargon", lang)}" class="ul-link">${link}</a></p>
+    </div>
+  </section>`;
+}
+
+function powerbiLogisticsPage() {
+  const lang = "pt";
+  const p = PAGES[lang];
+  const P = PBI;
+  const key = "pbi-logistica";
+  const path = route(key, lang);
+  const trail = [[route("home", lang), p.ui.crumbHome], [route("services", lang), p.ui.nav.services], [svcRoute("dados-e-power-bi", lang), p.services["dados-e-power-bi"].nav], [path, P.crumb]];
+  const jsonld = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${SITE}${path}#service`,
+        name: P.crumb,
+        serviceType: "Business Intelligence",
+        description: P.description,
+        url: SITE + path,
+        inLanguage: "pt-BR",
+        provider: { "@id": `${SITE}/#organization` },
+        areaServed: "BR",
+      },
+      blingFaqLd(path, P.faq),
+      breadcrumbLd(trail),
+    ],
+  };
+  const L = P.indicators.labels;
+  let n = 0;
+  return (
+    head({ lang, key, title: P.title, description: P.description, jsonld }) +
+    nav(lang, key, route("services", lang)) +
+    `
+<main id="conteudo">
+  <section class="page-hero bling-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      ${crumbs(lang, trail)}
+      <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>${P.eyebrow}</div>
+      <h1 class="display">${P.h1}</h1>
+      <p class="lead muted">${P.lead}</p>
+      <aside class="bling-tldr" aria-label="${P.tldrLabel}">
+        <div class="mono bling-tldr-k">${P.tldrLabel}</div>
+        <p>${esc(P.tldr)}</p>
+      </aside>
+      ${ctaButtons(lang)}
+    </div>
+  </section>
+
+  <section class="page-section" id="para-quem">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>${P.audience.eyebrow}</div>
+        <h2 class="display">${P.audience.h2}</h2>
+        <p class="muted bling-intro">${P.audience.intro}</p>
+      </div>
+      <div class="deliv-grid">
+        ${P.audience.cards.map((c) => `<div class="card">
+          <h3>${c.h3}</h3>
+          <p class="muted">${c.p}</p>
+          <ul class="bling-check pbi-check">
+            ${c.items.map((x) => `<li>${x}</li>`).join("\n            ")}
+          </ul>
+        </div>`).join("\n        ")}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt" id="fontes">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#8B5CF6"></span>${P.sources.eyebrow}</div>
+        <h2 class="display">${P.sources.h2}</h2>
+        <p class="muted bling-intro">${P.sources.intro}</p>
+      </div>
+      <div class="deliv-grid">
+        ${P.sources.cards.map((c) => `<div class="card">
+          <h3>${c.h3}</h3>
+          <p class="muted">${c.p}</p>
+        </div>`).join("\n        ")}
+      </div>
+      <div class="stack">
+        <div class="mono muted">// da fonte ao painel</div>
+        <ul>
+          ${P.sources.stack.map((b) => `<li class="chip">${b}</li>`).join("\n          ")}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section" id="indicadores">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>${P.indicators.eyebrow}</div>
+        <h2 class="display">${P.indicators.h2}</h2>
+        <p class="muted bling-intro">${P.indicators.intro}</p>
+      </div>
+      ${P.indicators.groups.map((g) => `<h3 class="pbi-group mono">${g.name}</h3>
+      <ol class="pbi-kpis" start="${n + 1}">
+        ${g.items.map((k) => `<li class="card pbi-kpi">
+          <div class="pbi-kpi-head"><span class="mono bling-n">${String(++n).padStart(2, "0")}</span><h4>${k.n}</h4></div>
+          <dl>
+            <div><dt class="mono">${L.what}</dt><dd>${k.what}</dd></div>
+            <div><dt class="mono">${L.from}</dt><dd>${k.from}</dd></div>
+            <div class="bling-api"><dt class="mono">${L.decision}</dt><dd>${k.decision}</dd></div>
+          </dl>
+        </li>`).join("\n        ")}
+      </ol>`).join("\n      ")}
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt" id="previsao">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#EC4899"></span>${P.forecast.eyebrow}</div>
+        <h2 class="display">${P.forecast.h2}</h2>
+      </div>
+      <div class="bling-prose">
+        <p>${P.forecast.intro}</p>
+        <h3>${P.forecast.yesTitle}</h3>
+        <ul class="bling-check">
+          ${P.forecast.yes.map((x) => `<li>${x}</li>`).join("\n          ")}
+        </ul>
+        <p>${P.forecast.examples}</p>
+        <h3>${P.forecast.noTitle}</h3>
+        <p>${P.forecast.no}</p>
+      </div>
+    </div>
+  </section>
+
+  ${cargonCase(lang, { eyebrow: P.caseEyebrow, link: P.caseLink })}
+
+  <section class="page-section page-section-alt" id="prazo">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#EC4899"></span>${P.time.eyebrow}</div>
+        <h2 class="display">${P.time.h2}</h2>
+        <p class="muted bling-intro">${P.time.intro}</p>
+      </div>
+      <ol class="steps bling-steps">
+        ${P.time.steps.map((st, i) => `<li class="card">
+          <div class="display step-code">0${i + 1}</div>
+          <h3>${st.t}</h3>
+          <p class="muted">${st.d}</p>
+          <div class="mono step-dur">${st.dur}</div>
+        </li>`).join("\n        ")}
+      </ol>
+    </div>
+  </section>
+
+  ${faqSection(lang, P.faq, "Perguntas frequentes")}
+  ${relatedSection(lang, ["dados-e-power-bi", "integracao-de-sistemas"])}
+  ${ctaSection(lang, P.cta)}
+</main>
+` +
+    footer(lang)
+  );
+}
+
 function servicesHub(lang) {
   const p = PAGES[lang];
   const hub = p.hub;
@@ -1586,6 +1774,7 @@ for (const lang of LANGS) {
   if (lang === "pt") {
     out[fileFor(route("bling", lang))] = blingHub();
     for (const slug of BLING_CHANNELS) out[fileFor(route(`bling:${slug}`, lang))] = blingChannelPage(slug);
+    out[fileFor(route("pbi-logistica", lang))] = powerbiLogisticsPage();
   }
   if (USE_CASES[lang]) {
     out[fileFor(route("usecases", lang))] = useCasesHub(lang);
@@ -1601,7 +1790,7 @@ for (const [file, html] of Object.entries(out)) {
 
 // Sitemap com todas as páginas nos três idiomas, cada uma com suas alternativas (hreflang).
 const today = new Date().toISOString().slice(0, 10);
-const keys = ["home", "services", ...SERVICE_ORDER.map((s) => `svc:${s.slug}`), "transformation", "calculator", "bling", ...BLING_CHANNELS.map((x) => `bling:${x}`), ...CASE_SLUGS.map((x) => `case:${x}`), "usecases", ...USE_CASE_ORDER.map((x) => `uc:${x}`)];
+const keys = ["home", "services", ...SERVICE_ORDER.map((s) => `svc:${s.slug}`), "transformation", "calculator", "bling", ...BLING_CHANNELS.map((x) => `bling:${x}`), "pbi-logistica", ...CASE_SLUGS.map((x) => `case:${x}`), "usecases", ...USE_CASE_ORDER.map((x) => `uc:${x}`)];
 const entries = [];
 for (const lang of LANGS) {
   for (const key of keys) {

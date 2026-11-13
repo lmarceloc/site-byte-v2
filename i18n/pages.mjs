@@ -167,7 +167,7 @@ const pt = {
       lead: "A CargOn transformou as informações geradas dentro da sua plataforma em um novo produto para os clientes: um data warehouse, pipelines ETL e dashboards logísticos em Power BI com previsões, para a operação deixar de olhar para trás e passar a antecipar.",
       summary: "A CargOn queria criar mais um produto para os seus clientes a partir das informações geradas na plataforma. Em 30 dias, a Agência Byte entregou o data warehouse, o ETL e 4 dashboards logísticos em Power BI, com previsões.",
       quote: "Agora, nossos clientes têm dados estruturados da operação deles, insights e dados preditivos para poder usar na sua logística, e nós criamos mais um produto monetizado.",
-      stats: [["4", "dashboards entregues para os clientes da CargOn"], ["30", "dias para criar a base analítica e os dashboards"]],
+      stats: [["4", "dashboards entregues para os clientes da CargOn"], ["30", "dias do início ao go-live: base analítica, ETL e dashboards no ar"]],
       qa: [
         { q: "Quem é a CargOn?", a: "A CargOn é uma plataforma de logística, e os seus clientes geram registros de operação dentro dela. É cliente da Agência Byte." },
         { q: "Qual era o objetivo do projeto?", a: "Criar mais um produto, para monetizar sobre a base de clientes, a partir do que a própria plataforma registra. Para isso, essas informações precisavam ser organizados em uma base única e confiável, pronta para análise." },
@@ -503,7 +503,7 @@ const en = {
       lead: "CargOn turned the data generated inside its platform into a new product for its customers: a data warehouse, ETL pipelines and Power BI logistics dashboards with forecasts, so operations stop looking backward and start anticipating.",
       summary: "CargOn wanted a new product for its customers built on the data generated in its platform. In 30 days, Agência Byte delivered the data warehouse, the ETL and 4 logistics dashboards in Power BI, with forecasts.",
       quote: "Now our customers have structured data on their own operations, insights and predictive data to use in their logistics, and we've created one more monetized product.",
-      stats: [["4", "dashboards delivered to CargOn's customers"], ["30", "days to build the data foundation and the dashboards"]],
+      stats: [["4", "dashboards delivered to CargOn's customers"], ["30", "days from kickoff to go-live: data foundation, ETL and dashboards live"]],
       qa: [
         { q: "Who is CargOn?", a: "CargOn is a logistics platform, and its customers generate operational data inside it. It is an Agência Byte client." },
         { q: "What was the goal of the project?", a: "To create one more product, to monetize its customer base, from the data the platform itself generates. For that, the data had to be organized into a single, reliable base ready for analysis." },
@@ -833,7 +833,7 @@ const es = {
       lead: "CargOn convirtió los datos generados dentro de su plataforma en un nuevo producto para sus clientes: un data warehouse, pipelines ETL y dashboards logísticos en Power BI con previsiones, para que la operación deje de mirar hacia atrás y empiece a anticiparse.",
       summary: "CargOn quería crear un producto más para sus clientes a partir de los datos generados en la plataforma. En 30 días, Agência Byte entregó el data warehouse, el ETL y 4 dashboards logísticos en Power BI, con previsiones.",
       quote: "Ahora nuestros clientes tienen datos estructurados de su propia operación, insights y datos predictivos para usar en su logística, y nosotros creamos un producto más monetizado.",
-      stats: [["4", "dashboards entregados a los clientes de CargOn"], ["30", "días para crear la base de datos y los dashboards"]],
+      stats: [["4", "dashboards entregados a los clientes de CargOn"], ["30", "días del inicio al go-live: base de datos, ETL y dashboards en producción"]],
       qa: [
         { q: "¿Quién es CargOn?", a: "CargOn es una plataforma de logística, y sus clientes generan datos de operación dentro de ella. Es cliente de Agência Byte." },
         { q: "¿Cuál era el objetivo del proyecto?", a: "Crear un producto más, para monetizar su base de clientes, a partir de los datos que genera la propia plataforma. Para eso, los datos debían organizarse en una base única y confiable, lista para el análisis." },
