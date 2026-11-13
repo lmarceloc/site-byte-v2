@@ -203,7 +203,7 @@ function nav(lang, key, current) {
     [anchor("clientes"), u.nav.clients],
   ];
   const cur = (href) => (href === current ? ' aria-current="page"' : "");
-  const blog = '<a href="https://blog.agenciabyte.com/" class="nav-pill-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>';
+  const blog = '<a href="https://agenciabyte.com/blog" class="nav-pill-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>';
   return `<a class="skip-link" href="#conteudo">${u.skip}</a>
 <header class="nav">
   <div class="nav-inner">
@@ -230,7 +230,7 @@ function nav(lang, key, current) {
   </div>
   <nav class="nav-mobile-menu" id="menu-mobile" aria-label="${u.mobileMenu}" hidden>
     ${links.map(([h, l]) => `<a href="${h}"${cur(h)}>${l}</a>`).join("\n    ")}
-    <a href="https://blog.agenciabyte.com/" class="ul-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    <a href="https://agenciabyte.com/blog" class="ul-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
     <a href="${anchor("contato")}" class="nav-mobile-cta">${u.contact}</a>
   </nav>
 </header>
@@ -269,7 +269,7 @@ function footer(lang) {
         <p class="muted footer-tagline">${u.footer.tagline}</p>
       </div>
       ${col(u.footer.services, servicesFor(lang).map((s) => [s.path, s.nav]))}
-      ${col(u.footer.company, [[anchor("sobre"), u.footer.about], [anchor("processo"), u.footer.process], [route("transformation", lang), u.footer.transformation], [route("calculator", lang), CALC[lang].nav], ...(USE_CASES[lang] ? [[route("usecases", lang), USE_CASES[lang].ui.nav]] : []), ["https://blog.agenciabyte.com/", "Blog"]])}
+      ${col(u.footer.company, [[anchor("sobre"), u.footer.about], [anchor("processo"), u.footer.process], [route("transformation", lang), u.footer.transformation], [route("calculator", lang), CALC[lang].nav], ...(USE_CASES[lang] ? [[route("usecases", lang), USE_CASES[lang].ui.nav]] : []), ["https://agenciabyte.com/blog", "Blog"]])}
       <div>
         <div class="mono footer-title">${u.footer.contact}</div>
         <ul class="footer-list">
@@ -1593,7 +1593,7 @@ function iaPmePost() {
   const U = USE_CASES[lang];
   const key = "blog:ia-pme";
   const path = route(key, lang);
-  const trail = [[route("home", lang), p.ui.crumbHome], ["https://blog.agenciabyte.com/", "Blog"], [path, A.crumb]];
+  const trail = [[route("home", lang), p.ui.crumbHome], ["https://agenciabyte.com/blog", "Blog"], [path, A.crumb]];
   const jsonld = {
     "@context": "https://schema.org",
     "@graph": [
