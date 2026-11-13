@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://agenciabyte.com/sitemap.xml
+Sitemap: https://agenciabyte.com/blog/sitemap_index.xml

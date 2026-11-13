@@ -73,7 +73,7 @@
     else if (/^mailto:/.test(href)) capture("email_clicked", props);
     else if (/#contato$/.test(href)) capture("contact_cta_clicked", props);
     else if (a.closest(".lang-menu")) capture("language_switched", { to: a.getAttribute("lang"), from: document.documentElement.lang });
-    else if (/blog\.agenciabyte\.com/.test(href)) capture("blog_link_clicked", props);
+    else if (/^https:\/\/agenciabyte\.com\/blog(\/|$)/.test(href)) capture("blog_link_clicked", props);
   }, true);
 
   // Perguntas frequentes abertas (o evento "toggle" não sobe, por isso a captura).
