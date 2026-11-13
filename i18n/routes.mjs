@@ -38,6 +38,7 @@ export const ROUTES = {
   transformation: { pt: "/transformacao", en: "/en/transformation", es: "/es/transformacion" },
   "case:cargon": { pt: "/clientes/cargon", en: "/en/clients/cargon", es: "/es/clientes/cargon" },
   "case:divina-argila": { pt: "/clientes/divina-argila", en: "/en/clients/divina-argila", es: "/es/clientes/divina-argila" },
+  calculator: { pt: "/calculadora", en: "/en/automation-calculator", es: "/es/calculadora" },
   usecases: { pt: "/casos-de-uso", en: "/en/use-cases", es: "/es/casos-de-uso" },
   "uc:atendimento-whatsapp-ia": {
     pt: "/casos-de-uso/atendimento-whatsapp-ia",

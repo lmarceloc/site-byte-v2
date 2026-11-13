@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://agenciabyte.com/</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es"/>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/servicos</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios"/>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/servicos/desenvolvimento-de-software</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/desenvolvimento-de-software"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services/custom-software-development"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios/desarrollo-de-software"/>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/servicos/automacao-com-ia</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/automacao-com-ia"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services/ai-automation"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios/automatizacion-con-ia"/>
@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/servicos/integracao-de-sistemas</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/integracao-de-sistemas"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services/systems-integration"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios/integracion-de-sistemas"/>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/servicos/dados-e-power-bi</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/dados-e-power-bi"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services/data-and-power-bi"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios/datos-y-power-bi"/>
@@ -50,15 +50,23 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/transformacao</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/transformacao"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/transformation"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/transformacion"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/transformacao"/>
   </url>
   <url>
+    <loc>https://agenciabyte.com/calculadora</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/calculadora"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/automation-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/calculadora"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/calculadora"/>
+  </url>
+  <url>
     <loc>https://agenciabyte.com/clientes/divina-argila</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/clientes/divina-argila"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/clients/divina-argila"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/clientes/divina-argila"/>
@@ -66,7 +74,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/clientes/cargon</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/clientes/cargon"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/clients/cargon"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/clientes/cargon"/>
@@ -74,7 +82,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/casos-de-uso</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso"/>
@@ -82,7 +90,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/whatsapp-ai-customer-service"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/atencion-whatsapp-ia"/>
@@ -90,7 +98,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/ai-document-data-extraction"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/extraccion-de-datos-de-documentos"/>
@@ -98,7 +106,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/order-and-lead-triage"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/triaje-de-pedidos-y-leads"/>
@@ -106,7 +114,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/administrative-process-automation"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/automatizacion-de-procesos-administrativos"/>
@@ -114,7 +122,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/ai-assistant-company-documents"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/asistente-documentos-de-la-empresa"/>
@@ -122,7 +130,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/casos-de-uso/relatorios-automaticos</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/relatorios-automaticos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/automated-reports"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/informes-automaticos"/>
@@ -130,7 +138,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es"/>
@@ -138,7 +146,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en/services</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios"/>
@@ -146,7 +154,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en/services/custom-software-development</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/desenvolvimento-de-software"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services/custom-software-development"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios/desarrollo-de-software"/>
@@ -154,7 +162,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en/services/ai-automation</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/automacao-com-ia"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services/ai-automation"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios/automatizacion-con-ia"/>
@@ -162,7 +170,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en/services/systems-integration</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/integracao-de-sistemas"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services/systems-integration"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios/integracion-de-sistemas"/>
@@ -170,7 +178,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en/services/data-and-power-bi</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/dados-e-power-bi"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services/data-and-power-bi"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios/datos-y-power-bi"/>
@@ -178,15 +186,23 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en/transformation</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/transformacao"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/transformation"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/transformacion"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/transformacao"/>
   </url>
   <url>
+    <loc>https://agenciabyte.com/en/automation-calculator</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/calculadora"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/automation-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/calculadora"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/calculadora"/>
+  </url>
+  <url>
     <loc>https://agenciabyte.com/en/clients/divina-argila</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/clientes/divina-argila"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/clients/divina-argila"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/clientes/divina-argila"/>
@@ -194,7 +210,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en/clients/cargon</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/clientes/cargon"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/clients/cargon"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/clientes/cargon"/>
@@ -202,7 +218,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en/use-cases</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso"/>
@@ -210,7 +226,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en/use-cases/whatsapp-ai-customer-service</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/whatsapp-ai-customer-service"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/atencion-whatsapp-ia"/>
@@ -218,7 +234,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en/use-cases/ai-document-data-extraction</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/ai-document-data-extraction"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/extraccion-de-datos-de-documentos"/>
@@ -226,7 +242,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en/use-cases/order-and-lead-triage</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/order-and-lead-triage"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/triaje-de-pedidos-y-leads"/>
@@ -234,7 +250,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en/use-cases/administrative-process-automation</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/administrative-process-automation"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/automatizacion-de-procesos-administrativos"/>
@@ -242,7 +258,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en/use-cases/ai-assistant-company-documents</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/ai-assistant-company-documents"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/asistente-documentos-de-la-empresa"/>
@@ -250,7 +266,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/en/use-cases/automated-reports</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/relatorios-automaticos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/automated-reports"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/informes-automaticos"/>
@@ -258,7 +274,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es"/>
@@ -266,7 +282,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es/servicios</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios"/>
@@ -274,7 +290,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es/servicios/desarrollo-de-software</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/desenvolvimento-de-software"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services/custom-software-development"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios/desarrollo-de-software"/>
@@ -282,7 +298,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es/servicios/automatizacion-con-ia</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/automacao-com-ia"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services/ai-automation"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios/automatizacion-con-ia"/>
@@ -290,7 +306,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es/servicios/integracion-de-sistemas</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/integracao-de-sistemas"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services/systems-integration"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios/integracion-de-sistemas"/>
@@ -298,7 +314,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es/servicios/datos-y-power-bi</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/dados-e-power-bi"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/services/data-and-power-bi"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/servicios/datos-y-power-bi"/>
@@ -306,15 +322,23 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es/transformacion</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/transformacao"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/transformation"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/transformacion"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/transformacao"/>
   </url>
   <url>
+    <loc>https://agenciabyte.com/es/calculadora</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/calculadora"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/automation-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/calculadora"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/calculadora"/>
+  </url>
+  <url>
     <loc>https://agenciabyte.com/es/clientes/divina-argila</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/clientes/divina-argila"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/clients/divina-argila"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/clientes/divina-argila"/>
@@ -322,7 +346,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es/clientes/cargon</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/clientes/cargon"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/clients/cargon"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/clientes/cargon"/>
@@ -330,7 +354,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es/casos-de-uso</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso"/>
@@ -338,7 +362,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es/casos-de-uso/atencion-whatsapp-ia</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/whatsapp-ai-customer-service"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/atencion-whatsapp-ia"/>
@@ -346,7 +370,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es/casos-de-uso/extraccion-de-datos-de-documentos</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/ai-document-data-extraction"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/extraccion-de-datos-de-documentos"/>
@@ -354,7 +378,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es/casos-de-uso/triaje-de-pedidos-y-leads</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/order-and-lead-triage"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/triaje-de-pedidos-y-leads"/>
@@ -362,7 +386,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es/casos-de-uso/automatizacion-de-procesos-administrativos</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/administrative-process-automation"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/automatizacion-de-procesos-administrativos"/>
@@ -370,7 +394,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es/casos-de-uso/asistente-documentos-de-la-empresa</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/ai-assistant-company-documents"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/asistente-documentos-de-la-empresa"/>
@@ -378,7 +402,7 @@
   </url>
   <url>
     <loc>https://agenciabyte.com/es/casos-de-uso/informes-automaticos</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/casos-de-uso/relatorios-automaticos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/use-cases/automated-reports"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/casos-de-uso/informes-automaticos"/>

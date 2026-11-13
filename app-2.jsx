@@ -263,7 +263,8 @@ function Footer(){
           <FooterCol title={T.footer.company} items={[
             {label: T.footer.about, href: '#sobre'},
             {label: T.footer.process, href: '#processo'},
-            {label: T.footer.transformation, href: ROUTES.transformation[LANG]}
+            {label: T.footer.transformation, href: ROUTES.transformation[LANG]},
+            {label: T.footer.calculator, href: ROUTES.calculator[LANG]}
           ]} />
           <div>
             <div className="mono" style={{fontSize:11, letterSpacing:'.08em', color:'var(--accent)', textTransform:'uppercase'}}>{T.footer.contact}</div>
@@ -286,7 +287,7 @@ function Footer(){
           </div>
         </div>
         <div style={{borderTop:'1px solid rgba(255,255,255,0.08)', marginTop:48, paddingTop:24, display:'flex', justifyContent:'space-between', flexWrap:'wrap', gap:16}}>
-          <div className="muted mono" style={{fontSize:12}}>{T.footer.rights}</div>
+          <div className="muted mono" style={{fontSize:12, display:'grid', gap:6}}><span>{T.footer.rights}</span><span>{T.footer.legal}</span></div>
           <div className="mono" style={{fontSize:12, display:'flex', gap:14}}>
             <span><span className="muted">status:</span> <span style={{color:'#5DD3A8'}}>{T.footer.operational}</span></span>
             <span className="muted">build #2.0.412</span>

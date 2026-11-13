@@ -120,8 +120,9 @@ const pt = {
       "integracao-de-sistemas": "Integrações",
       "dados-e-power-bi": "Dados e Power BI",
     },
-    about: "Sobre", process: "Processo", transformation: "Antes e depois",
+    about: "Sobre", process: "Processo", transformation: "Antes e depois", calculator: "Calculadora",
     rights: "© 2026 Agência Byte · todos os direitos reservados",
+    legal: "Fundada em 2026 · CNPJ 61.592.175/0001-20 · Ponta Grossa - PR",
     operational: "● operacional",
   },
 };
@@ -241,8 +242,9 @@ const en = {
       "integracao-de-sistemas": "Integrations",
       "dados-e-power-bi": "Data & Power BI",
     },
-    about: "About", process: "Process", transformation: "Before and after",
+    about: "About", process: "Process", transformation: "Before and after", calculator: "Calculator",
     rights: "© 2026 Agência Byte · all rights reserved",
+    legal: "Founded in 2026 · CNPJ 61.592.175/0001-20 · Ponta Grossa - PR, Brazil",
     operational: "● operational",
   },
 };
@@ -362,8 +364,9 @@ const es = {
       "integracao-de-sistemas": "Integraciones",
       "dados-e-power-bi": "Datos y Power BI",
     },
-    about: "Nosotros", process: "Proceso", transformation: "Antes y después",
+    about: "Nosotros", process: "Proceso", transformation: "Antes y después", calculator: "Calculadora",
     rights: "© 2026 Agência Byte · todos los derechos reservados",
+    legal: "Fundada en 2026 · CNPJ 61.592.175/0001-20 · Ponta Grossa - PR, Brasil",
     operational: "● operativo",
   },
 };

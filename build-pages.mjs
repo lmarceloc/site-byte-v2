@@ -13,6 +13,7 @@ import { dirname } from "node:path";
 import { LANGS, LANG_META, ROUTES, FLAGS, SWITCH_LABEL, route, svcRoute, langsFor } from "./i18n/routes.mjs";
 import { PAGES, SERVICE_ORDER } from "./i18n/pages.mjs";
 import { USE_CASES, USE_CASE_ORDER } from "./i18n/use-cases.mjs";
+import { CALC, CALC_CONFIG } from "./i18n/calculator.mjs";
 
 const SITE = "https://agenciabyte.com";
 const BRAND = "Agência Byte";
@@ -88,8 +89,8 @@ const ANALYTICS = `<script>
 
 const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'" />
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>`;
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Elms+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Elms+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" /></noscript>`;
 
 // <link rel="alternate" hreflang> para as versões da mesma página nos três idiomas.
 function hreflangLinks(key) {
@@ -239,7 +240,7 @@ function footer(lang) {
         <p class="muted footer-tagline">${u.footer.tagline}</p>
       </div>
       ${col(u.footer.services, servicesFor(lang).map((s) => [s.path, s.nav]))}
-      ${col(u.footer.company, [[anchor("sobre"), u.footer.about], [anchor("processo"), u.footer.process], [route("transformation", lang), u.footer.transformation], ...(USE_CASES[lang] ? [[route("usecases", lang), USE_CASES[lang].ui.nav]] : []), ["https://blog.agenciabyte.com/", "Blog"]])}
+      ${col(u.footer.company, [[anchor("sobre"), u.footer.about], [anchor("processo"), u.footer.process], [route("transformation", lang), u.footer.transformation], [route("calculator", lang), CALC[lang].nav], ...(USE_CASES[lang] ? [[route("usecases", lang), USE_CASES[lang].ui.nav]] : []), ["https://blog.agenciabyte.com/", "Blog"]])}
       <div>
         <div class="mono footer-title">${u.footer.contact}</div>
         <ul class="footer-list">
@@ -252,6 +253,7 @@ function footer(lang) {
     </div>
     <div class="footer-bottom">
       <div class="muted mono">${u.footer.rights}</div>
+      <div class="muted mono footer-legal">${u.footer.legal}</div>
     </div>
   </div>
 </footer>
@@ -1000,6 +1002,124 @@ function useCasePage(lang, slug) {
   );
 }
 
+function calculatorPage(lang) {
+  const p = PAGES[lang];
+  const C = CALC[lang];
+  const path = route("calculator", lang);
+  const trail = [[route("home", lang), p.ui.crumbHome], [path, C.nav]];
+  const jsonld = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        name: C.eyebrow,
+        description: C.description,
+        url: SITE + path,
+        inLanguage: LANG_META[lang].html,
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "BRL" },
+        provider: { "@type": "Organization", name: BRAND, url: SITE },
+      },
+      breadcrumbLd(trail),
+    ],
+  };
+  // Dados que o calc.js usa no navegador (textos do idioma + premissas e preços).
+  const data = {
+    lang: LANG_META[lang].html,
+    whatsapp: WHATSAPP,
+    cfg: CALC_CONFIG,
+    t: C,
+    useCases: Object.fromEntries(CALC_CONFIG.bottlenecks.map((b) => [b.id, route(`uc:${b.useCase}`, lang)])),
+  };
+  const d = CALC_CONFIG.defaults;
+  const field = (id, [label, hint], attrs) => `<div class="calc-field">
+            <div class="calc-field-head"><label for="calc-${id}">${label}<small>${hint}</small></label><output class="calc-val mono" id="calc-${id}-v" for="calc-${id}"></output></div>
+            <input id="calc-${id}" type="range" ${attrs} />
+          </div>`;
+  return (
+    head({ lang, key: "calculator", title: C.title, description: C.description, jsonld }) +
+    nav(lang, "calculator", path) +
+    `
+<main id="conteudo">
+  <section class="page-hero calc-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      ${crumbs(lang, trail)}
+      <div class="eyebrow"><span class="dot"></span>${C.eyebrow}</div>
+      <h1 class="display">${C.h1}</h1>
+      <p class="lead muted">${C.lead}</p>
+    </div>
+  </section>
+
+  <section class="page-section calc-section">
+    <div class="wrap calc">
+      <form class="calc-panel" onsubmit="return false">
+        <div class="calc-row">
+          <div class="mono calc-label">${C.bottleneck}</div>
+          <div class="calc-chips" id="calc-area" role="group" aria-label="${esc(C.bottleneck)}">
+            ${CALC_CONFIG.bottlenecks.map((b, i) => `<button type="button" class="calc-chip" data-i="${i}" aria-pressed="${i === 0}">${C.names[b.id]}</button>`).join("\n            ")}
+          </div>
+          <a class="calc-case mono" id="calc-case" href="${data.useCases[CALC_CONFIG.bottlenecks[0].id]}"></a>
+        </div>
+        <div class="calc-row calc-pair">
+          ${field("p", C.people, `min="1" max="30" value="${d.people}"`)}
+          ${field("h", C.hours, `min="1" max="40" value="${d.hours}"`)}
+        </div>
+        <div class="calc-row">
+          ${field("c", C.rate, `min="15" max="200" step="5" value="${d.rate}"`)}
+        </div>
+        <div class="calc-row calc-pair">
+          ${field("e", C.rework, `min="0" max="200" step="5" value="${d.rework}"`)}
+          ${field("m", C.fixMin, `min="5" max="240" step="5" value="${d.fixMin}"`)}
+        </div>
+        <div class="calc-row calc-premise">
+          ${field("a", [`${C.auto[0]}<span class="calc-ptag mono">${C.premise}</span>`, `<span id="calc-a-hint"></span>`], `min="10" max="90" step="5" value="${Math.round(CALC_CONFIG.bottlenecks[0].auto * 100)}"`)}
+        </div>
+      </form>
+
+      <aside class="calc-result" aria-live="polite">
+        <div class="calc-seg" role="group" aria-label="${C.goal}">
+          <button type="button" id="calc-grow" aria-pressed="true">${C.grow}</button>
+          <button type="button" id="calc-cut" aria-pressed="false">${C.cut}</button>
+        </div>
+        <div class="calc-block">
+          <div class="calc-k mono">${C.costNow}</div>
+          <div class="calc-n1" id="calc-cost-y"></div>
+          <div class="calc-sub" id="calc-cost-sub"></div>
+        </div>
+        <div class="calc-block">
+          <div class="calc-k mono" id="calc-addr-k"></div>
+          <div class="calc-n2" id="calc-addr-y"></div>
+          <div class="calc-sub" id="calc-addr-sub"></div>
+          <p class="calc-outcome" id="calc-outcome"></p>
+        </div>
+        <div class="calc-block">
+          <div class="calc-k mono">${C.math}</div>
+          <div class="calc-math mono" id="calc-math"></div>
+        </div>
+        <div class="calc-block">
+          <div class="calc-k mono">${C.other}${CALC_CONFIG.provisional ? ` <span class="calc-prov">${C.provisional}</span>` : ""}</div>
+          <div class="calc-line"><span id="calc-proj-k"></span><b class="mono" id="calc-proj"></b></div>
+          <div class="calc-line"><span>${C.ops}</span><b class="mono" id="calc-ops"></b></div>
+          <div class="calc-payback" id="calc-payback"></div>
+          <div class="calc-sub" id="calc-payback-sub"></div>
+        </div>
+        <a class="btn btn-accent calc-cta" id="calc-cta" href="${WHATSAPP}" target="_blank" rel="noopener noreferrer">${C.cta}</a>
+        <p class="calc-note">${C.note}</p>
+      </aside>
+    </div>
+  </section>
+
+  ${useCaseCards(lang, { heading: true })}
+</main>
+<script id="calc-data" type="application/json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>
+<script src="/calc.js" defer></script>
+` +
+    footer(lang)
+  );
+}
+
 function servicesHub(lang) {
   const p = PAGES[lang];
   const hub = p.hub;
@@ -1222,6 +1342,7 @@ for (const lang of LANGS) {
   out[fileFor(route("home", lang))] = homePage(lang);
   out[fileFor(route("transformation", lang))] = transformationPage(lang);
   out[fileFor(route("services", lang))] = servicesHub(lang);
+  out[fileFor(route("calculator", lang))] = calculatorPage(lang);
   out[prefix ? `${prefix}/404.html` : "404.html"] = notFoundPage(lang);
   for (const s of servicesFor(lang)) out[fileFor(s.path)] = servicePage(lang, s);
   for (const slug of CASE_SLUGS) out[fileFor(route(`case:${slug}`, lang))] = casePage(lang, slug);
@@ -1239,7 +1360,7 @@ for (const [file, html] of Object.entries(out)) {
 
 // Sitemap com todas as páginas nos três idiomas, cada uma com suas alternativas (hreflang).
 const today = new Date().toISOString().slice(0, 10);
-const keys = ["home", "services", ...SERVICE_ORDER.map((s) => `svc:${s.slug}`), "transformation", ...CASE_SLUGS.map((x) => `case:${x}`), "usecases", ...USE_CASE_ORDER.map((x) => `uc:${x}`)];
+const keys = ["home", "services", ...SERVICE_ORDER.map((s) => `svc:${s.slug}`), "transformation", "calculator", ...CASE_SLUGS.map((x) => `case:${x}`), "usecases", ...USE_CASE_ORDER.map((x) => `uc:${x}`)];
 const entries = [];
 for (const lang of LANGS) {
   for (const key of keys) {

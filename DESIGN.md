@@ -17,24 +17,24 @@ colors:
   system-muted: "#B7BCD0"
 typography:
   display:
-    fontFamily: "Space Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Elms Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "clamp(56px, 7.5vw, 104px)"
     fontWeight: 700
     lineHeight: 0.98
     letterSpacing: "-0.02em"
   headline:
-    fontFamily: "Space Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Elms Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "clamp(40px, 5vw, 64px)"
     fontWeight: 700
     lineHeight: 1.05
     letterSpacing: "-0.02em"
   title:
-    fontFamily: "Geist, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Elms Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "18px"
     fontWeight: 600
     lineHeight: 1.4
   body:
-    fontFamily: "Geist, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Elms Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.55
@@ -150,23 +150,23 @@ One signal color, two surface registers, and a complete tonal system for text. E
 
 ## 3. Typography: Controlled Precision
 
-**Display Font:** Space Grotesk (700 weight, fallback: ui-sans-serif, system-ui, sans-serif)
-**Body Font:** Geist (300–600 weight range, fallback: ui-sans-serif, system-ui, sans-serif)
+**Display Font:** Elms Sans (700 weight, fallback: ui-sans-serif, system-ui, sans-serif)
+**Body Font:** Elms Sans (300–600 weight range, fallback: ui-sans-serif, system-ui, sans-serif)
 **Technical Font:** JetBrains Mono (400–600 weight, fallback: ui-monospace, SFMono-Regular, monospace)
 
-**Character:** Space Grotesk at 700 with -0.02em tracking and 0.98 line-height is the entire brand voice in typographic form: dense, confident, and slightly compressed — engineered rather than designed. Geist body is clean and neutral enough to step back. JetBrains Mono functions as a technical annotation layer, never decorative: it signals "this came from a system."
+**Character:** Elms Sans at 700 with -0.02em tracking and 0.98 line-height is the entire brand voice in typographic form: dense, confident, and slightly compressed — engineered rather than designed. Elms Sans body is clean and neutral enough to step back. JetBrains Mono functions as a technical annotation layer, never decorative: it signals "this came from a system."
 
 ### Hierarchy
 
 - **Display** (700, `clamp(56px, 7.5vw, 104px)`, line-height 0.98, tracking -0.02em): Hero headlines only. The tight line-height means multi-line headlines collapse into a single mass. This is intentional — it reads as a declaration, not a paragraph.
-- **Headline** (700, `clamp(40px, 5vw, 64px)`, line-height 1.05, tracking -0.02em): Section headings (Sobre, Serviços, Demo, etc.). Same Space Grotesk personality, scaled down.
-- **Title** (600, 18–24px, line-height 1.4): Card headings, service titles, named items within sections. Uses Geist at 600 weight with `font-family: var(--font-display)` (Space Grotesk).
-- **Body** (400, 16px, line-height 1.55): All paragraph copy. Max width 520–640px for comfortable reading. Geist Regular.
+- **Headline** (700, `clamp(40px, 5vw, 64px)`, line-height 1.05, tracking -0.02em): Section headings (Sobre, Serviços, Demo, etc.). Same Elms Sans personality, scaled down.
+- **Title** (600, 18–24px, line-height 1.4): Card headings, service titles, named items within sections. Uses Elms Sans at 600 weight with `font-family: var(--font-display)` (Elms Sans).
+- **Body** (400, 16px, line-height 1.55): All paragraph copy. Max width 520–640px for comfortable reading. Elms Sans Regular.
 - **Label/Mono** (400–600, 11–13.5px, tracking 0.04–0.1em, uppercase): Eyebrow text, KPI units, code annotations, system metadata, form field labels. Always JetBrains Mono. Always uppercase when used as an eyebrow. The 11.5px eyebrow at 0.1em tracking is a system-standard — do not deviate.
 
 ### Named Rules
 
-**The Mono Thread Rule.** JetBrains Mono is the annotation layer. It appears at eyebrow scale (11–13px), never at headline scale. If you reach for Mono to headline something, you are using the wrong font — Space Grotesk at 700 is the headline voice.
+**The Mono Thread Rule.** JetBrains Mono is the annotation layer. It appears at eyebrow scale (11–13px), never at headline scale. If you reach for Mono to headline something, you are using the wrong font — Elms Sans at 700 is the headline voice.
 
 **The Compression Rule.** Display and Headline typography uses 0.98 and 1.05 line-heights respectively. Do not round up to 1.2 "for readability." The compression is the statement.
 
@@ -193,7 +193,7 @@ Shadows appear in two contexts only: (1) hover state on interactive cards, encod
 Three variants, each with a distinct purpose hierarchy.
 
 - **Shape:** Gently rounded (8px radius) — approachable but not soft, not sharp. Radius 8px in exact terms (`--radius-sm`).
-- **Primary (dark):** Background `#0B1020`, text `#FAFAF7`. 600 weight, 14px Geist. Padding `10px 18px`. Hover: `translateY(-1px)`. Used for secondary CTAs after the accent has been established.
+- **Primary (dark):** Background `#0B1020`, text `#FAFAF7`. 600 weight, 14px Elms Sans. Padding `10px 18px`. Hover: `translateY(-1px)`. Used for secondary CTAs after the accent has been established.
 - **Accent (orange):** Background `#FF6A1A`, text `#1A0A00`. Same shape and padding. This is the primary action button — "Começar um projeto", "Enviar". One per primary section.
 - **Ghost:** Background transparent, `1px solid rgba(11,16,32,0.18)` border, inherits text color. For secondary actions alongside an accent button ("Ver demo ao vivo").
 - **Hover / Focus:** `translateY(-1px)` on all variants. Focus: `outline: 2px solid var(--accent); outline-offset: 3px` — visible and high-contrast for AAA compliance.
@@ -217,7 +217,7 @@ Used for status badges and version indicators.
 
 ### Inputs / Fields
 
-- **Style:** `background: var(--bg)` (Technical Ivory), `border: 1px solid var(--line-strong)`, `border-radius: 10px`, Geist 15px. Full width by default.
+- **Style:** `background: var(--bg)` (Technical Ivory), `border: 1px solid var(--line-strong)`, `border-radius: 10px`, Elms Sans 15px. Full width by default.
 - **Focus:** `border-color: var(--accent)`, `box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent)`. The focus ring uses the signal orange — interactive state, not decoration.
 - **Dark mode:** `background: var(--dark-bg-2)`, `border-color: var(--dark-line)`. Same focus treatment.
 - **Labels:** JetBrains Mono, 11px, 0.06em tracking, uppercase, `var(--ink-3)` color. Form labels are metadata, not UI copy.
@@ -225,8 +225,8 @@ Used for status badges and version indicators.
 ### Navigation
 
 - **Style:** Sticky, `backdrop-filter: blur(14px) saturate(140%)` with a translucent background (78% opacity). Bottom border `1px solid var(--line)`. The blur is functional: it distinguishes the nav from scrolling content — not a glassmorphism aesthetic statement.
-- **Links:** Geist 14px, `opacity: 0.8` default, `opacity: 1` on hover. Underline link animation on hover (`::after` pseudo-element scales in from left).
-- **Brand mark:** Space Grotesk 600, with a 32px logo mark and a live-signal orange dot indicator in the top-right corner (`8px circle, box-shadow: 0 0 0 3px var(--bg)`).
+- **Links:** Elms Sans 14px, `opacity: 0.8` default, `opacity: 1` on hover. Underline link animation on hover (`::after` pseudo-element scales in from left).
+- **Brand mark:** Elms Sans 600, with a 32px logo mark and a live-signal orange dot indicator in the top-right corner (`8px circle, box-shadow: 0 0 0 3px var(--bg)`).
 - **Mobile:** Nav links hidden below 880px. CTA and theme toggle remain visible.
 
 ### Terminal / Code Editor (Signature Component)
