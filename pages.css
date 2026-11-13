@@ -141,7 +141,7 @@ a.nav-brand-wrap:focus-visible{ outline: 2px solid var(--accent); outline-offset
 .footer-list{ list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 10px; font-size: 14px; }
 .footer-list a{ text-decoration: none; opacity: .85; }
 .footer-list a:hover{ opacity: 1; }
-.footer-bottom{ border-top: 1px solid rgba(255,255,255,0.08); margin-top: 48px; padding-top: 24px; font-size: 12px; }
+.footer-bottom{ border-top: 1px solid rgba(255,255,255,0.08); margin-top: 48px; padding-top: 24px; font-size: 12px; display: grid; gap: 6px; }
 
 /* ----- 404: dither + bytes ----- */
 .nf{ padding: 96px 0 24px; }

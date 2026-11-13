@@ -122,6 +122,7 @@ const pt = {
     },
     about: "Sobre", process: "Processo", transformation: "Antes e depois",
     rights: "© 2026 Agência Byte · todos os direitos reservados",
+    legal: "Fundada em 2026 · CNPJ 61.592.175/0001-20 · Ponta Grossa - PR",
     operational: "● operacional",
   },
 };
@@ -243,6 +244,7 @@ const en = {
     },
     about: "About", process: "Process", transformation: "Before and after",
     rights: "© 2026 Agência Byte · all rights reserved",
+    legal: "Founded in 2026 · CNPJ 61.592.175/0001-20 · Ponta Grossa - PR, Brazil",
     operational: "● operational",
   },
 };
@@ -364,6 +366,7 @@ const es = {
     },
     about: "Nosotros", process: "Proceso", transformation: "Antes y después",
     rights: "© 2026 Agência Byte · todos los derechos reservados",
+    legal: "Fundada en 2026 · CNPJ 61.592.175/0001-20 · Ponta Grossa - PR, Brasil",
     operational: "● operativo",
   },
 };

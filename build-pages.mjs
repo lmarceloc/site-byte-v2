@@ -252,6 +252,7 @@ function footer(lang) {
     </div>
     <div class="footer-bottom">
       <div class="muted mono">${u.footer.rights}</div>
+      <div class="muted mono footer-legal">${u.footer.legal}</div>
     </div>
   </div>
 </footer>
