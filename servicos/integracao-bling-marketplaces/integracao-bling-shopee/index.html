@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Integração Bling com Shopee: limites e quando usar API | Agência Byte</title>
+<meta name="description" content="O que a integração nativa do Bling com a Shopee cobre, onde ela para (campanhas, variações, kits, preço por canal) e quando vale integrar via API." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://agenciabyte.com/servicos/integracao-bling-marketplaces/integracao-bling-shopee" />
+<link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/servicos/integracao-bling-marketplaces/integracao-bling-shopee" />
+<link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/servicos/integracao-bling-marketplaces/integracao-bling-shopee" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://agenciabyte.com/servicos/integracao-bling-marketplaces/integracao-bling-shopee" />
+<meta property="og:title" content="Integração Bling com Shopee: limites e quando usar API | Agência Byte" />
+<meta property="og:description" content="O que a integração nativa do Bling com a Shopee cobre, onde ela para (campanhas, variações, kits, preço por canal) e quando vale integrar via API." />
+<meta property="og:image" content="https://agenciabyte.com/img/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="pt_BR" />
+
+<meta property="og:site_name" content="Agência Byte" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Integração Bling com Shopee: limites e quando usar API | Agência Byte" />
+<meta name="twitter:description" content="O que a integração nativa do Bling com a Shopee cobre, onde ela para (campanhas, variações, kits, preço por canal) e quando vale integrar via API." />
+<meta name="twitter:image" content="https://agenciabyte.com/img/og-image.png" />
+
+<meta name="theme-color" content="#FF6A1A" />
+<link rel="icon" href="/img/logo_byte_64.png" sizes="64x64" type="image/png" />
+<link rel="apple-touch-icon" href="/img/logo_byte.png" sizes="180x180" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://agenciabyte.com/servicos/integracao-bling-marketplaces/integracao-bling-shopee#service",
+      "name": "Integração Bling com Shopee",
+      "serviceType": "Integração de sistemas",
+      "description": "O que a integração nativa do Bling com a Shopee cobre, onde ela para (campanhas, variações, kits, preço por canal) e quando vale integrar via API.",
+      "url": "https://agenciabyte.com/servicos/integracao-bling-marketplaces/integracao-bling-shopee",
+      "inLanguage": "pt-BR",
+      "provider": {
+        "@id": "https://agenciabyte.com/#organization"
+      },
+      "areaServed": "BR"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://agenciabyte.com/servicos/integracao-bling-marketplaces/integracao-bling-shopee#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O Bling integra com a Shopee sem programação?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. Pedidos, estoque, preço e nota fiscal funcionam pela integração nativa. A integração via API entra quando campanhas, variações, kits ou preço por canal exigem regras próprias."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como manter o estoque certo nas datas duplas da Shopee?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Atualizando o estoque de todos os canais a cada venda, via webhook, com fila e reprocessamento para que nenhum pedido se perca no pico."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto tempo leva integrar Bling e Shopee via API?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Um primeiro módulo costuma entrar em produção em 3 a 6 semanas, dependendo de quantas regras e sistemas entram."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://agenciabyte.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Serviços",
+          "item": "https://agenciabyte.com/servicos"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Integração Bling com marketplaces",
+          "item": "https://agenciabyte.com/servicos/integracao-bling-marketplaces"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Shopee",
+          "item": "https://agenciabyte.com/servicos/integracao-bling-marketplaces/integracao-bling-shopee"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SFBNK4KDQ');
+  (function(){
+    var done = false, evts = ['pointerdown','keydown','scroll','touchstart'];
+    function load(){
+      if (done) return; done = true;
+      evts.forEach(function(e){ removeEventListener(e, load); });
+      var g = document.createElement('script');
+      g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-8SFBNK4KDQ';
+      document.head.appendChild(g);
+      var a = document.createElement('script');
+      a.async = true; a.src = 'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' + Math.random().toString(36).substring(7);
+      a.onload = function(){ window.trackingFunctions.onLoad({ appId: '6a5fc15502199500103f7f77' }); };
+      document.head.appendChild(a);
+    }
+    evts.forEach(function(e){ addEventListener(e, load, { once: true, passive: true }); });
+    addEventListener('load', function(){ setTimeout(load, 4000); });
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Elms+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Elms+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" /></noscript>
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/pages.css" />
+</head>
+<body data-theme="light"><a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand-wrap" aria-label="Agência Byte, página inicial">
+      <span class="glyph">
+        <picture>
+          <source srcset="/img/logo_byte.webp" type="image/webp" />
+          <img src="/img/logo_byte_64.png" alt="" width="32" height="32" />
+        </picture>
+      </span>
+      <span>Agência Byte</span>
+    </a>
+    <nav class="nav-pill" aria-label="Menu principal">
+      <a href="/#sobre" class="nav-pill-link">Sobre</a>
+      <a href="/transformacao" class="nav-pill-link">Antes e depois</a>
+      <a href="/servicos" class="nav-pill-link" aria-current="page">Serviços</a>
+      <a href="/#processo" class="nav-pill-link">Processo</a>
+      <a href="/#clientes" class="nav-pill-link">Clientes</a>
+      <a href="https://blog.agenciabyte.com/" class="nav-pill-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    </nav>
+    <div class="nav-cta">
+      <details class="lang-switch">
+        <summary aria-label="Idioma: Português"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#009C3B"/><path d="M14 2.6 25.4 10 14 17.4 2.6 10z" fill="#FFDF00"/><circle cx="14" cy="10" r="4.4" fill="#002776"/><path d="M9.8 9.2c2.9-.5 5.9.1 8.3 1.6" stroke="#fff" stroke-width=".9" fill="none"/></svg></span><span class="lang-code">PT</span><svg class="lang-chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <ul class="lang-menu">
+          <li><a href="/servicos/integracao-bling-marketplaces/integracao-bling-shopee" hreflang="pt-BR" lang="pt-BR" aria-current="true"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#009C3B"/><path d="M14 2.6 25.4 10 14 17.4 2.6 10z" fill="#FFDF00"/><circle cx="14" cy="10" r="4.4" fill="#002776"/><path d="M9.8 9.2c2.9-.5 5.9.1 8.3 1.6" stroke="#fff" stroke-width=".9" fill="none"/></svg></span>Português</a></li>
+          <li><a href="/en" hreflang="en" lang="en"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#fff"/><path d="M0 0h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28V20H0z" fill="#B22234"/><rect width="12" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2" cy="1.8" r=".6"/><circle cx="6" cy="1.8" r=".6"/><circle cx="10" cy="1.8" r=".6"/><circle cx="4" cy="3.9" r=".6"/><circle cx="8" cy="3.9" r=".6"/><circle cx="2" cy="6" r=".6"/><circle cx="6" cy="6" r=".6"/><circle cx="10" cy="6" r=".6"/><circle cx="4" cy="8.1" r=".6"/><circle cx="8" cy="8.1" r=".6"/></g></svg></span>English</a></li>
+          <li><a href="/es" hreflang="es" lang="es"><span class="lang-flag"><svg viewBox="0 0 28 20" aria-hidden="true" focusable="false"><rect width="28" height="20" fill="#AA151B"/><rect y="5" width="28" height="10" fill="#F1BF00"/></svg></span>Español</a></li>
+        </ul>
+      </details>
+      <a href="/#contato" class="btn btn-accent nav-cta-desktop">Contato →</a>
+      <button class="nav-burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile-menu" id="menu-mobile" aria-label="Menu de navegação" hidden>
+    <a href="/#sobre">Sobre</a>
+    <a href="/transformacao">Antes e depois</a>
+    <a href="/servicos" aria-current="page">Serviços</a>
+    <a href="/#processo">Processo</a>
+    <a href="/#clientes">Clientes</a>
+    <a href="https://blog.agenciabyte.com/" class="ul-link blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+    <a href="/#contato" class="nav-mobile-cta">Contato →</a>
+  </nav>
+</header>
+<script>
+  (function(){
+    var b = document.querySelector('.nav-burger'), m = document.getElementById('menu-mobile');
+    b.addEventListener('click', function(){
+      var open = m.hidden;
+      m.hidden = !open;
+      b.setAttribute('aria-expanded', String(open));
+      b.setAttribute('aria-label', open ? "Fechar menu" : "Abrir menu");
+    });
+    // Fecha o seletor de idioma ao clicar fora ou apertar Esc.
+    var d = document.querySelector('.lang-switch');
+    document.addEventListener('pointerdown', function(e){ if (d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && d.open){ d.open = false; d.querySelector('summary').focus(); } });
+  })();
+</script>
+<main id="conteudo">
+  <section class="page-hero bling-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <nav class="crumbs mono" aria-label="Você está em">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/servicos">Serviços</a></li>
+          <li><a href="/servicos/integracao-bling-marketplaces">Integração Bling com marketplaces</a></li>
+          <li aria-current="page">Shopee</li>
+        </ol>
+      </nav>
+      <div class="eyebrow"><span class="dot"></span>Integração Bling · Shopee</div>
+      <h1 class="display">Integração Bling com Shopee: o que é nativo e quando usar API</h1>
+      <p class="lead muted">A Shopee concentra vendas em campanhas e datas como 11.11 e 12.12, com muitos anúncios e variações. A integração nativa do Bling cobre o dia a dia; os limites aparecem no volume e na margem.</p>
+      <aside class="bling-tldr" aria-label="Resposta curta">
+        <div class="mono bling-tldr-k">Resposta curta</div>
+        <p>O Bling integra nativamente com a Shopee para importar pedidos, sincronizar estoque e preço e emitir a NF-e. A integração via API passa a compensar quando as campanhas geram picos que exigem estoque em tempo real, quando há muitas variações e kits ligados a SKUs, quando o preço precisa acompanhar comissão, cupom e frete, ou quando o pedido precisa chegar à produção. É o mesmo tipo de projeto que a Agência Byte fez para a Divina Argila com Mercado Livre e TikTok Shop, em 40 dias.</p>
+      </aside>
+      <div class="cta-actions">
+        <a href="/#contato" class="btn btn-accent">Começar um projeto →</a>
+        <a href="https://wa.me/5542984224363" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>Nativo no Bling</div>
+        <h2 class="display">O que o Bling já faz com o Shopee</h2>
+      </div>
+      <div class="bling-prose">
+        <ul class="bling-check">
+          <li>Importação dos pedidos da Shopee para o Bling.</li>
+          <li>Sincronização de estoque e preço com os anúncios.</li>
+          <li>Emissão de NF-e dos pedidos.</li>
+          <li>Etiquetas e acompanhamento do envio.</li>
+        </ul>
+        <p>Para a maioria das lojas, isso basta. Os pontos abaixo são onde a integração nativa para.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>Onde trava</div>
+        <h2 class="display">Quando Bling e Shopee precisam de integração via API</h2>
+      </div>
+      <div class="deliv-grid">
+        <div class="card">
+          <h3>Picos em campanhas e datas duplas</h3>
+          <p class="muted">Em datas como 11.11 e 12.12, o volume multiplica em poucas horas. O estoque precisa baixar a cada venda em todos os canais, e a fila de pedidos não pode travar a emissão.</p>
+        </div>
+        <div class="card">
+          <h3>Muitas variações e kits</h3>
+          <p class="muted">Anúncios com dezenas de variações e kits exigem vínculo correto com cada SKU. Um vínculo errado manda estoque para a variação errada.</p>
+        </div>
+        <div class="card">
+          <h3>Preço com comissão, cupom e frete</h3>
+          <p class="muted">Comissão, programas de frete e cupons mudam a margem de cada venda. O preço de cada anúncio precisa ser recalculado para não vender com prejuízo na campanha.</p>
+        </div>
+        <div class="card">
+          <h3>Pedido que precisa virar produção</h3>
+          <p class="muted">Para quem fabrica ou personaliza, o pedido precisa chegar a quem produz com itens, variações e prazo, sem cópia manual.</p>
+        </div>
+      </div>
+      <p class="uc-all"><a href="/servicos/integracao-bling-marketplaces#limites" class="ul-link">Os 5 limites nativos do Bling, em detalhe →</a></p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>Caso real</div>
+      <h2 class="display">Divina Argila: 4 sistemas integrados em 40 dias</h2>
+      <div class="case-stats bling-stats">
+        <div class="card case-stat"><div class="display case-num">4</div><p class="muted">sistemas integrados: Bling, Trello, TikTok Shop e Mercado Livre</p></div>
+        <div class="card case-stat"><div class="display case-num">40</div><p class="muted">dias para integrar os sistemas</p></div>
+        <div class="card case-stat"><div class="display case-num">1</div><p class="muted">lugar para o time acompanhar os pedidos: o Trello, no lugar de 4</p></div>
+      </div>
+      <figure class="case-quote">
+        <blockquote><p>“Agora, o nosso time não precisa mais ficar copiando e colando o mesmo pedido em vários lugares. A fábrica já sabe o que produzir junto com a emissão do pedido.”</p></blockquote>
+        <figcaption>— <cite><a href="/clientes/divina-argila">Divina Argila</a></cite>, cliente da Agência Byte</figcaption>
+      </figure>
+      <p class="case-visit"><a href="/clientes/divina-argila" class="ul-link">Ver o caso Divina Argila →</a></p>
+    </div>
+  </section>
+  <section class="page-section page-section-alt">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>Perguntas frequentes</div>
+        <h2 class="display">Perguntas sobre Bling e Shopee</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>O Bling integra com a Shopee sem programação?</summary>
+          <p class="muted">Sim. Pedidos, estoque, preço e nota fiscal funcionam pela integração nativa. A integração via API entra quando campanhas, variações, kits ou preço por canal exigem regras próprias.</p>
+        </details>
+        <details>
+          <summary>Como manter o estoque certo nas datas duplas da Shopee?</summary>
+          <p class="muted">Atualizando o estoque de todos os canais a cada venda, via webhook, com fila e reprocessamento para que nenhum pedido se perca no pico.</p>
+        </details>
+        <details>
+          <summary>Quanto tempo leva integrar Bling e Shopee via API?</summary>
+          <p class="muted">Um primeiro módulo costuma entrar em produção em 3 a 6 semanas, dependendo de quantas regras e sistemas entram.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+  <section class="page-section page-section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>Por canal</div>
+        <h2 class="display">Integração Bling com cada marketplace.</h2>
+      </div>
+      <div class="uc-grid">
+        <a class="card related-card uc-card" href="/servicos/integracao-bling-marketplaces/integracao-bling-mercado-livre">
+          <span class="mono muted">// Bling + Mercado Livre</span>
+          <h3>Integração Bling com Mercado Livre</h3>
+          <p class="muted">Anúncios com variação, Mercado Envios e Full, kits e preço por comissão.</p>
+          <span class="related-more mono">Ver integração →</span>
+        </a>
+        <a class="card related-card uc-card" href="/servicos/integracao-bling-marketplaces/integracao-bling-tiktok-shop">
+          <span class="mono muted">// Bling + TikTok Shop</span>
+          <h3>Integração Bling com TikTok Shop</h3>
+          <p class="muted">Picos de venda em live, afiliados, kits e pedido direto para a produção.</p>
+          <span class="related-more mono">Ver integração →</span>
+        </a>
+      </div>
+      <p class="uc-all"><a href="/servicos/integracao-bling-marketplaces" class="ul-link">Visão geral: Bling com marketplaces →</a></p>
+    </div>
+  </section>
+  <section class="section-dark cta-band">
+    <div class="wrap">
+      <h2 class="display">Quer saber se o seu caso precisa de API?</h2>
+      <p>Você explica o problema. A gente constrói a solução. Resposta direta, sem proposta genérica.</p>
+      <div class="cta-actions">
+        <a href="/#contato" class="btn btn-accent">Começar um projeto →</a>
+        <a href="https://wa.me/5542984224363" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="section-dark site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">Agência Byte</div>
+        <p class="muted footer-tagline">Código que funciona. Sistemas que crescem. Engenharia para empresas com pressa.</p>
+      </div>
+      <div>
+          <div class="mono footer-title">Serviços</div>
+          <ul class="footer-list">
+            <li><a href="/servicos/desenvolvimento-de-software" class="ul-link">Desenvolvimento</a></li>
+            <li><a href="/servicos/automacao-com-ia" class="ul-link">Automação IA</a></li>
+            <li><a href="/servicos/integracao-de-sistemas" class="ul-link">Integrações</a></li>
+            <li><a href="/servicos/dados-e-power-bi" class="ul-link">Dados e Power BI</a></li>
+          </ul>
+        </div>
+      <div>
+          <div class="mono footer-title">Empresa</div>
+          <ul class="footer-list">
+            <li><a href="/#sobre" class="ul-link">Sobre</a></li>
+            <li><a href="/#processo" class="ul-link">Processo</a></li>
+            <li><a href="/transformacao" class="ul-link">Antes e depois</a></li>
+            <li><a href="/calculadora" class="ul-link">Calculadora</a></li>
+            <li><a href="/casos-de-uso" class="ul-link">Casos de uso</a></li>
+            <li><a href="https://blog.agenciabyte.com/" class="ul-link">Blog</a></li>
+          </ul>
+        </div>
+      <div>
+        <div class="mono footer-title">Contato</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@agenciabyte.com" class="ul-link">hello@agenciabyte.com</a></li>
+          <li><a href="https://wa.me/5542984224363" target="_blank" rel="noopener noreferrer" class="ul-link">+55 42 98422-4363</a></li>
+          <li><a href="https://www.instagram.com/agenciabyte.ia" target="_blank" rel="noopener noreferrer" class="ul-link">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/company/byte-agencia" target="_blank" rel="noopener noreferrer" class="ul-link">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="muted mono">© 2026 Agência Byte · todos os direitos reservados</div>
+      <div class="muted mono footer-legal">Fundada em 2026 · CNPJ 61.592.175/0001-20 · Ponta Grossa - PR</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
