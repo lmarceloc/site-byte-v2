@@ -16,6 +16,7 @@ import { USE_CASES, USE_CASE_ORDER } from "./i18n/use-cases.mjs";
 import { CALC, CALC_CONFIG } from "./i18n/calculator.mjs";
 import { BLING, BLING_CHANNELS } from "./i18n/bling.mjs";
 import { PBI } from "./i18n/powerbi-logistica.mjs";
+import { IA_PME } from "./i18n/blog-ia-pme.mjs";
 
 const SITE = "https://agenciabyte.com";
 const BRAND = "Agência Byte";
@@ -43,7 +44,7 @@ const CLIENTS = [
 /* ------------------------------------------------------------------ */
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const abs = (path) => SITE + (path === "/" ? "/" : path);
+const abs = (path) => (/^https?:/.test(path) ? path : SITE + (path === "/" ? "/" : path));
 
 // Serviços de um idioma, já com slug, código, URL e relacionados.
 function servicesFor(lang) {
@@ -648,9 +649,19 @@ function servicePage(lang, s) {
       ${caseQuote(lang, SERVICE_CASE[s.slug], { link: true })}
     </div>
   </section>
+  ` : ""}${s.slug === "automacao-com-ia" && lang === "pt" ? `<section class="page-section">
+    <div class="wrap">
+      <a class="card related-card pbi-promo" href="${route("blog:ia-pme", lang)}">
+        <span class="mono muted">// Guia</span>
+        <h2>${IA_PME.h1}</h2>
+        <p class="muted">${IA_PME.lead}</p>
+        <span class="related-more mono">Ler o guia →</span>
+      </a>
+    </div>
+  </section>
   ` : ""}${s.slug === "dados-e-power-bi" && lang === "pt" ? `<section class="page-section">
     <div class="wrap">
-      <a class="card related-card pbi-promo" href="${route("pbi-logistica", lang)}">
+      <a class="card related-card pbi-promo" href="${route("pbi-logistica", "blog:ia-pme", lang)}">
         <span class="mono muted">// Guia por setor</span>
         <h2>${PBI.h1}</h2>
         <p class="muted">${PBI.lead}</p>
@@ -1545,6 +1556,151 @@ function powerbiLogisticsPage() {
   );
 }
 
+/* ------------------------------------------------------------------ */
+/* Post pilar: Automação com IA para PME (só pt)                       */
+/* ------------------------------------------------------------------ */
+
+function iaPmePost() {
+  const lang = "pt";
+  const p = PAGES[lang];
+  const A = IA_PME;
+  const U = USE_CASES[lang];
+  const key = "blog:ia-pme";
+  const path = route(key, lang);
+  const trail = [[route("home", lang), p.ui.crumbHome], ["https://blog.agenciabyte.com/", "Blog"], [path, A.crumb]];
+  const jsonld = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${SITE}${path}#article`,
+        headline: A.h1,
+        description: A.description,
+        url: SITE + path,
+        inLanguage: "pt-BR",
+        datePublished: A.published,
+        dateModified: A.published,
+        image: OG_IMAGE,
+        author: { "@id": `${SITE}/#organization` },
+        publisher: { "@id": `${SITE}/#organization` },
+        mainEntityOfPage: SITE + path,
+        about: ["Automação com IA", "Automação de processos", "PME"],
+      },
+      breadcrumbLd(trail),
+    ],
+  };
+  const C = A.checklist;
+  const dataJson = JSON.stringify({ results: C.results, score: C.score, wa: C.wa, whatsapp: WHATSAPP, total: C.items.length }).replace(/</g, "\\u003c");
+  const fmtDate = new Date(A.published + "T12:00:00Z").toLocaleDateString("pt-BR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  return (
+    head({ lang, key, title: A.title, description: A.description, jsonld, extraHead: `<meta property="article:published_time" content="${A.published}" />\n` }) +
+    nav(lang, key, "") +
+    `
+<main id="conteudo">
+  <article class="post">
+  <section class="page-hero post-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      ${crumbs(lang, trail)}
+      <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>${A.eyebrow}</div>
+      <h1 class="display">${A.h1}</h1>
+      <p class="lead muted">${A.lead}</p>
+      <p class="mono post-meta">Agência Byte · <time datetime="${A.published}">${fmtDate}</time> · ${A.readTime}</p>
+    </div>
+  </section>
+
+  <section class="page-section post-body" id="resposta-curta">
+    <div class="wrap post-wrap">
+      <h2 class="display">${A.short.h2}</h2>
+      <div class="bling-tldr post-short"><p>${esc(A.short.text)}</p></div>
+      <ul class="post-criteria">
+        ${A.short.criteria.map(([t, d]) => `<li class="card"><b>${t}</b><span class="muted">${d}</span></li>`).join("\n        ")}
+      </ul>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt post-body" id="os-7">
+    <div class="wrap post-wrap">
+      <h2 class="display">${A.pays.h2}</h2>
+      <p class="post-p">${A.pays.intro}</p>
+      <ol class="post-items">
+        ${A.pays.items.map((it, i) => `<li class="card post-item">
+          <div class="post-item-head"><span class="mono bling-n" aria-hidden="true">0${i + 1}</span><h3>${it.h3}</h3></div>
+          <p>${it.why}</p>
+          <dl>
+            <div><dt class="mono">${A.pays.labels.does}</dt><dd>${it.does}</dd></div>
+            <div class="bling-api"><dt class="mono">${A.pays.labels.human}</dt><dd>${it.human}</dd></div>
+          </dl>
+          ${it.useCase ? `<a class="related-more mono" href="${route(`uc:${it.useCase}`, lang)}">${U.items[it.useCase].name}: ${A.pays.labels.link}</a>` : `<a class="related-more mono" href="${svcRoute("automacao-com-ia", lang)}">Automação com IA: ver o serviço →</a>`}
+        </li>`).join("\n        ")}
+      </ol>
+    </div>
+  </section>
+
+  <section class="page-section post-body" id="os-3">
+    <div class="wrap post-wrap">
+      <h2 class="display">${A.skip.h2}</h2>
+      <p class="post-p">${A.skip.intro}</p>
+      ${A.skip.items.map((it) => `<h3 class="post-h3 post-no">${it.h3}</h3>
+      <p class="post-p">${it.p}</p>`).join("\n      ")}
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt post-body" id="antes-de-automatizar">
+    <div class="wrap post-wrap">
+      <h2 class="display">${A.before.h2}</h2>
+      <p class="post-p">${A.before.intro}</p>
+      <ol class="steps post-steps">
+        ${A.before.steps.map(([t, d], i) => `<li class="card">
+          <div class="display step-code">0${i + 1}</div>
+          <h3>${t}</h3>
+          <p class="muted">${d}</p>
+        </li>`).join("\n        ")}
+      </ol>
+      <p class="post-p">${A.before.outro}</p>
+    </div>
+  </section>
+
+  <section class="page-section post-body" id="quanto-custa">
+    <div class="wrap post-wrap">
+      <h2 class="display">${A.cost.h2}</h2>
+      <p class="post-p">${A.cost.p1}</p>
+      <p class="post-p">${A.cost.p2}</p>
+      <p class="post-p"><a href="${route("calculator", lang)}" class="ul-link">${A.cost.calc}</a></p>
+      <p class="post-p">${A.cost.p3}</p>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt post-body" id="checklist">
+    <div class="wrap post-wrap">
+      <h2 class="display">${C.h2}</h2>
+      <p class="post-p">${C.intro}</p>
+      <form class="card post-checklist" id="ck" onsubmit="return false">
+        <ul>
+          ${C.items.map((t, i) => `<li><label><input type="checkbox" name="ck${i}" /><span>${t}</span></label></li>`).join("\n          ")}
+        </ul>
+        <div class="post-ck-result" id="ck-result" aria-live="polite" hidden>
+          <div class="mono post-ck-score" id="ck-score"></div>
+          <div class="post-ck-title" id="ck-title"></div>
+          <p class="muted" id="ck-text"></p>
+          <a class="btn btn-accent" id="ck-cta" href="${WHATSAPP}" target="_blank" rel="noopener noreferrer">${C.cta}</a>
+        </div>
+      </form>
+      <noscript><p class="post-p">${C.results.map((r) => `<b>${r.min}+ itens:</b> ${r.title}. ${r.text}`).join("<br>")}</p></noscript>
+    </div>
+  </section>
+  </article>
+
+  ${useCaseCards(lang, { heading: true, all: true })}
+  ${ctaSection(lang, A.cta)}
+</main>
+<script id="ck-data" type="application/json">${dataJson}</script>
+<script src="/checklist.js" defer></script>
+` +
+    footer(lang)
+  );
+}
+
 function servicesHub(lang) {
   const p = PAGES[lang];
   const hub = p.hub;
@@ -1775,6 +1931,7 @@ for (const lang of LANGS) {
     out[fileFor(route("bling", lang))] = blingHub();
     for (const slug of BLING_CHANNELS) out[fileFor(route(`bling:${slug}`, lang))] = blingChannelPage(slug);
     out[fileFor(route("pbi-logistica", lang))] = powerbiLogisticsPage();
+    out[fileFor(route("blog:ia-pme", lang))] = iaPmePost();
   }
   if (USE_CASES[lang]) {
     out[fileFor(route("usecases", lang))] = useCasesHub(lang);

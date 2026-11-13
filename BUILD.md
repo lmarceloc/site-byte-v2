@@ -47,6 +47,8 @@ A bandeira no topo troca o idioma e leva para a mesma página no outro idioma.
 | `i18n/pages.mjs` | Textos das páginas estáticas e metadados da home |
 | `i18n/use-cases.mjs` | Textos dos casos de uso de IA (`/casos-de-uso`) e ordem dos cards |
 | `i18n/bling.mjs` | Integração Bling com marketplaces (`/servicos/integracao-bling-marketplaces` + Mercado Livre, TikTok Shop e Shopee). Só em português |
+| `i18n/powerbi-logistica.mjs` | Power BI para distribuidoras e transportadoras (`/servicos/power-bi-para-distribuidoras-e-transportadoras`). Só em português |
+| `i18n/blog-ia-pme.mjs` | Post pilar `/blog/automacao-com-ia-para-pme` com checklist de prontidão (script `checklist.js`). Só em português. `/blog` redireciona para blog.agenciabyte.com |
 | `i18n/calculator.mjs` | Calculadora (`/calculadora`): textos e premissas por gargalo (sem preço de projeto). O script da página é `calc.js` |
 
 Ao mudar um texto, mude nos três idiomas e rode `npm run build && npm run pages`.
