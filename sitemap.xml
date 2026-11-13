@@ -57,6 +57,14 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/transformacao"/>
   </url>
   <url>
+    <loc>https://agenciabyte.com/calculadora</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/calculadora"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/automation-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/calculadora"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/calculadora"/>
+  </url>
+  <url>
     <loc>https://agenciabyte.com/clientes/divina-argila</loc>
     <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/clientes/divina-argila"/>
@@ -185,6 +193,14 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/transformacao"/>
   </url>
   <url>
+    <loc>https://agenciabyte.com/en/automation-calculator</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/calculadora"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/automation-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/calculadora"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/calculadora"/>
+  </url>
+  <url>
     <loc>https://agenciabyte.com/en/clients/divina-argila</loc>
     <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/clientes/divina-argila"/>
@@ -311,6 +327,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/transformation"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/transformacion"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/transformacao"/>
+  </url>
+  <url>
+    <loc>https://agenciabyte.com/es/calculadora</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agenciabyte.com/calculadora"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenciabyte.com/en/automation-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenciabyte.com/es/calculadora"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenciabyte.com/calculadora"/>
   </url>
   <url>
     <loc>https://agenciabyte.com/es/clientes/divina-argila</loc>
