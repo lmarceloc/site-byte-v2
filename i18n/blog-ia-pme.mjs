@@ -7,8 +7,8 @@
 
 export const IA_PME = {
   published: "2026-11-13",
-  title: "Automação com IA para PME: 7 processos que se pagam e 3 que não valem | Agência Byte",
-  description: "Quais processos automatizar com IA primeiro numa PME: os 7 que se pagam (WhatsApp, nota fiscal, triagem, conciliação…), os 3 que não valem, quanto custa e um checklist de prontidão.",
+  title: "Automação com IA para PME: 7 processos que se pagam | Agência Byte",
+  description: "Quais processos automatizar com IA primeiro numa PME: os 7 que se pagam, os 3 que não valem, quanto custa e um checklist de prontidão.",
   crumb: "Automação com IA para PME",
   eyebrow: "Guia · Automação com IA",
   h1: "Automação com IA para PME: os 7 processos que se pagam primeiro, e os 3 que não valem",

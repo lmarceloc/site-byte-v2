@@ -161,8 +161,8 @@ const pt = {
   cases: {
     cargon: {
       name: "CargOn",
-      title: "Caso CargOn: data warehouse e 4 dashboards em Power BI em 30 dias | Agência Byte",
-      description: "Como a Agência Byte criou o data warehouse, o ETL e 4 dashboards em Power BI para os clientes da CargOn em 30 dias, com previsões para a logística deixar de olhar para trás.",
+      title: "Caso CargOn: data warehouse e Power BI em 30 dias | Agência Byte",
+      description: "Como a Agência Byte criou o data warehouse, o ETL e 4 dashboards em Power BI para a CargOn em 30 dias, com previsões para a logística.",
       h1: "CargOn: data warehouse e 4 dashboards preditivos em 30 dias",
       lead: "A CargOn transformou as informações geradas dentro da sua plataforma em um novo produto para os clientes: um data warehouse, pipelines ETL e dashboards logísticos em Power BI com previsões, para a operação deixar de olhar para trás e passar a antecipar.",
       summary: "A CargOn queria criar mais um produto para os seus clientes a partir das informações geradas na plataforma. Em 30 dias, a Agência Byte entregou o data warehouse, o ETL e 4 dashboards logísticos em Power BI, com previsões.",
@@ -183,7 +183,7 @@ const pt = {
     "divina-argila": {
       name: "Divina Argila",
       title: "Caso Divina Argila: 4 sistemas integrados em 40 dias | Agência Byte",
-      description: "Como a Agência Byte integrou Bling, Trello, TikTok Shop e Mercado Livre para a Divina Argila em 40 dias: o time da fábrica olha só o Trello e o vendedor foca em vender.",
+      description: "Como integramos Bling, Trello, TikTok Shop e Mercado Livre para a Divina Argila em 40 dias: a fábrica olha só o Trello e o vendedor foca em vender.",
       h1: "Divina Argila: 4 sistemas integrados em 40 dias",
       lead: "A Divina Argila tinha processos fragmentados e tarefas repetidas em vários lugares. Integramos Bling, Trello, TikTok Shop e Mercado Livre: todo pedido dos canais de e-commerce chega ao Trello, o time da fábrica cria e expede a partir de um só lugar, e o vendedor volta a focar em vender.",
       summary: "A Divina Argila tinha processos fragmentados e pedidos para acertar em 4 lugares diferentes. Em 40 dias, a Agência Byte integrou Bling, Trello, TikTok Shop e Mercado Livre, e hoje o time da fábrica trabalha só no Trello.",
@@ -497,8 +497,8 @@ const en = {
   cases: {
     cargon: {
       name: "CargOn",
-      title: "CargOn case: data warehouse and 4 Power BI dashboards in 30 days | Agência Byte",
-      description: "How Agência Byte built the data warehouse, the ETL and 4 Power BI dashboards for CargOn's customers in 30 days, with forecasts so logistics stops looking backward.",
+      title: "CargOn case: data warehouse and Power BI in 30 days | Agência Byte",
+      description: "How Agência Byte built the data warehouse, the ETL and 4 Power BI dashboards for CargOn in 30 days, with forecasts so logistics stops looking backward.",
       h1: "CargOn: data warehouse and 4 predictive dashboards in 30 days",
       lead: "CargOn turned the data generated inside its platform into a new product for its customers: a data warehouse, ETL pipelines and Power BI logistics dashboards with forecasts, so operations stop looking backward and start anticipating.",
       summary: "CargOn wanted a new product for its customers built on the data generated in its platform. In 30 days, Agência Byte delivered the data warehouse, the ETL and 4 logistics dashboards in Power BI, with forecasts.",
@@ -519,7 +519,7 @@ const en = {
     "divina-argila": {
       name: "Divina Argila",
       title: "Divina Argila case: 4 systems integrated in 40 days | Agência Byte",
-      description: "How Agência Byte integrated Bling, Trello, TikTok Shop and Mercado Livre for Divina Argila in 40 days: the factory team looks only at Trello and sellers focus on selling.",
+      description: "How we integrated Bling, Trello, TikTok Shop and Mercado Livre for Divina Argila in 40 days: the factory only looks at Trello and sellers focus on selling.",
       h1: "Divina Argila: 4 systems integrated in 40 days",
       lead: "Divina Argila had fragmented processes and tasks repeated in several places. We integrated Bling, Trello, TikTok Shop and Mercado Livre: every e-commerce order lands in Trello, the factory team creates and ships from a single place, and sellers go back to selling.",
       summary: "Divina Argila had fragmented processes and orders to fix in 4 different places. In 40 days, Agência Byte integrated Bling, Trello, TikTok Shop and Mercado Livre, and today the factory team works only in Trello.",
@@ -827,8 +827,8 @@ const es = {
   cases: {
     cargon: {
       name: "CargOn",
-      title: "Caso CargOn: data warehouse y 4 dashboards en Power BI en 30 días | Agência Byte",
-      description: "Cómo Agência Byte creó el data warehouse, el ETL y 4 dashboards en Power BI para los clientes de CargOn en 30 días, con previsiones para que la logística deje de mirar hacia atrás.",
+      title: "Caso CargOn: data warehouse y Power BI en 30 días | Agência Byte",
+      description: "Cómo Agência Byte creó el data warehouse, el ETL y 4 dashboards en Power BI para CargOn en 30 días, con previsiones para la logística.",
       h1: "CargOn: data warehouse y 4 dashboards predictivos en 30 días",
       lead: "CargOn convirtió los datos generados dentro de su plataforma en un nuevo producto para sus clientes: un data warehouse, pipelines ETL y dashboards logísticos en Power BI con previsiones, para que la operación deje de mirar hacia atrás y empiece a anticiparse.",
       summary: "CargOn quería crear un producto más para sus clientes a partir de los datos generados en la plataforma. En 30 días, Agência Byte entregó el data warehouse, el ETL y 4 dashboards logísticos en Power BI, con previsiones.",
@@ -849,7 +849,7 @@ const es = {
     "divina-argila": {
       name: "Divina Argila",
       title: "Caso Divina Argila: 4 sistemas integrados en 40 días | Agência Byte",
-      description: "Cómo Agência Byte integró Bling, Trello, TikTok Shop y Mercado Livre para Divina Argila en 40 días: el equipo de fábrica mira solo Trello y el vendedor se enfoca en vender.",
+      description: "Cómo integramos Bling, Trello, TikTok Shop y Mercado Livre para Divina Argila en 40 días: la fábrica mira solo Trello y el vendedor se enfoca en vender.",
       h1: "Divina Argila: 4 sistemas integrados en 40 días",
       lead: "Divina Argila tenía procesos fragmentados y tareas repetidas en varios lugares. Integramos Bling, Trello, TikTok Shop y Mercado Livre: cada pedido de los canales de e-commerce llega a Trello, el equipo de fábrica crea y despacha desde un solo lugar, y el vendedor vuelve a enfocarse en vender.",
       summary: "Divina Argila tenía procesos fragmentados y pedidos que arreglar en 4 lugares distintos. En 40 días, Agência Byte integró Bling, Trello, TikTok Shop y Mercado Livre, y hoy el equipo de fábrica trabaja solo en Trello.",

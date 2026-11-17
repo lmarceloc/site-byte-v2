@@ -29,8 +29,8 @@ export const BLING = {
   },
 
   hub: {
-    title: "Integração Bling com Mercado Livre e TikTok Shop: quando usar API | Agência Byte",
-    description: "O que o Bling já faz sozinho com Mercado Livre, Shopee e TikTok Shop, os 5 limites que pedem integração via API (kits, fiscal, estoque, produção e preço por canal) e quanto tempo leva.",
+    title: "Integração Bling com marketplaces: quando usar API | Agência Byte",
+    description: "O que o Bling faz sozinho com Mercado Livre, Shopee e TikTok Shop, os 5 limites que pedem integração via API (kits, fiscal, estoque, produção, preço) e o prazo.",
     h1: "Integração Bling com Mercado Livre e TikTok Shop: o que o Bling faz sozinho e quando você precisa de API",
     lead: "Para a maioria das lojas, a integração nativa do Bling resolve. Este guia mostra onde ela para, e como saber se o seu caso pede uma integração via API do Bling.",
     tldr: CITABLE,
@@ -130,7 +130,7 @@ export const BLING = {
     "mercado-livre": {
       name: "Mercado Livre",
       card: "Anúncios com variação, Mercado Envios e Full, kits e preço por comissão.",
-      title: "Integração Bling com Mercado Livre: limites e quando usar API | Agência Byte",
+      title: "Integração Bling com Mercado Livre: quando usar API | Agência Byte",
       description: "O que a integração nativa do Bling com o Mercado Livre cobre, onde ela para (variações, Full, kits, preço por comissão) e quando vale integrar via API.",
       h1: "Integração Bling com Mercado Livre: o que é nativo e quando usar API",
       lead: "O Bling integra com o Mercado Livre sem desenvolvimento. Estes são os pontos em que lojas maiores ou com produção própria passam a precisar de uma integração via API.",
@@ -156,7 +156,7 @@ export const BLING = {
     "tiktok-shop": {
       name: "TikTok Shop",
       card: "Picos de venda em live, afiliados, kits e pedido direto para a produção.",
-      title: "Integração Bling com TikTok Shop: limites e quando usar API | Agência Byte",
+      title: "Integração Bling com TikTok Shop: quando usar API | Agência Byte",
       description: "Como o Bling integra com o TikTok Shop, onde a integração nativa para (picos de live, kits, estoque compartilhado, produção) e quando vale integrar via API.",
       h1: "Integração Bling com TikTok Shop: o que é nativo e quando usar API",
       lead: "O TikTok Shop vende em picos: uma live ou um vídeo de afiliado pode gerar em uma hora o volume de uma semana. É aí que os limites da integração nativa aparecem primeiro.",

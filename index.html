@@ -202,16 +202,17 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Elms+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" /></noscript>
 
 <link rel="stylesheet" href="/styles.css" />
+<!-- Conteúdo pré-renderizado: fica no HTML para os buscadores e é trocado pelo React ao carregar. -->
+<style>.prerender{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
+<noscript><style>.prerender{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal}</style></noscript>
 
 <!-- Bundle pré-compilado (React + app). Gerado por `npm run build`. O idioma vem do <html lang>. -->
 <script defer src="/app.js"></script>
 </head>
 <body data-theme="light">
-<div id="app"></div>
-
-<!-- Conteúdo estático para indexação antes da execução do JavaScript -->
-<noscript>
-  <main>
+<div id="app">
+  <!-- Conteúdo estático para indexação; o React substitui este bloco ao montar a página -->
+  <main class="prerender">
     <h1>Agência Byte | Desenvolvimento de Sistemas e Automação com IA</h1>
     <p>Engenharia de software: sistemas, integração, automação com IA e dados. Transformamos gargalos em eficiência através de soluções sob medida de alta velocidade.</p>
     <section>
@@ -343,7 +344,7 @@
     </section>
     <p><a href="/en" hreflang="en" lang="en">English</a> · <a href="/es" hreflang="es" lang="es">Español</a></p>
   </main>
-</noscript>
+</div>
 
 </body>
 </html>

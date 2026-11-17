@@ -519,16 +519,17 @@ ${ANALYTICS}
 ${FONTS}
 
 <link rel="stylesheet" href="/styles.css" />
+<!-- Conteúdo pré-renderizado: fica no HTML para os buscadores e é trocado pelo React ao carregar. -->
+<style>.prerender{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
+<noscript><style>.prerender{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal}</style></noscript>
 
 <!-- Bundle pré-compilado (React + app). Gerado por \`npm run build\`. O idioma vem do <html lang>. -->
 <script defer src="/app.js"></script>
 </head>
 <body data-theme="light">
-<div id="app"></div>
-
-<!-- Conteúdo estático para indexação antes da execução do JavaScript -->
-<noscript>
-  <main>
+<div id="app">
+  <!-- Conteúdo estático para indexação; o React substitui este bloco ao montar a página -->
+  <main class="prerender">
     <h1>${esc(h.title)}</h1>
     <p>${h.noscriptLead}</p>
     <section>
@@ -596,7 +597,7 @@ ${h.faq.map((f) => `      <h3>${f.q}</h3>
     </section>
     <p>${LANGS.filter((l) => l !== lang).map((l) => `<a href="${route("home", l)}" hreflang="${LANG_META[l].hreflang}" lang="${LANG_META[l].html}">${LANG_META[l].name}</a>`).join(" · ")}</p>
   </main>
-</noscript>
+</div>
 
 </body>
 </html>

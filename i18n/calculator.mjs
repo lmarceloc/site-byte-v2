@@ -23,7 +23,7 @@ export const CALC_CONFIG = {
 export const CALC = {
   pt: {
     nav: "Calculadora",
-    title: "Calculadora de automação: quanto custa o trabalho manual | Agência Byte",
+    title: "Calculadora de automação: o custo do trabalho manual | Agência Byte",
     description: "Calcule quanto o trabalho manual custa hoje para a sua empresa, quanto dá para automatizar e o que isso libera de capacidade. Conta aberta, premissas à vista.",
     eyebrow: "Calculadora de automação",
     h1: "Quanto o trabalho manual custa hoje, e quanto dá pra tirar dele?",
@@ -81,7 +81,7 @@ export const CALC = {
   },
   es: {
     nav: "Calculadora",
-    title: "Calculadora de automatización: cuánto cuesta el trabajo manual | Agência Byte",
+    title: "Calculadora de automatización: costo del trabajo manual | Agência Byte",
     description: "Calcule cuánto cuesta hoy el trabajo manual en su empresa, cuánto se puede automatizar y la capacidad que eso libera. Cuenta abierta, premisas a la vista.",
     eyebrow: "Calculadora de automatización",
     h1: "¿Cuánto cuesta hoy el trabajo manual, y cuánto se puede sacar de él?",
