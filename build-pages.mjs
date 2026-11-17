@@ -17,6 +17,7 @@ import { CALC, CALC_CONFIG, CALC_GUIDE } from "./i18n/calculator.mjs";
 import { BLING, BLING_CHANNELS } from "./i18n/bling.mjs";
 import { PBI } from "./i18n/powerbi-logistica.mjs";
 import { IA_PME } from "./i18n/blog-ia-pme.mjs";
+import { HERO_TEXT } from "./i18n/hero.mjs";
 import { LLMS_HEAD, LLMS_TAIL, HOME_MD_HEAD, HOME_MD_TAIL } from "./i18n/llms.mjs";
 
 const SITE = "https://agenciabyte.com";
@@ -536,7 +537,10 @@ ${FONTS}
   <!-- Conteúdo estático para indexação; o React substitui este bloco ao montar a página -->
   <main class="prerender">
     <h1>${esc(h.title)}</h1>
-    <p>${h.noscriptLead}</p>
+    <p>${esc(HERO_TEXT[lang].lead)}</p>
+    <ul>
+${HERO_TEXT[lang].stats.map(([k, v]) => `      <li>${esc(k)}: ${esc(v)}</li>`).join("\n")}
+    </ul>
     <section>
       <h2>${h.whoTitle}</h2>
       <p>${h.who}</p>

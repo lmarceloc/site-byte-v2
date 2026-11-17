@@ -2,6 +2,7 @@
 // O idioma vem do <html lang> da página: / (pt-BR), /en (en), /es (es).
 import React from "react";
 import { LANGS, DEFAULT_LANG } from "./routes.mjs";
+import { HERO_TEXT } from "./hero.mjs";
 
 const Acc = ({ children }) => <span style={{ color: "var(--accent)" }}>{children}</span>;
 
@@ -14,9 +15,9 @@ const pt = {
   hero: {
     titleA: ["Transforme processos manuais", "em operação inteligente"],
     titleB: ["Conecte sistemas, automatize tarefas", "e faça sua operação", "escalar"],
-    lead: "A Agência Byte desenvolve sistemas sob medida, integra ERP, CRM e marketplaces e aplica IA em atendimento, documentos e relatórios. Atendemos indústria, logística e distribuição de acordo com o seu fluxo, com o primeiro módulo em produção em 3 a 6 semanas.",
+    lead: HERO_TEXT.pt.lead,
     cta: "Começar um projeto →",
-    stats: [["Primeiro módulo", "3–6 semanas"], ["Suporte", "< 4h úteis"], ["Divina Argila", "4 sistemas integrados e Go-Live em 40 dias"]],
+    stats: HERO_TEXT.pt.stats,
   },
   transformation: {
     eyebrow: "Antes e depois",
@@ -141,9 +142,9 @@ const en = {
   hero: {
     titleA: ["Turn manual processes", "into intelligent operations"],
     titleB: ["Connect systems, automate tasks", "and make your operation", "scale"],
-    lead: "Agência Byte builds custom systems, integrates ERP, CRM and marketplaces, and applies AI to customer service, documents and reports. We serve manufacturing, logistics and distribution companies according to their workflow, with the first module in production in 3 to 6 weeks.",
+    lead: HERO_TEXT.en.lead,
     cta: "Start a project →",
-    stats: [["First module", "3–6 weeks"], ["Support", "< 4 business hours"], ["Divina Argila", "4 systems integrated and go-live in 40 days"]],
+    stats: HERO_TEXT.en.stats,
   },
   transformation: {
     eyebrow: "Before and after",
@@ -268,9 +269,9 @@ const es = {
   hero: {
     titleA: ["Transforma procesos manuales", "en una operación inteligente"],
     titleB: ["Conecta sistemas, automatiza tareas", "y haz que tu operación", "escale"],
-    lead: "Agência Byte desarrolla sistemas a medida, integra ERP, CRM y marketplaces y aplica IA en atención, documentos e informes. Atendemos industria, logística y distribución de acuerdo con su flujo, con el primer módulo en producción en 3 a 6 semanas.",
+    lead: HERO_TEXT.es.lead,
     cta: "Empezar un proyecto →",
-    stats: [["Primer módulo", "3–6 semanas"], ["Soporte", "< 4 h hábiles"], ["Divina Argila", "4 sistemas integrados y go-live en 40 días"]],
+    stats: HERO_TEXT.es.stats,
   },
   transformation: {
     eyebrow: "Antes y después",
