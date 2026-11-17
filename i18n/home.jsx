@@ -14,9 +14,9 @@ const pt = {
   hero: {
     titleA: ["Transforme processos manuais", "em operação inteligente"],
     titleB: ["Conecte sistemas, automatize tarefas", "e faça sua operação", "escalar"],
-    lead: "Transformamos tarefas repetitivas e processos desconectados em operações inteligentes, integradas e previsíveis. Conectamos seus sistemas, desenhamos integrações sob medida e aplicamos IA diretamente nos fluxos de vendas e gestão. O próximo passo não é trabalhar mais. É automatizar para crescer.",
+    lead: "A Agência Byte desenvolve sistemas sob medida, integra ERP, CRM e marketplaces e aplica IA em atendimento, documentos e relatórios. Atendemos indústria, logística e distribuição de acordo com o seu fluxo, com o primeiro módulo em produção em 3 a 6 semanas.",
     cta: "Começar um projeto →",
-    stats: [["Tempo médio", "3–6 semanas"], ["SLA suporte", "< 4h úteis"], ["Stack", "type-safe ponta a ponta"]],
+    stats: [["Primeiro módulo", "3–6 semanas"], ["Suporte", "< 4h úteis"], ["Divina Argila", "4 sistemas integrados e Go-Live em 40 dias"]],
   },
   transformation: {
     eyebrow: "Antes e depois",
@@ -141,9 +141,9 @@ const en = {
   hero: {
     titleA: ["Turn manual processes", "into intelligent operations"],
     titleB: ["Connect systems, automate tasks", "and make your operation", "scale"],
-    lead: "We turn repetitive tasks and disconnected processes into intelligent, integrated and predictable operations. We connect your systems, design custom integrations and apply AI directly to your sales and management workflows. The next step isn't working harder. It's automating to grow.",
+    lead: "Agência Byte builds custom systems, integrates ERP, CRM and marketplaces, and applies AI to customer service, documents and reports. We serve manufacturing, logistics and distribution companies according to their workflow, with the first module in production in 3 to 6 weeks.",
     cta: "Start a project →",
-    stats: [["Average time", "3–6 weeks"], ["Support SLA", "< 4 business hours"], ["Stack", "end-to-end type-safe"]],
+    stats: [["First module", "3–6 weeks"], ["Support", "< 4 business hours"], ["Divina Argila", "4 systems integrated and go-live in 40 days"]],
   },
   transformation: {
     eyebrow: "Before and after",
@@ -268,9 +268,9 @@ const es = {
   hero: {
     titleA: ["Transforma procesos manuales", "en una operación inteligente"],
     titleB: ["Conecta sistemas, automatiza tareas", "y haz que tu operación", "escale"],
-    lead: "Transformamos tareas repetitivas y procesos desconectados en operaciones inteligentes, integradas y predecibles. Conectamos tus sistemas, diseñamos integraciones a medida y aplicamos IA directamente en los flujos de ventas y gestión. El próximo paso no es trabajar más. Es automatizar para crecer.",
+    lead: "Agência Byte desarrolla sistemas a medida, integra ERP, CRM y marketplaces y aplica IA en atención, documentos e informes. Atendemos industria, logística y distribución de acuerdo con su flujo, con el primer módulo en producción en 3 a 6 semanas.",
     cta: "Empezar un proyecto →",
-    stats: [["Tiempo medio", "3–6 semanas"], ["SLA de soporte", "< 4 h hábiles"], ["Stack", "type-safe de punta a punta"]],
+    stats: [["Primer módulo", "3–6 semanas"], ["Soporte", "< 4 h hábiles"], ["Divina Argila", "4 sistemas integrados y go-live en 40 días"]],
   },
   transformation: {
     eyebrow: "Antes y después",
