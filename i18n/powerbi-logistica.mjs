@@ -6,8 +6,8 @@
 // foi previsto nem quantas fontes foram integradas sem confirmar com a Byte.
 
 export const PBI = {
-  title: "Power BI para distribuidora e transportadora: 12 indicadores | Agência Byte",
-  description: "Power BI para distribuidoras e transportadoras: os 12 indicadores que mudam a operação (OTIF, custo por entrega, margem por SKU, ruptura, giro), de onde vêm os dados e prazo.",
+  title: "Power BI para distribuidoras e transportadoras | Agência Byte",
+  description: "Os 12 indicadores de Power BI que mudam a operação de distribuidoras e transportadoras (OTIF, custo por entrega, margem por SKU, ruptura, giro) e o prazo.",
   crumb: "Power BI para distribuidoras e transportadoras",
   eyebrow: "Dados e Power BI · Logística e distribuição",
   h1: "Power BI para distribuidora e transportadora: os 12 indicadores que mudam a operação",
