@@ -109,3 +109,148 @@ export const CALC = {
     wa: "¡Hola! Usé la calculadora del sitio ({name}): {hTot} h/mes de trabajo manual, {hEnd} h automatizables (ahorro potencial de {value}/mes). Quiero validar estos números.",
   },
 };
+
+// Conteúdo de texto da página da calculadora (resposta curta, metodologia,
+// premissas e perguntas frequentes). Os {campos} do exemplo são preenchidos
+// no build com os valores iniciais de CALC_CONFIG, então o exemplo sempre bate
+// com o que a calculadora mostra ao abrir.
+export const CALC_GUIDE = {
+  pt: {
+    tldrLabel: "Resposta curta",
+    tldr: "Para calcular quanto o trabalho manual custa, some as horas gastas na tarefa no mês (pessoas × horas por semana × {w} semanas) com as horas de retrabalho e multiplique pelo custo da hora de quem faz. A economia potencial com automação é esse custo vezes a parte da tarefa que dá para automatizar, que a calculadora estima entre {min} e {max} conforme o gargalo. Com {p} pessoas, {h} horas por semana cada, {e} retrabalhos de {m} minutos por mês e hora a {rate}, o trabalho manual custa {costM} por mês ({costY} por ano), e automatizar {pct} dele libera {hEnd} horas e {endM} por mês.",
+    method: {
+      eyebrow: "Metodologia",
+      h2: "Como a conta é feita.",
+      intro: "A calculadora segue sempre os mesmos quatro passos e mostra cada um deles ao lado do resultado, em \"A conta\".",
+      steps: [
+        "<strong>Horas na tarefa por mês</strong> = pessoas × horas por semana × {w}. O {w} é a média de semanas num mês (52 semanas ÷ 12 meses).",
+        "<strong>Horas de retrabalho por mês</strong> = retrabalhos no mês × minutos para corrigir cada um ÷ 60.",
+        "<strong>Custo do trabalho manual</strong> = (horas na tarefa + horas de retrabalho) × custo da hora.",
+        "<strong>Economia potencial</strong> = horas totais × percentual automatizável × custo da hora.",
+      ],
+      exampleTitle: "Exemplo com os valores iniciais",
+      example: [
+        "{p} pessoas × {h} h por semana × {w} = {hTask} h por mês na tarefa.",
+        "{e} retrabalhos × {m} min ÷ 60 = {hRework} h por mês corrigindo erro.",
+        "{hTot} h × {rate} por hora = {costM} por mês, ou {costY} por ano.",
+        "{hTot} h × {pct} automatizável = {hEnd} h por mês liberadas, ou {endM} por mês ({endY} por ano).",
+      ],
+      outTitle: "O que fica de fora da conta",
+      out: "A calculadora não inclui o preço do projeto nem o custo de operação da automação, porque os dois dependem dos sistemas envolvidos e do volume, e são definidos no diagnóstico. Também não conta ganhos indiretos, como cliente respondido mais rápido, atendimento fora do horário comercial e erro que deixa de chegar ao cliente. Por isso o resultado tende a ser conservador.",
+    },
+    premises: {
+      eyebrow: "Premissas",
+      h2: "Quanto dá para automatizar em cada gargalo.",
+      intro: "O percentual automatizável é a única premissa da calculadora. Ele vem preenchido conforme o gargalo e você pode ajustar. O que não entra no percentual continua com uma pessoa: exceções, decisões e aprovações.",
+      items: {
+        atend: "Perguntas repetidas, como status do pedido, preço, prazo e segunda via, a IA responde consultando o seu sistema. Negociação, reclamação e casos fora do padrão continuam com uma pessoa.",
+        triag: "Classificar e encaminhar pedidos e leads segue regras estáveis. Fica com uma pessoa o que chega ambíguo ou incompleto.",
+        docs: "Nota fiscal, CT-e e comprovante têm campos padronizados. A IA lê e lança no ERP, e uma pessoa confere só o que vem com divergência ou baixa confiança.",
+        rel: "Juntar planilhas e montar o mesmo relatório toda semana é quase todo mecânico. A análise e a decisão continuam com o time.",
+        fin: "Conciliação, cadastro e cobrança têm partes mecânicas, mas pagamento e exceção pedem aprovação humana. Por isso a premissa é a mais baixa.",
+      },
+      link: "ver caso de uso →",
+    },
+    faqTitle: "Perguntas sobre a calculadora",
+    faq: [
+      { q: "Como calcular o custo do trabalho manual de uma tarefa?", a: "Some as horas gastas na tarefa no mês (pessoas × horas por semana × 4,33) com as horas de retrabalho (retrabalhos × minutos para corrigir ÷ 60) e multiplique pelo custo da hora de quem faz. A calculadora faz essa conta e mostra cada passo." },
+      { q: "Como calcular o custo da hora de um funcionário?", a: "Some o salário, os encargos e os benefícios do mês e divida pelas horas trabalhadas no mês. Para uma jornada de 44 horas semanais, o divisor usado na CLT é de 220 horas." },
+      { q: "Por que a economia potencial não é 100% do custo?", a: "Porque toda tarefa tem exceções, decisões e aprovações que devem continuar com uma pessoa. A calculadora parte de {min} a {max} automatizável, conforme o gargalo, e você pode ajustar esse número." },
+      { q: "A calculadora inclui o preço do projeto de automação?", a: "Não. O preço depende de quais sistemas entram e do volume, e é definido por escrito depois do diagnóstico. A calculadora mostra só o custo atual e a economia potencial." },
+      { q: "Os números da calculadora são confiáveis?", a: "São um ponto de partida com conta aberta. No diagnóstico, a Agência Byte mede o processo real da sua empresa e troca as estimativas por números medidos." },
+      { q: "Quanto tempo leva para automatizar uma tarefa?", a: "Um primeiro módulo em produção costuma levar de 3 a 6 semanas. Projetos maiores são divididos em entregas menores, para a economia começar antes do fim do projeto." },
+    ],
+  },
+  en: {
+    tldrLabel: "Short answer",
+    tldr: "To work out what manual work costs, add the hours spent on the task each month (people × hours per week × {w} weeks) to the rework hours and multiply by the hourly cost of the people doing it. The potential savings from automation are that cost times the share of the task that can be automated, which the calculator estimates at {min} to {max} depending on the bottleneck. With {p} people, {h} hours a week each, {e} reworks of {m} minutes a month and an hourly cost of {rate}, manual work costs {costM} a month ({costY} a year), and automating {pct} of it frees {hEnd} hours and {endM} a month.",
+    method: {
+      eyebrow: "Method",
+      h2: "How the math works.",
+      intro: "The calculator always follows the same four steps and shows each one next to the result, under \"The math\".",
+      steps: [
+        "<strong>Task hours per month</strong> = people × hours per week × {w}. {w} is the average number of weeks in a month (52 weeks ÷ 12 months).",
+        "<strong>Rework hours per month</strong> = reworks per month × minutes to fix each one ÷ 60.",
+        "<strong>Cost of manual work</strong> = (task hours + rework hours) × hourly cost.",
+        "<strong>Potential savings</strong> = total hours × automatable share × hourly cost.",
+      ],
+      exampleTitle: "Example with the starting values",
+      example: [
+        "{p} people × {h} h per week × {w} = {hTask} h per month on the task.",
+        "{e} reworks × {m} min ÷ 60 = {hRework} h per month fixing errors.",
+        "{hTot} h × {rate} per hour = {costM} per month, or {costY} per year.",
+        "{hTot} h × {pct} automatable = {hEnd} h per month freed, or {endM} per month ({endY} per year).",
+      ],
+      outTitle: "What the math leaves out",
+      out: "The calculator does not include the project price or the running cost of the automation, since both depend on the systems involved and the volume, and are defined in the assessment. It also leaves out indirect gains such as faster replies to customers, service outside business hours and errors that no longer reach the customer. That is why the result tends to be conservative.",
+    },
+    premises: {
+      eyebrow: "Assumptions",
+      h2: "How much can be automated in each bottleneck.",
+      intro: "The automatable share is the calculator's only assumption. It is prefilled for each bottleneck and you can adjust it. Whatever is outside that share stays with a person: exceptions, decisions and approvals.",
+      items: {
+        atend: "AI answers repeat questions such as order status, price, delivery time and invoice copies by checking your system. Negotiation, complaints and unusual cases stay with a person.",
+        triag: "Sorting and routing orders and leads follows stable rules. Requests that arrive ambiguous or incomplete stay with a person.",
+        docs: "Invoices, freight documents and receipts have standard fields. AI reads them and posts them to the ERP, and a person checks only what comes in with mismatches or low confidence.",
+        rel: "Gathering spreadsheets and building the same report every week is almost entirely mechanical. Analysis and decisions stay with the team.",
+        fin: "Reconciliation, data entry and collections have mechanical parts, but payments and exceptions need human approval. That is why this assumption is the lowest.",
+      },
+      link: "see use case →",
+    },
+    faqTitle: "Questions about the calculator",
+    faq: [
+      { q: "How do you calculate the cost of manual work on a task?", a: "Add the hours spent on the task each month (people × hours per week × 4.33) to the rework hours (reworks × minutes to fix ÷ 60) and multiply by the hourly cost of the people doing it. The calculator does this math and shows each step." },
+      { q: "How do you calculate an employee's hourly cost?", a: "Add the monthly salary, payroll taxes and benefits, then divide by the hours worked in the month." },
+      { q: "Why are the potential savings not 100% of the cost?", a: "Because every task has exceptions, decisions and approvals that should stay with a person. The calculator starts from {min} to {max} automatable, depending on the bottleneck, and you can adjust that number." },
+      { q: "Does the calculator include the price of the automation project?", a: "No. The price depends on which systems are involved and on the volume, and is set in writing after the assessment. The calculator only shows the current cost and the potential savings." },
+      { q: "Can I trust the calculator's numbers?", a: "They are a starting point with the math in the open. In the assessment, Agência Byte measures your company's actual process and replaces the estimates with measured numbers." },
+      { q: "How long does it take to automate a task?", a: "A first module in production usually takes 3 to 6 weeks. Larger projects are split into smaller deliveries, so the savings start before the project ends." },
+    ],
+  },
+  es: {
+    tldrLabel: "Respuesta corta",
+    tldr: "Para calcular cuánto cuesta el trabajo manual, sume las horas dedicadas a la tarea en el mes (personas × horas por semana × {w} semanas) a las horas de retrabajo y multiplique por el costo por hora de quien la hace. El ahorro potencial con automatización es ese costo por la parte de la tarea que se puede automatizar, que la calculadora estima entre {min} y {max} según el cuello de botella. Con {p} personas, {h} horas por semana cada una, {e} retrabajos de {m} minutos al mes y una hora a {rate}, el trabajo manual cuesta {costM} al mes ({costY} al año), y automatizar el {pct} libera {hEnd} horas y {endM} al mes.",
+    method: {
+      eyebrow: "Metodología",
+      h2: "Cómo se hace la cuenta.",
+      intro: "La calculadora sigue siempre los mismos cuatro pasos y muestra cada uno al lado del resultado, en \"La cuenta\".",
+      steps: [
+        "<strong>Horas en la tarea por mes</strong> = personas × horas por semana × {w}. El {w} es el promedio de semanas en un mes (52 semanas ÷ 12 meses).",
+        "<strong>Horas de retrabajo por mes</strong> = retrabajos en el mes × minutos para corregir cada uno ÷ 60.",
+        "<strong>Costo del trabajo manual</strong> = (horas en la tarea + horas de retrabajo) × costo por hora.",
+        "<strong>Ahorro potencial</strong> = horas totales × porcentaje automatizable × costo por hora.",
+      ],
+      exampleTitle: "Ejemplo con los valores iniciales",
+      example: [
+        "{p} personas × {h} h por semana × {w} = {hTask} h al mes en la tarea.",
+        "{e} retrabajos × {m} min ÷ 60 = {hRework} h al mes corrigiendo errores.",
+        "{hTot} h × {rate} por hora = {costM} al mes, o {costY} al año.",
+        "{hTot} h × {pct} automatizable = {hEnd} h al mes liberadas, o {endM} al mes ({endY} al año).",
+      ],
+      outTitle: "Lo que queda fuera de la cuenta",
+      out: "La calculadora no incluye el precio del proyecto ni el costo de operación de la automatización, porque ambos dependen de los sistemas involucrados y del volumen, y se definen en el diagnóstico. Tampoco cuenta ganancias indirectas, como responder más rápido al cliente, atender fuera del horario comercial y errores que dejan de llegar al cliente. Por eso el resultado tiende a ser conservador.",
+    },
+    premises: {
+      eyebrow: "Premisas",
+      h2: "Cuánto se puede automatizar en cada cuello de botella.",
+      intro: "El porcentaje automatizable es la única premisa de la calculadora. Viene completado según el cuello de botella y usted puede ajustarlo. Lo que queda fuera del porcentaje sigue con una persona: excepciones, decisiones y aprobaciones.",
+      items: {
+        atend: "La IA responde preguntas repetidas, como estado del pedido, precio, plazo y segunda vía, consultando su sistema. Negociación, reclamos y casos fuera de lo común siguen con una persona.",
+        triag: "Clasificar y derivar pedidos y leads sigue reglas estables. Lo que llega ambiguo o incompleto sigue con una persona.",
+        docs: "Facturas, documentos de transporte y comprobantes tienen campos estandarizados. La IA los lee y los carga en el ERP, y una persona revisa solo lo que llega con diferencias o baja confianza.",
+        rel: "Juntar planillas y armar el mismo informe cada semana es casi todo mecánico. El análisis y la decisión siguen con el equipo.",
+        fin: "Conciliación, registro y cobranza tienen partes mecánicas, pero pagos y excepciones requieren aprobación humana. Por eso esta premisa es la más baja.",
+      },
+      link: "ver caso de uso →",
+    },
+    faqTitle: "Preguntas sobre la calculadora",
+    faq: [
+      { q: "¿Cómo se calcula el costo del trabajo manual de una tarea?", a: "Sume las horas dedicadas a la tarea en el mes (personas × horas por semana × 4,33) a las horas de retrabajo (retrabajos × minutos para corregir ÷ 60) y multiplique por el costo por hora de quien la hace. La calculadora hace esa cuenta y muestra cada paso." },
+      { q: "¿Cómo se calcula el costo por hora de un empleado?", a: "Sume el salario, las cargas sociales y los beneficios del mes y divida por las horas trabajadas en el mes." },
+      { q: "¿Por qué el ahorro potencial no es el 100% del costo?", a: "Porque toda tarea tiene excepciones, decisiones y aprobaciones que deben seguir con una persona. La calculadora parte de {min} a {max} automatizable, según el cuello de botella, y usted puede ajustar ese número." },
+      { q: "¿La calculadora incluye el precio del proyecto de automatización?", a: "No. El precio depende de qué sistemas entran y del volumen, y se define por escrito después del diagnóstico. La calculadora muestra solo el costo actual y el ahorro potencial." },
+      { q: "¿Los números de la calculadora son confiables?", a: "Son un punto de partida con la cuenta a la vista. En el diagnóstico, Agência Byte mide el proceso real de su empresa y cambia las estimaciones por números medidos." },
+      { q: "¿Cuánto tiempo lleva automatizar una tarea?", a: "Un primer módulo en producción suele llevar de 3 a 6 semanas. Los proyectos más grandes se dividen en entregas más pequeñas, para que el ahorro empiece antes del final del proyecto." },
+    ],
+  },
+};

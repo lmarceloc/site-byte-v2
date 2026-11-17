@@ -13,7 +13,7 @@ import { dirname } from "node:path";
 import { LANGS, LANG_META, ROUTES, FLAGS, SWITCH_LABEL, route, svcRoute, langsFor } from "./i18n/routes.mjs";
 import { PAGES, SERVICE_ORDER } from "./i18n/pages.mjs";
 import { USE_CASES, USE_CASE_ORDER } from "./i18n/use-cases.mjs";
-import { CALC, CALC_CONFIG } from "./i18n/calculator.mjs";
+import { CALC, CALC_CONFIG, CALC_GUIDE } from "./i18n/calculator.mjs";
 import { BLING, BLING_CHANNELS } from "./i18n/bling.mjs";
 import { PBI } from "./i18n/powerbi-logistica.mjs";
 import { IA_PME } from "./i18n/blog-ia-pme.mjs";
@@ -1064,11 +1064,38 @@ function useCasePage(lang, slug) {
   );
 }
 
+// Exemplo da calculadora com os valores iniciais, com as mesmas fórmulas do calc.js.
+// Vai para o HTML (resposta curta e metodologia), então o texto bate com a calculadora.
+function calcExample(lang) {
+  const d = CALC_CONFIG.defaults;
+  const w = CALC_CONFIG.weeksPerMonth;
+  const a = CALC_CONFIG.bottlenecks[0].auto;
+  const loc = LANG_META[lang].html;
+  const brl = (v) => v.toLocaleString(loc, { style: "currency", currency: "BRL", currencyDisplay: "narrowSymbol", maximumFractionDigits: 0 });
+  const hTask = Math.round(d.people * d.hours * w);
+  const hRework = Math.round((d.rework * d.fixMin) / 60);
+  const hTot = hTask + hRework;
+  const hEnd = Math.round(hTot * a);
+  return {
+    p: d.people, h: d.hours, e: d.rework, m: d.fixMin, w: w.toLocaleString(loc),
+    rate: brl(d.rate), pct: `${Math.round(a * 100)}%`,
+    min: `${Math.round(Math.min(...CALC_CONFIG.bottlenecks.map((b) => b.auto)) * 100)}%`,
+    max: `${Math.round(Math.max(...CALC_CONFIG.bottlenecks.map((b) => b.auto)) * 100)}%`,
+    hTask, hRework, hTot, hEnd,
+    costM: brl(hTot * d.rate), costY: brl(hTot * d.rate * 12),
+    endM: brl(hEnd * d.rate), endY: brl(hEnd * d.rate * 12),
+  };
+}
+const fillIn = (text, vals) => text.replace(/\{(\w+)\}/g, (m, k) => (k in vals ? vals[k] : m));
+
 function calculatorPage(lang) {
   const p = PAGES[lang];
   const C = CALC[lang];
   const path = route("calculator", lang);
   const trail = [[route("home", lang), p.ui.crumbHome], [path, C.nav]];
+  const G = CALC_GUIDE[lang];
+  const ex = calcExample(lang);
+  const fx = (t) => fillIn(t, ex);
   const jsonld = {
     "@context": "https://schema.org",
     "@graph": [
@@ -1082,6 +1109,11 @@ function calculatorPage(lang) {
         operatingSystem: "Web",
         offers: { "@type": "Offer", price: "0", priceCurrency: "BRL" },
         provider: { "@type": "Organization", name: BRAND, url: SITE },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${SITE}${path}#faq`,
+        mainEntity: G.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: fx(f.a) } })),
       },
       breadcrumbLd(trail),
     ],
@@ -1111,6 +1143,10 @@ function calculatorPage(lang) {
       <div class="eyebrow"><span class="dot"></span>${C.eyebrow}</div>
       <h1 class="display">${C.h1}</h1>
       <p class="lead muted">${C.lead}</p>
+      <aside class="bling-tldr" aria-label="${G.tldrLabel}">
+        <div class="mono bling-tldr-k">${G.tldrLabel}</div>
+        <p>${esc(fx(G.tldr))}</p>
+      </aside>
     </div>
   </section>
 
@@ -1161,6 +1197,43 @@ function calculatorPage(lang) {
     </div>
   </section>
 
+  <section class="page-section page-section-alt" id="metodologia">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>${G.method.eyebrow}</div>
+        <h2 class="display">${G.method.h2}</h2>
+      </div>
+      <div class="bling-prose">
+        <p>${G.method.intro}</p>
+        <ol class="signal-list">
+          ${G.method.steps.map((x, i) => `<li><span class="mono">0${i + 1}</span><span>${fx(x)}</span></li>`).join("\n          ")}
+        </ol>
+        <h3>${G.method.exampleTitle}</h3>
+        <ul class="bling-check">
+          ${G.method.example.map((x) => `<li>${fx(x)}</li>`).join("\n          ")}
+        </ul>
+        <h3>${G.method.outTitle}</h3>
+        <p>${G.method.out}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section" id="premissas">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>${G.premises.eyebrow}</div>
+        <h2 class="display">${G.premises.h2}</h2>
+      </div>
+      <div class="bling-prose">
+        <p>${G.premises.intro}</p>
+        <ol class="signal-list">
+          ${CALC_CONFIG.bottlenecks.map((b) => `<li><span class="mono">${Math.round(b.auto * 100)}%</span><span><strong>${C.names[b.id]}.</strong> ${G.premises.items[b.id]} <a href="${data.useCases[b.id]}" class="ul-link">${G.premises.link}</a></span></li>`).join("\n          ")}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  ${faqSection(lang, G.faq.map((f) => ({ ...f, a: fx(f.a) })), G.faqTitle)}
   ${useCaseCards(lang, { heading: true })}
 </main>
 <script id="calc-data" type="application/json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>

@@ -59,6 +59,60 @@
       }
     },
     {
+      "@type": "FAQPage",
+      "@id": "https://agenciabyte.com/en/automation-calculator#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do you calculate the cost of manual work on a task?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Add the hours spent on the task each month (people × hours per week × 4.33) to the rework hours (reworks × minutes to fix ÷ 60) and multiply by the hourly cost of the people doing it. The calculator does this math and shows each step."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you calculate an employee's hourly cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Add the monthly salary, payroll taxes and benefits, then divide by the hours worked in the month."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why are the potential savings not 100% of the cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because every task has exceptions, decisions and approvals that should stay with a person. The calculator starts from 45% to 70% automatable, depending on the bottleneck, and you can adjust that number."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the calculator include the price of the automation project?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The price depends on which systems are involved and on the volume, and is set in writing after the assessment. The calculator only shows the current cost and the potential savings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I trust the calculator's numbers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They are a starting point with the math in the open. In the assessment, Agência Byte measures your company's actual process and replaces the estimates with measured numbers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to automate a task?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A first module in production usually takes 3 to 6 weeks. Larger projects are split into smaller deliveries, so the savings start before the project ends."
+          }
+        }
+      ]
+    },
+    {
       "@type": "BreadcrumbList",
       "itemListElement": [
         {
@@ -200,6 +254,10 @@
       <div class="eyebrow"><span class="dot"></span>Automation calculator</div>
       <h1 class="display">What does manual work cost you today, and how much of it can go?</h1>
       <p class="lead muted">Enter your operation's numbers. The math is shown in full, with the assumptions in plain sight.</p>
+      <aside class="bling-tldr" aria-label="Short answer">
+        <div class="mono bling-tldr-k">Short answer</div>
+        <p>To work out what manual work costs, add the hours spent on the task each month (people × hours per week × 4.33 weeks) to the rework hours and multiply by the hourly cost of the people doing it. The potential savings from automation are that cost times the share of the task that can be automated, which the calculator estimates at 45% to 70% depending on the bottleneck. With 2 people, 6 hours a week each, 10 reworks of 30 minutes a month and an hourly cost of R$45, manual work costs R$2,565 a month (R$30,780 a year), and automating 50% of it frees 29 hours and R$1,305 a month.</p>
+      </aside>
     </div>
   </section>
 
@@ -272,6 +330,86 @@
     </div>
   </section>
 
+  <section class="page-section page-section-alt" id="metodologia">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>Method</div>
+        <h2 class="display">How the math works.</h2>
+      </div>
+      <div class="bling-prose">
+        <p>The calculator always follows the same four steps and shows each one next to the result, under "The math".</p>
+        <ol class="signal-list">
+          <li><span class="mono">01</span><span><strong>Task hours per month</strong> = people × hours per week × 4.33. 4.33 is the average number of weeks in a month (52 weeks ÷ 12 months).</span></li>
+          <li><span class="mono">02</span><span><strong>Rework hours per month</strong> = reworks per month × minutes to fix each one ÷ 60.</span></li>
+          <li><span class="mono">03</span><span><strong>Cost of manual work</strong> = (task hours + rework hours) × hourly cost.</span></li>
+          <li><span class="mono">04</span><span><strong>Potential savings</strong> = total hours × automatable share × hourly cost.</span></li>
+        </ol>
+        <h3>Example with the starting values</h3>
+        <ul class="bling-check">
+          <li>2 people × 6 h per week × 4.33 = 52 h per month on the task.</li>
+          <li>10 reworks × 30 min ÷ 60 = 5 h per month fixing errors.</li>
+          <li>57 h × R$45 per hour = R$2,565 per month, or R$30,780 per year.</li>
+          <li>57 h × 50% automatable = 29 h per month freed, or R$1,305 per month (R$15,660 per year).</li>
+        </ul>
+        <h3>What the math leaves out</h3>
+        <p>The calculator does not include the project price or the running cost of the automation, since both depend on the systems involved and the volume, and are defined in the assessment. It also leaves out indirect gains such as faster replies to customers, service outside business hours and errors that no longer reach the customer. That is why the result tends to be conservative.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section" id="premissas">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>Assumptions</div>
+        <h2 class="display">How much can be automated in each bottleneck.</h2>
+      </div>
+      <div class="bling-prose">
+        <p>The automatable share is the calculator's only assumption. It is prefilled for each bottleneck and you can adjust it. Whatever is outside that share stays with a person: exceptions, decisions and approvals.</p>
+        <ol class="signal-list">
+          <li><span class="mono">50%</span><span><strong>WhatsApp customer service.</strong> AI answers repeat questions such as order status, price, delivery time and invoice copies by checking your system. Negotiation, complaints and unusual cases stay with a person. <a href="/en/use-cases/whatsapp-ai-customer-service" class="ul-link">see use case →</a></span></li>
+          <li><span class="mono">60%</span><span><strong>Order and lead triage.</strong> Sorting and routing orders and leads follows stable rules. Requests that arrive ambiguous or incomplete stay with a person. <a href="/en/use-cases/order-and-lead-triage" class="ul-link">see use case →</a></span></li>
+          <li><span class="mono">65%</span><span><strong>Document reading.</strong> Invoices, freight documents and receipts have standard fields. AI reads them and posts them to the ERP, and a person checks only what comes in with mismatches or low confidence. <a href="/en/use-cases/ai-document-data-extraction" class="ul-link">see use case →</a></span></li>
+          <li><span class="mono">70%</span><span><strong>Reports.</strong> Gathering spreadsheets and building the same report every week is almost entirely mechanical. Analysis and decisions stay with the team. <a href="/en/use-cases/automated-reports" class="ul-link">see use case →</a></span></li>
+          <li><span class="mono">45%</span><span><strong>Finance / admin.</strong> Reconciliation, data entry and collections have mechanical parts, but payments and exceptions need human approval. That is why this assumption is the lowest. <a href="/en/use-cases/administrative-process-automation" class="ul-link">see use case →</a></span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>Frequently asked questions</div>
+        <h2 class="display">Questions about the calculator</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>How do you calculate the cost of manual work on a task?</summary>
+          <p class="muted">Add the hours spent on the task each month (people × hours per week × 4.33) to the rework hours (reworks × minutes to fix ÷ 60) and multiply by the hourly cost of the people doing it. The calculator does this math and shows each step.</p>
+        </details>
+        <details>
+          <summary>How do you calculate an employee's hourly cost?</summary>
+          <p class="muted">Add the monthly salary, payroll taxes and benefits, then divide by the hours worked in the month.</p>
+        </details>
+        <details>
+          <summary>Why are the potential savings not 100% of the cost?</summary>
+          <p class="muted">Because every task has exceptions, decisions and approvals that should stay with a person. The calculator starts from 45% to 70% automatable, depending on the bottleneck, and you can adjust that number.</p>
+        </details>
+        <details>
+          <summary>Does the calculator include the price of the automation project?</summary>
+          <p class="muted">No. The price depends on which systems are involved and on the volume, and is set in writing after the assessment. The calculator only shows the current cost and the potential savings.</p>
+        </details>
+        <details>
+          <summary>Can I trust the calculator's numbers?</summary>
+          <p class="muted">They are a starting point with the math in the open. In the assessment, Agência Byte measures your company's actual process and replaces the estimates with measured numbers.</p>
+        </details>
+        <details>
+          <summary>How long does it take to automate a task?</summary>
+          <p class="muted">A first module in production usually takes 3 to 6 weeks. Larger projects are split into smaller deliveries, so the savings start before the project ends.</p>
+        </details>
+      </div>
+    </div>
+  </section>
   <section class="page-section">
     <div class="wrap">
       <div class="section-head">
