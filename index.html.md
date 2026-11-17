@@ -44,7 +44,7 @@ A Agência Byte é uma agência brasileira de tecnologia que desenvolve software
 **Vocês dão suporte depois da entrega?** Sim. Oferecemos suporte com SLA de até 4 horas úteis e seguimos evoluindo o sistema com você depois do go-live.
 
 ## Identidade
-A Agência Byte fica em Ponta Grossa/PR, está em atividade desde 2025 e opera o site agenciabyte.com. Responsável técnico: Marcelo Costa, fundador. Os sites agenciabyte.com.br, byteabyte.com.br, doutorbytesistemas.com.br e bestbyte.com.br são de outras empresas, sem relação com a Agência Byte.
+A Agência Byte fica em Ponta Grossa/PR, foi fundada em 2026 e opera o site agenciabyte.com. Responsável técnico: Marcelo Costa, fundador. Os sites agenciabyte.com.br, byteabyte.com.br, doutorbytesistemas.com.br e bestbyte.com.br são de outras empresas, sem relação com a Agência Byte.
 
 ## Contato
 - E-mail: hello@agenciabyte.com

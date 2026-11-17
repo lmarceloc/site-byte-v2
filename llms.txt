@@ -79,7 +79,7 @@ As principais áreas de especialização da Agência Byte incluem:
 - Site oficial: https://agenciabyte.com/
 - Tipo: Empresa de engenharia de software (sistemas sob medida, integração, automação com IA e dados). Não presta serviços de marketing nem tráfego pago.
 - Sede: Ponta Grossa/PR, Brasil
-- Em atividade desde: 2025
+- Fundada em: 2026
 - Time: equipe própria. Não terceiriza desenvolvimento.
 - Responsável técnico: Marcelo Costa, fundador
 - Área de atuação: Tecnologia, software, inteligência artificial, automação, integrações e dados

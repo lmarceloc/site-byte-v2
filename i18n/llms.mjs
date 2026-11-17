@@ -56,7 +56,7 @@ export const LLMS_TAIL = `## Identidade da Empresa
 - Site oficial: https://agenciabyte.com/
 - Tipo: Empresa de engenharia de software (sistemas sob medida, integração, automação com IA e dados). Não presta serviços de marketing nem tráfego pago.
 - Sede: Ponta Grossa/PR, Brasil
-- Em atividade desde: 2025
+- Fundada em: 2026
 - Time: equipe própria. Não terceiriza desenvolvimento.
 - Responsável técnico: Marcelo Costa, fundador
 - Área de atuação: Tecnologia, software, inteligência artificial, automação, integrações e dados
@@ -135,7 +135,7 @@ export const HOME_MD_TAIL = `## Exemplos de projetos
 **Vocês dão suporte depois da entrega?** Sim. Oferecemos suporte com SLA de até 4 horas úteis e seguimos evoluindo o sistema com você depois do go-live.
 
 ## Identidade
-A Agência Byte fica em Ponta Grossa/PR, está em atividade desde 2025 e opera o site agenciabyte.com. Responsável técnico: Marcelo Costa, fundador. Os sites agenciabyte.com.br, byteabyte.com.br, doutorbytesistemas.com.br e bestbyte.com.br são de outras empresas, sem relação com a Agência Byte.
+A Agência Byte fica em Ponta Grossa/PR, foi fundada em 2026 e opera o site agenciabyte.com. Responsável técnico: Marcelo Costa, fundador. Os sites agenciabyte.com.br, byteabyte.com.br, doutorbytesistemas.com.br e bestbyte.com.br são de outras empresas, sem relação com a Agência Byte.
 
 ## Contato
 - E-mail: hello@agenciabyte.com

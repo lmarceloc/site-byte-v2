@@ -434,7 +434,7 @@ function homePage(lang) {
         logo: `${SITE}/img/logo_byte.png`,
         description: h.orgDescription,
         disambiguatingDescription: "Empresa de engenharia de software de Ponta Grossa/PR que opera o site agenciabyte.com. Não tem relação com empresas de nome parecido em outros domínios, como agenciabyte.com.br.",
-        foundingDate: "2025",
+        foundingDate: "2026",
         founder: { "@type": "Person", name: "Marcelo Costa", jobTitle: "Founder" },
         address: { "@type": "PostalAddress", addressLocality: "Ponta Grossa", addressRegion: "PR", addressCountry: "BR" },
         knowsAbout: ["Software Development", "Artificial Intelligence", "Process Automation", "System Integration", "Data Analytics", "Business Intelligence", "Power BI"],
