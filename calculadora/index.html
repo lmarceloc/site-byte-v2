@@ -59,6 +59,60 @@
       }
     },
     {
+      "@type": "FAQPage",
+      "@id": "https://agenciabyte.com/calculadora#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Como calcular o custo do trabalho manual de uma tarefa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some as horas gastas na tarefa no mês (pessoas × horas por semana × 4,33) com as horas de retrabalho (retrabalhos × minutos para corrigir ÷ 60) e multiplique pelo custo da hora de quem faz. A calculadora faz essa conta e mostra cada passo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como calcular o custo da hora de um funcionário?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some o salário, os encargos e os benefícios do mês e divida pelas horas trabalhadas no mês. Para uma jornada de 44 horas semanais, o divisor usado na CLT é de 220 horas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Por que a economia potencial não é 100% do custo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque toda tarefa tem exceções, decisões e aprovações que devem continuar com uma pessoa. A calculadora parte de 45% a 70% automatizável, conforme o gargalo, e você pode ajustar esse número."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A calculadora inclui o preço do projeto de automação?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. O preço depende de quais sistemas entram e do volume, e é definido por escrito depois do diagnóstico. A calculadora mostra só o custo atual e a economia potencial."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Os números da calculadora são confiáveis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "São um ponto de partida com conta aberta. No diagnóstico, a Agência Byte mede o processo real da sua empresa e troca as estimativas por números medidos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto tempo leva para automatizar uma tarefa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Um primeiro módulo em produção costuma levar de 3 a 6 semanas. Projetos maiores são divididos em entregas menores, para a economia começar antes do fim do projeto."
+          }
+        }
+      ]
+    },
+    {
       "@type": "BreadcrumbList",
       "itemListElement": [
         {
@@ -200,6 +254,10 @@
       <div class="eyebrow"><span class="dot"></span>Calculadora de automação</div>
       <h1 class="display">Quanto o trabalho manual custa hoje, e quanto dá pra tirar dele?</h1>
       <p class="lead muted">Coloque os números da sua operação. A conta aparece aberta, com as premissas à vista.</p>
+      <aside class="bling-tldr" aria-label="Resposta curta">
+        <div class="mono bling-tldr-k">Resposta curta</div>
+        <p>Para calcular quanto o trabalho manual custa, some as horas gastas na tarefa no mês (pessoas × horas por semana × 4,33 semanas) com as horas de retrabalho e multiplique pelo custo da hora de quem faz. A economia potencial com automação é esse custo vezes a parte da tarefa que dá para automatizar, que a calculadora estima entre 45% e 70% conforme o gargalo. Com 2 pessoas, 6 horas por semana cada, 10 retrabalhos de 30 minutos por mês e hora a R$ 45, o trabalho manual custa R$ 2.565 por mês (R$ 30.780 por ano), e automatizar 50% dele libera 29 horas e R$ 1.305 por mês.</p>
+      </aside>
     </div>
   </section>
 
@@ -272,6 +330,86 @@
     </div>
   </section>
 
+  <section class="page-section page-section-alt" id="metodologia">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>Metodologia</div>
+        <h2 class="display">Como a conta é feita.</h2>
+      </div>
+      <div class="bling-prose">
+        <p>A calculadora segue sempre os mesmos quatro passos e mostra cada um deles ao lado do resultado, em "A conta".</p>
+        <ol class="signal-list">
+          <li><span class="mono">01</span><span><strong>Horas na tarefa por mês</strong> = pessoas × horas por semana × 4,33. O 4,33 é a média de semanas num mês (52 semanas ÷ 12 meses).</span></li>
+          <li><span class="mono">02</span><span><strong>Horas de retrabalho por mês</strong> = retrabalhos no mês × minutos para corrigir cada um ÷ 60.</span></li>
+          <li><span class="mono">03</span><span><strong>Custo do trabalho manual</strong> = (horas na tarefa + horas de retrabalho) × custo da hora.</span></li>
+          <li><span class="mono">04</span><span><strong>Economia potencial</strong> = horas totais × percentual automatizável × custo da hora.</span></li>
+        </ol>
+        <h3>Exemplo com os valores iniciais</h3>
+        <ul class="bling-check">
+          <li>2 pessoas × 6 h por semana × 4,33 = 52 h por mês na tarefa.</li>
+          <li>10 retrabalhos × 30 min ÷ 60 = 5 h por mês corrigindo erro.</li>
+          <li>57 h × R$ 45 por hora = R$ 2.565 por mês, ou R$ 30.780 por ano.</li>
+          <li>57 h × 50% automatizável = 29 h por mês liberadas, ou R$ 1.305 por mês (R$ 15.660 por ano).</li>
+        </ul>
+        <h3>O que fica de fora da conta</h3>
+        <p>A calculadora não inclui o preço do projeto nem o custo de operação da automação, porque os dois dependem dos sistemas envolvidos e do volume, e são definidos no diagnóstico. Também não conta ganhos indiretos, como cliente respondido mais rápido, atendimento fora do horário comercial e erro que deixa de chegar ao cliente. Por isso o resultado tende a ser conservador.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section" id="premissas">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>Premissas</div>
+        <h2 class="display">Quanto dá para automatizar em cada gargalo.</h2>
+      </div>
+      <div class="bling-prose">
+        <p>O percentual automatizável é a única premissa da calculadora. Ele vem preenchido conforme o gargalo e você pode ajustar. O que não entra no percentual continua com uma pessoa: exceções, decisões e aprovações.</p>
+        <ol class="signal-list">
+          <li><span class="mono">50%</span><span><strong>Atendimento no WhatsApp.</strong> Perguntas repetidas, como status do pedido, preço, prazo e segunda via, a IA responde consultando o seu sistema. Negociação, reclamação e casos fora do padrão continuam com uma pessoa. <a href="/casos-de-uso/atendimento-whatsapp-ia" class="ul-link">ver caso de uso →</a></span></li>
+          <li><span class="mono">60%</span><span><strong>Triagem de pedidos e leads.</strong> Classificar e encaminhar pedidos e leads segue regras estáveis. Fica com uma pessoa o que chega ambíguo ou incompleto. <a href="/casos-de-uso/triagem-de-pedidos-e-leads" class="ul-link">ver caso de uso →</a></span></li>
+          <li><span class="mono">65%</span><span><strong>Leitura de documentos.</strong> Nota fiscal, CT-e e comprovante têm campos padronizados. A IA lê e lança no ERP, e uma pessoa confere só o que vem com divergência ou baixa confiança. <a href="/casos-de-uso/leitura-automatica-de-documentos" class="ul-link">ver caso de uso →</a></span></li>
+          <li><span class="mono">70%</span><span><strong>Relatórios.</strong> Juntar planilhas e montar o mesmo relatório toda semana é quase todo mecânico. A análise e a decisão continuam com o time. <a href="/casos-de-uso/relatorios-automaticos" class="ul-link">ver caso de uso →</a></span></li>
+          <li><span class="mono">45%</span><span><strong>Financeiro / administrativo.</strong> Conciliação, cadastro e cobrança têm partes mecânicas, mas pagamento e exceção pedem aprovação humana. Por isso a premissa é a mais baixa. <a href="/casos-de-uso/automacao-de-processos-administrativos" class="ul-link">ver caso de uso →</a></span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>Perguntas frequentes</div>
+        <h2 class="display">Perguntas sobre a calculadora</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Como calcular o custo do trabalho manual de uma tarefa?</summary>
+          <p class="muted">Some as horas gastas na tarefa no mês (pessoas × horas por semana × 4,33) com as horas de retrabalho (retrabalhos × minutos para corrigir ÷ 60) e multiplique pelo custo da hora de quem faz. A calculadora faz essa conta e mostra cada passo.</p>
+        </details>
+        <details>
+          <summary>Como calcular o custo da hora de um funcionário?</summary>
+          <p class="muted">Some o salário, os encargos e os benefícios do mês e divida pelas horas trabalhadas no mês. Para uma jornada de 44 horas semanais, o divisor usado na CLT é de 220 horas.</p>
+        </details>
+        <details>
+          <summary>Por que a economia potencial não é 100% do custo?</summary>
+          <p class="muted">Porque toda tarefa tem exceções, decisões e aprovações que devem continuar com uma pessoa. A calculadora parte de 45% a 70% automatizável, conforme o gargalo, e você pode ajustar esse número.</p>
+        </details>
+        <details>
+          <summary>A calculadora inclui o preço do projeto de automação?</summary>
+          <p class="muted">Não. O preço depende de quais sistemas entram e do volume, e é definido por escrito depois do diagnóstico. A calculadora mostra só o custo atual e a economia potencial.</p>
+        </details>
+        <details>
+          <summary>Os números da calculadora são confiáveis?</summary>
+          <p class="muted">São um ponto de partida com conta aberta. No diagnóstico, a Agência Byte mede o processo real da sua empresa e troca as estimativas por números medidos.</p>
+        </details>
+        <details>
+          <summary>Quanto tempo leva para automatizar uma tarefa?</summary>
+          <p class="muted">Um primeiro módulo em produção costuma levar de 3 a 6 semanas. Projetos maiores são divididos em entregas menores, para a economia começar antes do fim do projeto.</p>
+        </details>
+      </div>
+    </div>
+  </section>
   <section class="page-section">
     <div class="wrap">
       <div class="section-head">
