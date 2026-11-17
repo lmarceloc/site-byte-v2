@@ -561,7 +561,17 @@ ${h.cases.map((c) => `      <article>
     <section>
       <h2>${h.beforeAfterTitle}</h2>
       <p>${h.beforeAfterText} <a href="${route("transformation", lang)}">${h.beforeAfterLink}</a>.</p>
-    </section>${USE_CASES[lang] ? `
+    </section>
+    <section>
+      <h2><a href="${route("calculator", lang)}">${CALC[lang].h1}</a></h2>
+      <p>${CALC[lang].description}</p>
+    </section>${lang === "pt" ? `
+    <section>
+      <h2><a href="${route("bling", "pt")}">${BLING.hub.h1}</a></h2>
+      <ul>
+${BLING_CHANNELS.map((x) => `        <li><a href="${route(`bling:${x}`, "pt")}">${BLING.channels[x].h1}</a></li>`).join("\n")}
+      </ul>
+    </section>` : ""}${USE_CASES[lang] ? `
     <section>
       <h2><a href="${route("usecases", lang)}">${USE_CASES[lang].hub.h1}</a></h2>
 ${useCaseList(lang).map((u) => `      <article>
@@ -1775,7 +1785,7 @@ function servicesHub(lang) {
     </div>
   </section>
 
-  ${processSection(lang)}
+  ${lang === "pt" ? blingChannelCards(null, { parentLink: true }) + "\n  " : ""}${processSection(lang)}
   ${ctaSection(lang, hub.cta)}
 </main>
 ` +
