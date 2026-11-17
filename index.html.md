@@ -7,12 +7,18 @@ Agência Byte ajuda empresas a remover gargalos operacionais com tecnologia sob 
 A Agência Byte é uma agência brasileira de tecnologia que desenvolve software sob medida, automações com IA, integrações entre sistemas e dashboards de dados. Atendemos empresas de indústria, logística e distribuição que operam com ERP, planilhas e canais de venda desconectados e precisam automatizar tarefas repetitivas, sincronizar sistemas e ter números confiáveis. Também trabalhamos com startups e PMEs. Todo o código é escrito e mantido pelo nosso time, sem terceirização, e um primeiro módulo costuma entrar em produção em 3 a 6 semanas.
 
 ## Serviços
-- [Desenvolvimento de software sob medida](https://agenciabyte.com/servicos/desenvolvimento-de-software)
-- [Automação com inteligência artificial](https://agenciabyte.com/servicos/automacao-com-ia)
-- [Integrações de sistemas](https://agenciabyte.com/servicos/integracao-de-sistemas)
+- [Desenvolvimento de Software Sob Medida](https://agenciabyte.com/servicos/desenvolvimento-de-software)
+- [Automação com Inteligência Artificial](https://agenciabyte.com/servicos/automacao-com-ia)
+- [Integração de Sistemas](https://agenciabyte.com/servicos/integracao-de-sistemas)
 - [Dados e Business Intelligence](https://agenciabyte.com/servicos/dados-e-power-bi)
 
-Veja também: [Antes e depois da automação](https://agenciabyte.com/transformacao).
+## Guias e ferramentas
+- [Integração Bling com marketplaces](https://agenciabyte.com/servicos/integracao-bling-marketplaces): o que o Bling faz sozinho e quando vale integrar via API ([Mercado Livre](https://agenciabyte.com/servicos/integracao-bling-marketplaces/integracao-bling-mercado-livre), [TikTok Shop](https://agenciabyte.com/servicos/integracao-bling-marketplaces/integracao-bling-tiktok-shop), [Shopee](https://agenciabyte.com/servicos/integracao-bling-marketplaces/integracao-bling-shopee)).
+- [Power BI para distribuidoras e transportadoras](https://agenciabyte.com/servicos/power-bi-para-distribuidoras-e-transportadoras): os indicadores que mudam a operação, de onde vêm os dados e prazo.
+- [Calculadora de automação](https://agenciabyte.com/calculadora): quanto o trabalho manual custa hoje e quanto dá para automatizar.
+- [Casos de uso de IA](https://agenciabyte.com/casos-de-uso): atendimento no WhatsApp, leitura de documentos, triagem, rotinas administrativas e relatórios.
+- [Automação com IA para PME](https://agenciabyte.com/blog/automacao-com-ia-para-pme): os processos que se pagam primeiro, os que não valem e um checklist de prontidão.
+- [Antes e depois da automação](https://agenciabyte.com/transformacao).
 
 ## Exemplos de projetos
 - **[Divina Argila: Bling, Trello, TikTok Shop e Mercado Livre integrados em 40 dias](https://agenciabyte.com/clientes/divina-argila).** Processos fragmentados e pedidos para arrumar em 4 lugares diferentes. A Agência Byte integrou os 4 sistemas em 40 dias: o time da fábrica trabalha só no Trello e o vendedor foca em vender nos canais. Nas palavras da Divina Argila: "Agora, o nosso time não precisa mais ficar copiando e colando o mesmo pedido em vários lugares. A fábrica já sabe o que produzir junto com a emissão do pedido."

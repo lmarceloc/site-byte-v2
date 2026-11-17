@@ -32,7 +32,7 @@ sem React, gerados por `build-pages.mjs`. O `index.html` de cada idioma também
 é gerado por ele (é a casca com SEO que carrega o `app.js`).
 
 ```bash
-npm run pages # regenera as páginas (3 idiomas) e o sitemap.xml
+npm run pages # regenera as páginas (3 idiomas), o sitemap.xml, o llms.txt e o index.html.md
 ```
 
 ## Idiomas (pt, en, es)
@@ -50,6 +50,7 @@ A bandeira no topo troca o idioma e leva para a mesma página no outro idioma.
 | `i18n/powerbi-logistica.mjs` | Power BI para distribuidoras e transportadoras (`/servicos/power-bi-para-distribuidoras-e-transportadoras`). Só em português |
 | `i18n/blog-ia-pme.mjs` | Post pilar `/blog/automacao-com-ia-para-pme` com checklist de prontidão (script `checklist.js`). Só em português. /blog é servido pelo Worker blog-proxy (rota agenciabyte.com/blog*), que repassa para o WordPress em wp-origin.agenciabyte.com; o site não deve ter nada em /blog |
 | `i18n/calculator.mjs` | Calculadora (`/calculadora`): textos e premissas por gargalo (sem preço de projeto). O script da página é `calc.js` |
+| `i18n/llms.mjs` | Texto fixo do `llms.txt` e do `index.html.md`. A lista de páginas dos dois é gerada pelo `build-pages.mjs`; não edite `llms.txt` nem `index.html.md` à mão |
 
 Ao mudar um texto, mude nos três idiomas e rode `npm run build && npm run pages`.
 Para criar uma página nova, registre a rota dela nos três idiomas em `i18n/routes.mjs`.
