@@ -17,6 +17,7 @@ import { CALC, CALC_CONFIG } from "./i18n/calculator.mjs";
 import { BLING, BLING_CHANNELS } from "./i18n/bling.mjs";
 import { PBI } from "./i18n/powerbi-logistica.mjs";
 import { IA_PME } from "./i18n/blog-ia-pme.mjs";
+import { LLMS_HEAD, LLMS_TAIL, HOME_MD_HEAD, HOME_MD_TAIL } from "./i18n/llms.mjs";
 
 const SITE = "https://agenciabyte.com";
 const BRAND = "Agência Byte";
@@ -2005,3 +2006,53 @@ ${entries.join("\n")}
 `
 );
 console.log("✓ sitemap.xml");
+
+// llms.txt e index.html.md: texto fixo em i18n/llms.mjs + lista de páginas gerada
+// aqui, das mesmas fontes das páginas. Página nova no site = página nova nos dois arquivos.
+{
+  const P = PAGES.pt;
+  const md = (path, name) => `[${name}](${abs(path)})`;
+  const quote = (slug) => `Frase do cliente: "${P.cases[slug].quote}"`;
+  const blingList = (indent) => BLING_CHANNELS.map((x) => `${indent}- ${md(route(`bling:${x}`, "pt"), BLING.channels[x].h1.split(":")[0])}: ${BLING.channels[x].description}`);
+
+  const llmsContent = [
+    "## Conteúdo Principal",
+    "",
+    `- ${md(route("services", "pt"), "Serviços")}: ${P.hub.description}`,
+    ...servicesFor("pt").map((s) => `  - ${md(s.path, s.name)}: ${s.description}`),
+    `- ${md(route("bling", "pt"), BLING.ui.crumb)}: ${BLING.hub.description}`,
+    ...blingList("  "),
+    `- ${md(route("pbi-logistica", "pt"), PBI.crumb)}: ${PBI.description}`,
+    `- ${md(route("calculator", "pt"), "Calculadora de automação")}: ${CALC.pt.description}`,
+    ...CASE_SLUGS.map((slug) => `- ${md(route(`case:${slug}`, "pt"), `Caso ${P.cases[slug].name}`)}: ${P.cases[slug].description} ${quote(slug)}`),
+    `- ${md(route("usecases", "pt"), "Casos de uso de IA")}: ${USE_CASES.pt.hub.description}`,
+    ...useCaseList("pt").map((u) => `  - ${md(u.path, u.name)}: ${u.card}`),
+    `- ${md(route("transformation", "pt"), "Antes e depois")}: ${P.transformation.description}`,
+    `- ${md("/blog", "Blog")}: artigos sobre automação, integração de sistemas e dados para empresas.`,
+    `  - ${md(route("blog:ia-pme", "pt"), IA_PME.crumb)}: ${IA_PME.description}`,
+    `- ${md(route("home", "en"), "English version")}: site completo em inglês (${md(route("services", "en"), "services")}, ${md(route("calculator", "en"), "calculator")}).`,
+    `- ${md(route("home", "es"), "Versión en español")}: site completo em espanhol (${md(route("services", "es"), "servicios")}, ${md(route("calculator", "es"), "calculadora")}).`,
+    `- ${md("/index.html.md", "Homepage em Markdown")}: visão geral da Agência Byte, seu posicionamento, serviços, casos, perguntas frequentes e formas de contato.`,
+    "",
+    "",
+  ].join("\n");
+  writeFileSync("llms.txt", LLMS_HEAD + llmsContent + LLMS_TAIL);
+  console.log("✓ llms.txt");
+
+  const homeMdContent = [
+    "## Serviços",
+    ...servicesFor("pt").map((s) => `- ${md(s.path, s.name)}`),
+    "",
+    "## Guias e ferramentas",
+    `- ${md(route("bling", "pt"), BLING.ui.crumb)}: o que o Bling faz sozinho e quando vale integrar via API (${BLING_CHANNELS.map((x) => md(route(`bling:${x}`, "pt"), BLING.channels[x].name)).join(", ")}).`,
+    `- ${md(route("pbi-logistica", "pt"), PBI.crumb)}: os indicadores que mudam a operação, de onde vêm os dados e prazo.`,
+    `- ${md(route("calculator", "pt"), "Calculadora de automação")}: quanto o trabalho manual custa hoje e quanto dá para automatizar.`,
+    `- ${md(route("usecases", "pt"), "Casos de uso de IA")}: atendimento no WhatsApp, leitura de documentos, triagem, rotinas administrativas e relatórios.`,
+    `- ${md(route("blog:ia-pme", "pt"), IA_PME.crumb)}: os processos que se pagam primeiro, os que não valem e um checklist de prontidão.`,
+    `- ${md(route("transformation", "pt"), "Antes e depois da automação")}.`,
+    "",
+    "",
+  ].join("\n");
+  writeFileSync("index.html.md", HOME_MD_HEAD + homeMdContent + HOME_MD_TAIL);
+  console.log("✓ index.html.md");
+}

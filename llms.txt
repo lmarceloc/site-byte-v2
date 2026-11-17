@@ -46,27 +46,32 @@ As principais áreas de especialização da Agência Byte incluem:
 
 ## Conteúdo Principal
 
-- [Serviços](https://agenciabyte.com/servicos): visão geral dos quatro serviços.
-- [Desenvolvimento de software sob medida](https://agenciabyte.com/servicos/desenvolvimento-de-software): sistemas internos, portais, APIs e painéis de gestão.
-- [Automação com IA](https://agenciabyte.com/servicos/automacao-com-ia): agentes de atendimento, extração de documentos, triagem e RAG.
-- [Integração de sistemas](https://agenciabyte.com/servicos/integracao-de-sistemas): ERP, CRM, e-commerce, APIs e webhooks.
-- [Dados e Power BI](https://agenciabyte.com/servicos/dados-e-power-bi): dashboards Power BI, pipelines ETL/ELT e alertas.
-- [Caso Divina Argila](https://agenciabyte.com/clientes/divina-argila): integração de Bling, Trello, TikTok Shop e Mercado Livre em 40 dias; pedidos de e-commerce centralizados no Trello. Frase do cliente: "Agora, o nosso time não precisa mais ficar copiando e colando o mesmo pedido em vários lugares. A fábrica já sabe o que produzir junto com a emissão do pedido."
-- [Caso CargOn](https://agenciabyte.com/clientes/cargon): data warehouse, ETL e 4 dashboards em Power BI com previsões, criados em 30 dias. Frase do cliente: "Agora, nossos clientes têm dados estruturados da operação deles, insights e dados preditivos para poder usar na sua logística, e nós criamos mais um produto monetizado."
-- [Casos de uso de IA](https://agenciabyte.com/casos-de-uso): exemplos práticos de automação com IA, com cenário, fluxo, entregas e prazo típico.
+- [Serviços](https://agenciabyte.com/servicos): Desenvolvimento de software sob medida, automação com IA, integração de sistemas e dashboards em Power BI para empresas.
+  - [Desenvolvimento de Software Sob Medida](https://agenciabyte.com/servicos/desenvolvimento-de-software): Sistemas web, portais, APIs e painéis internos sob medida para a sua operação. Next.js, TypeScript e PostgreSQL, com suporte contínuo.
+  - [Automação com Inteligência Artificial](https://agenciabyte.com/servicos/automacao-com-ia): Automação de processos com IA para empresas: agentes no WhatsApp, leitura de documentos e triagem integrados ao ERP e CRM, com aprovação humana.
+  - [Integração de Sistemas](https://agenciabyte.com/servicos/integracao-de-sistemas): Integramos ERP, CRM, e-commerce e APIs para sincronizar dados entre sistemas e acabar com a digitação manual e os erros de cadastro.
+  - [Dados e Business Intelligence](https://agenciabyte.com/servicos/dados-e-power-bi): Dashboards em Power BI, pipelines de dados e indicadores confiáveis. Dados unificados dos seus sistemas para decidir com rapidez.
+- [Integração Bling com marketplaces](https://agenciabyte.com/servicos/integracao-bling-marketplaces): O que o Bling faz sozinho com Mercado Livre, Shopee e TikTok Shop, os 5 limites que pedem integração via API (kits, fiscal, estoque, produção, preço) e o prazo.
+  - [Integração Bling com Mercado Livre](https://agenciabyte.com/servicos/integracao-bling-marketplaces/integracao-bling-mercado-livre): O que a integração nativa do Bling com o Mercado Livre cobre, onde ela para (variações, Full, kits, preço por comissão) e quando vale integrar via API.
+  - [Integração Bling com TikTok Shop](https://agenciabyte.com/servicos/integracao-bling-marketplaces/integracao-bling-tiktok-shop): Como o Bling integra com o TikTok Shop, onde a integração nativa para (picos de live, kits, estoque compartilhado, produção) e quando vale integrar via API.
+  - [Integração Bling com Shopee](https://agenciabyte.com/servicos/integracao-bling-marketplaces/integracao-bling-shopee): O que a integração nativa do Bling com a Shopee cobre, onde ela para (campanhas, variações, kits, preço por canal) e quando vale integrar via API.
+- [Power BI para distribuidoras e transportadoras](https://agenciabyte.com/servicos/power-bi-para-distribuidoras-e-transportadoras): Os 12 indicadores de Power BI que mudam a operação de distribuidoras e transportadoras (OTIF, custo por entrega, margem por SKU, ruptura, giro) e o prazo.
+- [Calculadora de automação](https://agenciabyte.com/calculadora): Calcule quanto o trabalho manual custa hoje para a sua empresa, quanto dá para automatizar e o que isso libera de capacidade. Conta aberta, premissas à vista.
+- [Caso Divina Argila](https://agenciabyte.com/clientes/divina-argila): Como integramos Bling, Trello, TikTok Shop e Mercado Livre para a Divina Argila em 40 dias: a fábrica olha só o Trello e o vendedor foca em vender. Frase do cliente: "Agora, o nosso time não precisa mais ficar copiando e colando o mesmo pedido em vários lugares. A fábrica já sabe o que produzir junto com a emissão do pedido."
+- [Caso CargOn](https://agenciabyte.com/clientes/cargon): Como a Agência Byte criou o data warehouse, o ETL e 4 dashboards em Power BI para a CargOn em 30 dias, com previsões para a logística. Frase do cliente: "Agora, nossos clientes têm dados estruturados da operação deles, insights e dados preditivos para poder usar na sua logística, e nós criamos mais um produto monetizado."
+- [Casos de uso de IA](https://agenciabyte.com/casos-de-uso): Casos de uso de IA em empresas: atendimento no WhatsApp, extração de dados de notas fiscais, triagem de pedidos, rotinas administrativas e relatórios.
   - [Atendimento com IA no WhatsApp](https://agenciabyte.com/casos-de-uso/atendimento-whatsapp-ia): Responde clientes 24 horas, consulta pedidos no seu sistema e passa para uma pessoa quando precisa.
   - [Leitura automática de documentos](https://agenciabyte.com/casos-de-uso/leitura-automatica-de-documentos): Notas fiscais, CT-e, contratos e comprovantes lidos pela IA e lançados no ERP.
   - [Triagem de pedidos e leads](https://agenciabyte.com/casos-de-uso/triagem-de-pedidos-e-leads): Solicitações de vários canais classificadas e enviadas para a pessoa certa.
   - [Rotinas administrativas no automático](https://agenciabyte.com/casos-de-uso/automacao-de-processos-administrativos): Conciliação bancária, cadastro e cobrança feitos pela IA, com aprovação humana onde importa.
   - [Assistente sobre os documentos da empresa](https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa): A equipe pergunta e a IA responde com base nos manuais e políticas internas.
   - [Relatórios que se montam sozinhos](https://agenciabyte.com/casos-de-uso/relatorios-automaticos): O resumo semanal sai pronto, sem ninguém juntar planilha.
-- [Antes e depois](https://agenciabyte.com/transformacao): o que muda em vendas, pedidos, processos internos e gestão após a automação.
-- [English version](https://agenciabyte.com/en): site completo em inglês ([services](https://agenciabyte.com/en/services)).
-- [Versión en español](https://agenciabyte.com/es): site completo em espanhol ([servicios](https://agenciabyte.com/es/servicios)).
-- [Homepage em Markdown](https://agenciabyte.com/index.html.md): visão geral da Agência Byte, seu posicionamento, serviços e formas de contato.
-- [Produto e posicionamento](https://agenciabyte.com/PRODUCT.md): público-alvo, proposta de valor, propósito, personalidade e princípios de comunicação da marca.
-- [Design System](https://agenciabyte.com/DESIGN.md): identidade visual, tokens de design, tipografia, cores, componentes e diretrizes visuais.
-- [Build e estrutura](https://agenciabyte.com/BUILD.md): arquitetura, estrutura do projeto, processo de desenvolvimento e informações técnicas.
+- [Antes e depois](https://agenciabyte.com/transformacao): Veja como a Agência Byte transforma processos manuais e sistemas desconectados em operações integradas e automatizadas com IA.
+- [Blog](https://agenciabyte.com/blog): artigos sobre automação, integração de sistemas e dados para empresas.
+  - [Automação com IA para PME](https://agenciabyte.com/blog/automacao-com-ia-para-pme): Quais processos automatizar com IA primeiro numa PME: os 7 que se pagam, os 3 que não valem, quanto custa e um checklist de prontidão.
+- [English version](https://agenciabyte.com/en): site completo em inglês ([services](https://agenciabyte.com/en/services), [calculator](https://agenciabyte.com/en/automation-calculator)).
+- [Versión en español](https://agenciabyte.com/es): site completo em espanhol ([servicios](https://agenciabyte.com/es/servicios), [calculadora](https://agenciabyte.com/es/calculadora)).
+- [Homepage em Markdown](https://agenciabyte.com/index.html.md): visão geral da Agência Byte, seu posicionamento, serviços, casos, perguntas frequentes e formas de contato.
 
 ## Identidade da Empresa
 
