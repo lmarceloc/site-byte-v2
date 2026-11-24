@@ -20,9 +20,23 @@ npm run build # gera app.js (minificado, com React embutido)
 | Arquivo | Papel |
 |---|---|
 | `app-1.jsx`, `app-2.jsx` | Componentes (fonte) — registram em `window.AB`; textos em `i18n/home.jsx` |
-| `entry.jsx` | Monta o `<App>` e faz o `createRoot().render()` |
+| `home-app.jsx` | Árvore da home (`<App>`), usada no navegador e no build |
+| `entry.jsx` | Hidrata o HTML pré-renderizado (`hydrateRoot`) |
+| `ssr.jsx` | Renderiza `<App>` em HTML; o `build-pages.mjs` grava o resultado no `index.html` de cada idioma |
 | `react-shim.js` | Injeta `React` como global via esbuild (`--inject`) |
 | `app.js` | Bundle final gerado pelo build |
+
+## Home pré-renderizada e cache
+
+- O `index.html` de cada idioma já sai com a home inteira em HTML (`renderHome` em
+  `build-pages.mjs`). O `app.js` só liga os eventos; o conteúdo aparece sem esperar o JS.
+- Por isso o HTML gerado e o React no navegador precisam produzir exatamente o mesmo
+  conteúdo: nada de `window`, `localStorage`, `Math.random()` ou data atual no render
+  (use `useEffect`). `<style>` dentro de componente vai com `dangerouslySetInnerHTML`.
+- O teste A/B do título do hero é sorteado por um script no `<head>` (`HERO_AB`), que
+  grava `<html data-hero>`; o HTML traz os dois títulos e o CSS mostra um.
+- CSS e JS são referenciados com `?v=<hash>` e ficam 1 ano em cache (`_headers`).
+  Sempre rode `npm run build` **antes** de `npm run pages`, senão o hash fica velho.
 
 ## Páginas internas (estáticas)
 

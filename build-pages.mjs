@@ -8,8 +8,12 @@
 // Textos: i18n/pages.mjs (páginas estáticas) e i18n/home.jsx (home em React).
 // Rotas de cada idioma e bandeiras: i18n/routes.mjs.
 
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname } from "node:path";
+import { createHash } from "node:crypto";
+import { createRequire } from "node:module";
+import vm from "node:vm";
+import { buildSync } from "esbuild";
 import { LANGS, LANG_META, ROUTES, FLAGS, SWITCH_LABEL, route, svcRoute, langsFor } from "./i18n/routes.mjs";
 import { PAGES, SERVICE_ORDER } from "./i18n/pages.mjs";
 import { USE_CASES, USE_CASE_ORDER } from "./i18n/use-cases.mjs";
@@ -21,6 +25,53 @@ import { HERO_TEXT } from "./i18n/hero.mjs";
 import { LLMS_HEAD, LLMS_TAIL, HOME_MD_HEAD, HOME_MD_TAIL } from "./i18n/llms.mjs";
 
 const SITE = "https://agenciabyte.com";
+
+/* ------------------------------------------------------------------ */
+/* Cache dos arquivos estáticos                                        */
+/* ------------------------------------------------------------------ */
+
+// CSS e JS saem com ?v=<hash do conteúdo>. O _headers deixa o navegador guardar
+// esses arquivos por 1 ano; quando o arquivo muda, o hash muda e a URL também.
+// Por isso: rode `npm run build` ANTES de `npm run pages`.
+const assetHashes = {};
+function asset(path) {
+  if (!assetHashes[path]) assetHashes[path] = createHash("sha256").update(readFileSync("." + path)).digest("hex").slice(0, 10);
+  return `${path}?v=${assetHashes[path]}`;
+}
+
+/* ------------------------------------------------------------------ */
+/* Home pré-renderizada                                                */
+/* ------------------------------------------------------------------ */
+
+// Compila ssr.jsx (a mesma árvore React do app.js) e roda uma vez por idioma,
+// cada uma num contexto isolado com <html lang> simulado, porque o idioma da home
+// é lido de document.documentElement.lang quando o módulo carrega.
+const SSR_CODE = buildSync({
+  entryPoints: ["ssr.jsx"],
+  bundle: true,
+  write: false,
+  format: "cjs",
+  platform: "node",
+  jsx: "transform",
+  inject: ["./react-shim.js"],
+  define: { "process.env.NODE_ENV": '"production"' },
+  logLevel: "warning",
+}).outputFiles[0].text;
+const nodeRequire = createRequire(import.meta.url);
+function renderHome(lang) {
+  const mod = { exports: {} };
+  const ctx = {
+    module: mod, exports: mod.exports, require: nodeRequire, console,
+    TextEncoder, TextDecoder, setTimeout, clearTimeout, queueMicrotask,
+    process: { env: { NODE_ENV: "production" } },
+    window: {},
+    document: { documentElement: { lang: LANG_META[lang].html } },
+  };
+  ctx.globalThis = ctx;
+  vm.runInNewContext(SSR_CODE, ctx);
+  return mod.exports.render();
+}
+
 const BRAND = "Agência Byte";
 const OG_IMAGE = `${SITE}/img/og-image.png`;
 const WHATSAPP = "https://wa.me/5542984224363";
@@ -92,7 +143,7 @@ const POSTHOG = `<script>
     posthog.register({ site_language: document.documentElement.lang });
   })();
 </script>
-<script src="/byte.js" defer></script>`;
+<script src="${asset("/byte.js")}" defer></script>`;
 
 const ANALYTICS = POSTHOG + `
 <script>
@@ -171,8 +222,8 @@ ${extraHead}${jsonld ? `\n<script type="application/ld+json">\n${JSON.stringify(
 ${ANALYTICS}
 
 ${FONTS}
-<link rel="stylesheet" href="/styles.css" />
-<link rel="stylesheet" href="/pages.css" />
+<link rel="stylesheet" href="${asset("/styles.css")}" />
+<link rel="stylesheet" href="${asset("/pages.css")}" />
 </head>
 <body data-theme="light">`;
 }
@@ -414,7 +465,11 @@ function relatedSection(lang, slugs) {
 /* Páginas                                                             */
 /* ------------------------------------------------------------------ */
 
-// Home: casca HTML com SEO e conteúdo <noscript>; o conteúdo visível vem do app.js.
+// Home: HTML com SEO e a página já renderizada (renderHome); o app.js só a hidrata.
+
+// Sorteia a variante do título do hero antes da primeira pintura e grava em
+// <html data-hero>. Fixa por visitante (localStorage); ?v=a|b força uma.
+const HERO_AB = `<script>(function(){var V=["a","b"],v=null;try{v=new URLSearchParams(location.search).get("v")}catch(e){}if(V.indexOf(v)<0){try{v=localStorage.getItem("ab_hero")}catch(e){}}if(V.indexOf(v)<0){v=V[Math.floor(Math.random()*V.length)];try{localStorage.setItem("ab_hero",v)}catch(e){}}document.documentElement.setAttribute("data-hero",v)})();</script>`;
 function homePage(lang) {
   const h = PAGES[lang].home;
   const m = LANG_META[lang];
@@ -524,19 +579,22 @@ ${ANALYTICS}
 <!-- Fontes carregadas sem bloquear a renderização -->
 ${FONTS}
 
-<link rel="stylesheet" href="/styles.css" />
-<!-- Conteúdo pré-renderizado: fica no HTML para os buscadores e é trocado pelo React ao carregar. -->
+<link rel="stylesheet" href="${asset("/styles.css")}" />
+<!-- Teste A/B do título do hero: sorteia antes da primeira pintura (ver app-1.jsx). -->
+${HERO_AB}
+<!-- Resumo para buscadores sem JavaScript (#seo-fallback): fica fora da tela e o app.js o remove ao carregar. -->
 <style>.prerender{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
-<noscript><style>.prerender{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal}</style></noscript>
+<!-- Sem JavaScript as animações de entrada não rodam: mostra tudo. -->
+<noscript><style>.reveal,.reveal-stagger>*{opacity:1!important;transform:none!important}</style></noscript>
 
 <!-- Bundle pré-compilado (React + app). Gerado por \`npm run build\`. O idioma vem do <html lang>. -->
-<script defer src="/app.js"></script>
+<script defer src="${asset("/app.js")}"></script>
 </head>
 <body data-theme="light">
-<div id="app">
-  <!-- Conteúdo estático para indexação; o React substitui este bloco ao montar a página -->
-  <main class="prerender">
-    <h1>${esc(h.title)}</h1>
+<div id="app" data-ssr>${renderHome(lang)}</div>
+<div id="seo-fallback" class="prerender">
+  <main>
+    <p><strong>${esc(h.title)}</strong></p>
     <p>${esc(HERO_TEXT[lang].lead)}</p>
     <ul>
 ${HERO_TEXT[lang].stats.map(([k, v]) => `      <li>${esc(k)}: ${esc(v)}</li>`).join("\n")}
@@ -1245,7 +1303,7 @@ function calculatorPage(lang) {
   ${useCaseCards(lang, { heading: true })}
 </main>
 <script id="calc-data" type="application/json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>
-<script src="/calc.js" defer></script>
+<script src="${asset("/calc.js")}" defer></script>
 ` +
     footer(lang)
   );
@@ -1814,7 +1872,7 @@ function iaPmePost() {
   ${ctaSection(lang, A.cta)}
 </main>
 <script id="ck-data" type="application/json">${dataJson}</script>
-<script src="/checklist.js" defer></script>
+<script src="${asset("/checklist.js")}" defer></script>
 ` +
     footer(lang)
   );
@@ -2023,7 +2081,7 @@ function notFoundPage(lang) {
     </div>
   </section>
 </main>
-<script src="/404.js" defer></script>
+<script src="${asset("/404.js")}" defer></script>
 ` +
     footer(lang)
   );

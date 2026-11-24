@@ -1,37 +1,15 @@
-// Ponto de entrada do bundle. Substitui o <script type="text/babel"> inline.
-// app-1 e app-2 registram seus componentes em window.AB (ordem importa).
-import "./app-1.jsx";
-import "./app-2.jsx";
-import { createRoot } from "react-dom/client";
+// Ponto de entrada do bundle (app.js).
+// O index.html já vem com a home renderizada (build-pages.mjs + ssr.jsx), então o
+// React só "hidrata": liga os eventos no HTML que já está na tela, sem trocá-lo.
+// Isso faz o conteúdo aparecer antes de o app.js baixar.
+import { createRoot, hydrateRoot } from "react-dom/client";
 import React from "react";
+import { App } from "./home-app.jsx";
 
-const AB = window.AB;
+const el = document.getElementById("app");
+if (el.hasAttribute("data-ssr")) hydrateRoot(el, <App />);
+else createRoot(el).render(<App />);
 
-function PageWrapper({ children }) {
-  AB.useReveal();
-  return (
-    <>
-      <AB.Nav />
-      {children}
-      <AB.Footer />
-    </>
-  );
-}
-
-function App() {
-  return (
-    <>
-      <PageWrapper>
-        <AB.Hero />
-        <AB.About />
-        <AB.Transformation />
-        <AB.Services />
-        <AB.Process />
-        <AB.Clients />
-        <AB.Contact />
-      </PageWrapper>
-    </>
-  );
-}
-
-createRoot(document.getElementById("app")).render(<App />);
+// Bloco só para buscadores sem JavaScript (ver build-pages.mjs); com o app no ar não é mais necessário.
+const seo = document.getElementById("seo-fallback");
+if (seo) seo.remove();
