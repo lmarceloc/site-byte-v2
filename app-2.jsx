@@ -43,7 +43,7 @@ function Process(){
           ))}
         </div>
       </div>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 980px){
           #processGrid{ grid-template-columns: repeat(2, 1fr) !important; }
           .proc-arrow{ display: none; }
@@ -51,7 +51,7 @@ function Process(){
         @media (max-width: 540px){
           #processGrid{ grid-template-columns: 1fr !important; }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }
@@ -99,7 +99,7 @@ function Clients(){
         </div>
 
       </div>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .client-logo-link:hover { opacity: 1 !important; color: var(--ink) !important; }
         .client-quotes { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px 48px; padding-top: 48px; }
         .client-quote { margin: 0; padding-left: 20px; border-left: 3px solid var(--accent); }
@@ -108,7 +108,7 @@ function Clients(){
         .client-quote figcaption { margin-top: 12px; font-size: 14px; color: var(--ink-2); }
         .client-quote cite { font-style: normal; font-weight: 600; }
         .client-quote cite a { color: var(--ink); text-underline-offset: 3px; }
-      `}</style>
+      ` }} />
     </section>
   );
 }
@@ -120,7 +120,9 @@ function Contact(){
   const [budget, setBudget] = useState2('2-5');
   const [status, setStatus] = useState2('idle'); // idle | sending | sent | error
   const sent = status === 'sent';
-  const redirectUrl = typeof window !== 'undefined' ? window.location.origin + window.location.pathname + '#contato' : '';
+  // Fixo por idioma (e não window.location) para o HTML pré-renderizado e o React
+  // gerarem o mesmo valor. Só é usado no envio sem JavaScript.
+  const redirectUrl = 'https://agenciabyte.com' + ROUTES.home[LANG] + '#contato';
 
   async function onSubmit(e){
     e.preventDefault();
@@ -210,10 +212,10 @@ function Contact(){
           </div>
         </div>
       </div>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes fadeInUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
         @media (max-width: 880px){ .contact-grid{ grid-template-columns: 1fr !important; } }
-      `}</style>
+      ` }} />
     </section>
   );
 }
@@ -223,7 +225,7 @@ function Field({ label, children }){
     <label style={{display:'grid', gap:6}}>
       <span className="mono muted" style={{fontSize:11, letterSpacing:'.06em', textTransform:'uppercase'}}>{label}</span>
       {children}
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         label input, label textarea{
           font-family: var(--font-body); font-size: 15px;
           padding: 12px 14px; border-radius: 10px;
@@ -242,7 +244,7 @@ function Field({ label, children }){
           border-color: var(--accent);
           box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent);
         }
-      `}</style>
+      ` }} />
     </label>
   );
 }
@@ -266,7 +268,9 @@ function Footer(){
             {label: T.footer.about, href: '#sobre'},
             {label: T.footer.process, href: '#processo'},
             {label: T.footer.transformation, href: ROUTES.transformation[LANG]},
-            {label: T.footer.calculator, href: ROUTES.calculator[LANG]}
+            {label: T.footer.calculator, href: ROUTES.calculator[LANG]},
+            // Página de região: só existe em português (i18n/regioes.mjs).
+            ...(ROUTES['regiao:ponta-grossa'][LANG] ? [{label: 'Ponta Grossa · PR', href: ROUTES['regiao:ponta-grossa'][LANG]}] : [])
           ]} />
           <div>
             <div className="mono" style={{fontSize:11, letterSpacing:'.08em', color:'var(--accent)', textTransform:'uppercase'}}>{T.footer.contact}</div>
@@ -296,10 +300,10 @@ function Footer(){
           </div>
         </div>
       </div>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 880px){ .footer-grid{ grid-template-columns: 1fr 1fr !important; } }
         @media (max-width: 540px){ .footer-grid{ grid-template-columns: 1fr !important; } }
-      `}</style>
+      ` }} />
     </footer>
   );
 }

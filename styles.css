@@ -387,6 +387,11 @@ body[data-theme="dark"] .card{
   background: var(--dark-elev); border-color: var(--dark-line);
 }
 
+/* ----- hero A/B: o script do <head> põe data-hero no <html> ----- */
+.hero-title-b{ display: none; }
+html[data-hero="b"] .hero-title-a{ display: none; }
+html[data-hero="b"] .hero-title-b{ display: inline; }
+
 /* ----- reveal ----- */
 .reveal{ opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
 .reveal.in{ opacity: 1; transform: none; }

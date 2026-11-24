@@ -145,23 +145,17 @@ function Nav(){
 
 /* -------------------- Hero -------------------- */
 
-/* Teste A/B do título do hero. Variante fixa por visitante (localStorage);
-   ?v=a|b força uma variante para pré-visualizar. Eventos vão para o GA4 e o
-   PostHog; no PostHog a variante também fica registrada em todos os eventos da
-   página (hero_variant), para comparar conversão por variante. */
+/* Teste A/B do título do hero. A variante é sorteada por um script inline no
+   <head> (build-pages.mjs, HERO_AB), antes da primeira pintura: ele grava em
+   <html data-hero="a|b"> (fixa por visitante via localStorage; ?v=a|b força uma).
+   O HTML pré-renderizado traz os dois títulos e o CSS mostra só o da variante,
+   então a página aparece já com o título certo, sem esperar o app.js.
+   Eventos vão para o GA4 e o PostHog; no PostHog a variante também fica
+   registrada em todos os eventos da página (hero_variant). */
 const HERO_VARIANTS = ['a', 'b'];
-function pickHeroVariant(){
-  try {
-    const forced = new URLSearchParams(location.search).get('v');
-    if (HERO_VARIANTS.includes(forced)) return forced;
-  } catch (e) {}
-  try {
-    const saved = localStorage.getItem('ab_hero');
-    if (HERO_VARIANTS.includes(saved)) return saved;
-  } catch (e) {}
-  const v = HERO_VARIANTS[Math.floor(Math.random() * HERO_VARIANTS.length)];
-  try { localStorage.setItem('ab_hero', v); } catch (e) {}
-  return v;
+function heroVariant(){
+  const v = typeof document !== 'undefined' ? document.documentElement.getAttribute('data-hero') : null;
+  return HERO_VARIANTS.includes(v) ? v : 'a';
 }
 function trackHero(name, variant){
   if (typeof window.gtag === 'function') window.gtag('event', name, { hero_variant: variant, language: LANG });
@@ -171,46 +165,47 @@ function trackHero(name, variant){
   }
 }
 
-function HeroTitle({ variant }){
-  if (variant === 'b') return (
-    <>
-      {T.hero.titleB[0]}<br/>
-      {T.hero.titleB[1]}{' '}
-      <span style={{position:'relative', display:'inline-block'}}>
-        {T.hero.titleB[2]}<span style={{color:'var(--accent)'}}>.</span>
-        <svg viewBox="0 0 100 7" preserveAspectRatio="none" style={{position:'absolute', left:0, right:0, bottom:'-3px', width:'100%', height:7, overflow:'visible'}}>
-          <path d="M1 5 Q 25 1, 50 4 T 100 6" stroke="var(--accent)" strokeWidth={1.5} fill="none" strokeLinecap="round" />
-        </svg>
-      </span>
-    </>
-  );
+function HeroTitle(){
   return (
     <>
-      {T.hero.titleA[0]}<br/>
-      <span style={{color:'var(--accent)'}}>{T.hero.titleA[1]}</span>.
+      <span className="hero-title-a">
+        {T.hero.titleA[0]}<br/>
+        <span style={{color:'var(--accent)'}}>{T.hero.titleA[1]}</span>.
+      </span>
+      <span className="hero-title-b">
+        {T.hero.titleB[0]}<br/>
+        {T.hero.titleB[1]}{' '}
+        <span style={{position:'relative', display:'inline-block'}}>
+          {T.hero.titleB[2]}<span style={{color:'var(--accent)'}}>.</span>
+          <svg viewBox="0 0 100 7" preserveAspectRatio="none" style={{position:'absolute', left:0, right:0, bottom:'-3px', width:'100%', height:7, overflow:'visible'}}>
+            <path d="M1 5 Q 25 1, 50 4 T 100 6" stroke="var(--accent)" strokeWidth={1.5} fill="none" strokeLinecap="round" />
+          </svg>
+        </span>
+      </span>
     </>
   );
 }
 
+/* O hero não usa .reveal: é o conteúdo principal da página e precisa aparecer
+   na primeira pintura (é o que o Google mede como LCP). */
 function Hero(){
-  const [variant] = React.useState(pickHeroVariant);
-  React.useEffect(() => { trackHero('hero_view', variant); }, [variant]);
+  React.useEffect(() => { trackHero('hero_view', heroVariant()); }, []);
   return (
     <section style={{paddingTop: 110, paddingBottom: 90, position:'relative', overflow:'hidden'}}>
       <div className="grid-bg" />
       <div className="wrap" style={{position:'relative'}}>
         <div style={{display:'grid', gridTemplateColumns:'minmax(0, 780px)', gap:'56px', alignItems:'center'}} className="hero-grid">
           <div>
-            <h1 className="display reveal" style={{fontSize:'clamp(18px, 4.5vw, 52px)', margin:'12px 0 0'}}>
-              <HeroTitle variant={variant} />
+            <h1 className="display" style={{fontSize:'clamp(18px, 4.5vw, 52px)', margin:'12px 0 0'}}>
+              <HeroTitle />
             </h1>
-            <p className="reveal muted" style={{fontSize:18, maxWidth:520, marginTop:32, lineHeight:1.55}}>
+            <p className="muted" style={{fontSize:18, maxWidth:520, marginTop:32, lineHeight:1.55}}>
               {T.hero.lead}
             </p>
-            <div className="reveal" style={{display:'flex', gap:12, marginTop:32, flexWrap:'wrap'}}>
-              <a href="#contato" className="btn btn-accent" onClick={() => trackHero('hero_cta_click', variant)}>{T.hero.cta}</a>
+            <div style={{display:'flex', gap:12, marginTop:32, flexWrap:'wrap'}}>
+              <a href="#contato" className="btn btn-accent" onClick={() => trackHero('hero_cta_click', heroVariant())}>{T.hero.cta}</a>
             </div>
-            <div className="reveal" style={{marginTop:48, display:'flex', gap:32, flexWrap:'wrap', fontSize:13}}>
+            <div style={{marginTop:48, display:'flex', gap:32, flexWrap:'wrap', fontSize:13}}>
               {T.hero.stats.map(([label, value]) => (
                 <div key={label}><div className="muted mono" style={{fontSize:11, letterSpacing:'.08em', textTransform:'uppercase'}}>{label}</div><div style={{fontWeight:600, fontSize:16, marginTop:4}}>{value}</div></div>
               ))}
@@ -218,11 +213,11 @@ function Hero(){
           </div>
         </div>
       </div>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 940px){
           .hero-grid{ grid-template-columns: 1fr !important; }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }
@@ -388,12 +383,12 @@ function About(){
           </div>
         </div>
       </div>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 880px){
           .about-grid{ grid-template-columns: 1fr !important; gap: 32px !important; }
           .about-cards{ grid-template-columns: 1fr !important; }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }
@@ -454,11 +449,11 @@ function Services(){
           ))}
         </div>
       </div>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 880px){
           #servicos .reveal-stagger{ grid-template-columns: 1fr !important; }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }

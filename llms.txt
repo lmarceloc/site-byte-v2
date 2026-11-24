@@ -67,6 +67,7 @@ As principais áreas de especialização da Agência Byte incluem:
   - [Assistente sobre os documentos da empresa](https://agenciabyte.com/casos-de-uso/assistente-documentos-da-empresa): A equipe pergunta e a IA responde com base nos manuais e políticas internas.
   - [Relatórios que se montam sozinhos](https://agenciabyte.com/casos-de-uso/relatorios-automaticos): O resumo semanal sai pronto, sem ninguém juntar planilha.
 - [Antes e depois](https://agenciabyte.com/transformacao): Veja como a Agência Byte transforma processos manuais e sistemas desconectados em operações integradas e automatizadas com IA.
+- [Software sob medida em Ponta Grossa](https://agenciabyte.com/software-sob-medida-ponta-grossa): Desenvolvimento de software sob medida em Ponta Grossa: sistemas, integração de ERP, CRM e marketplaces, automação com IA e Power BI. Atendemos também todo o Brasil e o exterior.
 - [Blog](https://agenciabyte.com/blog/): artigos sobre automação, integração de sistemas e dados para empresas.
   - [Automação com IA para PME](https://agenciabyte.com/blog/automacao-com-ia-para-pme): Quais processos automatizar com IA primeiro numa PME: os 7 que se pagam, os 3 que não valem, quanto custa e um checklist de prontidão.
 - [English version](https://agenciabyte.com/en): site completo em inglês ([services](https://agenciabyte.com/en/services), [calculator](https://agenciabyte.com/en/automation-calculator)).
