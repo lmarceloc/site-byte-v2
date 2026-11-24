@@ -268,7 +268,9 @@ function Footer(){
             {label: T.footer.about, href: '#sobre'},
             {label: T.footer.process, href: '#processo'},
             {label: T.footer.transformation, href: ROUTES.transformation[LANG]},
-            {label: T.footer.calculator, href: ROUTES.calculator[LANG]}
+            {label: T.footer.calculator, href: ROUTES.calculator[LANG]},
+            // Página de região: só existe em português (i18n/regioes.mjs).
+            ...(ROUTES['regiao:ponta-grossa'][LANG] ? [{label: 'Ponta Grossa · PR', href: ROUTES['regiao:ponta-grossa'][LANG]}] : [])
           ]} />
           <div>
             <div className="mono" style={{fontSize:11, letterSpacing:'.08em', color:'var(--accent)', textTransform:'uppercase'}}>{T.footer.contact}</div>

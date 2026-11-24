@@ -21,6 +21,7 @@ import { CALC, CALC_CONFIG, CALC_GUIDE } from "./i18n/calculator.mjs";
 import { BLING, BLING_CHANNELS } from "./i18n/bling.mjs";
 import { PBI } from "./i18n/powerbi-logistica.mjs";
 import { IA_PME } from "./i18n/blog-ia-pme.mjs";
+import { REGION_PG } from "./i18n/regioes.mjs";
 import { HERO_TEXT } from "./i18n/hero.mjs";
 import { LLMS_HEAD, LLMS_TAIL, HOME_MD_HEAD, HOME_MD_TAIL } from "./i18n/llms.mjs";
 
@@ -322,7 +323,7 @@ function footer(lang) {
         <p class="muted footer-tagline">${u.footer.tagline}</p>
       </div>
       ${col(u.footer.services, servicesFor(lang).map((s) => [s.path, s.nav]))}
-      ${col(u.footer.company, [[anchor("sobre"), u.footer.about], [anchor("processo"), u.footer.process], [route("transformation", lang), u.footer.transformation], [route("calculator", lang), CALC[lang].nav], ...(USE_CASES[lang] ? [[route("usecases", lang), USE_CASES[lang].ui.nav]] : []), ["https://agenciabyte.com/blog/", "Blog"]])}
+      ${col(u.footer.company, [[anchor("sobre"), u.footer.about], [anchor("processo"), u.footer.process], [route("transformation", lang), u.footer.transformation], [route("calculator", lang), CALC[lang].nav], ...(USE_CASES[lang] ? [[route("usecases", lang), USE_CASES[lang].ui.nav]] : []), ...(ROUTES["regiao:ponta-grossa"][lang] ? [[route("regiao:ponta-grossa", lang), REGION_PG.footer]] : []), ["https://agenciabyte.com/blog/", "Blog"]])}
       <div>
         <div class="mono footer-title">${u.footer.contact}</div>
         <ul class="footer-list">
@@ -1734,6 +1735,127 @@ function powerbiLogisticsPage() {
 }
 
 /* ------------------------------------------------------------------ */
+/* Página de região (só pt): software sob medida em Ponta Grossa      */
+/* ------------------------------------------------------------------ */
+
+const PG_ADDRESS = { "@type": "PostalAddress", addressLocality: "Ponta Grossa", addressRegion: "PR", addressCountry: "BR" };
+
+function pontaGrossaPage() {
+  const lang = "pt";
+  const p = PAGES[lang];
+  const R = REGION_PG;
+  const key = "regiao:ponta-grossa";
+  const path = route(key, lang);
+  const trail = [[route("home", lang), p.ui.crumbHome], [path, R.crumb]];
+  const svcs = servicesFor(lang);
+  const jsonld = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": `${SITE}${path}#service`,
+        name: `${BRAND} · Ponta Grossa`,
+        description: R.description,
+        url: SITE + path,
+        inLanguage: "pt-BR",
+        parentOrganization: { "@id": `${SITE}/#organization` },
+        address: PG_ADDRESS,
+        telephone: "+55-42-98422-4363",
+        email: EMAIL,
+        areaServed: [
+          { "@type": "City", name: "Ponta Grossa" },
+          { "@type": "AdministrativeArea", name: "Campos Gerais, Paraná" },
+          { "@type": "Country", name: "Brasil" },
+        ],
+        availableLanguage: ["Portuguese", "English", "Spanish"],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Serviços em Ponta Grossa",
+          itemListElement: svcs.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.name, url: SITE + s.path } })),
+        },
+      },
+      blingFaqLd(path, R.faq),
+      breadcrumbLd(trail),
+    ],
+  };
+  return (
+    head({ lang, key, title: R.title, description: R.description, jsonld }) +
+    nav(lang, key, path) +
+    `
+<main id="conteudo">
+  <section class="page-hero bling-hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      ${crumbs(lang, trail)}
+      <div class="eyebrow"><span class="dot" style="--dot-color:#F59E0B"></span>${R.eyebrow}</div>
+      <h1 class="display">${R.h1}</h1>
+      <p class="lead muted">${R.lead}</p>
+      <aside class="bling-tldr" aria-label="${R.tldrLabel}">
+        <div class="mono bling-tldr-k">${R.tldrLabel}</div>
+        <p>${esc(R.tldr)}</p>
+      </aside>
+      ${ctaButtons(lang)}
+    </div>
+  </section>
+
+  <section class="page-section" id="servicos">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#8B5CF6"></span>${R.services.eyebrow}</div>
+        <h2 class="display">${R.services.h2}</h2>
+        <p class="muted bling-intro">${R.services.intro}</p>
+      </div>
+      <div class="deliv-grid">
+        ${svcs.map((s) => `<div class="card">
+          <h3><a href="${s.path}" class="ul-link">${s.name}</a></h3>
+          <p class="muted">${s.description}</p>
+        </div>`).join("\n        ")}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt" id="setores">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#10B981"></span>${R.sectors.eyebrow}</div>
+        <h2 class="display">${R.sectors.h2}</h2>
+      </div>
+      <div class="bling-prose">
+        <p>${R.sectors.intro}</p>
+        <ul class="bling-check">
+          ${R.sectors.items.map((x) => `<li>${x}</li>`).join("\n          ")}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section" id="onde-atendemos">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>${R.areas.eyebrow}</div>
+        <h2 class="display">${R.areas.h2}</h2>
+        <p class="muted bling-intro">${R.areas.intro}</p>
+      </div>
+      <div class="deliv-grid">
+        ${R.areas.cards.map((c) => `<div class="card">
+          <h3>${c.h3}</h3>
+          <p class="muted">${c.p}</p>
+          ${c.links ? `<p>${c.links.map(([l, h, hl]) => `<a href="${h}" hreflang="${hl}" class="ul-link">${l}</a>`).join(" · ")}</p>` : ""}
+        </div>`).join("\n        ")}
+      </div>
+    </div>
+  </section>
+
+  ${processSection(lang)}
+  ${faqSection(lang, R.faq, "Perguntas frequentes")}
+  ${ctaSection(lang, R.cta)}
+</main>
+` +
+    footer(lang)
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /* Post pilar: Automação com IA para PME (só pt)                       */
 /* ------------------------------------------------------------------ */
 
@@ -2109,6 +2231,7 @@ for (const lang of LANGS) {
     for (const slug of BLING_CHANNELS) out[fileFor(route(`bling:${slug}`, lang))] = blingChannelPage(slug);
     out[fileFor(route("pbi-logistica", lang))] = powerbiLogisticsPage();
     out[fileFor(route("blog:ia-pme", lang))] = iaPmePost();
+    out[fileFor(route("regiao:ponta-grossa", lang))] = pontaGrossaPage();
   }
   if (USE_CASES[lang]) {
     out[fileFor(route("usecases", lang))] = useCasesHub(lang);
@@ -2124,7 +2247,7 @@ for (const [file, html] of Object.entries(out)) {
 
 // Sitemap com todas as páginas nos três idiomas, cada uma com suas alternativas (hreflang).
 const today = new Date().toISOString().slice(0, 10);
-const keys = ["home", "services", ...SERVICE_ORDER.map((s) => `svc:${s.slug}`), "transformation", "calculator", "bling", ...BLING_CHANNELS.map((x) => `bling:${x}`), "pbi-logistica", ...CASE_SLUGS.map((x) => `case:${x}`), "usecases", ...USE_CASE_ORDER.map((x) => `uc:${x}`)];
+const keys = ["home", "services", ...SERVICE_ORDER.map((s) => `svc:${s.slug}`), "transformation", "calculator", "bling", ...BLING_CHANNELS.map((x) => `bling:${x}`), "pbi-logistica", "regiao:ponta-grossa", ...CASE_SLUGS.map((x) => `case:${x}`), "usecases", ...USE_CASE_ORDER.map((x) => `uc:${x}`)];
 const entries = [];
 for (const lang of LANGS) {
   for (const key of keys) {
@@ -2167,6 +2290,7 @@ console.log("✓ sitemap.xml");
     `- ${md(route("usecases", "pt"), "Casos de uso de IA")}: ${USE_CASES.pt.hub.description}`,
     ...useCaseList("pt").map((u) => `  - ${md(u.path, u.name)}: ${u.card}`),
     `- ${md(route("transformation", "pt"), "Antes e depois")}: ${P.transformation.description}`,
+    `- ${md(route("regiao:ponta-grossa", "pt"), "Software sob medida em Ponta Grossa")}: ${REGION_PG.description}`,
     `- ${md("/blog/", "Blog")}: artigos sobre automação, integração de sistemas e dados para empresas.`,
     `  - ${md(route("blog:ia-pme", "pt"), IA_PME.crumb)}: ${IA_PME.description}`,
     `- ${md(route("home", "en"), "English version")}: site completo em inglês (${md(route("services", "en"), "services")}, ${md(route("calculator", "en"), "calculator")}).`,

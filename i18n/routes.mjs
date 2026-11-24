@@ -42,6 +42,8 @@ export const ROUTES = {
   "blog:ia-pme": { pt: "/blog/automacao-com-ia-para-pme" },
   // Power BI para distribuidoras e transportadoras: só em português (ver i18n/powerbi-logistica.mjs).
   "pbi-logistica": { pt: "/servicos/power-bi-para-distribuidoras-e-transportadoras" },
+  // Página de região: só em português (ver i18n/regioes.mjs).
+  "regiao:ponta-grossa": { pt: "/software-sob-medida-ponta-grossa" },
   // Integração Bling com marketplaces: só em português (ver i18n/bling.mjs).
   bling: { pt: "/servicos/integracao-bling-marketplaces" },
   "bling:mercado-livre": { pt: "/servicos/integracao-bling-marketplaces/integracao-bling-mercado-livre" },
