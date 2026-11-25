@@ -748,7 +748,19 @@ function servicePage(lang, s) {
     </div>
   </section>
 
-  ${SERVICE_CASE[s.slug] ? `<section class="page-section">
+  ${s.feature ? `<section class="page-section">
+    <div class="wrap two-col">
+      <div>
+        <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>${s.feature.eyebrow}</div>
+        <h2 class="display">${s.feature.title}</h2>
+        <p class="muted">${s.feature.text}</p>
+      </div>
+      <ol class="signal-list">
+        ${s.feature.steps.map((x, i) => `<li><span class="mono">0${i + 1}</span><span>${x}</span></li>`).join("\n        ")}
+      </ol>
+    </div>
+  </section>
+  ` : ""}${SERVICE_CASE[s.slug] ? `<section class="page-section">
     <div class="wrap">
       <div class="eyebrow"><span class="dot" style="--dot-color:#3B82F6"></span>${p.caseUi.quoteEyebrow}</div>
       ${caseQuote(lang, SERVICE_CASE[s.slug], { link: true })}

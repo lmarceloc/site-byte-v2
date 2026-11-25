@@ -301,7 +301,19 @@ const pt = {
         { t: "Monitoramento", d: "Alertas quando uma integração falha, e registro de cada sincronização para rastrear qualquer dado." },
       ],
       stack: ["CRM, ERP, e-commerce", "Webhooks bidirecionais", "Sync incremental", "Observabilidade nativa", "Filas e reprocessamento", "Idempotência"],
+      feature: {
+        eyebrow: "Site, CRM e ERP",
+        title: "Site integrado ao CRM e ao ERP",
+        text: "O site deixa de ser uma vitrine isolada e passa a fazer parte da operação. O que o cliente faz no site chega sozinho ao CRM e ao ERP, e o que muda no ERP volta para o site, sem ninguém copiar dados de um sistema para o outro. Pode ser o site que você já tem ou um portal novo, desenvolvido junto com a integração.",
+        steps: [
+          "O cliente preenche um formulário ou faz um pedido no site.",
+          "O contato vira um lead no CRM, com origem e interesse, e o vendedor é avisado na hora.",
+          "Quando a venda fecha, o cliente e o pedido são criados no ERP, sem redigitação.",
+          "Preço, estoque e status do pedido saem do ERP e voltam para o site e para o cliente.",
+        ],
+      },
       faq: [
+        { q: "Vocês fazem site integrado ao CRM e ao ERP?", a: "Sim. Conectamos o site, novo ou já existente, ao CRM e ao ERP que a empresa usa: formulários e pedidos viram leads e pedidos automaticamente, e preço, estoque e status voltam do ERP para o site. O projeto começa mapeando o fluxo atual da operação." },
         { q: "Vocês integram qualquer sistema?", a: "Qualquer sistema que ofereça API, webhook, banco de dados ou exportação de arquivos. Na descoberta avaliamos o que cada sistema permite." },
         { q: "O que acontece se uma integração falhar?", a: "A falha é registrada, reprocessada automaticamente e, se persistir, gera um alerta. Nada se perde em silêncio." },
         { q: "Preciso trocar de sistema?", a: "Não. A ideia é justamente conectar o que você já usa e só substituir algo quando realmente fizer sentido." },
@@ -630,7 +642,19 @@ const en = {
         { t: "Monitoring", d: "Alerts when an integration fails, and a log of every sync to trace any record." },
       ],
       stack: ["CRM, ERP, e-commerce", "Bidirectional webhooks", "Incremental sync", "Built-in observability", "Queues and retries", "Idempotency"],
+      feature: {
+        eyebrow: "Website, CRM and ERP",
+        title: "A website integrated with your CRM and ERP",
+        text: "Your website stops being an isolated storefront and becomes part of the operation. What customers do on the site reaches the CRM and the ERP on its own, and what changes in the ERP flows back to the site, with nobody copying data from one system to another. It can be the site you already have or a new portal, built together with the integration.",
+        steps: [
+          "A customer fills in a form or places an order on the website.",
+          "The contact becomes a lead in the CRM, with source and interest, and the sales rep is notified right away.",
+          "When the deal closes, the customer and the order are created in the ERP, with no retyping.",
+          "Prices, inventory and order status come from the ERP and flow back to the site and to the customer.",
+        ],
+      },
       faq: [
+        { q: "Do you build websites integrated with CRM and ERP?", a: "Yes. We connect your website, new or existing, to the CRM and ERP your company uses: forms and orders become leads and orders automatically, and prices, inventory and status flow back from the ERP to the site. The project starts by mapping how your operation works today." },
         { q: "Can you integrate any system?", a: "Any system that offers an API, webhooks, database access or file exports. During discovery we assess what each system allows." },
         { q: "What happens if an integration fails?", a: "The failure is logged, retried automatically and, if it persists, triggers an alert. Nothing gets lost silently." },
         { q: "Do I need to switch systems?", a: "No. The whole idea is to connect what you already use and only replace something when it truly makes sense." },
@@ -959,7 +983,19 @@ const es = {
         { t: "Monitoreo", d: "Alertas cuando una integración falla y registro de cada sincronización para rastrear cualquier dato." },
       ],
       stack: ["CRM, ERP, e-commerce", "Webhooks bidireccionales", "Sync incremental", "Observabilidad nativa", "Colas y reprocesamiento", "Idempotencia"],
+      feature: {
+        eyebrow: "Sitio, CRM y ERP",
+        title: "Sitio web integrado al CRM y al ERP",
+        text: "El sitio deja de ser una vitrina aislada y pasa a formar parte de la operación. Lo que el cliente hace en el sitio llega solo al CRM y al ERP, y lo que cambia en el ERP vuelve al sitio, sin que nadie copie datos de un sistema a otro. Puede ser el sitio que ya tienes o un portal nuevo, desarrollado junto con la integración.",
+        steps: [
+          "El cliente completa un formulario o hace un pedido en el sitio.",
+          "El contacto se convierte en un lead en el CRM, con origen e interés, y el vendedor recibe el aviso al instante.",
+          "Cuando se cierra la venta, el cliente y el pedido se crean en el ERP, sin volver a digitar nada.",
+          "Precio, inventario y estado del pedido salen del ERP y vuelven al sitio y al cliente.",
+        ],
+      },
       faq: [
+        { q: "¿Hacen sitios web integrados al CRM y al ERP?", a: "Sí. Conectamos el sitio, nuevo o existente, al CRM y al ERP que usa la empresa: formularios y pedidos se convierten en leads y pedidos automáticamente, y precio, inventario y estado vuelven del ERP al sitio. El proyecto empieza mapeando cómo funciona hoy la operación." },
         { q: "¿Integran cualquier sistema?", a: "Cualquier sistema que ofrezca API, webhook, base de datos o exportación de archivos. En el descubrimiento evaluamos lo que permite cada sistema." },
         { q: "¿Qué pasa si una integración falla?", a: "El fallo se registra, se reprocesa automáticamente y, si persiste, genera una alerta. Nada se pierde en silencio." },
         { q: "¿Tengo que cambiar de sistema?", a: "No. La idea es justamente conectar lo que ya usas y solo reemplazar algo cuando realmente tenga sentido." },
