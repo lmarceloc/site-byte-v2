@@ -74,7 +74,7 @@ function renderHome(lang) {
 }
 
 const BRAND = "Agência Byte";
-const OG_IMAGE = `${SITE}/img/og-image.png`;
+const OG_IMAGE = `${SITE}/img/og-image.png?v=2`;
 const WHATSAPP = "https://wa.me/5542984224363";
 const EMAIL = "hello@agenciabyte.com";
 const INSTAGRAM = "https://www.instagram.com/agenciabyte.ia";
